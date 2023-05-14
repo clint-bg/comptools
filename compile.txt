@@ -1,0 +1,9 @@
+To compile run:
+jupyter-book build clint-bg.github.io/
+then: (to copy? your html files to the gh-pages)
+ghp-import -n -p -f _build/html
+
+Also push the update to the repository at github
+git add ./*
+git commit -m "commit"
+git push

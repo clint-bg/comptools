@@ -13,3 +13,6 @@ parts:
       - file: ehse/safety/PSM
       - file: ehse/safety/Explosions
     - file: ehse/Ethics
+  - caption: UO Lab
+    chapters:
+    - file: tipice/Statistics
