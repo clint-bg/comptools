@@ -1,4 +1,4 @@
-# Welcome to the Reaction and Materials Lab Content Site
+# Reaction and Materials Lab Site
 
 This is a small sample book to give you a feel for how book content is
 structured.
