@@ -3,16 +3,8 @@
 
 format: jb-book
 root: intro
-parts: 
-  - caption: EH&S and Ethics
-    chapters:
-    - file: ehse/Environment
-    - file: ehse/Health
-    - file: ehse/Safety
-      sections:
-      - file: ehse/safety/PSM
-      - file: ehse/safety/Explosions
-    - file: ehse/Ethics
-  - caption: UO Lab
-    chapters:
-    - file: tipice/Statistics
+chapters:
+  - file: CourseSetup
+  - file: LabSummaries
+    sections:
+    - file: Health
