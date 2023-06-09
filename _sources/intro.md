@@ -1,27 +1,22 @@
-# Reaction and Materials Lab Site
+# 263 Computation Tools Site
 
-Labs that are part of the Reaction and Materials Lab at the Brigham Young University 
- - Build a CSTR reactor
- - Run the reactor as a continuously stirred tank reactor (CSTR) and determine the order of reaction and the reaction coefficient
- - Build a PFR reactor
- - Run the PFR reactor and compare the PFR performance to the CSTR
- - Tensile stress and strain with an application example or clear purpose on how it would apply
- - Pressure relief
- - Salt corrosion and corrosion protection
- - Surface tension
- - Polymer degradation
+Computational tools are essential in chemical engineering.  This course will introduce you to some of the tools you will use as you succeed in your academic and professional career. The class, hopefully, will also help you think critically and creatively about how to use these tools to solve problems. Additionally, course content will help grow your faith in Jesus Christ and to follow His example and the words of His prophets.
 
-| Lab | Description | Week |
-| --- | --- | --- |
-| [CSTR](./cstr.md) | Build a CSTR reactor | 1 |
+---
+The information presented here augments that found on the [course Canvas site](https://byui.instructure.com/courses/14908).  Please refer to the Canvas site for the most up-to-date information.
 
+## Syllabus
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
-
-Check out the content pages bundled with this sample book to see more.
+## Learning Outcomes
+Learning Outcomes. Students will be able to:
+- perform unit conversions;
+- ensure dimensional consistency when evaluating equations;
+- use a spreadsheet program to perform engineering calculations;
+- solve numerical and symbolic problems using computer tools (e.g. curve fitting, integration, solving equations etc.);
+- write program structures (e.g. loops, arrays, conditionals, functions) and understand when programming is most appropriate;
+- convert problem solving strategies to procedural algorithms;
+- make order of magnitude estimates, assess reasonableness of solutions, and select appropriate levels of solution sophistication.
 
 ```{tableofcontents}
 ```
+Content is presented using [Jupyter Book ](https://jupyterbook.org).
