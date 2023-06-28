@@ -154,13 +154,13 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    263 Computation Tools
+                    Intro and Approach
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../topics.html">Computational Tools Modules</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/01-Motive.html">Course Motivation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../topics.html">Modules</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/01-Motive.html">01-Motivation Example</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../bootcamp.html">Boot Camp</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -173,10 +173,17 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/casestudysch.html">Case Study Schedule</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../casestudies/casestudydocs.html">Case Study Documentation</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../resources.html">Resources</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../resources.html">Resources</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../resources/PreClassPrep.html">Pre-course Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../resources/pythonresources.html">Python Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../resources/excelresources.html">Excel Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../resources/safety.html">Safety</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -408,17 +415,6 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">appl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://apmonitor.com/che263/uploads/Main/AAPL.csv&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">appl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://apmonitor.com/che263/uploads/Main/AAPL.csv&#39;</span><span class="p">)</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
 </pre></div>
 </div>
 </div>
@@ -710,7 +706,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> max   : 178.25
  min   : 162.130005
- stdev : 4.986583644140891
+ stdev : 4.986583644140892
  avg   : 170.72000065217392
  median: 172.229996
 </pre></div>
@@ -733,7 +729,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/eeef768e47b256c3a2ecb91c6cd080a852a0590f07879b1ba3061fa40e862fc3.png" src="../_images/eeef768e47b256c3a2ecb91c6cd080a852a0590f07879b1ba3061fa40e862fc3.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+</pre></div>
+</div>
+<img alt="../_images/681594355d18a256b4fc8c0ef3e46c1350af620c17dd61178e31e41ef7aaccc4.png" src="../_images/681594355d18a256b4fc8c0ef3e46c1350af620c17dd61178e31e41ef7aaccc4.png" />
 </div>
 </div>
 </section>
@@ -773,10 +772,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x25503e4d550&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x12fb766a0&gt;]
 </pre></div>
 </div>
-<img alt="../_images/2550aa555a1740b60b8e173e2ec9a246f7ad42887efa41c20bb7c97db4960aef.png" src="../_images/2550aa555a1740b60b8e173e2ec9a246f7ad42887efa41c20bb7c97db4960aef.png" />
+<img alt="../_images/66dad120dfb933248a616c4aba195a22143fb9ce67afb200046ac51396f786ca.png" src="../_images/66dad120dfb933248a616c4aba195a22143fb9ce67afb200046ac51396f786ca.png" />
 </div>
 </div>
 <p><em><strong>Action:</strong></em> Generate a plot that shows the measured TCLab temperature values on one subplot and the heater values on another subplot. Add appropriate labels to the plots such as x-label, y-label, title, and legend.</p>
