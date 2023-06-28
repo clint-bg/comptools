@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Case Study Documentation &#8212; Computational Tools for Chemical Engineers</title>
+    <title>Functions &#8212; Computational Tools for Chemical Engineers</title>
   
   
   
@@ -61,11 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'casestudies/casestudydocs';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/02-Functions';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Resources" href="../resources.html" />
-    <link rel="prev" title="Case Study Schedule" href="casestudysch.html" />
+    <link rel="next" title="Bootcamp" href="../bootcamp.html" />
+    <link rel="prev" title="01-Motivation Example" href="01-Motive.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -157,9 +157,9 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../topics.html">Modules</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/01-Motive.html">01-Motivation Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/02-Functions.html">Functions</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../topics.html">Modules</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01-Motive.html">01-Motivation Example</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Functions</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../bootcamp.html">Bootcamp</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -171,9 +171,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW02.html">Homework 2: Data Analysis and Functions</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="casestudysch.html">Case Study Schedule</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Case Study Documentation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/casestudysch.html">Case Study Schedule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/casestudydocs.html">Case Study Documentation</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../resources.html">Resources</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -229,6 +229,37 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/clint-bg/comptools/blob/gh-pages/docs/lectures/02-Functions.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -254,7 +285,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/clint-bg/comptools/issues/new?title=Issue%20on%20page%20%2Fcasestudies/casestudydocs.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/clint-bg/comptools/issues/new?title=Issue%20on%20page%20%2Flectures/02-Functions.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -284,7 +315,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/casestudies/casestudydocs.md" target="_blank"
+      <li><a href="../_sources/lectures/02-Functions.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -294,7 +325,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -353,7 +384,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -364,11 +397,19 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Case Study Documentation</h1>
+    <h1>Functions</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equations-of-state">Equations of State</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -378,15 +419,55 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="case-study-documentation">
-<h1>Case Study Documentation<a class="headerlink" href="#case-study-documentation" title="Permalink to this heading">#</a></h1>
-<p>You’ll be required to write a summary of each case study you complete as a two-person team. The summary should be written in Markdown and should be a minimum of 200 words. The summary should include the following:</p>
-<ul class="simple">
-<li><p>An executive summary.</p></li>
-<li><p>A description of the .</p></li>
-<li><p>A description of the results you obtained.</p></li>
-<li><p>A description of the conclusions you drew from the results.</p></li>
-</ul>
+  <section id="functions">
+<h1>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h1>
+<p>Functions are used all the time and are a way to organize code. They are an efficient way to use the computer to repeat calculations with slight variations. Multiple examples are given here of functions you’ll use in your educational and professional career.</p>
+<section id="equations-of-state">
+<h2>Equations of State<a class="headerlink" href="#equations-of-state" title="Permalink to this heading">#</a></h2>
+<p>Equations of state relate the pressure, temperature, and molar volume of a fluid mathematically.  These are used in almost every discipline of engineering problems chemical engineers face.  The ideal gas law is the simplest equation of state:
+$$
+P = \frac{RT}{\tilde{V}}
+$$
+where $P$ is pressure, $R$ is the gas constant, $T$ is temperature, and $\tilde{V}$ is the molar volume (volume of gas divided by the moles of gas).  The molar volume is the volume of one mole of a substance.  The ideal gas law is a good approximation for many gases at low pressures and high temperatures.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#define the function that returns the pressure depending on the temperature (Kelvin) and molar volume (m^3/mol)</span>
+<span class="k">def</span> <span class="nf">pressure_IG</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">mV</span><span class="p">):</span> <span class="c1">#this function takes two inputs: temperature and molar volume</span>
+    <span class="n">Rg</span> <span class="o">=</span> <span class="mf">8.314</span> <span class="c1">#universal gas constant in J/mol/K</span>
+    <span class="k">return</span> <span class="n">Rg</span><span class="o">*</span><span class="n">T</span><span class="o">/</span><span class="n">mV</span> <span class="c1">#this is where the pressure is calculated and returned in units of Pa</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can use this function to calculate the pressure of 1 mole of an ideal gas at 300 K and 1 L.  We’ll use the print function to print the result to the screen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Making sure my units are consistent:</span>
+<span class="n">Vol</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="mf">0.001</span> <span class="c1">#1 Liter = 0.001 m^3</span>
+<span class="n">nmol</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#1 mole of gas</span>
+<span class="c1">#call the function then print the result</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The pressure in a 1 Liter vessel with 1 mole of gas inside is </span><span class="si">{</span><span class="n">pressure_IG</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="n">Vol</span><span class="o">/</span><span class="n">nmol</span><span class="p">)</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> Pa&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The pressure in a 1 Liter vessel with 1 mole of gas inside is 2494200 Pa
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>What if we wanted to calculate how many moles of gas are in this classroom?
+One way is to create another function with the ideal gas law rearranged to return the number of moles of gas.
+Another way is to use the existing function and set the pressure to the room pressure and solve for the number of moles of gas.</p>
+</div></blockquote>
+<p>Using this function, we can calculate how many moles of gas are in the classroom.</p>
+<p>The van der Waals equation of state is a more complex equation of state that accounts for non-ideal behavior of gases.  The van der Waals equation of state is given by:
+$$
+\left(P + \frac{a}{V^2}\right)(V - b) = RT
+$$
+where $a$ and $b$ are constants that depend on the gas.  The constants for some common gases are given in the table below.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -402,7 +483,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./casestudies"
+            path: "./lectures"
         },
         predefinedOutput: true
     }
@@ -421,20 +502,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="casestudysch.html"
+       href="01-Motive.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Case Study Schedule</p>
+        <p class="prev-next-title">01-Motivation Example</p>
       </div>
     </a>
     <a class="right-next"
-       href="../resources.html"
+       href="../bootcamp.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Resources</p>
+        <p class="prev-next-title">Bootcamp</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -447,6 +528,20 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equations-of-state">Equations of State</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

@@ -159,6 +159,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../topics.html">Modules</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/01-Motive.html">01-Motivation Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/02-Functions.html">Functions</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../bootcamp.html">Bootcamp</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -223,6 +224,37 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/clint-bg/comptools/blob/gh-pages/docs/homework/HW01.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -385,11 +417,12 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem #2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem #3</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem #2</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">Packages</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem #3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem #4</a></li>
 </ul>
             </nav>
         </div>
@@ -427,7 +460,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_37249/1751552427.py:2: DeprecationWarning: Importing display from IPython.core.display is deprecated since IPython 7.14, please import from IPython display
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_48168/1751552427.py:2: DeprecationWarning: Importing display from IPython.core.display is deprecated since IPython 7.14, please import from IPython display
   from IPython.core.display import display, HTML
 </pre></div>
 </div>
@@ -618,20 +651,6 @@ print(...)
 </section>
 <section id="problem-2">
 <h2>Problem #2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h2>
-<p>In the class lecture, we calculated the adiabatic flame temperature for a butane-air mixture. Modify the code to calculate the adiabatic flame temperature for a pentane-air mixture. You’ll use property data from the DIPPR database. As a BYU student (accessing the website from on-campus), you have access <a class="reference external" href="https://dippr.aiche.org/FullDb?TriggerLogin=1">here</a>.</p>
-<p><strong>Action 2</strong> Copy the code done in the manually calculation (not using Cantera) by hand, meaning don’t just copy and paste the code from the lecture but actually type it in (no copy and paste).</p>
-<p>Report the temperature in degrees Celsius and comment on whether you think it is accurate or not.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Space for your code that uses the species class. Type in the majority of the code from the lecture </span>
-<span class="c1"># and modify it replacing C4H10 with pentane.</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="problem-3">
-<h2>Problem #3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h2>
 <section id="packages">
 <h3>Packages<a class="headerlink" href="#packages" title="Permalink to this heading">#</a></h3>
 <p>Python capabilities are extended with many useful packages. A few of the packages that we’ll use in this class are:</p>
@@ -654,12 +673,30 @@ print(...)
 <div class="output text_html"><iframe width="560" height="315" src="https://www.youtube.com/embed/Z_Kxg-EYvxM"              frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div></div>
 </div>
 <p>You can import a package with <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">**package**</span> <span class="pre">as</span> <span class="pre">**pk**</span></code> where <code class="docutils literal notranslate"><span class="pre">**package**</span></code> is the package name and <code class="docutils literal notranslate"><span class="pre">**pk**</span></code> is the abbreviated name.</p>
-<p><em><strong>Action 3a:</strong></em> Import the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> package as <code class="docutils literal notranslate"><span class="pre">np</span></code> (shortened name) and get help on the <code class="docutils literal notranslate"><span class="pre">np.linspace</span></code> function.</p>
-<p><em><strong>Action 3b:</strong></em> Use <code class="docutils literal notranslate"><span class="pre">np.linspace</span></code> to define 20 equally spaced values between $0$ and $2,\pi$. Name the variable <code class="docutils literal notranslate"><span class="pre">x</span></code> and use the built-in <code class="docutils literal notranslate"><span class="pre">np.pi</span></code> constant for $\pi$.</p>
-<p><em><strong>Action 3c:</strong></em> Use <code class="docutils literal notranslate"><span class="pre">np.sin</span></code> to calculate a new variable <code class="docutils literal notranslate"><span class="pre">y</span></code> as $y=2,\sin{\left(\frac{x}{2}\right)}$.</p>
-<p><em><strong>Action 3d:</strong></em> Import the <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> package as <code class="docutils literal notranslate"><span class="pre">plt</span></code> (shortened name) and show the help on the <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code> function. To show plots in an IPython notebook, the additional code <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">inline</span></code> is required.</p>
-<p><em><strong>Action 3e:</strong></em> Create a plot of <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> with the <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code> function. Add an x-label with <code class="docutils literal notranslate"><span class="pre">plt.xlabel</span></code> and a y-label with <code class="docutils literal notranslate"><span class="pre">plt.ylabel</span></code>. If you are not using an IPython notebook, include <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> to display the plot. You can also include it in an IPython notebook but it won’t have any effect.</p>
+<p><em><strong>Action 2a:</strong></em> Import the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> package as <code class="docutils literal notranslate"><span class="pre">np</span></code> (shortened name) and get help on the <code class="docutils literal notranslate"><span class="pre">np.linspace</span></code> function.</p>
+<p><em><strong>Action 2b:</strong></em> Use <code class="docutils literal notranslate"><span class="pre">np.linspace</span></code> to define 20 equally spaced values between $0$ and $2,\pi$. Name the variable <code class="docutils literal notranslate"><span class="pre">x</span></code> and use the built-in <code class="docutils literal notranslate"><span class="pre">np.pi</span></code> constant for $\pi$.</p>
+<p><em><strong>Action 2c:</strong></em> Use <code class="docutils literal notranslate"><span class="pre">np.sin</span></code> to calculate a new variable <code class="docutils literal notranslate"><span class="pre">y</span></code> as $y=2,\sin{\left(\frac{x}{2}\right)}$.</p>
+<p><em><strong>Action 2d:</strong></em> Import the <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> package as <code class="docutils literal notranslate"><span class="pre">plt</span></code> (shortened name) and show the help on the <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code> function. To show plots in an IPython notebook, the additional code <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">inline</span></code> is required.</p>
+<p><em><strong>Action 2e:</strong></em> Create a plot of <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> with the <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code> function. Add an x-label with <code class="docutils literal notranslate"><span class="pre">plt.xlabel</span></code> and a y-label with <code class="docutils literal notranslate"><span class="pre">plt.ylabel</span></code>. If you are not using an IPython notebook, include <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> to display the plot. You can also include it in an IPython notebook but it won’t have any effect.</p>
 </section>
+</section>
+<section id="problem-3">
+<h2>Problem #3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h2>
+<p>In the class <span class="xref myst">Motivation</span>, we calculated the adiabatic flame temperature for a butane-air mixture. Modify the code to calculate the adiabatic flame temperature for a pentane-air mixture. You’ll use property data from the DIPPR database. As a BYU student (accessing the website from on-campus), you have access <a class="reference external" href="https://dippr.aiche.org/FullDb?TriggerLogin=1">here</a>.</p>
+<p><strong>Action 3:</strong> Copy the code done in the manually calculation in the <span class="xref myst">Motivation</span> (the flame temperature calculation that does not use Cantera). Don’t just copy and paste the code from the lecture but actually type it in (no copy and paste).</p>
+<p>Report the code and the adiabatic flame temperature in degrees Celsius and comment on whether you think it is accurate or not.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Space for your code that uses the species class. Type in the majority of the code from the</span>
+<span class="c1">#01-Motivation-Example Module (lecture) and modify it replacing C4H10 with pentane.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="problem-4">
+<h2>Problem #4<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h2>
+<p><strong>Action 4:</strong> Describe which of the problems highlighted in the <span class="xref myst">Motivation</span> lecture that most interest you in solving. What computational tools would you expect to use (please be as specific as possible).</p>
 </section>
 </section>
 
@@ -740,11 +777,12 @@ print(...)
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem #2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem #3</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem #2</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#packages">Packages</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem #3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem #4</a></li>
 </ul>
   </nav></div>
 

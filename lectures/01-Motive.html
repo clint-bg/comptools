@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/01-Motive';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Bootcamp" href="../bootcamp.html" />
+    <link rel="next" title="Functions" href="02-Functions.html" />
     <link rel="prev" title="Modules" href="../topics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -160,6 +160,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../topics.html">Modules</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">01-Motivation Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-Functions.html">Functions</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../bootcamp.html">Bootcamp</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -224,6 +225,37 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/clint-bg/comptools/blob/gh-pages/docs/lectures/01-Motive.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -428,7 +460,7 @@ document.write(`
 <li><p>Health</p>
 <ul>
 <li><p>We need to <code class="docutils literal notranslate"><span class="pre">improve</span></code> health care delivery and care</p></li>
-<li><p>[World Health Organization](https: //www.who.int/)</p>
+<li><p><a class="reference external" href="https://www.who.int/">World Health Organization</a></p>
 <ul>
 <li><p>Bundy, Pitt, and Lewis</p></li>
 </ul>
@@ -476,11 +508,11 @@ document.write(`
 <h3>Flames are Ubiquitous<a class="headerlink" href="#flames-are-ubiquitous" title="Permalink to this heading">#</a></h3>
 <p>In this example we’ll measure the temperature of a butane flame with a thermocouple and a low-cost data acquisition unit (ESP32) with an amplifier(MAX6675). We’ll also predict the temperature of the flame using several models in python.</p>
 <p>The below theoretical example problem calculates  the adiabatic (no heat losses) flame temperature of butane (C4H10) and air mixture. The first method is completed with a model of the enthalpy of formation of the reactants and products and the heat of combustion. The second method uses the Cantera package to calculate the adiabatic flame temperature.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c6c71433-73df-4150-ad17-13aadd8def6c">
-<span class="eqno">(1)<a class="headerlink" href="#equation-c6c71433-73df-4150-ad17-13aadd8def6c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-06dd3da3-c37b-4628-867d-72d8f1263107">
+<span class="eqno">(1)<a class="headerlink" href="#equation-06dd3da3-c37b-4628-867d-72d8f1263107" title="Permalink to this equation">#</a></span>\[\begin{equation}
 C_4H_{10} + 6.5\cdot O_2 + x\cdot N_2 =&gt; 4\cdot CO_2 + 5\cdot H_2O + x\cdot N_2
 \end{equation}\]</div>
-<p>$x$ number of moles of nitrogen can be found from the nitrogen balance where assuming that the amount of air in the atmosphere is 79% nitrogen and 21% oxygen. Thus x is simply the number of moles of oxygen divided by 0.21 multiplied by 0.79 (6.5*0.79/0.21 = 24.4).</p>
+<p>where $x$ is the number of moles of nitrogen which can be found from the nitrogen balance assuming that the amount of air in the atmosphere is 79% nitrogen and 21% oxygen. Thus x is simply the number of moles of oxygen divided by 0.21 multiplied by 0.79 (6.5*0.79/0.21 = 24.4).</p>
 </section>
 <section id="first-manually-calculate-the-adiabatic-flame-temperature">
 <h3>First manually calculate the adiabatic flame temperature<a class="headerlink" href="#first-manually-calculate-the-adiabatic-flame-temperature" title="Permalink to this heading">#</a></h3>
@@ -525,8 +557,8 @@ C_4H_{10} + 6.5\cdot O_2 + x\cdot N_2 =&gt; 4\cdot CO_2 + 5\cdot H_2O + x\cdot N
 </div>
 </div>
 </div>
-<div class="amsmath math notranslate nohighlight" id="equation-eb7210d8-5143-459a-b290-f2ecfee5a6b2">
-<span class="eqno">(2)<a class="headerlink" href="#equation-eb7210d8-5143-459a-b290-f2ecfee5a6b2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-46dd354c-382a-492b-b8ca-23d15e2c6891">
+<span class="eqno">(2)<a class="headerlink" href="#equation-46dd354c-382a-492b-b8ca-23d15e2c6891" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sum_{out}{n_iH_i(T_{ad})}  + n_f\Delta H_{c} - \sum{n_i H_i(T_{in})} = 0 \tag{1}
 \end{equation}\]</div>
 <div class="cell docutils container">
@@ -621,22 +653,21 @@ The eq. gas mole fractions for H2O, CO2, N2, O2 are 0.14,0.11,0.72,0.01, respect
 </div>
 </div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You may get an error saying sdmech.yaml isn’t present in your system. As part of that error, it likely will tell you where to put it if you had it. You can download it from here: <a class="reference external" href="https://github.com/clint-bg/comptools/tree/main/lectures/supportfiles/sdmech.yaml">sdmech.yaml</a> and put it in the location where it says it’s looking for it.</p>
+</div>
 </section>
 <section id="cantera-can-also-estimate-the-species-and-temperature-in-a-1-d-flame">
 <h3>Cantera can also estimate the species and temperature  in a 1-D flame<a class="headerlink" href="#cantera-can-also-estimate-the-species-and-temperature-in-a-1-d-flame" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">&quot;hide-output&quot;</span>
-    <span class="p">]</span>
-
-<span class="c1"># Simulation parameters</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simulation parameters</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">one_atm</span>  <span class="c1"># pressure [Pa]</span>
 <span class="n">Tin</span> <span class="o">=</span> <span class="mf">300.0</span>  <span class="c1"># unburned gas temperature [K]</span>
 <span class="n">reactants</span> <span class="o">=</span> <span class="s1">&#39;C4H10:1, O2:6.5, N2:24.4&#39;</span>  <span class="c1"># premixed gas composition</span>
 <span class="n">width</span> <span class="o">=</span> <span class="mf">0.0005</span>  <span class="c1"># m</span>
-<span class="n">loglevel</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># amount of diagnostic output (0 to 8)</span>
+<span class="n">loglevel</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># amount of diagnostic output (0 to 8)</span>
 
 <span class="c1"># Solution object used to compute mixture properties, set to the state of the</span>
 <span class="c1"># upstream fuel-air mixture</span>
@@ -652,15 +683,41 @@ The eq. gas mole fractions for H2O, CO2, N2, O2 are 0.14,0.11,0.72,0.01, respect
 <span class="n">f</span><span class="o">.</span><span class="n">transport_model</span> <span class="o">=</span> <span class="s1">&#39;Mix&#39;</span>
 <span class="n">f</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">loglevel</span><span class="o">=</span><span class="n">loglevel</span><span class="p">,</span> <span class="n">auto</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="c1">#f.show_solution()</span>
-<span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">one_atm</span>  <span class="c1"># pressure [Pa]</span>
-    <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">20</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="c1">#f.show_solution()</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> 
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="c1"># Solve with mixture-averaged transport model</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="n">f</span><span class="o">.</span><span class="n">transport_model</span> <span class="o">=</span> <span class="s1">&#39;Mix&#39;</span>
+<span class="ne">---&gt; </span><span class="mi">20</span> <span class="n">f</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">loglevel</span><span class="o">=</span><span class="n">loglevel</span><span class="p">,</span> <span class="n">auto</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="c1">#f.show_solution()</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/jupiterbook/lib/python3.9/site-packages/cantera/onedim.py:898,</span> in <span class="ni">FreeFlame.solve</span><span class="nt">(self, loglevel, refine_grid, auto)</span>
+<span class="g g-Whitespace">    </span><span class="mi">896</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">897</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">898</span>         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">loglevel</span><span class="p">,</span> <span class="n">refine_grid</span><span class="p">,</span> <span class="n">auto</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">899</span>         <span class="k">break</span>
+<span class="g g-Whitespace">    </span><span class="mi">900</span>     <span class="k">except</span> <span class="n">DomainTooNarrow</span><span class="p">:</span>
+
+<span class="nn">File cantera/onedim.pyx:1221,</span> in <span class="ni">cantera._cantera.Sim1D.solve</span><span class="nt">()</span>
+
+<span class="nn">File cantera/func1.pyx:14,</span> in <span class="ni">cantera._cantera.func_callback</span><span class="nt">()</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/jupiterbook/lib/python3.9/site-packages/cantera/interrupts.py:1,</span> in <span class="ni">no_op</span><span class="nt">(t)</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">no_op</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd">     This function does nothing. It is used as an interrupt in the 1D solver</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span><span class="sd">     C++ loop where a pure Python function is needed in order for</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span><span class="sd">     KeyboardInterrupt events to be captured.</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="k">return</span> <span class="mf">0.0</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -772,6 +829,80 @@ The eq. gas mole fractions for H2O, CO2, N2, O2 are 0.14,0.11,0.72,0.01, respect
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Small Thermocouple (C)</th>
+      <th>Timestamp (seconds)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>123.000000</td>
+      <td>123.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>424.777642</td>
+      <td>22.310000</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>415.927012</td>
+      <td>7.130217</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>27.000000</td>
+      <td>10.110000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>27.770000</td>
+      <td>16.210000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>183.670000</td>
+      <td>22.310000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>940.920000</td>
+      <td>28.410000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>1043.200000</td>
+      <td>34.510000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
 </div>
@@ -794,6 +925,8 @@ The eq. gas mole fractions for H2O, CO2, N2, O2 are 0.14,0.11,0.72,0.01, respect
 <img alt="../_images/bd1dcb21adcd9869d9dffff3f0b2243fbcb3060c6f59049c828b6a11aa76e925.png" src="../_images/bd1dcb21adcd9869d9dffff3f0b2243fbcb3060c6f59049c828b6a11aa76e925.png" />
 </div>
 </div>
+<p>The figure shows the temperature rise immediately when inserted into the flame reaching temperatures above 1000 C. K type thermocouples are able to reach temperatures up to 1200 C, however, this data acquisition setup appears to max out at 1043 C.</p>
+<p>Once the thermocouple is removed from the flame the temperature drops rapidly. The thermocouple is able to cool down to room temperature in about 5-10 seconds.</p>
 </section>
 </section>
 </section>
@@ -839,11 +972,11 @@ The eq. gas mole fractions for H2O, CO2, N2, O2 are 0.14,0.11,0.72,0.01, respect
       </div>
     </a>
     <a class="right-next"
-       href="../bootcamp.html"
+       href="02-Functions.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Bootcamp</p>
+        <p class="prev-next-title">Functions</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
