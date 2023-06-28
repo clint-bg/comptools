@@ -6,3 +6,6 @@ Your homework, work that you do on your own, is important to practice using the 
 - Submit your homework on Canvas as a pdf.
 - You can use tools on the internet to help you.
 - Please don't copy and paste code but type it out.  You'll learn more that way.
+
+```{tableofcontents}
+```

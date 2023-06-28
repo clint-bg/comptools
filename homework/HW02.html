@@ -61,8 +61,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'homework/HW02';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -163,21 +161,18 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../lectures/01-Motive.html">01-Motivation Example</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../bootcamp.html">Boot Camp</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../bootcamp/bootcampsch.html">Boot Camp Schedule</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../bootcamp/bootcampsch.html">Boot Camp Schedule</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="HW01.html">Homework 1: Introduction to Python</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Homework 2: Data Analysis and Functions</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../casestudies/casestudysch.html">Case Study Schedule</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../casestudies/casestudydocs.html">Case Study Documentation</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../resources.html">Resources</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../resources.html">Resources</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../resources/PreClassPrep.html">Pre-course Preparation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../resources/pythonresources.html">Python Resources</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../resources/excelresources.html">Excel Resources</a></li>
@@ -379,8 +374,10 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-tutorial">Problem #1 Tutorial</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-exercise">Problem #1 Exercise</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem #2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem #3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem #2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem #3</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -772,16 +769,15 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x12fb766a0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x12f757850&gt;]
 </pre></div>
 </div>
 <img alt="../_images/66dad120dfb933248a616c4aba195a22143fb9ce67afb200046ac51396f786ca.png" src="../_images/66dad120dfb933248a616c4aba195a22143fb9ce67afb200046ac51396f786ca.png" />
 </div>
 </div>
 <p><em><strong>Action:</strong></em> Generate a plot that shows the measured TCLab temperature values on one subplot and the heater values on another subplot. Add appropriate labels to the plots such as x-label, y-label, title, and legend.</p>
-</section>
 <section id="problem-3">
-<h2>Problem #3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h2>
+<h3>Problem #3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h3>
 <p>Python has built-in functions or allows the user to create new functions.</p>
 <p><em><strong>Action:</strong></em> For each input value, evaluate the output function for ID 3a-3d.</p>
 <table class="table">
@@ -831,19 +827,20 @@ document.write(`
 <tbody>
 <tr class="row-even"><td><p>3e</p></td>
 <td><p>np.linspace(2,5)</p></td>
-<td><p><span class="math notranslate nohighlight">\(tan(\pi/x)\)</span> with <span class="math notranslate nohighlight">\(\pi\)</span>/x in radians</p></td>
+<td><p>$tan(\pi/x)$ with $\pi$/x in radians</p></td>
 </tr>
 <tr class="row-odd"><td><p>3f</p></td>
 <td><p>np.linspace(0,10)</p></td>
-<td><p>maximum of <span class="math notranslate nohighlight">\(2 \sqrt{x}\)</span>, <span class="math notranslate nohighlight">\(x^2/2\)</span>, <span class="math notranslate nohighlight">\(x^3/3\)</span>, and <span class="math notranslate nohighlight">\((x^2+x^3)/5\)</span></p></td>
+<td><p>maximum of $2 \sqrt{x}$, $x^2/2$, $x^3/3$, and $(x^2+x^3)/5$</p></td>
 </tr>
 <tr class="row-even"><td><p>3g</p></td>
 <td><p>np.linspace(0,2)</p></td>
-<td><p>x^2 when x&lt;1; <span class="math notranslate nohighlight">\(\sin{\left(\pi x/2\right)}\)</span> when x≥1</p></td>
+<td><p>x^2 when x&lt;1; $\sin{\left(\pi x/2\right)}$ when x≥1</p></td>
 </tr>
 </tbody>
 </table>
 <p><em><strong>Action:</strong></em> Create plot of each function versus the specified input values.</p>
+</section>
 </section>
 </section>
 
@@ -916,8 +913,10 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-tutorial">Problem #1 Tutorial</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-exercise">Problem #1 Exercise</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem #2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem #3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem #2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem #3</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
@@ -932,7 +931,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By Clint Guymon, BYU
+By Clint Guymon, Brigham Young University
 </p>
 
   </div>

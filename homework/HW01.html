@@ -61,8 +61,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'homework/HW01';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -163,21 +161,18 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../lectures/01-Motive.html">01-Motivation Example</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../bootcamp.html">Boot Camp</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../bootcamp/bootcampsch.html">Boot Camp Schedule</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../bootcamp/bootcampsch.html">Boot Camp Schedule</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Homework 1: Introduction to Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HW02.html">Homework 2: Data Analysis and Functions</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../casestudies/casestudysch.html">Case Study Schedule</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../casestudies/casestudydocs.html">Case Study Documentation</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../resources.html">Resources</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../resources.html">Resources</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../resources/PreClassPrep.html">Pre-course Preparation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../resources/pythonresources.html">Python Resources</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../resources/excelresources.html">Excel Resources</a></li>
@@ -381,8 +376,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting Started</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-names">Variable Names</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-types">Variable Types</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operators">Operators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#operators">Operators</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem #2</a></li>
@@ -427,7 +424,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_32620/1751552427.py:2: DeprecationWarning: Importing display from IPython.core.display is deprecated since IPython 7.14, please import from IPython display
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_36287/1751552427.py:2: DeprecationWarning: Importing display from IPython.core.display is deprecated since IPython 7.14, please import from IPython display
   from IPython.core.display import display, HTML
 </pre></div>
 </div>
@@ -436,7 +433,7 @@ document.write(`
 <section id="problem-1">
 <h2>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h2>
 <p>Install Python if you have a laptop computer. If not, then skip this step and use the CAEDM computer that already has Anaconda and Jupyter notebook. You can also use Google Colab.</p>
-<p><em><strong>Action 1a:</strong></em> Download and install Anaconda (Jupyter Notebook) from <a class="reference external" href="https://www.anaconda.com/distribution/">https://www.anaconda.com/distribution/</a></p>
+<p><em><strong>Action 1a:</strong></em> Download and install Anaconda (Jupyter Notebook) from https://www.anaconda.com/distribution/</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">video</span><span class="p">(</span><span class="s1">&#39;LrMOrMb8-3s&#39;</span><span class="p">)</span>
@@ -567,9 +564,8 @@ print(...)
 </div>
 </div>
 </div>
-</section>
 <section id="operators">
-<h3>Operators<a class="headerlink" href="#operators" title="Permalink to this heading">#</a></h3>
+<h4>Operators<a class="headerlink" href="#operators" title="Permalink to this heading">#</a></h4>
 <p>Operators are used to transform, compare, join, substract, etc. Below is a list of operators in descending order of precedence when there are no parenthesis to guide the precedence.</p>
 <table class="table">
 <thead>
@@ -604,7 +600,7 @@ print(...)
 </tr>
 </tbody>
 </table>
-<p><em><strong>Action 1h:</strong></em> Use the operator list to determine whether <span class="math notranslate nohighlight">\(5^5\)</span> is greater than <span class="math notranslate nohighlight">\(2^{10}\)</span>.</p>
+<p><em><strong>Action 1h:</strong></em> Use the operator list to determine whether $5^5$ is greater than $2^{10}$.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># modify to determine whether 5^5 is greater than 2^10</span>
@@ -614,6 +610,7 @@ print(...)
 </div>
 </div>
 <p><strong>Action 1g</strong>: Define a class called molecule that has the following attributes: name, formula, and weight. The name and formula should be strings and the weight should be a float. Use the param package to automatically instantiate the object upon calling . Create an instance of the class called water that has the name ‘water’, the formula ‘H2O’, and the weight 18.01528. Print the name of the molecule. You can use the example code in the lecture to help you (or any other source) but please make sure you do all of the typing (no copy and paste).</p>
+</section>
 </section>
 </section>
 <section id="problem-2">
@@ -655,8 +652,8 @@ print(...)
 </div>
 <p>You can import a package with <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">**package**</span> <span class="pre">as</span> <span class="pre">**pk**</span></code> where <code class="docutils literal notranslate"><span class="pre">**package**</span></code> is the package name and <code class="docutils literal notranslate"><span class="pre">**pk**</span></code> is the abbreviated name.</p>
 <p><em><strong>Action 3a:</strong></em> Import the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> package as <code class="docutils literal notranslate"><span class="pre">np</span></code> (shortened name) and get help on the <code class="docutils literal notranslate"><span class="pre">np.linspace</span></code> function.</p>
-<p><em><strong>Action 3b:</strong></em> Use <code class="docutils literal notranslate"><span class="pre">np.linspace</span></code> to define 20 equally spaced values between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(2\,\pi\)</span>. Name the variable <code class="docutils literal notranslate"><span class="pre">x</span></code> and use the built-in <code class="docutils literal notranslate"><span class="pre">np.pi</span></code> constant for <span class="math notranslate nohighlight">\(\pi\)</span>.</p>
-<p><em><strong>Action 3c:</strong></em> Use <code class="docutils literal notranslate"><span class="pre">np.sin</span></code> to calculate a new variable <code class="docutils literal notranslate"><span class="pre">y</span></code> as <span class="math notranslate nohighlight">\(y=2\,\sin{\left(\frac{x}{2}\right)}\)</span>.</p>
+<p><em><strong>Action 3b:</strong></em> Use <code class="docutils literal notranslate"><span class="pre">np.linspace</span></code> to define 20 equally spaced values between $0$ and $2,\pi$. Name the variable <code class="docutils literal notranslate"><span class="pre">x</span></code> and use the built-in <code class="docutils literal notranslate"><span class="pre">np.pi</span></code> constant for $\pi$.</p>
+<p><em><strong>Action 3c:</strong></em> Use <code class="docutils literal notranslate"><span class="pre">np.sin</span></code> to calculate a new variable <code class="docutils literal notranslate"><span class="pre">y</span></code> as $y=2,\sin{\left(\frac{x}{2}\right)}$.</p>
 <p><em><strong>Action 3d:</strong></em> Import the <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> package as <code class="docutils literal notranslate"><span class="pre">plt</span></code> (shortened name) and show the help on the <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code> function. To show plots in an IPython notebook, the additional code <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">inline</span></code> is required.</p>
 <p><em><strong>Action 3e:</strong></em> Create a plot of <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> with the <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code> function. Add an x-label with <code class="docutils literal notranslate"><span class="pre">plt.xlabel</span></code> and a y-label with <code class="docutils literal notranslate"><span class="pre">plt.ylabel</span></code>. If you are not using an IPython notebook, include <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> to display the plot. You can also include it in an IPython notebook but it won’t have any effect.</p>
 </section>
@@ -734,8 +731,10 @@ print(...)
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting Started</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-names">Variable Names</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-types">Variable Types</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operators">Operators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#operators">Operators</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem #2</a></li>
@@ -757,7 +756,7 @@ print(...)
   <div class="footer-item">
     
 <p class="component-author">
-By Clint Guymon, BYU
+By Clint Guymon, Brigham Young University
 </p>
 
   </div>

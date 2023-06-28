@@ -30,7 +30,7 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['# Simulation parameters', 'p = ct.one_atm  # pressure [Pa]', 'Tin = 300.0  # unburned gas temperature [K]', "reactants = 'C4H10:1, O2:6.5, N2:24.4'  # premixed gas composition", 'width = 0.0005  # m']
+['{', '    "tags": [', '        "hide-output"', '    ]', '}']
 ...
 ['', '# Solve with mixture-averaged transport model', "f.transport_model = 'Mix'", 'f.solve(loglevel=loglevel, auto=True)', '#f.show_solution()']
 -------------------
