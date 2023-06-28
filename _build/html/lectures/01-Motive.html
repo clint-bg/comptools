@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/01-Motive';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="../bootcamp.html" />
+    <link rel="next" title="Bootcamp" href="../bootcamp.html" />
     <link rel="prev" title="Modules" href="../topics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -162,18 +162,21 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">01-Motivation Example</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../bootcamp/bootcampsch.html">Boot Camp Schedule</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../bootcamp.html">Bootcamp</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../bootcamp/bootcampsch.html">Boot Camp Schedule</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW01.html">Homework 1: Introduction to Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW02.html">Homework 2: Data Analysis and Functions</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../casestudies/casestudysch.html">Case Study Schedule</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../casestudies/casestudydocs.html">Case Study Documentation</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../resources.html">Resources</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../resources.html">Resources</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../resources/PreClassPrep.html">Pre-course Preparation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../resources/pythonresources.html">Python Resources</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../resources/excelresources.html">Excel Resources</a></li>
@@ -473,8 +476,8 @@ document.write(`
 <h3>Flames are Ubiquitous<a class="headerlink" href="#flames-are-ubiquitous" title="Permalink to this heading">#</a></h3>
 <p>In this example we’ll measure the temperature of a butane flame with a thermocouple and a low-cost data acquisition unit (ESP32) with an amplifier(MAX6675). We’ll also predict the temperature of the flame using several models in python.</p>
 <p>The below theoretical example problem calculates  the adiabatic (no heat losses) flame temperature of butane (C4H10) and air mixture. The first method is completed with a model of the enthalpy of formation of the reactants and products and the heat of combustion. The second method uses the Cantera package to calculate the adiabatic flame temperature.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-623bfcd2-d62d-4f24-8896-1b19c22486c8">
-<span class="eqno">(1)<a class="headerlink" href="#equation-623bfcd2-d62d-4f24-8896-1b19c22486c8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c6c71433-73df-4150-ad17-13aadd8def6c">
+<span class="eqno">(1)<a class="headerlink" href="#equation-c6c71433-73df-4150-ad17-13aadd8def6c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 C_4H_{10} + 6.5\cdot O_2 + x\cdot N_2 =&gt; 4\cdot CO_2 + 5\cdot H_2O + x\cdot N_2
 \end{equation}\]</div>
 <p>$x$ number of moles of nitrogen can be found from the nitrogen balance where assuming that the amount of air in the atmosphere is 79% nitrogen and 21% oxygen. Thus x is simply the number of moles of oxygen divided by 0.21 multiplied by 0.79 (6.5*0.79/0.21 = 24.4).</p>
@@ -522,8 +525,8 @@ C_4H_{10} + 6.5\cdot O_2 + x\cdot N_2 =&gt; 4\cdot CO_2 + 5\cdot H_2O + x\cdot N
 </div>
 </div>
 </div>
-<div class="amsmath math notranslate nohighlight" id="equation-c57e8fe8-e634-431f-bfc8-5b6fe8fbd6c0">
-<span class="eqno">(2)<a class="headerlink" href="#equation-c57e8fe8-e634-431f-bfc8-5b6fe8fbd6c0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-eb7210d8-5143-459a-b290-f2ecfee5a6b2">
+<span class="eqno">(2)<a class="headerlink" href="#equation-eb7210d8-5143-459a-b290-f2ecfee5a6b2" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sum_{out}{n_iH_i(T_{ad})}  + n_f\Delta H_{c} - \sum{n_i H_i(T_{in})} = 0 \tag{1}
 \end{equation}\]</div>
 <div class="cell docutils container">
@@ -627,7 +630,6 @@ The eq. gas mole fractions for H2O, CO2, N2, O2 are 0.14,0.11,0.72,0.01, respect
     <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="s2">&quot;hide-output&quot;</span>
     <span class="p">]</span>
-<span class="p">}</span>
 
 <span class="c1"># Simulation parameters</span>
 <span class="n">p</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">one_atm</span>  <span class="c1"># pressure [Pa]</span>
@@ -650,240 +652,15 @@ The eq. gas mole fractions for H2O, CO2, N2, O2 are 0.14,0.11,0.72,0.01, respect
 <span class="n">f</span><span class="o">.</span><span class="n">transport_model</span> <span class="o">=</span> <span class="s1">&#39;Mix&#39;</span>
 <span class="n">f</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">loglevel</span><span class="o">=</span><span class="n">loglevel</span><span class="p">,</span> <span class="n">auto</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="c1">#f.show_solution()</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>************ Solving on 8 point grid with energy equation enabled ************
-
-..............................................................................
-Attempt Newton solution of steady-state problem...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    failure. 
-Take 10 timesteps   
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  3.375e-05      6.359
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps   
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  4.949e-09      5.963
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps   
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  2.722e-13      5.963
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps   
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
-*******************************************************************************
-CanteraError thrown by OneDim::timeStep:
-Time integration failed.
-*******************************************************************************
- 
-
-******** Initial solve failed; Retrying with energy equation disabled ********
-
-..............................................................................
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps   
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
-*******************************************************************************
-CanteraError thrown by OneDim::timeStep:
-Time integration failed.
-*******************************************************************************
- 
-
-*********** Solving on 12 point grid with energy equation enabled ************
-
-..............................................................................
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps   
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   3.56e-06      7.344
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps   
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  2.703e-05      6.261
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps   
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1.203e-06      6.049
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps   
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1.654e-11      6.048
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps   
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  9.093e-16      6.048
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps   
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
-*******************************************************************************
-CanteraError thrown by OneDim::timeStep:
-Time integration failed.
-*******************************************************************************
- 
-
-******** Initial solve failed; Retrying with energy equation disabled ********
-
-..............................................................................
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps   
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
-*******************************************************************************
-CanteraError thrown by OneDim::timeStep:
-Time integration failed.
-*******************************************************************************
- 
-
-*********** Solving on 24 point grid with energy equation enabled ************
-
-..............................................................................
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps   
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  3.164e-06      7.322
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps   
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1.602e-05      6.543
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps   
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  6.082e-05      6.043
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps   
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  8.919e-09       5.57
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps   
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  4.905e-13       5.57
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps   
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
-*******************************************************************************
-CanteraError thrown by OneDim::timeStep:
-Time integration failed.
-*******************************************************************************
- 
-
-******** Initial solve failed; Retrying with energy equation disabled ********
-
-..............................................................................
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps   
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.0002563      1.826
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps   
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   0.009853     -4.765
-Attempt Newton solution of steady-state problem...    success.
-
-Problem solved on [24] point grid(s).
-Expanding domain to accommodate flame thickness. New width: 0.001 m
-no new points needed in flame
-
-*********** Solving on 24 point grid with energy equation enabled ************
-
-..............................................................................
-Attempt Newton solution of steady-state problem...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    failure. 
-Take 10 timesteps   
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  7.119e-06      6.962
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps   
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  3.604e-05      5.986
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps   
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.0003079       4.92
-Attempt Newton solution of steady-state problem...    success.
-
-Problem solved on [24] point grid(s).
-Expanding domain to accommodate flame thickness. New width: 0.002 m
-##############################################################################
-Refining grid in flame.
-    New points inserted after grid points 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 
-    to resolve C2H C2H2 C2H3 C2H4 C2H4O C2H4OOH C2H5 C2H5OH C2H6 C3H3 C3H4 C3H5 C3H6 C3H6OOH C3H8 C4H10 C4H8 C4H8OOH1-3 CH CH2CH2OH CH2CHO CH2CO CH2O CH2OH CH3 CH3CH2O CH3CHO CH3CHOH CH3CO CH3O CH3OH CH4 CO CO2 H H2 H2O H2O2 HCCO HCO HO2 I-C3H7 N-C3H7 N2 NC4KET13 O O2 OC2H3OOH OC3H5OOH OH PC4H9 S-CH2 SC4H9 SC4H9O2 T T-CH2 velocity 
-##############################################################################
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>*********** Solving on 41 point grid with energy equation enabled ************
-
-..............................................................................
-Attempt Newton solution of steady-state problem...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    failure. 
-Take 10 timesteps   
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">26</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="c1">#f.show_solution()</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span> 
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="c1"># Solve with mixture-averaged transport model</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="n">f</span><span class="o">.</span><span class="n">transport_model</span> <span class="o">=</span> <span class="s1">&#39;Mix&#39;</span>
-<span class="ne">---&gt; </span><span class="mi">26</span> <span class="n">f</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">loglevel</span><span class="o">=</span><span class="n">loglevel</span><span class="p">,</span> <span class="n">auto</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="c1">#f.show_solution()</span>
-
-<span class="nn">File ~/opt/anaconda3/envs/jupiterbook/lib/python3.9/site-packages/cantera/onedim.py:898,</span> in <span class="ni">FreeFlame.solve</span><span class="nt">(self, loglevel, refine_grid, auto)</span>
-<span class="g g-Whitespace">    </span><span class="mi">896</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">897</span>     <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">898</span>         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">loglevel</span><span class="p">,</span> <span class="n">refine_grid</span><span class="p">,</span> <span class="n">auto</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">899</span>         <span class="k">break</span>
-<span class="g g-Whitespace">    </span><span class="mi">900</span>     <span class="k">except</span> <span class="n">DomainTooNarrow</span><span class="p">:</span>
-
-<span class="nn">File cantera/onedim.pyx:1221,</span> in <span class="ni">cantera._cantera.Sim1D.solve</span><span class="nt">()</span>
-
-<span class="nn">File cantera/func1.pyx:14,</span> in <span class="ni">cantera._cantera.func_callback</span><span class="nt">()</span>
-
-<span class="nn">File ~/opt/anaconda3/envs/jupiterbook/lib/python3.9/site-packages/cantera/interrupts.py:1,</span> in <span class="ni">no_op</span><span class="nt">(t)</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">no_op</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd">     This function does nothing. It is used as an interrupt in the 1D solver</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span><span class="sd">     C++ loop where a pure Python function is needed in order for</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span><span class="sd">     KeyboardInterrupt events to be captured.</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="k">return</span> <span class="mf">0.0</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">one_atm</span>  <span class="c1"># pressure [Pa]</span>
+    <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
 </pre></div>
 </div>
 </div>
@@ -1066,7 +843,7 @@ Take 10 timesteps
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">Bootcamp</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
