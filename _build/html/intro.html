@@ -61,8 +61,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -162,21 +160,18 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="lectures/01-Motive.html">01-Motivation Example</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="bootcamp.html">Boot Camp</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="bootcamp/bootcampsch.html">Boot Camp Schedule</a></li>
-</ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1"><a class="reference internal" href="bootcamp/bootcampsch.html">Boot Camp Schedule</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="homework/HW01.html">Homework 1: Introduction to Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="homework/HW02.html">Homework 2: Data Analysis and Functions</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="casestudies/casestudysch.html">Case Study Schedule</a></li>
 <li class="toctree-l2"><a class="reference internal" href="casestudies/casestudydocs.html">Case Study Documentation</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="resources.html">Resources</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="resources.html">Resources</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="resources/PreClassPrep.html">Pre-course Preparation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="resources/pythonresources.html">Python Resources</a></li>
 <li class="toctree-l2"><a class="reference internal" href="resources/excelresources.html">Excel Resources</a></li>
@@ -390,7 +385,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="intro-and-approach">
+  <section id="intro-and-approach">
 <h1>Intro and Approach<a class="headerlink" href="#intro-and-approach" title="Permalink to this heading">#</a></h1>
 <p>Computational tools are essential in chemical engineering.  This course will introduce you to some of the tools you will use as you succeed in your academic and professional career. The class, hopefully, will also help you think critically and creatively about how to use these tools to solve problems. Additionally, course content will help grow your faith in Jesus Christ and to follow His example and the words of His prophets.</p>
 <hr class="docutils" />
@@ -421,15 +416,31 @@ document.write(`
 <p>You are at a time when more information is readily at your fingertips than any other time in history. When you have a question, you can find the answer. I expect you to use the resources available to you while adhering to BYU’s honesty policy.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="topics.html">Modules</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bootcamp.html">Boot Camp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="homework.html">Practice Problems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="casestudies.html">Case Studies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="topics.html">Modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="lectures/01-Motive.html">01-Motivation Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="homework.html">Practice Problems</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="homework/HW01.html">Homework 1: Introduction to Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="homework/HW02.html">Homework 2: Data Analysis and Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="casestudies.html">Case Studies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="casestudies/casestudysch.html">Case Study Schedule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="casestudies/casestudydocs.html">Case Study Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="resources/PreClassPrep.html">Pre-course Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resources/pythonresources.html">Python Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resources/excelresources.html">Excel Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resources/safety.html">Safety</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <p>Content is presented using <a class="reference external" href="https://jupyterbook.org">Jupyter Book</a>.</p>
-<p><span class="math notranslate nohighlight">\(\copyright\)</span> 2023, Clint Guymon, Brigham Young University</p>
+<p>$\copyright$ 2023, Clint Guymon, Brigham Young University</p>
 </section>
 </section>
 
@@ -508,7 +519,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By Clint Guymon, BYU
+By Clint Guymon, Brigham Young University
 </p>
 
   </div>

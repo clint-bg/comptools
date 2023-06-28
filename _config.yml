@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: Computational Tools for Chemical Engineers
-author: Clint Guymon, BYU
+author: Clint Guymon, Brigham Young University
 logo: logo.png
 
 # Force re-execution of notebooks on each build.
@@ -30,3 +30,16 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+
+# Add code for displaying of Google Colab links
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+colab:
+  badge_text: "Open in Colab"
+  position: "top"
+
+# Add code to display equations using latex
+parse:
+  myst_enable_extensions:
+    # don't forget to list any other extensions you want enabled,
+    # including those that are enabled by default!
+    - amsmath

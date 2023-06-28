@@ -43,3 +43,6 @@ Need a strain gauge to measure strain (choked flow cart)
 - Flame temperature with ESP32
 - OBDII ELM 327 Vehicle Data
 - Heat Conduction Down a Rod
+
+```{tableofcontents}
+```

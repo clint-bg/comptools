@@ -75,3 +75,6 @@ The below modules will be discussed throughout the semester with the case studie
 - Completing repetitive tasks with VBA
 - Solving Differential Equations with VBA
 - Pivot Tables
+
+```{tableofcontents}
+```
