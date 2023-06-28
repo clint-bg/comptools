@@ -5,12 +5,23 @@ format: jb-book
 root: intro
 chapters:
   - file: topics
-  - file: introlecture
+    sections:
+    - file: lectures/01-Motive
   - file: bootcamp
     sections:
     - file: bootcamp/bootcampsch
-    - file: bootcamp/notebooks
+  - file: homework
+    sections:
+    - file: homework/HW01
+    - file: homework/HW02
   - file: casestudies
     sections:
-    - file: casestudies/casestudies
+    - file: casestudies/casestudysch
+    - file: casestudies/casestudydocs
   - file: resources
+    sections:
+    - file: resources/PreClassPrep
+    - file: resources/pythonresources
+    - file: resources/excelresources
+    - file: resources/safety
+

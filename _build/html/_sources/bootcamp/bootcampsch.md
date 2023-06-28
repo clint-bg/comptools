@@ -1,7 +1,7 @@
 # Boot Camp Schedule
 The schedule for the boot camp will be as follows:
-|Week|Topic|Reading|Assignment|
-|---|---|---|---|
+|Week|Topics|Assignment|
+|---|---|---|
 |2|Python Functions|2|2|
 |3|Python Classes|3|3|
 |4|Python Plotting|4|4|
