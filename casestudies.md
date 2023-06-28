@@ -13,7 +13,7 @@ Details here on what case studies will be completed and how and when
 
 ## Descriptions
 
-### Cantara
+### Cantera
 Adiabatic Flame Temperature
 Exploding Paint Can
 

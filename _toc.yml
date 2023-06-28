@@ -7,6 +7,7 @@ chapters:
   - file: topics
     sections:
     - file: lectures/01-Motive
+    - file: lectures/02-Functions
   - file: bootcamp
     sections:
     - file: bootcamp/bootcampsch

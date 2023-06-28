@@ -19,18 +19,16 @@ Learning Outcomes. Students will be able to:
 - make order of magnitude estimates, assess reasonableness of solutions, and select appropriate levels of solution sophistication.
 
 ## Course Approach
-I'll explain with a parable: Instead of teaching you about all the details of a hammer, I hope to build with you a house. During building of the house, you'll learn to use a hammer as well as other tools.
+I'll explain with a parable: Instead of teaching you about all the details of a hammer, I hope to build a house together. During building of the house, you'll learn to use a hammer as well as other tools.
 
-Similarly, I prefer not to take time to highlight the details of the tools we'll use. Instead, I'll show you how to use them as we build something together.  You'll learn the details of the tools as you use them.
+Similarly, I prefer not to take time to highlight in-depth details of the tools we'll use. Instead, I'll show you how to use them as we build something together.  You'll learn the details of the tools as you use them in this class and throughout your education and career.
 
-This approach is called [Just-in-Time Teaching](https://en.wikipedia.org/wiki/Just-in-time_teaching).  It is a form of active learning.  It is also a form of [flipped classroom](https://en.wikipedia.org/wiki/Flipped_classroom).  It is similar to how the course has been taught in the past. This approach replicates how a trade was learned as an appretice.  You'll learn by doing I hope.
+This approach is called [Just-in-Time Teaching](https://en.wikipedia.org/wiki/Just-in-time_teaching).  It is a form of active learning.  It is similar to how the course has been taught in the past with some minor changes. This approach replicates how a trade can be learned as an appretice.  You'll learn by doing I hope.
 
-Lectures will review specific examples (some with classroom demonstrations) and the homework will reinforce those examples and introduce specific computation concenpts and tools. Those tools will be used to solve the problem and be reinforced in the lecture and homework. 
+Lectures and modules will review specific examples (some with classroom demonstrations) and the homework will reinforce those examples and introduce specific computation concenpts and tools. Those tools will be used to solve the problem and be reinforced in the class discussions and homework. 
 
 You are at a time when more information is readily at your fingertips than any other time in history. When you have a question, you can find the answer. I expect you to use the resources available to you while adhering to BYU's honesty policy. 
 
 ```{tableofcontents}
 ```
 Content is presented using [Jupyter Book](https://jupyterbook.org).
-
-$\copyright$ 2023, Clint Guymon, Brigham Young University

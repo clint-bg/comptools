@@ -2,17 +2,40 @@
 
 ## Course Schedule
 The schedule for the course will be as follows (subject to change where Week 1.2 is the first week and the second class of that week):
-|Week|Topics|
-|---|---|
-|1.1|Course Introduction|
-|1.2-7.2|Comp Tools Boot Camp[^1]|
-|9.1-15.1| Case Studies[^2]|
-|15.2| Review|
-|16.1|Final Exam|
+|Week|Modules|Demo|HW|Exam|
+|---|---|--|--|--|
+|1.1|[Course Introduction and Motivation](intro.md)|-|HW01|-|
+|1.2|[Motivation and Examples](lectures/01-Motive.ipynb)|FlameTemp|HW01|-|
+|2.1|[Python Functions and Examples](lectures/02-Functions.ipynb)||HW02|-|
 
-[^1]: See the [Boot Camp Schedule](bootcamp/bootcampsch.md) for more information.
+## Case Studies
+|2.2||HW03|-|
+|3.1||HW04|-|
+|3.2||HW05|-|
+|4.1||HW06|-|
+|4.2||HW07|-|
+|5.1||HW08|-|
+|5.2||HW09|-|
+|6.1||HW10|-|
+|6.2||HW11|-|
+|7.1||HW12|-|
+|7.2||HW13|-|
+|8.1||HW14|-|
+|8.2||HW15|-|
+|9.1||HW16|-|
+|9.2||HW17|-|
+|10.1||HW18|-|
+|10.2||HW19|-|
+|11.1||HW20|-|
+|11.2||HW21|-|
+|12.1||HW22|-|
+|12.2||HW23|-|
+|13.1||HW24|-|
+|13.2||HW25|-|
+|14.1||HW26|-|
+|14.2||HW27|-|
 
-[^2]: See the [Case Studies Schedule](casestudies/casestudies.md) for more information.
+[^1]: See the [Case Studies Schedule](casestudies/casestudydocs.md) for more information.
 
 ## Modules
 

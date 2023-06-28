@@ -1,3 +1,6 @@
 jupyter-book
 matplotlib
 numpy
+cantera
+scipy
+sympy
