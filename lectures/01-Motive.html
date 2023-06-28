@@ -1,0 +1,1120 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Course Motivation &#8212; Computational Tools for Chemical Engineers</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/01-Motive';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Boot Camp" href="../bootcamp.html" />
+    <link rel="prev" title="Computational Tools Modules" href="../topics.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    263 Computation Tools
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../topics.html">Computational Tools Modules</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Course Motivation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../bootcamp.html">Boot Camp</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../bootcamp/bootcampsch.html">Boot Camp Schedule</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW01.html">Homework 1: Introduction to Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW02.html">Homework 2: Data Analysis and Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/casestudysch.html">Case Study Schedule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/casestudydocs.html">Case Study Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../resources.html">Resources</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../resources/PreClassPrep.html">Pre-course Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../resources/pythonresources.html">Python Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../resources/excelresources.html">Excel Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../resources/safety.html">Safety</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/clint-bg/comptools" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/clint-bg/comptools/issues/new?title=Issue%20on%20page%20%2Flectures/01-Motive.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lectures/01-Motive.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Course Motivation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#current-worldwide-problems-in-engineering">Current Worldwide Problems in Engineering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-tools-will-you-use-to-solve-these-problems">What tools will you use to solve these problems?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intro-demonstration">Intro Demonstration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flames-are-ubiquitous">Flames are Ubiquitous</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-manually-calculate-the-adiabatic-flame-temperature">First manually calculate the adiabatic flame temperature</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#second-calculate-the-adiabatic-flame-temperature-using-cantera">Second calculate the adiabatic flame temperature using Cantera</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cantera-can-also-estimate-the-species-and-temperature-in-a-1-d-flame">Cantera can also estimate the species and temperature  in a 1-D flame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-estimate-from-a-k-type-thermocople">Experimental Estimate from a K type Thermocople</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="course-motivation">
+<h1>Course Motivation<a class="headerlink" href="#course-motivation" title="Permalink to this heading">#</a></h1>
+<p>Engineers solve problems. You as a chemical engineer are likely excited to collaborate with others to use chemistry and physics together with other engineering principles to solve problems our society faces.</p>
+<section id="current-worldwide-problems-in-engineering">
+<h2>Current Worldwide Problems in Engineering<a class="headerlink" href="#current-worldwide-problems-in-engineering" title="Permalink to this heading">#</a></h2>
+<p>Chemical Engineers are poised to help in each of these areas:</p>
+<ul class="simple">
+<li><p>Energy</p>
+<ul>
+<li><p>Worldwide <code class="docutils literal notranslate"><span class="pre">energy</span> <span class="pre">demands</span> <span class="pre">are</span> <span class="pre">growing</span></code></p></li>
+<li><p>We need to use fossil fuels more efficiently and capture more of the biproducts</p></li>
+<li><p><a class="reference external" href="https://www.energy.gov/">Energy.gov</a></p>
+<ul>
+<li><p>Fry, Memmott, Baxter, Rappleye, Wheeler, and Lignell</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Chemical Production</p>
+<ul>
+<li><p>We can continue to <code class="docutils literal notranslate"><span class="pre">improve</span> <span class="pre">chemical</span> <span class="pre">production</span></code> processes</p></li>
+<li><p><a class="reference external" href="https://cen.acs.org/">Chemical and Engineering News</a></p>
+<ul>
+<li><p>Argyle, Hedengren, Knotts, Nickerson, Seo, Tree, Wilding</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Health</p>
+<ul>
+<li><p>We need to <code class="docutils literal notranslate"><span class="pre">improve</span></code> health care delivery and care</p></li>
+<li><p>[World Health Organization](https: <a class="reference external" href="//www.who.int/">//www.who.int/</a>)</p>
+<ul>
+<li><p>Bundy, Pitt, and Lewis</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Water</p>
+<ul>
+<li><p>We need to improve water treatment,  distribution, and conservation.</p></li>
+<li><p><a class="reference external" href="https://www.who.int/news-room/fact-sheets/detail/drinking-water">World Health Organization</a></p></li>
+</ul>
+</li>
+<li><p>Transportation - How do we better move people and goods around the world?</p></li>
+<li><p>Environment - How do we efficiently continue improving our environment?</p>
+<ul>
+<li><p>Plastics production and waste handling and reuse needs improvement.</p></li>
+<li><p><a class="reference external" href="https://www.epa.gov/">Environmental Protection Agency</a></p></li>
+</ul>
+</li>
+<li><p>Security - How do we continue to adapt and peacefully protect people from threats?</p></li>
+<li><p>Exploration, Food, and more…</p></li>
+</ul>
+<p>You are the engineers that will work to improve societies’ and individuals’ quality of life around the world.</p>
+</section>
+<section id="what-tools-will-you-use-to-solve-these-problems">
+<h2>What tools will you use to solve these problems?<a class="headerlink" href="#what-tools-will-you-use-to-solve-these-problems" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>You’ll stand on the backs of giants and be familiar with their successes.</p></li>
+<li><p>You’ll <strong>collaborate with others</strong>.</p></li>
+<li><p>You’ll utilize both:</p>
+<ul>
+<li><p><strong>Computational tools</strong> - to solve problems with computers</p></li>
+<li><p><strong>Experimental methods</strong> - to gain further insights.</p></li>
+<li><p>Coupling both theoretical and experimental methods is a more efficient way to reach the best solution than either one alone.</p></li>
+</ul>
+</li>
+</ul>
+<p>This course is focused primarily on helping you become more familiar with computation tools in an applied engineering context.</p>
+</section>
+<section id="intro-demonstration">
+<h2>Intro Demonstration<a class="headerlink" href="#intro-demonstration" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Flames</span></code> are critical to many processes that benefit us: cooking, heating, transportation, electricity, etc. The combustion products from burning fuels can present problems. However, we have been reducing those negative effects for decades. Below is a plot by the EPA showing that trend of improvement (<a class="reference external" href="https://www.epa.gov/air-trends/air-quality-national-summary">also here</a>):</p>
+<p><img alt="image001.png" src="lectures/attachment:image001.png" /></p>
+<section id="flames-are-ubiquitous">
+<h3>Flames are Ubiquitous<a class="headerlink" href="#flames-are-ubiquitous" title="Permalink to this heading">#</a></h3>
+<p>In this example we’ll measure the temperature of a butane flame with a thermocouple and a low-cost data acquisition unit (ESP32) with an amplifier(MAX6675). We’ll also predict the temperature of the flame using several models in python.</p>
+<p>The below theoretical example problem calculates  the adiabatic (no heat losses) flame temperature of butane (C4H10) and air mixture. The first method is completed with a model of the enthalpy of formation of the reactants and products and the heat of combustion. The second method uses the Cantera package to calculate the adiabatic flame temperature.</p>
+<p>\begin{equation}
+C_4H_{10} + 6.5\cdot O_2 + x\cdot N_2 =&gt; 4\cdot CO_2 + 5\cdot H_2O + x\cdot N_2
+\end{equation}</p>
+<p><span class="math notranslate nohighlight">\(x\)</span> number of moles of nitrogen can be found from the nitrogen balance where assuming that the amount of air in the atmosphere is 79% nitrogen and 21% oxygen. Thus x is simply the number of moles of oxygen divided by 0.21 multiplied by 0.79 (6.5*0.79/0.21 = 24.4).</p>
+</section>
+<section id="first-manually-calculate-the-adiabatic-flame-temperature">
+<h3>First manually calculate the adiabatic flame temperature<a class="headerlink" href="#first-manually-calculate-the-adiabatic-flame-temperature" title="Permalink to this heading">#</a></h3>
+<p>For butane combustion the below code calculates the adiabatic flame temperature using the enthalpy of formation of the reactants and products and the heat of combustion as well as the heat capacities of the products</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Adiabatic flame temperature of butane-air mixture from heats of formation</span>
+
+<span class="c1"># First import the needed packages</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
+<span class="kn">import</span> <span class="nn">param</span>
+
+<span class="c1"># Define the reaction:</span>
+<span class="c1"># C4H10 + 6.5O2 + 24.4N2 =&gt; 4CO2 + 5H2O + 24.4N2</span>
+
+<span class="c1">#define a class for the reactants and products</span>
+<span class="k">class</span> <span class="nc">species</span><span class="p">(</span><span class="n">param</span><span class="o">.</span><span class="n">Parameterized</span><span class="p">):</span>
+    <span class="n">H_rxn</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">1e10</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="n">doc</span><span class="o">=</span><span class="s1">&#39;Heat of Reaction in kJ/mol&#39;</span><span class="p">)</span>
+    <span class="n">H_f</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">1e10</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="n">doc</span><span class="o">=</span><span class="s1">&#39;Heat of Formation in kJ/mol&#39;</span><span class="p">)</span>
+    <span class="n">C_pgl</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">List</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">doc</span><span class="o">=</span><span class="s1">&#39;Heat capacity coefficients in J/kmol/K&#39;</span><span class="p">)</span>
+    <span class="n">M_w</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10000</span><span class="p">),</span><span class="n">doc</span><span class="o">=</span><span class="s1">&#39;Molecular weight in g/mol&#39;</span><span class="p">)</span>
+    <span class="n">coeff</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span><span class="n">doc</span><span class="o">=</span><span class="s1">&#39;Stoichiometric coefficient&#39;</span><span class="p">)</span>
+
+    <span class="c1">#define a function to calculate the ideal gas heat capacity</span>
+    <span class="k">def</span> <span class="nf">Cp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">T</span><span class="p">):</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">C_pgl</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="n">B</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">C_pgl</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span> <span class="n">C</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">C_pgl</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span> <span class="n">D</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">C_pgl</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span> <span class="n">E</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">C_pgl</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span> 
+        <span class="k">return</span> <span class="n">A</span> <span class="o">+</span> <span class="n">B</span><span class="o">*</span><span class="p">((</span><span class="n">C</span><span class="o">/</span><span class="n">T</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sinh</span><span class="p">(</span><span class="n">C</span><span class="o">/</span><span class="n">T</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">D</span><span class="o">*</span><span class="p">((</span><span class="n">E</span><span class="o">/</span><span class="n">T</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">cosh</span><span class="p">(</span><span class="n">E</span><span class="o">/</span><span class="n">T</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span> 
+    
+    <span class="c1">#define a function to calculate the enthalpy based on the ideal gas heat capacity</span>
+    <span class="k">def</span> <span class="nf">enthalpy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">TO</span><span class="p">):</span> <span class="c1">#units of kJ/mol</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">coeff</span><span class="o">*</span><span class="p">(</span><span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Cp</span><span class="p">,</span><span class="n">TO</span><span class="p">,</span><span class="n">T</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mf">1e6</span><span class="p">)</span>
+
+<span class="c1">#define reactants and products (estimated) for butane combustion</span>
+<span class="n">C4H10</span> <span class="o">=</span> <span class="n">species</span><span class="p">(</span><span class="n">H_rxn</span><span class="o">=-</span><span class="mf">2657.32</span><span class="p">,</span><span class="n">H_f</span><span class="o">=-</span><span class="mi">125</span><span class="p">,</span><span class="n">C_pgl</span><span class="o">=</span><span class="p">[</span><span class="mi">80152</span><span class="p">,</span><span class="mi">162410</span><span class="p">,</span><span class="mi">841</span><span class="p">,</span><span class="mi">105747</span><span class="p">,</span><span class="mi">2476</span><span class="p">],</span><span class="n">M_w</span><span class="o">=</span><span class="mf">58.12</span><span class="p">,</span><span class="n">coeff</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">O2</span> <span class="o">=</span> <span class="n">species</span><span class="p">(</span><span class="n">H_rxn</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">H_f</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">C_pgl</span><span class="o">=</span><span class="p">[</span><span class="mi">29100</span><span class="p">,</span><span class="mi">10040</span><span class="p">,</span><span class="mi">2526</span><span class="p">,</span><span class="mi">9356</span><span class="p">,</span><span class="mi">1153</span><span class="p">],</span><span class="n">M_w</span><span class="o">=</span><span class="mf">32.0</span><span class="p">,</span><span class="n">coeff</span><span class="o">=-</span><span class="mf">6.5</span><span class="p">)</span>
+<span class="n">CO2</span> <span class="o">=</span> <span class="n">species</span><span class="p">(</span><span class="n">H_rxn</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">H_f</span><span class="o">=-</span><span class="mi">394</span><span class="p">,</span><span class="n">C_pgl</span><span class="o">=</span><span class="p">[</span><span class="mi">29370</span><span class="p">,</span><span class="mi">34540</span><span class="p">,</span><span class="mi">1428</span><span class="p">,</span><span class="mi">26400</span><span class="p">,</span><span class="mi">588</span><span class="p">],</span><span class="n">M_w</span><span class="o">=</span><span class="mf">44.01</span><span class="p">,</span><span class="n">coeff</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">H2O</span> <span class="o">=</span> <span class="n">species</span><span class="p">(</span><span class="n">H_rxn</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">H_f</span><span class="o">=-</span><span class="mi">242</span><span class="p">,</span><span class="n">C_pgl</span><span class="o">=</span><span class="p">[</span><span class="mi">33363</span><span class="p">,</span><span class="mi">26790</span><span class="p">,</span><span class="mi">2610</span><span class="p">,</span><span class="mi">8896</span><span class="p">,</span><span class="mi">1169</span><span class="p">],</span><span class="n">M_w</span><span class="o">=</span><span class="mf">18.02</span><span class="p">,</span><span class="n">coeff</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">N2</span> <span class="o">=</span> <span class="n">species</span><span class="p">(</span><span class="n">H_rxn</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">H_f</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">C_pgl</span><span class="o">=</span><span class="p">[</span><span class="mi">29105</span><span class="p">,</span><span class="mi">8615</span><span class="p">,</span><span class="mi">1701</span><span class="p">,</span><span class="mi">103</span><span class="p">,</span><span class="mi">910</span><span class="p">],</span><span class="n">M_w</span><span class="o">=</span><span class="mf">28.01</span><span class="p">,</span><span class="n">coeff</span><span class="o">=-</span><span class="mf">24.4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Adiabatic flame temperature of butane-air mixture from heats of formation</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># First import the needed packages</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>\begin{equation}
+\sum_{out}{n_iH_i(T_{ad})}  + n_f\Delta H_{c} - \sum{n_i H_i(T_{in})} = 0 \tag{1}
+\end{equation}</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#define initial conditions</span>
+<span class="n">T0</span> <span class="o">=</span> <span class="mf">298.0</span> <span class="c1">#K</span>
+
+<span class="c1">#define a function for the enthalpy of the reactants</span>
+<span class="k">def</span> <span class="nf">H_react</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">formation</span> <span class="o">=</span> <span class="n">C4H10</span><span class="o">.</span><span class="n">coeff</span><span class="o">*</span><span class="n">C4H10</span><span class="o">.</span><span class="n">H_f</span> <span class="o">+</span> <span class="n">O2</span><span class="o">.</span><span class="n">coeff</span><span class="o">*</span><span class="n">O2</span><span class="o">.</span><span class="n">H_f</span> <span class="o">+</span> <span class="n">O2</span><span class="o">.</span><span class="n">coeff</span><span class="o">*</span><span class="n">N2</span><span class="o">.</span><span class="n">H_f</span>
+    <span class="k">return</span> <span class="n">C4H10</span><span class="o">.</span><span class="n">enthalpy</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">T0</span><span class="p">)</span> <span class="o">+</span> <span class="n">O2</span><span class="o">.</span><span class="n">enthalpy</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">T0</span><span class="p">)</span> <span class="o">+</span> <span class="n">N2</span><span class="o">.</span><span class="n">enthalpy</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">T0</span><span class="p">)</span> <span class="o">+</span> <span class="n">formation</span>
+
+<span class="c1">#also define a function for the enthalpy of the products</span>
+<span class="k">def</span> <span class="nf">H_prod</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">CO2</span><span class="o">.</span><span class="n">enthalpy</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">T0</span><span class="p">)</span> <span class="o">+</span> <span class="n">H2O</span><span class="o">.</span><span class="n">enthalpy</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">T0</span><span class="p">)</span> <span class="o">-</span> <span class="n">N2</span><span class="o">.</span><span class="n">enthalpy</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">T0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use fsolve to find the addiabatic temperature from Equation 1</span>
+<span class="c1"># first import the fsolve function</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span>
+<span class="c1"># next react the reactants to the products at T0 then heat the products to the adiabatic temperature</span>
+<span class="n">T_ad</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="k">lambda</span> <span class="n">T</span><span class="p">:</span> <span class="n">H_react</span><span class="p">(</span><span class="n">T0</span><span class="p">)</span> <span class="o">+</span> <span class="n">C4H10</span><span class="o">.</span><span class="n">coeff</span><span class="o">*</span><span class="n">C4H10</span><span class="o">.</span><span class="n">H_rxn</span> <span class="o">-</span> <span class="n">H_prod</span><span class="p">(</span><span class="n">T</span><span class="p">),</span><span class="n">T0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The adiabatic flame temperature is </span><span class="si">{</span><span class="n">T_ad</span><span class="o">-</span><span class="mi">273</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> C&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The adiabatic flame temperature is 2217.02 C
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="second-calculate-the-adiabatic-flame-temperature-using-cantera">
+<h3>Second calculate the adiabatic flame temperature using Cantera<a class="headerlink" href="#second-calculate-the-adiabatic-flame-temperature-using-cantera" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cantera</span> <span class="k">as</span> <span class="nn">ct</span>
+<span class="n">gas1</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Solution</span><span class="p">(</span><span class="s1">&#39;sdmech.yaml&#39;</span><span class="p">)</span>
+<span class="n">gas1</span><span class="o">.</span><span class="n">TP</span> <span class="o">=</span> <span class="n">T0</span><span class="p">,</span> <span class="n">ct</span><span class="o">.</span><span class="n">one_atm</span>
+<span class="n">gas1</span><span class="o">.</span><span class="n">set_equivalence_ratio</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;C4H10&#39;</span><span class="p">,</span> <span class="s1">&#39;O2:1, N2:3.76&#39;</span><span class="p">)</span>
+<span class="n">gas1</span><span class="o">.</span><span class="n">equilibrate</span><span class="p">(</span><span class="s1">&#39;HP&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The equilibrium flame temperature is </span><span class="si">{</span><span class="n">gas1</span><span class="o">.</span><span class="n">T</span><span class="o">-</span><span class="mi">273</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> C&#39;</span><span class="p">)</span>
+<span class="n">comps</span> <span class="o">=</span> <span class="n">gas1</span><span class="p">[</span><span class="s1">&#39;H2O&#39;</span><span class="p">,</span><span class="s1">&#39;CO2&#39;</span><span class="p">,</span><span class="s1">&#39;N2&#39;</span><span class="p">,</span><span class="s1">&#39;O2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">X</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The eq. gas mole fractions for H2O, CO2, N2, O2 are </span><span class="si">{</span><span class="n">comps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">,</span><span class="si">{</span><span class="n">comps</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">,</span><span class="si">{</span><span class="n">comps</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">,</span><span class="si">{</span><span class="n">comps</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">, respectively&#39;</span><span class="p">)</span>
+<span class="n">gas1</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The equilibrium flame temperature is 2001.39 C
+The eq. gas mole fractions for H2O, CO2, N2, O2 are 0.14,0.11,0.72,0.01, respectively
+
+  gas:
+
+       temperature   2274.4 K
+          pressure   1.0132e+05 Pa
+           density   0.15093 kg/m^3
+  mean mol. weight   28.167 kg/kmol
+   phase of matter   gas
+
+                          1 kg             1 kmol     
+                     ---------------   ---------------
+          enthalpy       -1.3233e+05       -3.7274e+06  J
+   internal energy       -8.0368e+05       -2.2638e+07  J
+           entropy            9672.3        2.7244e+05  J/K
+    Gibbs function       -2.2131e+07       -6.2337e+08  J
+ heat capacity c_p            1471.7             41454  J/K
+ heat capacity c_v            1176.5             33140  J/K
+
+                      mass frac. Y      mole frac. X     chem. pot. / RT
+                     ---------------   ---------------   ---------------
+                N2           0.72011           0.72406           -27.696
+                 H        1.6842e-05        0.00047062           -12.838
+                O2         0.0077947         0.0068616           -34.213
+                OH         0.0022466         0.0037209           -29.945
+                 O        0.00020085        0.00035361           -17.106
+                H2        0.00022096         0.0030872           -25.677
+               H2O          0.091424           0.14295           -42.783
+               HO2        8.1137e-07        6.9242e-07           -47.051
+              H2O2        5.9634e-08        4.9384e-08           -59.889
+                CO          0.012545          0.012616           -38.368
+               CO2           0.16544           0.10589           -55.475
+               HCO        1.2682e-09         1.231e-09           -51.206
+              CH2O        1.6886e-11        1.5841e-11           -64.045
+     [  +44 minor]        1.3908e-16        1.9315e-16  
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="cantera-can-also-estimate-the-species-and-temperature-in-a-1-d-flame">
+<h3>Cantera can also estimate the species and temperature  in a 1-D flame<a class="headerlink" href="#cantera-can-also-estimate-the-species-and-temperature-in-a-1-d-flame" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simulation parameters</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">one_atm</span>  <span class="c1"># pressure [Pa]</span>
+<span class="n">Tin</span> <span class="o">=</span> <span class="mf">300.0</span>  <span class="c1"># unburned gas temperature [K]</span>
+<span class="n">reactants</span> <span class="o">=</span> <span class="s1">&#39;C4H10:1, O2:6.5, N2:24.4&#39;</span>  <span class="c1"># premixed gas composition</span>
+<span class="n">width</span> <span class="o">=</span> <span class="mf">0.0005</span>  <span class="c1"># m</span>
+<span class="n">loglevel</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># amount of diagnostic output (0 to 8)</span>
+
+<span class="c1"># Solution object used to compute mixture properties, set to the state of the</span>
+<span class="c1"># upstream fuel-air mixture</span>
+<span class="n">gas</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Solution</span><span class="p">(</span><span class="s1">&#39;sdmech.yaml&#39;</span><span class="p">)</span>
+<span class="n">gas</span><span class="o">.</span><span class="n">TPX</span> <span class="o">=</span> <span class="n">Tin</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">reactants</span>
+
+<span class="c1"># Set up flame object</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">FreeFlame</span><span class="p">(</span><span class="n">gas</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">set_refine_criteria</span><span class="p">(</span><span class="n">ratio</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">slope</span><span class="o">=</span><span class="mf">0.06</span><span class="p">,</span> <span class="n">curve</span><span class="o">=</span><span class="mf">0.12</span><span class="p">)</span>
+<span class="c1">#f.show_solution()</span>
+
+<span class="c1"># Solve with mixture-averaged transport model</span>
+<span class="n">f</span><span class="o">.</span><span class="n">transport_model</span> <span class="o">=</span> <span class="s1">&#39;Mix&#39;</span>
+<span class="n">f</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">loglevel</span><span class="o">=</span><span class="n">loglevel</span><span class="p">,</span> <span class="n">auto</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1">#f.show_solution()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>************ Solving on 8 point grid with energy equation enabled ************
+
+..............................................................................
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps     3.375e-05      6.359
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps     4.949e-09      5.963
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps     2.722e-13      5.963
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps   
+ 
+*******************************************************************************
+CanteraError thrown by OneDim::timeStep:
+Time integration failed.
+*******************************************************************************
+ 
+
+******** Initial solve failed; Retrying with energy equation disabled ********
+
+..............................................................................
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps   
+ 
+*******************************************************************************
+CanteraError thrown by OneDim::timeStep:
+Time integration failed.
+*******************************************************************************
+ 
+
+*********** Solving on 12 point grid with energy equation enabled ************
+
+..............................................................................
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps      3.56e-06      7.344
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps     2.703e-05      6.261
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps     1.203e-06      6.049
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps     1.654e-11      6.048
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps     9.093e-16      6.048
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps   
+ 
+*******************************************************************************
+CanteraError thrown by OneDim::timeStep:
+Time integration failed.
+*******************************************************************************
+ 
+
+******** Initial solve failed; Retrying with energy equation disabled ********
+
+..............................................................................
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps   
+ 
+*******************************************************************************
+CanteraError thrown by OneDim::timeStep:
+Time integration failed.
+*******************************************************************************
+ 
+
+*********** Solving on 24 point grid with energy equation enabled ************
+
+..............................................................................
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps     3.164e-06      7.322
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps     1.602e-05      6.543
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps     6.082e-05      6.043
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps     8.919e-09       5.57
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps     4.905e-13       5.57
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps   
+ 
+*******************************************************************************
+CanteraError thrown by OneDim::timeStep:
+Time integration failed.
+*******************************************************************************
+ 
+
+******** Initial solve failed; Retrying with energy equation disabled ********
+
+..............................................................................
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps     0.0002563      1.826
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps      0.009853     -4.765
+Attempt Newton solution of steady-state problem...    success.
+
+Problem solved on [24] point grid(s).
+Expanding domain to accommodate flame thickness. New width: 0.001 m
+no new points needed in flame
+
+*********** Solving on 24 point grid with energy equation enabled ************
+
+..............................................................................
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps     7.119e-06      6.962
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps     3.604e-05      5.986
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps     0.0003079       4.92
+Attempt Newton solution of steady-state problem...    success.
+
+Problem solved on [24] point grid(s).
+Expanding domain to accommodate flame thickness. New width: 0.002 m
+##############################################################################
+Refining grid in flame.
+    New points inserted after grid points 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 
+    to resolve C2H C2H2 C2H3 C2H4 C2H4O C2H4OOH C2H5 C2H5OH C2H6 C3H3 C3H4 C3H5 C3H6 C3H6OOH C3H8 C4H10 C4H8 C4H8OOH1-3 CH CH2CH2OH CH2CHO CH2CO CH2O CH2OH CH3 CH3CH2O CH3CHO CH3CHOH CH3CO CH3O CH3OH CH4 CO CO2 H H2 H2O H2O2 HCCO HCO HO2 I-C3H7 N-C3H7 N2 NC4KET13 O O2 OC2H3OOH OC3H5OOH OH PC4H9 S-CH2 SC4H9 SC4H9O2 T T-CH2 velocity 
+##############################################################################
+
+*********** Solving on 41 point grid with energy equation enabled ************
+
+..............................................................................
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps     5.339e-06      6.723
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps     6.082e-05      5.954
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps     0.0004618       4.62
+Attempt Newton solution of steady-state problem...    success.
+
+Problem solved on [41] point grid(s).
+Expanding domain to accommodate flame thickness. New width: 0.004 m
+##############################################################################
+Refining grid in flame.
+    New points inserted after grid points 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 
+    to resolve C2H C2H2 C2H3 C2H4 C2H4O C2H4OOH C2H5 C2H5OH C2H6 C3H3 C3H4 C3H5 C3H6 C3H6OOH C3H8 C4H10 C4H8 C4H8OOH1-3 CH CH2CH2OH CH2CHO CH2CO CH2O CH2OH CH3 CH3CH2O CH3CHO CH3CHOH CH3CO CH3O CH3OH CH4 CO CO2 H H2 H2O H2O2 HCCO HCO HO2 I-C3H7 N-C3H7 N2 NC4KET13 O O2 OC2H3OOH OC3H5OOH OH PC4H9 S-CH2 SC4H9 SC4H9O2 T T-CH2 velocity 
+##############################################################################
+
+*********** Solving on 57 point grid with energy equation enabled ************
+
+..............................................................................
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps     7.119e-06      6.558
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps     3.604e-05      5.926
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps     0.0002737      4.727
+Attempt Newton solution of steady-state problem...    success.
+
+Problem solved on [57] point grid(s).
+Expanding domain to accommodate flame thickness. New width: 0.008 m
+##############################################################################
+Refining grid in flame.
+    New points inserted after grid points 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 
+    to resolve C2H C2H2 C2H3 C2H4 C2H4O C2H4OOH C2H5 C2H5OH C2H6 C3H3 C3H4 C3H5 C3H6 C3H6OOH C3H8 C4H10 C4H8 C4H8OOH1-3 CH CH2CH2OH CH2CHO CH2CO CH2O CH2OH CH3 CH3CH2O CH3CHO CH3CHOH CH3CO CH3O CH3OH CH4 CO CO2 H H2 H2O H2O2 HCCO HCO HO2 I-C3H7 N-C3H7 N2 NC4KET13 O O2 OC2H3OOH OC3H5OOH OH PC4H9 S-CH2 SC4H9 SC4H9O2 T T-CH2 velocity 
+##############################################################################
+
+*********** Solving on 73 point grid with energy equation enabled ************
+
+..............................................................................
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps     4.746e-06      6.865
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps      9.01e-06      6.834
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps     3.421e-05       6.16
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps     0.0002598      4.934
+Attempt Newton solution of steady-state problem...    success.
+
+Problem solved on [73] point grid(s).
+Expanding domain to accommodate flame thickness. New width: 0.016 m
+##############################################################################
+Refining grid in flame.
+    New points inserted after grid points 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 
+    to resolve C2H C2H2 C2H3 C2H4 C2H4O C2H4OOH C2H5 C2H5OH C2H6 C3H3 C3H4 C3H5 C3H6 C3H6OOH C3H8 C4H10 C4H8 C4H8OOH1-3 CH CH2CH2OH CH2CHO CH2CO CH2O CH2OH CH3 CH3CH2O CH3CHO CH3CHOH CH3CO CH3O CH3OH CH4 CO CO2 H H2 H2O H2O2 HCCO HCO HO2 I-C3H7 N-C3H7 N2 NC4KET13 O O2 OC2H3OOH OC3H5OOH OH PC4H9 S-CH2 SC4H9 SC4H9O2 T T-CH2 velocity 
+##############################################################################
+
+*********** Solving on 89 point grid with energy equation enabled ************
+
+..............................................................................
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps      3.56e-06       6.97
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps     8.009e-06      6.991
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps      9.01e-06      6.932
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps     1.352e-05       6.86
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps     2.027e-05      6.311
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps     0.0001539      5.354
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps     0.0008768      4.178
+Attempt Newton solution of steady-state problem...    success.
+
+Problem solved on [89] point grid(s).
+
+..............................................................................
+grid refinement disabled.
+
+******************** Solving with grid refinement enabled ********************
+
+..............................................................................
+Attempt Newton solution of steady-state problem...    success.
+
+Problem solved on [89] point grid(s).
+
+..............................................................................
+##############################################################################
+Refining grid in flame.
+    New points inserted after grid points 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 
+    to resolve C2H C2H2 C2H3 C2H4 C2H4O C2H4OOH C2H5 C2H5OH C2H6 C3H3 C3H4 C3H5 C3H6 C3H6OOH C3H8 C4H10 C4H8 C4H8OOH1-3 CH CH2CH2OH CH2CHO CH2CO CH2O CH2OH CH3 CH3CH2O CH3CHO CH3CHOH CH3CO CH3O CH3OH CH4 CO CO2 H H2 H2O H2O2 HCCO HCO HO2 I-C3H7 N-C3H7 N2 NC4KET13 O O2 OC2H3OOH OC3H5OOH OH PC4H9 S-CH2 SC4H9 SC4H9O2 T T-CH2 velocity 
+##############################################################################
+
+..............................................................................
+Attempt Newton solution of steady-state problem...    success.
+
+Problem solved on [105] point grid(s).
+
+..............................................................................
+##############################################################################
+Refining grid in flame.
+    New points inserted after grid points 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 
+    to resolve C2H C2H2 C2H3 C2H4 C2H4O C2H4OOH C2H5 C2H5OH C2H6 C3H3 C3H4 C3H5 C3H6 C3H6OOH C3H8 C4H10 C4H8 C4H8OOH1-3 CH CH2CH2OH CH2CHO CH2CO CH2O CH2OH CH3 CH3CH2O CH3CHO CH3CHOH CH3O CH3OH CH4 CO H H2 H2O H2O2 HCCO HCO HO2 I-C3H7 N-C3H7 N2 NC4KET13 O O2 OC2H3OOH OC3H5OOH OH PC4H9 S-CH2 SC4H9 SC4H9O2 T T-CH2 velocity 
+##############################################################################
+
+..............................................................................
+Attempt Newton solution of steady-state problem...    success.
+
+Problem solved on [130] point grid(s).
+
+..............................................................................
+##############################################################################
+Refining grid in flame.
+    New points inserted after grid points 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 
+    to resolve C2H C2H2 C2H3 C2H4 C2H4OOH C2H5 C2H5OH C2H6 C3H3 C3H4 C3H5 C3H6 C3H6OOH C3H8 C4H10 C4H8 C4H8OOH1-3 CH CH2CH2OH CH2CHO CH2CO CH2O CH2OH CH3 CH3CH2O CH3CHO CH3O CH3OH CH4 H H2O2 HCCO HCO HO2 I-C3H7 N-C3H7 N2 NC4KET13 O OC2H3OOH OC3H5OOH PC4H9 S-CH2 SC4H9 SC4H9O2 T-CH2 
+##############################################################################
+
+..............................................................................
+Attempt Newton solution of steady-state problem...    success.
+
+Problem solved on [172] point grid(s).
+
+..............................................................................
+##############################################################################
+Refining grid in flame.
+    New points inserted after grid points 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 
+    to resolve C2H C2H3 C2H4OOH C2H5 C2H5OH C2H6 C3H4 C3H5 C3H6 C3H6OOH C3H8 C4H8 C4H8OOH1-3 CH CH2CH2OH CH2CHO CH2OH CH3CH2O HCCO HCO I-C3H7 N-C3H7 NC4KET13 OC2H3OOH OC3H5OOH PC4H9 S-CH2 SC4H9 SC4H9O2 T-CH2 
+##############################################################################
+
+..............................................................................
+Attempt Newton solution of steady-state problem...    success.
+
+Problem solved on [238] point grid(s).
+
+..............................................................................
+##############################################################################
+Refining grid in flame.
+    New points inserted after grid points 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 
+    to resolve C3H6OOH C4H8OOH1-3 N-C3H7 NC4KET13 PC4H9 SC4H9 SC4H9O2 
+##############################################################################
+
+..............................................................................
+Attempt Newton solution of steady-state problem...    success.
+
+Problem solved on [269] point grid(s).
+
+..............................................................................
+no new points needed in flame
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">grid</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">T</span><span class="o">-</span><span class="mi">273</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;T&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Distance (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature (C)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2cb409d58aa83cb32793056d78ad46213f6c60b70da21c05dac1b7cabecb924d.png" src="../_images/2cb409d58aa83cb32793056d78ad46213f6c60b70da21c05dac1b7cabecb924d.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">grid</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">X</span><span class="p">[</span><span class="n">gas</span><span class="o">.</span><span class="n">species_index</span><span class="p">(</span><span class="s1">&#39;C4H10&#39;</span><span class="p">)],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;C4H10&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">grid</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">X</span><span class="p">[</span><span class="n">gas</span><span class="o">.</span><span class="n">species_index</span><span class="p">(</span><span class="s1">&#39;O2&#39;</span><span class="p">)],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;O2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">grid</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">X</span><span class="p">[</span><span class="n">gas</span><span class="o">.</span><span class="n">species_index</span><span class="p">(</span><span class="s1">&#39;CO2&#39;</span><span class="p">)],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;CO2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">grid</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">X</span><span class="p">[</span><span class="n">gas</span><span class="o">.</span><span class="n">species_index</span><span class="p">(</span><span class="s1">&#39;H2O&#39;</span><span class="p">)],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;H2O&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">grid</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">X</span><span class="p">[</span><span class="n">gas</span><span class="o">.</span><span class="n">species_index</span><span class="p">(</span><span class="s1">&#39;N2&#39;</span><span class="p">)],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;N2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Distance (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Mole Fractions&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/65e59774b09e04cd0cc9592336d029f532799657acfb2a4ac6b8d1c9e914dd71.png" src="../_images/65e59774b09e04cd0cc9592336d029f532799657acfb2a4ac6b8d1c9e914dd71.png" />
+</div>
+</div>
+<p>Dr. Lignell discusses combustion processes and numerical methods further in his <a class="reference external" href="https://ignite.byu.edu/che522/index.html">Combustion Principles course</a>. Dr. Baxter has also taught advanced combustion courses.</p>
+</section>
+<section id="experimental-estimate-from-a-k-type-thermocople">
+<h3>Experimental Estimate from a K type Thermocople<a class="headerlink" href="#experimental-estimate-from-a-k-type-thermocople" title="Permalink to this heading">#</a></h3>
+<p>An ESP32, MAX6675, and K type thermocouple are used to measure the temperature of the flame. The MAX6675 is a thermocouple amplifier that converts the thermocouple voltage to a digital signal that can be read by the ESP32. The ESP32 is a low-cost microcontroller that can be programmed with the Arduino IDE. The data collected by the ESP32 can be pushed to an andoid phone via classic bluetooth (or to a windows machine via bluetooth).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1">#pandas is a data analysis library</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A lighter is used to heat a small bead K-type thermocouple. The rating of the K-type thermocouple is up to 1200 C. We’ll see how hot we can get the thermocouple.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../topics.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Computational Tools Modules</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../bootcamp.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Boot Camp</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#current-worldwide-problems-in-engineering">Current Worldwide Problems in Engineering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-tools-will-you-use-to-solve-these-problems">What tools will you use to solve these problems?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intro-demonstration">Intro Demonstration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flames-are-ubiquitous">Flames are Ubiquitous</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-manually-calculate-the-adiabatic-flame-temperature">First manually calculate the adiabatic flame temperature</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#second-calculate-the-adiabatic-flame-temperature-using-cantera">Second calculate the adiabatic flame temperature using Cantera</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cantera-can-also-estimate-the-species-and-temperature-in-a-1-d-flame">Cantera can also estimate the species and temperature  in a 1-D flame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-estimate-from-a-k-type-thermocople">Experimental Estimate from a K type Thermocople</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Clint Guymon, BYU
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

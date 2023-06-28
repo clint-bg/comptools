@@ -1,0 +1,975 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Homework 2: Data Analysis and Functions &#8212; Computational Tools for Chemical Engineers</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'homework/HW02';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Case Studies" href="../casestudies.html" />
+    <link rel="prev" title="Homework 1: Introduction to Python" href="HW01.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    263 Computation Tools
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../topics.html">Computational Tools Modules</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/01-Motive.html">Course Motivation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../bootcamp.html">Boot Camp</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../bootcamp/bootcampsch.html">Boot Camp Schedule</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="HW01.html">Homework 1: Introduction to Python</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Homework 2: Data Analysis and Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/casestudydocs.html">Case Study Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../resources.html">Resources</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/clint-bg/comptools" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/clint-bg/comptools/issues/new?title=Issue%20on%20page%20%2Fhomework/HW02.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/homework/HW02.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Homework 2: Data Analysis and Functions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-tutorial">Problem #1 Tutorial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-exercise">Problem #1 Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem #2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem #3</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="homework-2-data-analysis-and-functions">
+<h1>Homework 2: Data Analysis and Functions<a class="headerlink" href="#homework-2-data-analysis-and-functions" title="Permalink to this heading">#</a></h1>
+<p>This assignment covers topics in data import, analysis, and visualization.</p>
+<ul class="simple">
+<li><p>Import and Analyze Data</p></li>
+<li><p>Visualize Data with Plots</p></li>
+</ul>
+<p>It also covers how to use packages with built-in functions or create a custom function.</p>
+<ul class="simple">
+<li><p>Built-in functions</p></li>
+<li><p>Custom functions</p></li>
+</ul>
+<section id="problem-1-tutorial">
+<h2>Problem #1 Tutorial<a class="headerlink" href="#problem-1-tutorial" title="Permalink to this heading">#</a></h2>
+<p>Pandas is a package for data analysis. This problem demonstrates how to use Pandas to perform an analysis on Apple stock. The assignment is then to perform a similar analysis to compare the performance of multiple stocks. The following is Historical Data for the Apple stock from 2018:</p>
+<ul class="simple">
+<li><p><a href='https://apmonitor.com/che263/uploads/Main/AAPL.csv' target='_blank'>AAPL (Apple), URL: https://apmonitor.com/che263/uploads/Main/AAPL.csv</a></p></li>
+</ul>
+<p><em><strong>Step 1a:</strong></em> The data is imported into a Pandas dataframe. A dataframe is a structured data form, similar to an Excel sheet. It is read with the <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code> function that reads a Comma Separated Value (CSV) file that contains the data. The function can either read a file on the local computer or from a URL.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">appl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://apmonitor.com/che263/uploads/Main/AAPL.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">appl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://apmonitor.com/che263/uploads/Main/AAPL.csv&#39;</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p><em><strong>Step 1b:</strong></em> The leading 5 rows are shown with <code class="docutils literal notranslate"><span class="pre">pd.head()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">appl</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Open</th>
+      <th>High</th>
+      <th>Low</th>
+      <th>Close</th>
+      <th>Adj Close</th>
+      <th>Volume</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2018-04-04</td>
+      <td>164.880005</td>
+      <td>172.009995</td>
+      <td>164.770004</td>
+      <td>171.610001</td>
+      <td>171.610001</td>
+      <td>34605500</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2018-04-05</td>
+      <td>172.580002</td>
+      <td>174.229996</td>
+      <td>172.080002</td>
+      <td>172.800003</td>
+      <td>172.800003</td>
+      <td>26933200</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2018-04-06</td>
+      <td>170.970001</td>
+      <td>172.479996</td>
+      <td>168.199997</td>
+      <td>168.380005</td>
+      <td>168.380005</td>
+      <td>35005300</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2018-04-09</td>
+      <td>169.880005</td>
+      <td>173.089996</td>
+      <td>169.850006</td>
+      <td>170.050003</td>
+      <td>170.050003</td>
+      <td>29017700</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2018-04-10</td>
+      <td>173.000000</td>
+      <td>174.000000</td>
+      <td>171.529999</td>
+      <td>173.250000</td>
+      <td>173.250000</td>
+      <td>28408600</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><em><strong>Step 1c:</strong></em>  The last 5 rows are shown with <code class="docutils literal notranslate"><span class="pre">pd.tail()</span></code>. That number of rows can be adjusted by adding an integer number as an argument of the function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">appl</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Open</th>
+      <th>High</th>
+      <th>Low</th>
+      <th>Close</th>
+      <th>Adj Close</th>
+      <th>Volume</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>20</th>
+      <td>2018-05-02</td>
+      <td>175.229996</td>
+      <td>177.750000</td>
+      <td>173.800003</td>
+      <td>176.570007</td>
+      <td>176.570007</td>
+      <td>66539400</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>2018-05-03</td>
+      <td>175.880005</td>
+      <td>177.500000</td>
+      <td>174.440002</td>
+      <td>176.889999</td>
+      <td>176.889999</td>
+      <td>33855800</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>2018-05-04</td>
+      <td>178.250000</td>
+      <td>183.649994</td>
+      <td>178.169998</td>
+      <td>182.929794</td>
+      <td>182.929794</td>
+      <td>27037277</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><em><strong>Step 1d:</strong></em> Basic statistics are shown with the <code class="docutils literal notranslate"><span class="pre">appl.describe()</span></code> function. This includes the number of data points (count), average (mean), standard deviation (std), minimum (min), percentiles (25%, 50%, 75%), and maximum (max) for each data column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">appl</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Open</th>
+      <th>High</th>
+      <th>Low</th>
+      <th>Close</th>
+      <th>Adj Close</th>
+      <th>Volume</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>23.000000</td>
+      <td>23.000000</td>
+      <td>23.000000</td>
+      <td>23.000000</td>
+      <td>23.000000</td>
+      <td>2.300000e+01</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>170.720001</td>
+      <td>172.835651</td>
+      <td>169.411740</td>
+      <td>171.171297</td>
+      <td>171.171297</td>
+      <td>3.388223e+07</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>5.098656</td>
+      <td>5.111622</td>
+      <td>5.589069</td>
+      <td>5.693840</td>
+      <td>5.693840</td>
+      <td>1.253788e+07</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>162.130005</td>
+      <td>164.330002</td>
+      <td>160.630005</td>
+      <td>162.320007</td>
+      <td>162.320007</td>
+      <td>2.075450e+07</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>166.040001</td>
+      <td>168.229996</td>
+      <td>164.430000</td>
+      <td>165.489998</td>
+      <td>165.489998</td>
+      <td>2.676930e+07</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>172.229996</td>
+      <td>173.919998</td>
+      <td>171.529999</td>
+      <td>172.440002</td>
+      <td>172.440002</td>
+      <td>2.901770e+07</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>174.904999</td>
+      <td>176.014999</td>
+      <td>173.825005</td>
+      <td>175.275002</td>
+      <td>175.275002</td>
+      <td>3.533055e+07</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>178.250000</td>
+      <td>183.649994</td>
+      <td>178.169998</td>
+      <td>182.929794</td>
+      <td>182.929794</td>
+      <td>6.653940e+07</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><em><strong>Step 1d:</strong></em> Alternatively, the <code class="docutils literal notranslate"><span class="pre">max</span></code>, <code class="docutils literal notranslate"><span class="pre">min</span></code>, <code class="docutils literal notranslate"><span class="pre">np.stdev</span></code>, <code class="docutils literal notranslate"><span class="pre">np.mean</span></code>, and <code class="docutils literal notranslate"><span class="pre">np.median</span></code> functions can be used to report specific descriptive statistics.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">ac</span> <span class="o">=</span> <span class="n">appl</span><span class="p">[</span><span class="s1">&#39;Open&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; max   : &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">ac</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; min   : &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">ac</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; stdev : &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ac</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; avg   : &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ac</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; median: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">ac</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> max   : 178.25
+ min   : 162.130005
+ stdev : 4.986583644140891
+ avg   : 170.72000065217392
+ median: 172.229996
+</pre></div>
+</div>
+</div>
+</div>
+<p><em><strong>Step 1e:</strong></em> Create a time-series plot of the stock <em>High</em>, <em>Low</em>, and <em>Open</em> price for each day.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">appl</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">appl</span><span class="p">[</span><span class="s1">&#39;Open&#39;</span><span class="p">],</span><span class="s1">&#39;k-&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">appl</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">appl</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">],</span><span class="s1">&#39;r--&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">appl</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">appl</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">],</span><span class="s1">&#39;b:&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/eeef768e47b256c3a2ecb91c6cd080a852a0590f07879b1ba3061fa40e862fc3.png" src="../_images/eeef768e47b256c3a2ecb91c6cd080a852a0590f07879b1ba3061fa40e862fc3.png" />
+</div>
+</div>
+</section>
+<section id="problem-1-exercise">
+<h2>Problem #1 Exercise<a class="headerlink" href="#problem-1-exercise" title="Permalink to this heading">#</a></h2>
+<p><em><strong>Action 1a:</strong></em> Visit <a href='https://finance.yahoo.com' target='_blank'>Yahoo Finance</a> and select a stock by searching for a company name (e.g. Google). Download the Historical Data and import the data for two additional company stocks, each with the appropriate stock ticker symbol. Alternatively, use the following data from 2018:</p>
+<ul class="simple">
+<li><p><a href='https://apmonitor.com/che263/uploads/Main/GOOG.csv' target='_blank'>GOOG (Google), URL: https://apmonitor.com/che263/uploads/Main/GOOG.csv</a></p></li>
+<li><p><a href='https://apmonitor.com/che263/uploads/Main/XOM.csv' target='_blank'>XOM (ExxonMobil), URL: https://apmonitor.com/che263/uploads/Main/XOM.csv</a></p></li>
+</ul>
+<p>Import the data into two separate dataframes with names of the stock ticker.</p>
+<p><em><strong>Action 1b:</strong></em> Show the first 7 rows of each stock.</p>
+<p><em><strong>Action 1c:</strong></em> Calculate the MAX, MIN, STDEV, and AVERAGE for each stock “Close” data.</p>
+<p><em><strong>Action 1d:</strong></em> Divide the <em>Close</em> price by the maximum <em>Close</em> price over the past month so that all values are divided by the maximum value for that particular stock. Repeat this for both stocks so that the stock prices can be more easily compared on the same plot.</p>
+<p><em><strong>Action 1e</strong></em>: Generate a plot that includes the two stock “Close” data and daily “High” and “Low” values. The final plot should be both descriptive with a legend and axis labels.</p>
+<p><em><strong>Action 1f:</strong></em> Save the figure as a <strong>PNG</strong> file with <code class="docutils literal notranslate"><span class="pre">plt.savefig('myPlot.png')</span></code> or change the file name to <code class="docutils literal notranslate"><span class="pre">myPlot.jpg</span></code> for a <strong>JPEG</strong> format. Locate the file <code class="docutils literal notranslate"><span class="pre">myPlot.png</span></code> or <code class="docutils literal notranslate"><span class="pre">myPlot.jpg</span></code>.</p>
+</section>
+<section id="problem-2">
+<h2>Problem #2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h2>
+<p><em><strong>Action:</strong></em> Import and display the first 5 rows of data from an <a href='https://apmonitor.com/heat.htm' target='_blank'>Arduino temperature control device</a> with Pandas.</p>
+<ul class="simple">
+<li><p><a href='http://apmonitor.com/che263/uploads/Main/tclab.txt' target='_blank'>TCLab Data, URL: http://apmonitor.com/che263/uploads/Main/tclab.txt</a></p></li>
+</ul>
+<p>This TCLab device is used later for the <a href='http://apmonitor.com/che263/index.php/Main/CourseProjects' target='_blank'>Course Project</a> and in the <a href='https://apmonitor.com/heat.htm' target='_blank'>Process Dynamics and Control Course</a>.</p>
+<p><em><strong>Action:</strong></em> Display summary statistics of the data with DataFrame <code class="docutils literal notranslate"><span class="pre">df.describe()</span></code> function.</p>
+<p>Below is an animation of adjustments to the heater to drive the temperature to a target set point, similar to how a thermostat works in a home.</p>
+<img src='https://apmonitor.com/pdc/uploads/Main/pid_control.gif'>
+<p><em><strong>Subplots:</strong></em> A subplot is generated with the <code class="docutils literal notranslate"><span class="pre">plt.subplot</span></code> command with three arguments (# rows, # columns, current plot). A subplot with 2 rows (vertical) and 1 column (horizontal) is created with <code class="docutils literal notranslate"><span class="pre">plt.subplot(2,1,1)</span></code>. The first two numbers don’t change when plotting in the lower window with <code class="docutils literal notranslate"><span class="pre">plt.subplot(2,1,2)</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="s1">&#39;b-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="s1">&#39;r-&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x25503e4d550&gt;]
+</pre></div>
+</div>
+<img alt="../_images/2550aa555a1740b60b8e173e2ec9a246f7ad42887efa41c20bb7c97db4960aef.png" src="../_images/2550aa555a1740b60b8e173e2ec9a246f7ad42887efa41c20bb7c97db4960aef.png" />
+</div>
+</div>
+<p><em><strong>Action:</strong></em> Generate a plot that shows the measured TCLab temperature values on one subplot and the heater values on another subplot. Add appropriate labels to the plots such as x-label, y-label, title, and legend.</p>
+</section>
+<section id="problem-3">
+<h2>Problem #3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h2>
+<p>Python has built-in functions or allows the user to create new functions.</p>
+<p><em><strong>Action:</strong></em> For each input value, evaluate the output function for ID 3a-3d.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>ID</p></th>
+<th class="head"><p>Input Value (x)</p></th>
+<th class="head"><p>Output Function f(x)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>3a</p></td>
+<td><p>0.5 radians</p></td>
+<td><p>cos(x)</p></td>
+</tr>
+<tr class="row-odd"><td><p>3b</p></td>
+<td><p>30 degrees</p></td>
+<td><p>sin(x)</p></td>
+</tr>
+<tr class="row-even"><td><p>3c</p></td>
+<td><p>25</p></td>
+<td><p>x! (x factorial)</p></td>
+</tr>
+<tr class="row-odd"><td><p>3d</p></td>
+<td><p>4.999</p></td>
+<td><p>largest integer less than or equal to x</p></td>
+</tr>
+</tbody>
+</table>
+<p>For each function, evaluate it at the specified input value.</p>
+<p><em><strong>Custom Functions:</strong></em> A custom function is defined with <code class="docutils literal notranslate"><span class="pre">def</span></code> such as:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myFcn</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">myFcn</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myFcn</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>This gives an output of 4 and 16 as the function is evaluated with input arguments of 2 and 4, respectively.</p>
+<p><em><strong>Action:</strong></em> Create a custom function for ID 3e-3g that can be used to evaluate the input values.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>ID</p></th>
+<th class="head"><p>Input Values (x)</p></th>
+<th class="head"><p>Output Function f(x)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>3e</p></td>
+<td><p>np.linspace(2,5)</p></td>
+<td><p><span class="math notranslate nohighlight">\(tan(\pi/x)\)</span> with <span class="math notranslate nohighlight">\(\pi\)</span>/x in radians</p></td>
+</tr>
+<tr class="row-odd"><td><p>3f</p></td>
+<td><p>np.linspace(0,10)</p></td>
+<td><p>maximum of <span class="math notranslate nohighlight">\(2 \sqrt{x}\)</span>, <span class="math notranslate nohighlight">\(x^2/2\)</span>, <span class="math notranslate nohighlight">\(x^3/3\)</span>, and <span class="math notranslate nohighlight">\((x^2+x^3)/5\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>3g</p></td>
+<td><p>np.linspace(0,2)</p></td>
+<td><p>x^2 when x&lt;1; <span class="math notranslate nohighlight">\(\sin{\left(\pi x/2\right)}\)</span> when x≥1</p></td>
+</tr>
+</tbody>
+</table>
+<p><em><strong>Action:</strong></em> Create plot of each function versus the specified input values.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./homework"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="HW01.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Homework 1: Introduction to Python</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../casestudies.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Case Studies</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-tutorial">Problem #1 Tutorial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-exercise">Problem #1 Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem #2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem #3</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Clint Guymon, BYU
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
