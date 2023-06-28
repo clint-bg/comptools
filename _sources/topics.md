@@ -1,4 +1,4 @@
-# Computational Tools Modules
+# Modules
 
 ## Course Schedule
 The schedule for the course will be as follows (subject to change where Week 1.2 is the first week and the second class of that week):

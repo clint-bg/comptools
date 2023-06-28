@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Course Motivation &#8212; Computational Tools for Chemical Engineers</title>
+    <title>01-Motivation Example &#8212; Computational Tools for Chemical Engineers</title>
   
   
   
@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Boot Camp" href="../bootcamp.html" />
-    <link rel="prev" title="Computational Tools Modules" href="../topics.html" />
+    <link rel="prev" title="Modules" href="../topics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -154,13 +154,13 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    263 Computation Tools
+                    Intro and Approach
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../topics.html">Computational Tools Modules</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Course Motivation</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../topics.html">Modules</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">01-Motivation Example</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../bootcamp.html">Boot Camp</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -367,7 +367,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Course Motivation</h1>
+    <h1>01-Motivation Example</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -398,8 +398,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="course-motivation">
-<h1>Course Motivation<a class="headerlink" href="#course-motivation" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="motivation-example">
+<h1>01-Motivation Example<a class="headerlink" href="#motivation-example" title="Permalink to this heading">#</a></h1>
 <p>Engineers solve problems. You as a chemical engineer are likely excited to collaborate with others to use chemistry and physics together with other engineering principles to solve problems our society faces.</p>
 <section id="current-worldwide-problems-in-engineering">
 <h2>Current Worldwide Problems in Engineering<a class="headerlink" href="#current-worldwide-problems-in-engineering" title="Permalink to this heading">#</a></h2>
@@ -472,7 +472,7 @@ document.write(`
 <section id="intro-demonstration">
 <h2>Intro Demonstration<a class="headerlink" href="#intro-demonstration" title="Permalink to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Flames</span></code> are critical to many processes that benefit us: cooking, heating, transportation, electricity, etc. The combustion products from burning fuels can present problems. However, we have been reducing those negative effects for decades. Below is a plot by the EPA showing that trend of improvement (<a class="reference external" href="https://www.epa.gov/air-trends/air-quality-national-summary">also here</a>):</p>
-<p><img alt="image001.png" src="lectures/attachment:image001.png" /></p>
+<p><img alt="lectures/supportfiles/image001.png" src="lectures/attachment:image001.png" /></p>
 <section id="flames-are-ubiquitous">
 <h3>Flames are Ubiquitous<a class="headerlink" href="#flames-are-ubiquitous" title="Permalink to this heading">#</a></h3>
 <p>In this example we’ll measure the temperature of a butane flame with a thermocouple and a low-cost data acquisition unit (ESP32) with an amplifier(MAX6675). We’ll also predict the temperature of the flame using several models in python.</p>
@@ -521,21 +521,6 @@ C_4H_{10} + 6.5\cdot O_2 + x\cdot N_2 =&gt; 4\cdot CO_2 + 5\cdot H_2O + x\cdot N
 <span class="n">CO2</span> <span class="o">=</span> <span class="n">species</span><span class="p">(</span><span class="n">H_rxn</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">H_f</span><span class="o">=-</span><span class="mi">394</span><span class="p">,</span><span class="n">C_pgl</span><span class="o">=</span><span class="p">[</span><span class="mi">29370</span><span class="p">,</span><span class="mi">34540</span><span class="p">,</span><span class="mi">1428</span><span class="p">,</span><span class="mi">26400</span><span class="p">,</span><span class="mi">588</span><span class="p">],</span><span class="n">M_w</span><span class="o">=</span><span class="mf">44.01</span><span class="p">,</span><span class="n">coeff</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">H2O</span> <span class="o">=</span> <span class="n">species</span><span class="p">(</span><span class="n">H_rxn</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">H_f</span><span class="o">=-</span><span class="mi">242</span><span class="p">,</span><span class="n">C_pgl</span><span class="o">=</span><span class="p">[</span><span class="mi">33363</span><span class="p">,</span><span class="mi">26790</span><span class="p">,</span><span class="mi">2610</span><span class="p">,</span><span class="mi">8896</span><span class="p">,</span><span class="mi">1169</span><span class="p">],</span><span class="n">M_w</span><span class="o">=</span><span class="mf">18.02</span><span class="p">,</span><span class="n">coeff</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">N2</span> <span class="o">=</span> <span class="n">species</span><span class="p">(</span><span class="n">H_rxn</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">H_f</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">C_pgl</span><span class="o">=</span><span class="p">[</span><span class="mi">29105</span><span class="p">,</span><span class="mi">8615</span><span class="p">,</span><span class="mi">1701</span><span class="p">,</span><span class="mi">103</span><span class="p">,</span><span class="mi">910</span><span class="p">],</span><span class="n">M_w</span><span class="o">=</span><span class="mf">28.01</span><span class="p">,</span><span class="n">coeff</span><span class="o">=-</span><span class="mf">24.4</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Adiabatic flame temperature of butane-air mixture from heats of formation</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># First import the needed packages</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
 </pre></div>
 </div>
 </div>
@@ -669,14 +654,25 @@ The eq. gas mole fractions for H2O, CO2, N2, O2 are 0.14,0.11,0.72,0.01, respect
 
 ..............................................................................
 Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps     3.375e-05      6.359
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps     4.949e-09      5.963
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps     2.722e-13      5.963
+Take 10 timesteps   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  3.375e-05      6.359
 Attempt Newton solution of steady-state problem...    failure. 
 Take 10 timesteps   
- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  4.949e-09      5.963
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  2.722e-13      5.963
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
 *******************************************************************************
 CanteraError thrown by OneDim::timeStep:
 Time integration failed.
@@ -688,7 +684,9 @@ Time integration failed.
 ..............................................................................
 Attempt Newton solution of steady-state problem...    failure. 
 Take 10 timesteps   
- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
 *******************************************************************************
 CanteraError thrown by OneDim::timeStep:
 Time integration failed.
@@ -699,18 +697,35 @@ Time integration failed.
 
 ..............................................................................
 Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps      3.56e-06      7.344
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps     2.703e-05      6.261
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps     1.203e-06      6.049
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps     1.654e-11      6.048
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps     9.093e-16      6.048
+Take 10 timesteps   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   3.56e-06      7.344
 Attempt Newton solution of steady-state problem...    failure. 
 Take 10 timesteps   
- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  2.703e-05      6.261
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1.203e-06      6.049
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1.654e-11      6.048
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  9.093e-16      6.048
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
 *******************************************************************************
 CanteraError thrown by OneDim::timeStep:
 Time integration failed.
@@ -722,7 +737,9 @@ Time integration failed.
 ..............................................................................
 Attempt Newton solution of steady-state problem...    failure. 
 Take 10 timesteps   
- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
 *******************************************************************************
 CanteraError thrown by OneDim::timeStep:
 Time integration failed.
@@ -733,18 +750,35 @@ Time integration failed.
 
 ..............................................................................
 Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps     3.164e-06      7.322
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps     1.602e-05      6.543
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps     6.082e-05      6.043
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps     8.919e-09       5.57
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps     4.905e-13       5.57
+Take 10 timesteps   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  3.164e-06      7.322
 Attempt Newton solution of steady-state problem...    failure. 
 Take 10 timesteps   
- 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  1.602e-05      6.543
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  6.082e-05      6.043
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  8.919e-09       5.57
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  4.905e-13       5.57
+Attempt Newton solution of steady-state problem...    failure. 
+Take 10 timesteps   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
 *******************************************************************************
 CanteraError thrown by OneDim::timeStep:
 Time integration failed.
@@ -755,9 +789,15 @@ Time integration failed.
 
 ..............................................................................
 Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps     0.0002563      1.826
+Take 10 timesteps   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.0002563      1.826
 Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps      0.009853     -4.765
+Take 10 timesteps   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   0.009853     -4.765
 Attempt Newton solution of steady-state problem...    success.
 
 Problem solved on [24] point grid(s).
@@ -767,12 +807,24 @@ no new points needed in flame
 *********** Solving on 24 point grid with energy equation enabled ************
 
 ..............................................................................
+Attempt Newton solution of steady-state problem...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    failure. 
+Take 10 timesteps   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  7.119e-06      6.962
 Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps     7.119e-06      6.962
+Take 10 timesteps   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  3.604e-05      5.986
 Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps     3.604e-05      5.986
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps     0.0003079       4.92
+Take 10 timesteps   
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0.0003079       4.92
 Attempt Newton solution of steady-state problem...    success.
 
 Problem solved on [24] point grid(s).
@@ -782,159 +834,45 @@ Refining grid in flame.
     New points inserted after grid points 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 
     to resolve C2H C2H2 C2H3 C2H4 C2H4O C2H4OOH C2H5 C2H5OH C2H6 C3H3 C3H4 C3H5 C3H6 C3H6OOH C3H8 C4H10 C4H8 C4H8OOH1-3 CH CH2CH2OH CH2CHO CH2CO CH2O CH2OH CH3 CH3CH2O CH3CHO CH3CHOH CH3CO CH3O CH3OH CH4 CO CO2 H H2 H2O H2O2 HCCO HCO HO2 I-C3H7 N-C3H7 N2 NC4KET13 O O2 OC2H3OOH OC3H5OOH OH PC4H9 S-CH2 SC4H9 SC4H9O2 T T-CH2 velocity 
 ##############################################################################
-
-*********** Solving on 41 point grid with energy equation enabled ************
-
-..............................................................................
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps     5.339e-06      6.723
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps     6.082e-05      5.954
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps     0.0004618       4.62
-Attempt Newton solution of steady-state problem...    success.
-
-Problem solved on [41] point grid(s).
-Expanding domain to accommodate flame thickness. New width: 0.004 m
-##############################################################################
-Refining grid in flame.
-    New points inserted after grid points 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 
-    to resolve C2H C2H2 C2H3 C2H4 C2H4O C2H4OOH C2H5 C2H5OH C2H6 C3H3 C3H4 C3H5 C3H6 C3H6OOH C3H8 C4H10 C4H8 C4H8OOH1-3 CH CH2CH2OH CH2CHO CH2CO CH2O CH2OH CH3 CH3CH2O CH3CHO CH3CHOH CH3CO CH3O CH3OH CH4 CO CO2 H H2 H2O H2O2 HCCO HCO HO2 I-C3H7 N-C3H7 N2 NC4KET13 O O2 OC2H3OOH OC3H5OOH OH PC4H9 S-CH2 SC4H9 SC4H9O2 T T-CH2 velocity 
-##############################################################################
-
-*********** Solving on 57 point grid with energy equation enabled ************
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>*********** Solving on 41 point grid with energy equation enabled ************
 
 ..............................................................................
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps     7.119e-06      6.558
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps     3.604e-05      5.926
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps     0.0002737      4.727
-Attempt Newton solution of steady-state problem...    success.
+Attempt Newton solution of steady-state problem...
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">20</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="c1">#f.show_solution()</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> 
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="c1"># Solve with mixture-averaged transport model</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="n">f</span><span class="o">.</span><span class="n">transport_model</span> <span class="o">=</span> <span class="s1">&#39;Mix&#39;</span>
+<span class="ne">---&gt; </span><span class="mi">20</span> <span class="n">f</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">loglevel</span><span class="o">=</span><span class="n">loglevel</span><span class="p">,</span> <span class="n">auto</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="c1">#f.show_solution()</span>
 
-Problem solved on [57] point grid(s).
-Expanding domain to accommodate flame thickness. New width: 0.008 m
-##############################################################################
-Refining grid in flame.
-    New points inserted after grid points 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 
-    to resolve C2H C2H2 C2H3 C2H4 C2H4O C2H4OOH C2H5 C2H5OH C2H6 C3H3 C3H4 C3H5 C3H6 C3H6OOH C3H8 C4H10 C4H8 C4H8OOH1-3 CH CH2CH2OH CH2CHO CH2CO CH2O CH2OH CH3 CH3CH2O CH3CHO CH3CHOH CH3CO CH3O CH3OH CH4 CO CO2 H H2 H2O H2O2 HCCO HCO HO2 I-C3H7 N-C3H7 N2 NC4KET13 O O2 OC2H3OOH OC3H5OOH OH PC4H9 S-CH2 SC4H9 SC4H9O2 T T-CH2 velocity 
-##############################################################################
+<span class="nn">File ~/opt/anaconda3/envs/jupiterbook/lib/python3.9/site-packages/cantera/onedim.py:898,</span> in <span class="ni">FreeFlame.solve</span><span class="nt">(self, loglevel, refine_grid, auto)</span>
+<span class="g g-Whitespace">    </span><span class="mi">896</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">897</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">898</span>         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">loglevel</span><span class="p">,</span> <span class="n">refine_grid</span><span class="p">,</span> <span class="n">auto</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">899</span>         <span class="k">break</span>
+<span class="g g-Whitespace">    </span><span class="mi">900</span>     <span class="k">except</span> <span class="n">DomainTooNarrow</span><span class="p">:</span>
 
-*********** Solving on 73 point grid with energy equation enabled ************
+<span class="nn">File cantera/onedim.pyx:1221,</span> in <span class="ni">cantera._cantera.Sim1D.solve</span><span class="nt">()</span>
 
-..............................................................................
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps     4.746e-06      6.865
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps      9.01e-06      6.834
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps     3.421e-05       6.16
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps     0.0002598      4.934
-Attempt Newton solution of steady-state problem...    success.
+<span class="nn">File cantera/func1.pyx:14,</span> in <span class="ni">cantera._cantera.func_callback</span><span class="nt">()</span>
 
-Problem solved on [73] point grid(s).
-Expanding domain to accommodate flame thickness. New width: 0.016 m
-##############################################################################
-Refining grid in flame.
-    New points inserted after grid points 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 
-    to resolve C2H C2H2 C2H3 C2H4 C2H4O C2H4OOH C2H5 C2H5OH C2H6 C3H3 C3H4 C3H5 C3H6 C3H6OOH C3H8 C4H10 C4H8 C4H8OOH1-3 CH CH2CH2OH CH2CHO CH2CO CH2O CH2OH CH3 CH3CH2O CH3CHO CH3CHOH CH3CO CH3O CH3OH CH4 CO CO2 H H2 H2O H2O2 HCCO HCO HO2 I-C3H7 N-C3H7 N2 NC4KET13 O O2 OC2H3OOH OC3H5OOH OH PC4H9 S-CH2 SC4H9 SC4H9O2 T T-CH2 velocity 
-##############################################################################
+<span class="nn">File ~/opt/anaconda3/envs/jupiterbook/lib/python3.9/site-packages/cantera/interrupts.py:1,</span> in <span class="ni">no_op</span><span class="nt">(t)</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">no_op</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd">     This function does nothing. It is used as an interrupt in the 1D solver</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span><span class="sd">     C++ loop where a pure Python function is needed in order for</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span><span class="sd">     KeyboardInterrupt events to be captured.</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="k">return</span> <span class="mf">0.0</span>
 
-*********** Solving on 89 point grid with energy equation enabled ************
-
-..............................................................................
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps      3.56e-06       6.97
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps     8.009e-06      6.991
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps      9.01e-06      6.932
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps     1.352e-05       6.86
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps     2.027e-05      6.311
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps     0.0001539      5.354
-Attempt Newton solution of steady-state problem...    failure. 
-Take 10 timesteps     0.0008768      4.178
-Attempt Newton solution of steady-state problem...    success.
-
-Problem solved on [89] point grid(s).
-
-..............................................................................
-grid refinement disabled.
-
-******************** Solving with grid refinement enabled ********************
-
-..............................................................................
-Attempt Newton solution of steady-state problem...    success.
-
-Problem solved on [89] point grid(s).
-
-..............................................................................
-##############################################################################
-Refining grid in flame.
-    New points inserted after grid points 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 
-    to resolve C2H C2H2 C2H3 C2H4 C2H4O C2H4OOH C2H5 C2H5OH C2H6 C3H3 C3H4 C3H5 C3H6 C3H6OOH C3H8 C4H10 C4H8 C4H8OOH1-3 CH CH2CH2OH CH2CHO CH2CO CH2O CH2OH CH3 CH3CH2O CH3CHO CH3CHOH CH3CO CH3O CH3OH CH4 CO CO2 H H2 H2O H2O2 HCCO HCO HO2 I-C3H7 N-C3H7 N2 NC4KET13 O O2 OC2H3OOH OC3H5OOH OH PC4H9 S-CH2 SC4H9 SC4H9O2 T T-CH2 velocity 
-##############################################################################
-
-..............................................................................
-Attempt Newton solution of steady-state problem...    success.
-
-Problem solved on [105] point grid(s).
-
-..............................................................................
-##############################################################################
-Refining grid in flame.
-    New points inserted after grid points 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 
-    to resolve C2H C2H2 C2H3 C2H4 C2H4O C2H4OOH C2H5 C2H5OH C2H6 C3H3 C3H4 C3H5 C3H6 C3H6OOH C3H8 C4H10 C4H8 C4H8OOH1-3 CH CH2CH2OH CH2CHO CH2CO CH2O CH2OH CH3 CH3CH2O CH3CHO CH3CHOH CH3O CH3OH CH4 CO H H2 H2O H2O2 HCCO HCO HO2 I-C3H7 N-C3H7 N2 NC4KET13 O O2 OC2H3OOH OC3H5OOH OH PC4H9 S-CH2 SC4H9 SC4H9O2 T T-CH2 velocity 
-##############################################################################
-
-..............................................................................
-Attempt Newton solution of steady-state problem...    success.
-
-Problem solved on [130] point grid(s).
-
-..............................................................................
-##############################################################################
-Refining grid in flame.
-    New points inserted after grid points 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 
-    to resolve C2H C2H2 C2H3 C2H4 C2H4OOH C2H5 C2H5OH C2H6 C3H3 C3H4 C3H5 C3H6 C3H6OOH C3H8 C4H10 C4H8 C4H8OOH1-3 CH CH2CH2OH CH2CHO CH2CO CH2O CH2OH CH3 CH3CH2O CH3CHO CH3O CH3OH CH4 H H2O2 HCCO HCO HO2 I-C3H7 N-C3H7 N2 NC4KET13 O OC2H3OOH OC3H5OOH PC4H9 S-CH2 SC4H9 SC4H9O2 T-CH2 
-##############################################################################
-
-..............................................................................
-Attempt Newton solution of steady-state problem...    success.
-
-Problem solved on [172] point grid(s).
-
-..............................................................................
-##############################################################################
-Refining grid in flame.
-    New points inserted after grid points 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 
-    to resolve C2H C2H3 C2H4OOH C2H5 C2H5OH C2H6 C3H4 C3H5 C3H6 C3H6OOH C3H8 C4H8 C4H8OOH1-3 CH CH2CH2OH CH2CHO CH2OH CH3CH2O HCCO HCO I-C3H7 N-C3H7 NC4KET13 OC2H3OOH OC3H5OOH PC4H9 S-CH2 SC4H9 SC4H9O2 T-CH2 
-##############################################################################
-
-..............................................................................
-Attempt Newton solution of steady-state problem...    success.
-
-Problem solved on [238] point grid(s).
-
-..............................................................................
-##############################################################################
-Refining grid in flame.
-    New points inserted after grid points 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 
-    to resolve C3H6OOH C4H8OOH1-3 N-C3H7 NC4KET13 PC4H9 SC4H9 SC4H9O2 
-##############################################################################
-
-..............................................................................
-Attempt Newton solution of steady-state problem...    success.
-
-Problem solved on [269] point grid(s).
-
-..............................................................................
-no new points needed in flame
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -978,11 +916,96 @@ no new points needed in flame
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1">#pandas is a data analysis library</span>
+<span class="c1">#read in data from a txt file</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;supportfiles/flametempK.txt&#39;</span><span class="p">,</span><span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>A lighter is used to heat a small bead K-type thermocouple. The rating of the K-type thermocouple is up to 1200 C. We’ll see how hot we can get the thermocouple.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Small Thermocouple (C)</th>
+      <th>Timestamp (seconds)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>27.51</td>
+      <td>10.11</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>27.51</td>
+      <td>10.31</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>27.51</td>
+      <td>10.51</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>27.26</td>
+      <td>10.71</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>27.00</td>
+      <td>10.91</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;Small Thermocouple (C) &#39;, &#39; Timestamp (seconds)&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39; Timestamp (seconds)&#39;</span><span class="p">],</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Small Thermocouple (C) &#39;</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Experiment&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature (C)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/bd1dcb21adcd9869d9dffff3f0b2243fbcb3060c6f59049c828b6a11aa76e925.png" src="../_images/bd1dcb21adcd9869d9dffff3f0b2243fbcb3060c6f59049c828b6a11aa76e925.png" />
+</div>
+</div>
 </section>
 </section>
 </section>
@@ -1024,7 +1047,7 @@ no new points needed in flame
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Computational Tools Modules</p>
+        <p class="prev-next-title">Modules</p>
       </div>
     </a>
     <a class="right-next"
