@@ -8,6 +8,7 @@ chapters:
     sections:
     - file: lectures/01-Motive
     - file: lectures/02-Functions
+    - file: lectures/03-Equations
   - file: bootcamp
     sections:
     - file: bootcamp/bootcampsch
