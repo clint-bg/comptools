@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'homework/HW01';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Homework 2: Data Analysis and Functions" href="HW02.html" />
+    <link rel="next" title="Homework 2: Conditionals and Functions" href="HW02.html" />
     <link rel="prev" title="Practice Problems" href="../homework.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -159,7 +159,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../topics.html">Modules</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/01-Motive.html">01-Motivation Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/02-Functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/02-Functions.html">02-Functions</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../bootcamp.html">Bootcamp</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -168,7 +168,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Homework 1: Introduction to Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW02.html">Homework 2: Data Analysis and Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW02.html">Homework 2: Conditionals and Functions</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -411,10 +411,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting Started</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-names">Variable Names</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-types">Variable Types</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#operators">Operators</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operators">Operators</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem #2</a><ul class="nav section-nav flex-column">
@@ -437,7 +435,7 @@ document.write(`
   <section id="homework-1-introduction-to-python">
 <h1>Homework 1: Introduction to Python<a class="headerlink" href="#homework-1-introduction-to-python" title="Permalink to this heading">#</a></h1>
 <p>(Most of the content is credited to Dr. John Hedengren (see also <a class="reference external" href="https://apmonitor.com/che263/">APMonitor.com</a>))</p>
-<p>The first homework problem is solved with Excel and Python. Most of the Python solution is provided with a tutorial on elements that you’ll need to complete this assignment. The following topics are covered:</p>
+<p>The first homework problem is solved with Python. You’ll complete the below labeled actions. Look for places where an <strong>Action</strong> is required. The following topics are covered:</p>
 <ul class="simple">
 <li><p>install Python</p></li>
 <li><p>help, print, type</p></li>
@@ -448,7 +446,7 @@ document.write(`
 <li><p>introduction to numpy</p></li>
 <li><p>introduction to matplotlib</p></li>
 </ul>
-<p>The following code is to display YouTube videos and URL links in the Notebook. There is no need to modify this code. Look for places where an <em><strong>Action</strong></em> is required.</p>
+<p>The following code is to display YouTube videos and URL links in the Notebook. There is no need to modify this code.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># function to display YouTube videos and external web-pages</span>
@@ -460,7 +458,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_48168/1751552427.py:2: DeprecationWarning: Importing display from IPython.core.display is deprecated since IPython 7.14, please import from IPython display
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_68789/1751552427.py:2: DeprecationWarning: Importing display from IPython.core.display is deprecated since IPython 7.14, please import from IPython display
   from IPython.core.display import display, HTML
 </pre></div>
 </div>
@@ -600,8 +598,28 @@ print(...)
 </div>
 </div>
 </div>
+<p>With numpy, there are a number of other functions including <code class="docutils literal notranslate"><span class="pre">sin</span></code>, <code class="docutils literal notranslate"><span class="pre">cos</span></code>, <code class="docutils literal notranslate"><span class="pre">exp</span></code>, <code class="docutils literal notranslate"><span class="pre">log</span></code>, <code class="docutils literal notranslate"><span class="pre">sqrt</span></code>, <code class="docutils literal notranslate"><span class="pre">sum</span></code>, <code class="docutils literal notranslate"><span class="pre">max</span></code>, <code class="docutils literal notranslate"><span class="pre">min</span></code>, <code class="docutils literal notranslate"><span class="pre">abs</span></code>, <code class="docutils literal notranslate"><span class="pre">round</span></code>, <code class="docutils literal notranslate"><span class="pre">floor</span></code>, <code class="docutils literal notranslate"><span class="pre">ceil</span></code>, etc.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># for example you can take the exponential of 5:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also create you’re own functions such as the volume of a sphere with radius <code class="docutils literal notranslate"><span class="pre">r</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sphereVolume</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">4</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">r</span><span class="o">**</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Action 1g</strong>: Create a function for the volume of a cylinder with radius <code class="docutils literal notranslate"><span class="pre">r</span></code> and height <code class="docutils literal notranslate"><span class="pre">h</span></code>. Then print the result of calling that function with <code class="docutils literal notranslate"><span class="pre">r=2</span></code> and <code class="docutils literal notranslate"><span class="pre">h=5</span></code>.</p>
+</section>
 <section id="operators">
-<h4>Operators<a class="headerlink" href="#operators" title="Permalink to this heading">#</a></h4>
+<h3>Operators<a class="headerlink" href="#operators" title="Permalink to this heading">#</a></h3>
 <p>Operators are used to transform, compare, join, substract, etc. Below is a list of operators in descending order of precedence when there are no parenthesis to guide the precedence.</p>
 <table class="table">
 <thead>
@@ -648,7 +666,6 @@ print(...)
 <p><strong>Action 1g</strong>: Define a class called molecule that has the following attributes: name, formula, and weight. The name and formula should be strings and the weight should be a float. Use the param package to automatically instantiate the object upon calling . Create an instance of the class called water that has the name ‘water’, the formula ‘H2O’, and the weight 18.01528. Print the name of the molecule. You can use the example code in the lecture to help you (or any other source) but please make sure you do all of the typing (no copy and paste).</p>
 </section>
 </section>
-</section>
 <section id="problem-2">
 <h2>Problem #2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h2>
 <section id="packages">
@@ -683,7 +700,7 @@ print(...)
 <section id="problem-3">
 <h2>Problem #3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h2>
 <p>In the class <span class="xref myst">Motivation</span>, we calculated the adiabatic flame temperature for a butane-air mixture. Modify the code to calculate the adiabatic flame temperature for a pentane-air mixture. You’ll use property data from the DIPPR database. As a BYU student (accessing the website from on-campus), you have access <a class="reference external" href="https://dippr.aiche.org/FullDb?TriggerLogin=1">here</a>.</p>
-<p><strong>Action 3:</strong> Copy the code done in the manually calculation in the <span class="xref myst">Motivation</span> (the flame temperature calculation that does not use Cantera). Don’t just copy and paste the code from the lecture but actually type it in (no copy and paste).</p>
+<p><strong>Action 3:</strong> Copy the code done in the manual calculation in the <span class="xref myst">Motivation</span> discussion (the flame temperature calculation that does not use Cantera). Don’t just copy and paste the code from the lecture but actually type it in (no copy and paste).</p>
 <p>Report the code and the adiabatic flame temperature in degrees Celsius and comment on whether you think it is accurate or not.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -745,7 +762,7 @@ print(...)
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Homework 2: Data Analysis and Functions</p>
+        <p class="prev-next-title">Homework 2: Conditionals and Functions</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -771,10 +788,8 @@ print(...)
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting Started</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-names">Variable Names</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-types">Variable Types</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#operators">Operators</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operators">Operators</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem #2</a><ul class="nav section-nav flex-column">

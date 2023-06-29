@@ -25,6 +25,8 @@ Similarly, I prefer not to take time to highlight in-depth details of the tools 
 
 This approach is called [Just-in-Time Teaching](https://en.wikipedia.org/wiki/Just-in-time_teaching).  It is a form of active learning.  It is similar to how the course has been taught in the past with some minor changes. This approach replicates how a trade can be learned as an appretice.  You'll learn by doing I hope.
 
+Perhaps another example will help. Imagine you have never seen a car, or a car tire, or a steering wheel, or an engine. I would argue that you could learn to drive a car without knowing the details of how the car works. You would learn to drive by doing. You would learn to drive by making mistakes and correcting them. You would learn to drive by watching others drive. You would learn to drive by reading the manual. You would learn to drive by asking questions.
+
 Lectures and modules will review specific examples (some with classroom demonstrations) and the homework will reinforce those examples and introduce specific computation concenpts and tools. Those tools will be used to solve the problem and be reinforced in the class discussions and homework. 
 
 You are at a time when more information is readily at your fingertips than any other time in history. When you have a question, you can find the answer. I expect you to use the resources available to you while adhering to BYU's honesty policy. 

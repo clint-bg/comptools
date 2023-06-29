@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/01-Motive';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Functions" href="02-Functions.html" />
+    <link rel="next" title="02-Functions" href="02-Functions.html" />
     <link rel="prev" title="Modules" href="../topics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -160,7 +160,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../topics.html">Modules</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">01-Motivation Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02-Functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-Functions.html">02-Functions</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../bootcamp.html">Bootcamp</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -169,7 +169,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW01.html">Homework 1: Introduction to Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW02.html">Homework 2: Data Analysis and Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW02.html">Homework 2: Conditionals and Functions</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -508,8 +508,8 @@ document.write(`
 <h3>Flames are Ubiquitous<a class="headerlink" href="#flames-are-ubiquitous" title="Permalink to this heading">#</a></h3>
 <p>In this example we’ll measure the temperature of a butane flame with a thermocouple and a low-cost data acquisition unit (ESP32) with an amplifier(MAX6675). We’ll also predict the temperature of the flame using several models in python.</p>
 <p>The below theoretical example problem calculates  the adiabatic (no heat losses) flame temperature of butane (C4H10) and air mixture. The first method is completed with a model of the enthalpy of formation of the reactants and products and the heat of combustion. The second method uses the Cantera package to calculate the adiabatic flame temperature.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-06dd3da3-c37b-4628-867d-72d8f1263107">
-<span class="eqno">(1)<a class="headerlink" href="#equation-06dd3da3-c37b-4628-867d-72d8f1263107" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e59a2994-5dff-4623-99a8-d1b456e39c90">
+<span class="eqno">(1)<a class="headerlink" href="#equation-e59a2994-5dff-4623-99a8-d1b456e39c90" title="Permalink to this equation">#</a></span>\[\begin{equation}
 C_4H_{10} + 6.5\cdot O_2 + x\cdot N_2 =&gt; 4\cdot CO_2 + 5\cdot H_2O + x\cdot N_2
 \end{equation}\]</div>
 <p>where $x$ is the number of moles of nitrogen which can be found from the nitrogen balance assuming that the amount of air in the atmosphere is 79% nitrogen and 21% oxygen. Thus x is simply the number of moles of oxygen divided by 0.21 multiplied by 0.79 (6.5*0.79/0.21 = 24.4).</p>
@@ -557,8 +557,8 @@ C_4H_{10} + 6.5\cdot O_2 + x\cdot N_2 =&gt; 4\cdot CO_2 + 5\cdot H_2O + x\cdot N
 </div>
 </div>
 </div>
-<div class="amsmath math notranslate nohighlight" id="equation-46dd354c-382a-492b-b8ca-23d15e2c6891">
-<span class="eqno">(2)<a class="headerlink" href="#equation-46dd354c-382a-492b-b8ca-23d15e2c6891" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0bd6d33b-63f0-413d-866c-7fd264ead69f">
+<span class="eqno">(2)<a class="headerlink" href="#equation-0bd6d33b-63f0-413d-866c-7fd264ead69f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sum_{out}{n_iH_i(T_{ad})}  + n_f\Delta H_{c} - \sum{n_i H_i(T_{in})} = 0 \tag{1}
 \end{equation}\]</div>
 <div class="cell docutils container">
@@ -976,7 +976,7 @@ The eq. gas mole fractions for H2O, CO2, N2, O2 are 0.14,0.11,0.72,0.01, respect
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Functions</p>
+        <p class="prev-next-title">02-Functions</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

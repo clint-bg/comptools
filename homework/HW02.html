@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Homework 2: Data Analysis and Functions &#8212; Computational Tools for Chemical Engineers</title>
+    <title>Homework 2: Conditionals and Functions &#8212; Computational Tools for Chemical Engineers</title>
   
   
   
@@ -159,7 +159,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../topics.html">Modules</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/01-Motive.html">01-Motivation Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/02-Functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/02-Functions.html">02-Functions</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../bootcamp.html">Bootcamp</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -168,7 +168,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="HW01.html">Homework 1: Introduction to Python</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Homework 2: Data Analysis and Functions</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Homework 2: Conditionals and Functions</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -397,7 +397,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Homework 2: Data Analysis and Functions</h1>
+    <h1>Homework 2: Conditionals and Functions</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -407,12 +407,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-tutorial">Problem #1 Tutorial</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-exercise">Problem #1 Exercise</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem #2</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem #3</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
 </ul>
             </nav>
         </div>
@@ -424,458 +421,43 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="homework-2-data-analysis-and-functions">
-<h1>Homework 2: Data Analysis and Functions<a class="headerlink" href="#homework-2-data-analysis-and-functions" title="Permalink to this heading">#</a></h1>
-<p>This assignment covers topics in data import, analysis, and visualization.</p>
-<ul class="simple">
-<li><p>Import and Analyze Data</p></li>
-<li><p>Visualize Data with Plots</p></li>
-</ul>
-<p>It also covers how to use packages with built-in functions or create a custom function.</p>
-<ul class="simple">
-<li><p>Built-in functions</p></li>
-<li><p>Custom functions</p></li>
-</ul>
-<section id="problem-1-tutorial">
-<h2>Problem #1 Tutorial<a class="headerlink" href="#problem-1-tutorial" title="Permalink to this heading">#</a></h2>
-<p>Pandas is a package for data analysis. This problem demonstrates how to use Pandas to perform an analysis on Apple stock. The assignment is then to perform a similar analysis to compare the performance of multiple stocks. The following is Historical Data for the Apple stock from 2018:</p>
-<ul class="simple">
-<li><p><a href='https://apmonitor.com/che263/uploads/Main/AAPL.csv' target='_blank'>AAPL (Apple), URL: https://apmonitor.com/che263/uploads/Main/AAPL.csv</a></p></li>
-</ul>
-<p><em><strong>Step 1a:</strong></em> The data is imported into a Pandas dataframe. A dataframe is a structured data form, similar to an Excel sheet. It is read with the <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code> function that reads a Comma Separated Value (CSV) file that contains the data. The function can either read a file on the local computer or from a URL.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="n">appl</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://apmonitor.com/che263/uploads/Main/AAPL.csv&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><em><strong>Step 1b:</strong></em> The leading 5 rows are shown with <code class="docutils literal notranslate"><span class="pre">pd.head()</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">appl</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Date</th>
-      <th>Open</th>
-      <th>High</th>
-      <th>Low</th>
-      <th>Close</th>
-      <th>Adj Close</th>
-      <th>Volume</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>2018-04-04</td>
-      <td>164.880005</td>
-      <td>172.009995</td>
-      <td>164.770004</td>
-      <td>171.610001</td>
-      <td>171.610001</td>
-      <td>34605500</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2018-04-05</td>
-      <td>172.580002</td>
-      <td>174.229996</td>
-      <td>172.080002</td>
-      <td>172.800003</td>
-      <td>172.800003</td>
-      <td>26933200</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2018-04-06</td>
-      <td>170.970001</td>
-      <td>172.479996</td>
-      <td>168.199997</td>
-      <td>168.380005</td>
-      <td>168.380005</td>
-      <td>35005300</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2018-04-09</td>
-      <td>169.880005</td>
-      <td>173.089996</td>
-      <td>169.850006</td>
-      <td>170.050003</td>
-      <td>170.050003</td>
-      <td>29017700</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2018-04-10</td>
-      <td>173.000000</td>
-      <td>174.000000</td>
-      <td>171.529999</td>
-      <td>173.250000</td>
-      <td>173.250000</td>
-      <td>28408600</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p><em><strong>Step 1c:</strong></em>  The last 5 rows are shown with <code class="docutils literal notranslate"><span class="pre">pd.tail()</span></code>. That number of rows can be adjusted by adding an integer number as an argument of the function.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">appl</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Date</th>
-      <th>Open</th>
-      <th>High</th>
-      <th>Low</th>
-      <th>Close</th>
-      <th>Adj Close</th>
-      <th>Volume</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>20</th>
-      <td>2018-05-02</td>
-      <td>175.229996</td>
-      <td>177.750000</td>
-      <td>173.800003</td>
-      <td>176.570007</td>
-      <td>176.570007</td>
-      <td>66539400</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>2018-05-03</td>
-      <td>175.880005</td>
-      <td>177.500000</td>
-      <td>174.440002</td>
-      <td>176.889999</td>
-      <td>176.889999</td>
-      <td>33855800</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>2018-05-04</td>
-      <td>178.250000</td>
-      <td>183.649994</td>
-      <td>178.169998</td>
-      <td>182.929794</td>
-      <td>182.929794</td>
-      <td>27037277</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p><em><strong>Step 1d:</strong></em> Basic statistics are shown with the <code class="docutils literal notranslate"><span class="pre">appl.describe()</span></code> function. This includes the number of data points (count), average (mean), standard deviation (std), minimum (min), percentiles (25%, 50%, 75%), and maximum (max) for each data column.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">appl</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Open</th>
-      <th>High</th>
-      <th>Low</th>
-      <th>Close</th>
-      <th>Adj Close</th>
-      <th>Volume</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>23.000000</td>
-      <td>23.000000</td>
-      <td>23.000000</td>
-      <td>23.000000</td>
-      <td>23.000000</td>
-      <td>2.300000e+01</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>170.720001</td>
-      <td>172.835651</td>
-      <td>169.411740</td>
-      <td>171.171297</td>
-      <td>171.171297</td>
-      <td>3.388223e+07</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>5.098656</td>
-      <td>5.111622</td>
-      <td>5.589069</td>
-      <td>5.693840</td>
-      <td>5.693840</td>
-      <td>1.253788e+07</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>162.130005</td>
-      <td>164.330002</td>
-      <td>160.630005</td>
-      <td>162.320007</td>
-      <td>162.320007</td>
-      <td>2.075450e+07</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>166.040001</td>
-      <td>168.229996</td>
-      <td>164.430000</td>
-      <td>165.489998</td>
-      <td>165.489998</td>
-      <td>2.676930e+07</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>172.229996</td>
-      <td>173.919998</td>
-      <td>171.529999</td>
-      <td>172.440002</td>
-      <td>172.440002</td>
-      <td>2.901770e+07</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>174.904999</td>
-      <td>176.014999</td>
-      <td>173.825005</td>
-      <td>175.275002</td>
-      <td>175.275002</td>
-      <td>3.533055e+07</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>178.250000</td>
-      <td>183.649994</td>
-      <td>178.169998</td>
-      <td>182.929794</td>
-      <td>182.929794</td>
-      <td>6.653940e+07</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p><em><strong>Step 1d:</strong></em> Alternatively, the <code class="docutils literal notranslate"><span class="pre">max</span></code>, <code class="docutils literal notranslate"><span class="pre">min</span></code>, <code class="docutils literal notranslate"><span class="pre">np.stdev</span></code>, <code class="docutils literal notranslate"><span class="pre">np.mean</span></code>, and <code class="docutils literal notranslate"><span class="pre">np.median</span></code> functions can be used to report specific descriptive statistics.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">ac</span> <span class="o">=</span> <span class="n">appl</span><span class="p">[</span><span class="s1">&#39;Open&#39;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; max   : &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">ac</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; min   : &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">ac</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; stdev : &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ac</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; avg   : &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ac</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39; median: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">ac</span><span class="p">)))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> max   : 178.25
- min   : 162.130005
- stdev : 4.986583644140892
- avg   : 170.72000065217392
- median: 172.229996
-</pre></div>
-</div>
-</div>
-</div>
-<p><em><strong>Step 1e:</strong></em> Create a time-series plot of the stock <em>High</em>, <em>Low</em>, and <em>Open</em> price for each day.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">appl</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">appl</span><span class="p">[</span><span class="s1">&#39;Open&#39;</span><span class="p">],</span><span class="s1">&#39;k-&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">appl</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">appl</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">],</span><span class="s1">&#39;r--&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">appl</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">appl</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">],</span><span class="s1">&#39;b:&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
-</pre></div>
-</div>
-<img alt="../_images/681594355d18a256b4fc8c0ef3e46c1350af620c17dd61178e31e41ef7aaccc4.png" src="../_images/681594355d18a256b4fc8c0ef3e46c1350af620c17dd61178e31e41ef7aaccc4.png" />
-</div>
-</div>
-</section>
-<section id="problem-1-exercise">
-<h2>Problem #1 Exercise<a class="headerlink" href="#problem-1-exercise" title="Permalink to this heading">#</a></h2>
-<p><em><strong>Action 1a:</strong></em> Visit <a href='https://finance.yahoo.com' target='_blank'>Yahoo Finance</a> and select a stock by searching for a company name (e.g. Google). Download the Historical Data and import the data for two additional company stocks, each with the appropriate stock ticker symbol. Alternatively, use the following data from 2018:</p>
-<ul class="simple">
-<li><p><a href='https://apmonitor.com/che263/uploads/Main/GOOG.csv' target='_blank'>GOOG (Google), URL: https://apmonitor.com/che263/uploads/Main/GOOG.csv</a></p></li>
-<li><p><a href='https://apmonitor.com/che263/uploads/Main/XOM.csv' target='_blank'>XOM (ExxonMobil), URL: https://apmonitor.com/che263/uploads/Main/XOM.csv</a></p></li>
-</ul>
-<p>Import the data into two separate dataframes with names of the stock ticker.</p>
-<p><em><strong>Action 1b:</strong></em> Show the first 7 rows of each stock.</p>
-<p><em><strong>Action 1c:</strong></em> Calculate the MAX, MIN, STDEV, and AVERAGE for each stock “Close” data.</p>
-<p><em><strong>Action 1d:</strong></em> Divide the <em>Close</em> price by the maximum <em>Close</em> price over the past month so that all values are divided by the maximum value for that particular stock. Repeat this for both stocks so that the stock prices can be more easily compared on the same plot.</p>
-<p><em><strong>Action 1e</strong></em>: Generate a plot that includes the two stock “Close” data and daily “High” and “Low” values. The final plot should be both descriptive with a legend and axis labels.</p>
-<p><em><strong>Action 1f:</strong></em> Save the figure as a <strong>PNG</strong> file with <code class="docutils literal notranslate"><span class="pre">plt.savefig('myPlot.png')</span></code> or change the file name to <code class="docutils literal notranslate"><span class="pre">myPlot.jpg</span></code> for a <strong>JPEG</strong> format. Locate the file <code class="docutils literal notranslate"><span class="pre">myPlot.png</span></code> or <code class="docutils literal notranslate"><span class="pre">myPlot.jpg</span></code>.</p>
+  <section id="homework-2-conditionals-and-functions">
+<h1>Homework 2: Conditionals and Functions<a class="headerlink" href="#homework-2-conditionals-and-functions" title="Permalink to this heading">#</a></h1>
+<p>(Most of the content is credited to Dr. John Hedengren (see also <a class="reference external" href="https://apmonitor.com/che263/">APMonitor.com</a>))</p>
+<section id="problem-1">
+<h2>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h2>
+<p><strong>(a)</strong> x is given below. Write an if statement that will print whether x is positive, negative, or zero.</p>
+<p>x=-10</p>
+<p><strong>(b)</strong> x and y are given below. Write an if statement that will print whether x and y are both positive, or both negative, or if one or both are zero.</p>
+<p>x=-4 y=3.2</p>
+<p><strong>(c)</strong> Write a single line (condensed) if statement that will evaluate y = 1/x if x is not zero. If x is 0, then y=0. Print y.</p>
+<p><strong>(d)</strong> The ideal gas law is an approximation, but it is only a good approximation under certain circumstances. The general rule of thumb is: when the specifc volume is greater than 5 L/mol for diatomic gases and 20 L/mol for all other gases. (Specific volume: $\hat{V} = \frac{V}{n}$ )
+$$\hat{V}=\frac{RT}{P} &gt; 5 L/mol $$
+$$ …….                &gt;20 L/mol$$
+Write an if statement that will print the specifc volume of O2, and state whether or not the ideal gas law is a good approximation.</p>
+<p>T = 600 K</p>
+<p>P = 15 atm</p>
+<p>R = .08206 L*Atm/(mol K)</p>
 </section>
 <section id="problem-2">
-<h2>Problem #2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h2>
-<p><em><strong>Action:</strong></em> Import and display the first 5 rows of data from an <a href='https://apmonitor.com/heat.htm' target='_blank'>Arduino temperature control device</a> with Pandas.</p>
-<ul class="simple">
-<li><p><a href='http://apmonitor.com/che263/uploads/Main/tclab.txt' target='_blank'>TCLab Data, URL: http://apmonitor.com/che263/uploads/Main/tclab.txt</a></p></li>
-</ul>
-<p>This TCLab device is used later for the <a href='http://apmonitor.com/che263/index.php/Main/CourseProjects' target='_blank'>Course Project</a> and in the <a href='https://apmonitor.com/heat.htm' target='_blank'>Process Dynamics and Control Course</a>.</p>
-<p><em><strong>Action:</strong></em> Display summary statistics of the data with DataFrame <code class="docutils literal notranslate"><span class="pre">df.describe()</span></code> function.</p>
-<p>Below is an animation of adjustments to the heater to drive the temperature to a target set point, similar to how a thermostat works in a home.</p>
-<img src='https://apmonitor.com/pdc/uploads/Main/pid_control.gif'>
-<p><em><strong>Subplots:</strong></em> A subplot is generated with the <code class="docutils literal notranslate"><span class="pre">plt.subplot</span></code> command with three arguments (# rows, # columns, current plot). A subplot with 2 rows (vertical) and 1 column (horizontal) is created with <code class="docutils literal notranslate"><span class="pre">plt.subplot(2,1,1)</span></code>. The first two numbers don’t change when plotting in the lower window with <code class="docutils literal notranslate"><span class="pre">plt.subplot(2,1,2)</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="s1">&#39;b-&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="s1">&#39;r-&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x12b5f88b0&gt;]
-</pre></div>
-</div>
-<img alt="../_images/66dad120dfb933248a616c4aba195a22143fb9ce67afb200046ac51396f786ca.png" src="../_images/66dad120dfb933248a616c4aba195a22143fb9ce67afb200046ac51396f786ca.png" />
-</div>
-</div>
-<p><em><strong>Action:</strong></em> Generate a plot that shows the measured TCLab temperature values on one subplot and the heater values on another subplot. Add appropriate labels to the plots such as x-label, y-label, title, and legend.</p>
-<section id="problem-3">
-<h3>Problem #3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h3>
-<p>Python has built-in functions or allows the user to create new functions.</p>
-<p><em><strong>Action:</strong></em> For each input value, evaluate the output function for ID 3a-3d.</p>
-<table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>ID</p></th>
-<th class="head"><p>Input Value (x)</p></th>
-<th class="head"><p>Output Function f(x)</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>3a</p></td>
-<td><p>0.5 radians</p></td>
-<td><p>cos(x)</p></td>
-</tr>
-<tr class="row-odd"><td><p>3b</p></td>
-<td><p>30 degrees</p></td>
-<td><p>sin(x)</p></td>
-</tr>
-<tr class="row-even"><td><p>3c</p></td>
-<td><p>25</p></td>
-<td><p>x! (x factorial)</p></td>
-</tr>
-<tr class="row-odd"><td><p>3d</p></td>
-<td><p>4.999</p></td>
-<td><p>largest integer less than or equal to x</p></td>
-</tr>
-</tbody>
-</table>
-<p>For each function, evaluate it at the specified input value.</p>
-<p><em><strong>Custom Functions:</strong></em> A custom function is defined with <code class="docutils literal notranslate"><span class="pre">def</span></code> such as:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myFcn</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">myFcn</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">myFcn</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
-</pre></div>
-</div>
-<p>This gives an output of 4 and 16 as the function is evaluated with input arguments of 2 and 4, respectively.</p>
-<p><em><strong>Action:</strong></em> Create a custom function for ID 3e-3g that can be used to evaluate the input values.</p>
-<table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>ID</p></th>
-<th class="head"><p>Input Values (x)</p></th>
-<th class="head"><p>Output Function f(x)</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>3e</p></td>
-<td><p>np.linspace(2,5)</p></td>
-<td><p>$tan(\pi/x)$ with $\pi$/x in radians</p></td>
-</tr>
-<tr class="row-odd"><td><p>3f</p></td>
-<td><p>np.linspace(0,10)</p></td>
-<td><p>maximum of $2 \sqrt{x}$, $x^2/2$, $x^3/3$, and $(x^2+x^3)/5$</p></td>
-</tr>
-<tr class="row-even"><td><p>3g</p></td>
-<td><p>np.linspace(0,2)</p></td>
-<td><p>x^2 when x&lt;1; $\sin{\left(\pi x/2\right)}$ when x≥1</p></td>
-</tr>
-</tbody>
-</table>
-<p><em><strong>Action:</strong></em> Create plot of each function versus the specified input values.</p>
+<h2>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h2>
+<p><strong>(a)</strong> Write a function called “sum” that takes two numbers and returns the sum of them.</p>
+<p><strong>(b)</strong> Write a function called “quad” that takes three numbers $a$, $b$, and $c$ as function arguments that are the coefficients of the quadratic formula $ax^2+bx+c=0$, and returns the two roots. Test your function on $a=1,,b=-1,, c=-2$. You should get roots of 2 and -1.</p>
+<p><strong>(c)</strong> Functions are a convenient way to convert units. Write a function that converts</p>
+<ol class="arabic simple">
+<li><p>Celsius for Farhenheit</p></li>
+<li><p>Farheneit to Celsius</p></li>
+<li><p>Liters to Gallons</p></li>
+<li><p>kg/h to lbm/s</p></li>
+<li><p>Joules per hour to hp</p></li>
+</ol>
 </section>
+<section id="problem-3">
+<h2>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h2>
+<p>You are trying to decide which car to buy between a hybrid and non-hybrid. Hybrid cars often have a higher initial cost, but have lower fuel costs.</p>
+<p>Hybrid Car - $25,000 and gets 33 MPG</p>
+<p>Non-Hybrid Car - $15,000 and gets 19 MPG</p>
+<p>You plan on keeping the car for five years, and after 5 years cars depreciate by 75%. You drive about 200 miles per week. Create a program that will print which car is the smarter economical decision, and the total cost (fuel cost + depreciation of car value). Also print how much money you would be saving for this car compared to the other car.  Assume the cost of gas is $2.20/gallon.</p>
 </section>
 </section>
 
@@ -946,12 +528,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-tutorial">Problem #1 Tutorial</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-exercise">Problem #1 Exercise</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem #2</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem #3</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
 </ul>
   </nav></div>
 
