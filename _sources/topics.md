@@ -2,11 +2,12 @@
 
 ## Course Schedule
 The schedule for the course will be as follows (subject to change where Week 1.2 is the first week and the second class of that week):
-|Week|Modules|Demo|HW|Exam|
+|Week.Lecture|Module|Demo|HW|Exam|
 |---|---|--|--|--|
 |1.1|[Course Introduction and Motivation](intro.md)|-|HW01|-|
 |1.2|[Motivation and Examples](lectures/01-Motive.ipynb)|FlameTemp|HW01|-|
-|2.1|[Python Functions and Examples](lectures/02-Functions.ipynb)||HW02|-|
+|2.1|[Functions of Real and Ideal Gases](lectures/02-Functions.ipynb)|-|HW02|-|
+|2.2|[Equations to Solve Problems](lectures/03-Equations.ipynb)|-|HW03|-|
 
 ## Case Studies
 |2.2||HW03|-|
