@@ -8,22 +8,28 @@ chapters:
     sections:
     - file: lectures/01-Motive
     - file: lectures/02-Functions
-    - file: lectures/03-Equations
-  - file: bootcamp
-    sections:
-    - file: bootcamp/bootcampsch
+    - file: lectures/03-FunctionsAgain
+    - file: lectures/04-Equations
+    - file: lectures/05-EquationsAgain
+    - file: lectures/06-Derivatives
+    - file: lectures/07-DerivativesAgain
+    - file: lectures/08-Regression
+    - file: lectures/09-RegressionAgain
   - file: homework
     sections:
     - file: homework/HW01
     - file: homework/HW02
+    - file: homework/HW03
+    - file: homework/HW07
   - file: casestudies
     sections:
     - file: casestudies/casestudysch
     - file: casestudies/casestudydocs
-  - file: resources
+  - file: foundations
     sections:
-    - file: resources/PreClassPrep
-    - file: resources/pythonresources
-    - file: resources/excelresources
-    - file: resources/safety
+    - file: foundations/preClassPrep
+    - file: foundations/pythonresources
+    - file: foundations/excelresources
+    - file: foundations/equipment
+    - file: foundations/safety
 

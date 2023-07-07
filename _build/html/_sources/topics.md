@@ -8,11 +8,10 @@ The schedule for the course will be as follows (subject to change where Week 1.2
 |1.2|[Motivation and Examples](lectures/01-Motive.ipynb)|FlameTemp|HW01|-|
 |2.1|[Functions of Real and Ideal Gases](lectures/02-Functions.ipynb)|-|HW02|-|
 |2.2|[Equations to Solve Problems](lectures/03-Equations.ipynb)|-|HW03|-|
+|3.1|[Transient Solutions with Derivatives](lectures/04-Equations.ipynb)|-|HW04|-|
+|3.2|[Data Analysis: Regression](lectures/05-Equations.ipynb)|-|HW05|-|
 
 ## Case Studies
-|2.2||HW03|-|
-|3.1||HW04|-|
-|3.2||HW05|-|
 |4.1||HW06|-|
 |4.2||HW07|-|
 |5.1||HW08|-|
