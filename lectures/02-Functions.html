@@ -496,7 +496,16 @@ where \$P\$ is pressure, $R$ is the gas constant, $T$ is temperature, and $\tild
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8aa731a314f5103de7382f38b22166f5edcecdb6d6d272007b7449d4ea185137.png" src="../_images/8aa731a314f5103de7382f38b22166f5edcecdb6d6d272007b7449d4ea185137.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> <span class="c1">#import the numpy library</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1">#import the matplotlib library for plotting (also check out seaborn)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">mVols</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="c1">#create an array of molar volumes </span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+</pre></div>
+</div>
 </div>
 </div>
 <p>This plot shows that as the volume decreases for a given amount of gas, the pressure increases. The pressure also increases with temperature. We’ll see shortly that a virial or cubic equation of state is a better model and shows the two phase region.</p>
@@ -606,8 +615,8 @@ The moles of an ideal gas at 85 kPa and 295 K inside the classroom is 26493 mol
 <section id="equation-of-state-van-der-waals">
 <h2>Equation of State: van der Waals<a class="headerlink" href="#equation-of-state-van-der-waals" title="Permalink to this heading">#</a></h2>
 <p>The van der Waals equation of state is a more complex equation of state that accounts for non-ideal behavior of gases.  The van der Waals equation of state is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9ca3051b-b0b4-44c0-a126-2a41f935fd81">
-<span class="eqno">(3)<a class="headerlink" href="#equation-9ca3051b-b0b4-44c0-a126-2a41f935fd81" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e62217cd-bcfc-4881-82b2-d83c8ceac62b">
+<span class="eqno">(3)<a class="headerlink" href="#equation-e62217cd-bcfc-4881-82b2-d83c8ceac62b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 P = \frac{RT}{\tilde{V} - b} - \frac{a}{\tilde{V}^2}
 \end{equation}\]</div>
 <p>where $a$ and $b$ are constants that depend on the gas.  The constants for several compounds are in the below table:</p>
@@ -738,11 +747,11 @@ P = \frac{RT}{\tilde{V} - b} - \frac{a}{\tilde{V}^2}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[tank(diameter=5, level=2.5, maxCapacity=1000, name=&#39;tank00002&#39;, shape=&#39;sphere&#39;),
- tank(diameter=5, level=3, maxCapacity=1000, name=&#39;tank00003&#39;, shape=&#39;sphere&#39;),
- tank(diameter=5, level=2.6, maxCapacity=1000, name=&#39;tank00004&#39;, shape=&#39;sphere&#39;),
- tank(diameter=5, level=3.2, maxCapacity=1000, name=&#39;tank00005&#39;, shape=&#39;sphere&#39;),
- tank(diameter=5, level=3.5, maxCapacity=1000, name=&#39;tank00006&#39;, shape=&#39;sphere&#39;)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[tank(diameter=5, level=2.5, maxCapacity=1000, name=&#39;tank00026&#39;, shape=&#39;sphere&#39;),
+ tank(diameter=5, level=3, maxCapacity=1000, name=&#39;tank00027&#39;, shape=&#39;sphere&#39;),
+ tank(diameter=5, level=2.6, maxCapacity=1000, name=&#39;tank00028&#39;, shape=&#39;sphere&#39;),
+ tank(diameter=5, level=3.2, maxCapacity=1000, name=&#39;tank00029&#39;, shape=&#39;sphere&#39;),
+ tank(diameter=5, level=3.5, maxCapacity=1000, name=&#39;tank00030&#39;, shape=&#39;sphere&#39;)]
 </pre></div>
 </div>
 </div>
@@ -771,12 +780,12 @@ P = \frac{RT}{\tilde{V} - b} - \frac{a}{\tilde{V}^2}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[tank(diameter=5, level=2.5, maxCapacity=1000, name=&#39;tank00002&#39;, shape=&#39;sphere&#39;),
- tank(diameter=5, level=3, maxCapacity=1000, name=&#39;tank00003&#39;, shape=&#39;sphere&#39;),
- tank(diameter=5, level=2.6, maxCapacity=1000, name=&#39;tank00004&#39;, shape=&#39;sphere&#39;),
- tank(diameter=5, level=3.2, maxCapacity=1000, name=&#39;tank00005&#39;, shape=&#39;sphere&#39;),
- tank(diameter=5, level=3.5, maxCapacity=1000, name=&#39;tank00006&#39;, shape=&#39;sphere&#39;),
- tank(diameter=5, level=2.8, maxCapacity=1000, name=&#39;tank00014&#39;, shape=&#39;sphere&#39;)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[tank(diameter=5, level=2.5, maxCapacity=1000, name=&#39;tank00026&#39;, shape=&#39;sphere&#39;),
+ tank(diameter=5, level=3, maxCapacity=1000, name=&#39;tank00027&#39;, shape=&#39;sphere&#39;),
+ tank(diameter=5, level=2.6, maxCapacity=1000, name=&#39;tank00028&#39;, shape=&#39;sphere&#39;),
+ tank(diameter=5, level=3.2, maxCapacity=1000, name=&#39;tank00029&#39;, shape=&#39;sphere&#39;),
+ tank(diameter=5, level=3.5, maxCapacity=1000, name=&#39;tank00030&#39;, shape=&#39;sphere&#39;),
+ tank(diameter=5, level=2.8, maxCapacity=1000, name=&#39;tank00038&#39;, shape=&#39;sphere&#39;)]
 </pre></div>
 </div>
 </div>

@@ -15,22 +15,41 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# function to display YouTube videos and external web-pages
+#Plot of the solution is:
+# 1st import needed packages
 import numpy as np
-from IPython.core.display import display, HTML
-def video(key):
-    display(HTML('<iframe width="560" height="315" src="https://www.youtube.com/embed/'+key+'" \
-             frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'))
+import matplotlib.pyplot as plt
+# 2nd define constants
+inch2meter = 0.0254 #m
+gravity = 9.81 #m/s^2
+orificeDiameter = 1/8*0.0254 #m
+Area = np.pi/4*orificeDiameter**2 #exit area of the water jet, m^2
+height0 = (7+3/16)*0.0254 #initial height of water in the tank, m
+Dia = (1+9/16)*0.0254 #diameter of the tank, m
+# 3rd determine the emptying time
+emptiedTime = np.sqrt(height0)*np.pi*Dia**2/(2*Area*np.sqrt(2*gravity))
+# 4th define the function for the height of the water in the tank
+time = np.linspace(0, emptiedTime, 100)
+def height(t):
+    return (-2/(np.pi*Dia**2)*Area*np.sqrt(2*gravity)*t+np.sqrt(height0))**2
+
+plt.plot(time, height(time)/inch2meter)
+plt.title('Fluid height')
+plt.xlabel('Time (s)')
+plt.ylabel('Height (in)')
+plt.show()
+
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [0;32mIn[1], line 2[0m
-[1;32m      1[0m [38;5;66;03m# function to display YouTube videos and external web-pages[39;00m
-[0;32m----> 2[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
-[1;32m      3[0m [38;5;28;01mfrom[39;00m [38;5;21;01mIPython[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcore[39;00m[38;5;21;01m.[39;00m[38;5;21;01mdisplay[39;00m [38;5;28;01mimport[39;00m display, HTML
-[1;32m      4[0m [38;5;28;01mdef[39;00m [38;5;21mvideo[39m(key):
+Cell [0;32mIn[1], line 3[0m
+[1;32m      1[0m [38;5;66;03m#Plot of the solution is:[39;00m
+[1;32m      2[0m [38;5;66;03m# 1st import needed packages[39;00m
+[0;32m----> 3[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
+[1;32m      4[0m [38;5;28;01mimport[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m [38;5;28;01mas[39;00m [38;5;21;01mplt[39;00m
+[1;32m      5[0m [38;5;66;03m# 2nd define constants[39;00m
 
 [0;31mModuleNotFoundError[0m: No module named 'numpy'
 

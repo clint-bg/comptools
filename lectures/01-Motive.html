@@ -515,8 +515,8 @@ document.write(`
 <h3>Flames are Ubiquitous<a class="headerlink" href="#flames-are-ubiquitous" title="Permalink to this heading">#</a></h3>
 <p>In this example we’ll measure the temperature of a butane flame with a thermocouple and a low-cost data acquisition unit (ESP32) with an amplifier(MAX6675). We’ll also predict the temperature of the flame using several models in python.</p>
 <p>The below theoretical example problem calculates  the adiabatic (no heat losses) flame temperature of butane (C4H10) and air mixture. The first method is completed with a model of the enthalpy of formation of the reactants and products and the heat of combustion. The second method uses the Cantera package to calculate the adiabatic flame temperature.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5e7130a7-8060-4d97-9342-a521daa50a13">
-<span class="eqno">(1)<a class="headerlink" href="#equation-5e7130a7-8060-4d97-9342-a521daa50a13" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-015353e9-d4ab-476c-b9b9-234525be592a">
+<span class="eqno">(1)<a class="headerlink" href="#equation-015353e9-d4ab-476c-b9b9-234525be592a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 C_4H_{10} + 6.5\cdot O_2 + x\cdot N_2 =&gt; 4\cdot CO_2 + 5\cdot H_2O + x\cdot N_2
 \end{equation}\]</div>
 <p>where $x$ is the number of moles of nitrogen which can be found from the nitrogen balance assuming that the amount of air in the atmosphere is 79% nitrogen and 21% oxygen. Thus x is simply the number of moles of oxygen divided by 0.21 multiplied by 0.79 (6.5*0.79/0.21 = 24.4).</p>
@@ -563,9 +563,24 @@ C_4H_{10} + 6.5\cdot O_2 + x\cdot N_2 =&gt; 4\cdot CO_2 + 5\cdot H_2O + x\cdot N
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Adiabatic flame temperature of butane-air mixture from heats of formation</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># First import the needed packages</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+</pre></div>
 </div>
-<div class="amsmath math notranslate nohighlight" id="equation-9588e6b7-2487-49ae-94cf-11afadff19df">
-<span class="eqno">(2)<a class="headerlink" href="#equation-9588e6b7-2487-49ae-94cf-11afadff19df" title="Permalink to this equation">#</a></span>\[\begin{equation}
+</div>
+</div>
+<div class="amsmath math notranslate nohighlight" id="equation-c631d972-fc32-4d04-a3a8-3d771fa17240">
+<span class="eqno">(2)<a class="headerlink" href="#equation-c631d972-fc32-4d04-a3a8-3d771fa17240" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \sum_{out}{n_iH_i(T_{ad})}  + n_f\Delta H_{c} - \sum{n_i H_i(T_{in})} = 0
 \end{equation}\]</div>
 <div class="cell docutils container">
@@ -691,41 +706,6 @@ The eq. gas mole fractions for H2O, CO2, N2, O2 are 0.14,0.11,0.72,0.01, respect
 <span class="n">f</span><span class="o">.</span><span class="n">transport_model</span> <span class="o">=</span> <span class="s1">&#39;Mix&#39;</span>
 <span class="n">f</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">loglevel</span><span class="o">=</span><span class="n">loglevel</span><span class="p">,</span> <span class="n">auto</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="c1">#f.show_solution()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">20</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="c1">#f.show_solution()</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span> 
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="c1"># Solve with mixture-averaged transport model</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="n">f</span><span class="o">.</span><span class="n">transport_model</span> <span class="o">=</span> <span class="s1">&#39;Mix&#39;</span>
-<span class="ne">---&gt; </span><span class="mi">20</span> <span class="n">f</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">loglevel</span><span class="o">=</span><span class="n">loglevel</span><span class="p">,</span> <span class="n">auto</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="c1">#f.show_solution()</span>
-
-<span class="nn">File ~/opt/anaconda3/envs/jupiterbook/lib/python3.9/site-packages/cantera/onedim.py:898,</span> in <span class="ni">FreeFlame.solve</span><span class="nt">(self, loglevel, refine_grid, auto)</span>
-<span class="g g-Whitespace">    </span><span class="mi">896</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">897</span>     <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">898</span>         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">loglevel</span><span class="p">,</span> <span class="n">refine_grid</span><span class="p">,</span> <span class="n">auto</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">899</span>         <span class="k">break</span>
-<span class="g g-Whitespace">    </span><span class="mi">900</span>     <span class="k">except</span> <span class="n">DomainTooNarrow</span><span class="p">:</span>
-
-<span class="nn">File cantera/onedim.pyx:1221,</span> in <span class="ni">cantera._cantera.Sim1D.solve</span><span class="nt">()</span>
-
-<span class="nn">File cantera/func1.pyx:14,</span> in <span class="ni">cantera._cantera.func_callback</span><span class="nt">()</span>
-
-<span class="nn">File ~/opt/anaconda3/envs/jupiterbook/lib/python3.9/site-packages/cantera/interrupts.py:1,</span> in <span class="ni">no_op</span><span class="nt">(t)</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">no_op</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd">     This function does nothing. It is used as an interrupt in the 1D solver</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span><span class="sd">     C++ loop where a pure Python function is needed in order for</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span><span class="sd">     KeyboardInterrupt events to be captured.</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="k">return</span> <span class="mf">0.0</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>

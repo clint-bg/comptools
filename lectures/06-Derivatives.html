@@ -449,8 +449,8 @@ document.write(`
 <section id="analytical-solution">
 <h3>Analytical Solution<a class="headerlink" href="#analytical-solution" title="Permalink to this heading">#</a></h3>
 <p>Start with a mass balance</p>
-<div class="amsmath math notranslate nohighlight" id="equation-31bcc144-4fcf-4d39-a2ce-49b8540814ec">
-<span class="eqno">(11)<a class="headerlink" href="#equation-31bcc144-4fcf-4d39-a2ce-49b8540814ec" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6529363d-ff2e-4fd6-adef-86f436ef52be">
+<span class="eqno">(11)<a class="headerlink" href="#equation-6529363d-ff2e-4fd6-adef-86f436ef52be" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dm}{dt} &amp;= \dot{m}_{in} - \dot{m}_{out} \\
 \frac{dm}{dt} &amp;= 0 - \dot{m}_{out} \\
 \frac{dm}{dt} &amp;= -\rho A \sqrt{2 g h} \\
@@ -463,8 +463,8 @@ V &amp;= \frac{\pi}{4} D^2 h \\
 </section>
 <section id="id1">
 <h3><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-86540ab0-9f8a-448f-b74c-72a453d606a4">
-<span class="eqno">(12)<a class="headerlink" href="#equation-86540ab0-9f8a-448f-b74c-72a453d606a4" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-99df047f-9264-4a64-a1c0-0c4207813f1c">
+<span class="eqno">(12)<a class="headerlink" href="#equation-99df047f-9264-4a64-a1c0-0c4207813f1c" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dh}{dt} &amp;= -\frac{4}{\pi D^2} A \sqrt{2 g h} \\
 \frac{dh}{\sqrt{h}} &amp;= -\frac{4}{\pi D^2} A \sqrt{2 g} dt \\
 \int \frac{dh}{\sqrt{h}} &amp;= -\frac{4}{\pi D^2} A \sqrt{2 g} \int dt \\
@@ -472,15 +472,15 @@ V &amp;= \frac{\pi}{4} D^2 h \\
 h &amp;= \left(-\frac{2}{\pi D^2} A \sqrt{2 g} t + C\right)^2 
 \end{align}\]</div>
 <p>With the initial condition that $h(0) = h0$ m, we can solve for $C$:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b6b2f15a-d4c5-4505-bf2e-749c09ace254">
-<span class="eqno">(13)<a class="headerlink" href="#equation-b6b2f15a-d4c5-4505-bf2e-749c09ace254" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cfcc3a78-9c99-48ca-9f30-8e617673c06e">
+<span class="eqno">(13)<a class="headerlink" href="#equation-cfcc3a78-9c99-48ca-9f30-8e617673c06e" title="Permalink to this equation">#</a></span>\[\begin{align}
 h(0) &amp;= \left(-\frac{2}{\pi D^2} A \sqrt{2 g} (0) + C\right)^2 \\
 h0 &amp;= C^2 \\
 C &amp;= \pm \sqrt{h0}
 \end{align}\]</div>
 <p>Thus the solution is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6d5ec99e-2799-451d-9e68-e90a5c1d777e">
-<span class="eqno">(14)<a class="headerlink" href="#equation-6d5ec99e-2799-451d-9e68-e90a5c1d777e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-67ab936c-8676-41f6-a8ca-2a06c71832f1">
+<span class="eqno">(14)<a class="headerlink" href="#equation-67ab936c-8676-41f6-a8ca-2a06c71832f1" title="Permalink to this equation">#</a></span>\[\begin{align}
 h(t) &amp;= \left(-\frac{2}{\pi D^2} A \sqrt{2 g} t + \sqrt{h0}\right)^2 \\
 \end{align}\]</div>
 <div class="admonition note">
@@ -516,7 +516,18 @@ h(t) &amp;= \left(-\frac{2}{\pi D^2} A \sqrt{2 g} t + \sqrt{h0}\right)^2 \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/985c4368f3a88ad179ff6e72a13230f3da8a02440f57a6a74159405243a25bc2.png" src="../_images/985c4368f3a88ad179ff6e72a13230f3da8a02440f57a6a74159405243a25bc2.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Plot of the solution is:</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># 1st import needed packages</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># 2nd define constants</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -525,13 +536,13 @@ h(t) &amp;= \left(-\frac{2}{\pi D^2} A \sqrt{2 g} t + \sqrt{h0}\right)^2 \\
 <p>The numerical solution will use a finite difference approximation to the derivative, the simplest of which is called Euler’s method. Euler’s method is based on the definition of the derivative:</p>
 <p>$$\frac{df}{dt} = \lim_{\Delta t \rightarrow 0} \frac{f(t+\Delta t) - f(t)}{\Delta t}$$</p>
 <p>From the above the problem definition, we can rewrite the differential equation as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f745f9cd-640f-405f-a1d0-9187edfed9bc">
-<span class="eqno">(15)<a class="headerlink" href="#equation-f745f9cd-640f-405f-a1d0-9187edfed9bc" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6ccf0079-0d89-4fe8-8ddd-086acec439c1">
+<span class="eqno">(15)<a class="headerlink" href="#equation-6ccf0079-0d89-4fe8-8ddd-086acec439c1" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dh}{dt} = f(h) = -\frac{4}{\pi D^2} A \sqrt{2 g h} \\
 \end{align}\]</div>
 <p>Using Euler’s method:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-db21c768-c403-4902-8826-2654b762f8de">
-<span class="eqno">(16)<a class="headerlink" href="#equation-db21c768-c403-4902-8826-2654b762f8de" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c696730b-258c-4082-9a11-6551ccdebc2e">
+<span class="eqno">(16)<a class="headerlink" href="#equation-c696730b-258c-4082-9a11-6551ccdebc2e" title="Permalink to this equation">#</a></span>\[\begin{align}
 f(t+\Delta t) &amp;= f(t) + \frac{df}{dt} \Delta t \\
 h(t+\Delta t) &amp;= h(t) + \frac{dh}{dt} \Delta t \\
 h(t+\Delta t) &amp;= h(t) + f(h) \Delta t \\
@@ -631,15 +642,15 @@ h(t+\Delta t) &amp;= h(t) + -\frac{4}{\pi D^2} A \sqrt{2 g h(t)} \Delta t \\
 <section id="second-example-draining-of-tank-with-friction">
 <h2>Second Example: Draining of Tank with Friction<a class="headerlink" href="#second-example-draining-of-tank-with-friction" title="Permalink to this heading">#</a></h2>
 <p>Now we’ll look at the same problem, but with friction. The flow rate out of the tank is estimated by the following equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6fdc5c88-536c-4cd4-9445-f6a235f7c865">
-<span class="eqno">(17)<a class="headerlink" href="#equation-6fdc5c88-536c-4cd4-9445-f6a235f7c865" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-80df7858-d338-47c6-8d03-635491e5167b">
+<span class="eqno">(17)<a class="headerlink" href="#equation-80df7858-d338-47c6-8d03-635491e5167b" title="Permalink to this equation">#</a></span>\[\begin{align}
 \dot{m} &amp;= \rho A v = \rho A \sqrt{2 g h} C_d \\
 C_d &amp;= C_c C_v \\
 \end{align}\]</div>
 <p>where $\dot{m}$ is the mass flow rate, $\rho$ is the density, $A$ is the area of the hole, $g$ is the gravitational constant, $h$ is the height of the water above the hole, and $C_d$ is the discharge coefficient. $C_c$ is the coefficient of contraction and $C_v$ is the coefficient of velocity. The discharge coefficient is a dimensionless number that accounts for the frictional losses in the system. The discharge coefficient can vary depending on the geometry of the hole and the fluid viscosity.</p>
 <p>A group from the UK and Nigeria measured nozzle discharge coefficients as published <a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S0894177718314304">here</a>. There, discharge coefficients are experimentally determined and compared to empirical equations like:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d3b3b6a8-c0c9-40d4-9c8c-65025ad08e57">
-<span class="eqno">(18)<a class="headerlink" href="#equation-d3b3b6a8-c0c9-40d4-9c8c-65025ad08e57" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e9ab6e7c-c6f9-4d02-a468-67c2c2f25e13">
+<span class="eqno">(18)<a class="headerlink" href="#equation-e9ab6e7c-c6f9-4d02-a468-67c2c2f25e13" title="Permalink to this equation">#</a></span>\[\begin{align}
 C_d &amp;= \frac{Re^{5/6}}{17.11\cdot l/d + 1.65\cdot Re^{0.8}} \\
 Re &amp;= \frac{\rho D v}{\mu} \\
 \end{align}\]</div>
@@ -671,8 +682,8 @@ Re &amp;= \frac{\rho D v}{\mu} \\
 </div>
 <p>This is a complex problem as the velocity of the fluid depends on the discharge coefficient and the discharge coefficient depends on the fluid velocity. For each call to the derivative function, an fsolve is required to determine the exit velocity.</p>
 <p>The equation to solve to determine the reynolds  number given the height of fluid in the tank is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5b472c25-d6e3-459d-bebc-4d48270c3a0a">
-<span class="eqno">(19)<a class="headerlink" href="#equation-5b472c25-d6e3-459d-bebc-4d48270c3a0a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-270cd06d-6edb-4799-83be-fb39196da167">
+<span class="eqno">(19)<a class="headerlink" href="#equation-270cd06d-6edb-4799-83be-fb39196da167" title="Permalink to this equation">#</a></span>\[\begin{align}
 v = \frac{\dot{m}}{\rho A} = \sqrt{2 g h} C_d(Re) \\
 Re = \frac{\rho D v}{\mu} = \frac{\rho D \sqrt{2 g h} C_d(Re)}{\mu} \\
 \end{align}\]</div>
@@ -768,7 +779,7 @@ Re = \frac{\rho D v}{\mu} = \frac{\rho D \sqrt{2 g h} C_d(Re)}{\mu} \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_17493/3944168696.py:1: DeprecationWarning: Importing display from IPython.core.display is deprecated since IPython 7.14, please import from IPython display
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_10896/3944168696.py:1: DeprecationWarning: Importing display from IPython.core.display is deprecated since IPython 7.14, please import from IPython display
   from IPython.core.display import display, HTML
 </pre></div>
 </div>
