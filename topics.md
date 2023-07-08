@@ -17,6 +17,7 @@ The schedule for the course will be as follows (subject to change where Week 1.2
 |6.1|[Units](lectures/10-Units.ipynb)|-|HW011|-|
 |6.2|[Debug](lectures/11-Debug.ipynb)|-|HW012|-|
 |7.1|[Loops](lectures/12-Loops.ipynb)|-|HW013|-|
+|10.2|[SolidWorks](lectures/17-Solidworks)|-|HW016|-|
 
 ## Case Studies
 [Heat Transfer](casestudies/heattransfer.ipynb)
