@@ -159,13 +159,15 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Modules</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="lectures/01-Motive.html">01-Motivation with Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lectures/02-Functions.html">02-Functions of Ideal and Real Gases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lectures/02-Functions.html">02-Functions of Ideal Gases</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lectures/03-FunctionsAgain.html">03-Functions of Heat Transfer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lectures/04-Equations.html">04-Equations to Solve Problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lectures/05-EquationsAgain.html">05-Systems of Equations Practice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lectures/06-Derivatives.html">06-Transient Solutions: Derivatives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lectures/05-EquationsAgain.html">05-More Equation Solving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lectures/06-Derivatives.html">06-Derivatives and Transients</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lectures/07-DerivativesAgain.html">07-More Derivatives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lectures/08-Regression.html">08-Data Analysis: Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lectures/08-Regression.html">08-Regression and Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lectures/09-RegressionAgain.html">09-More Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lectures/17-SolidWorks.html">Solidworks</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -433,25 +435,49 @@ document.write(`
 <td><p>-</p></td>
 </tr>
 <tr class="row-even"><td><p>2.1</p></td>
-<td><p><a class="reference internal" href="lectures/02-Functions.html"><span class="doc std std-doc">Functions of Real and Ideal Gases</span></a></p></td>
+<td><p><a class="reference internal" href="lectures/02-Functions.html"><span class="doc std std-doc">Functions of Ideal Gases</span></a></p></td>
 <td><p>-</p></td>
 <td><p>HW02</p></td>
 <td><p>-</p></td>
 </tr>
 <tr class="row-odd"><td><p>2.2</p></td>
-<td><p><span class="xref myst">Equations to Solve Problems</span></p></td>
+<td><p><a class="reference internal" href="lectures/03-FunctionsAgain.html"><span class="doc std std-doc">Functions of Heat Transfer</span></a></p></td>
+<td><p>-</p></td>
+<td><p>HW02</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>3.1</p></td>
+<td><p><a class="reference internal" href="lectures/04-Equations.html"><span class="doc std std-doc">Equations to Solve Problems</span></a></p></td>
 <td><p>-</p></td>
 <td><p>HW03</p></td>
 <td><p>-</p></td>
 </tr>
-<tr class="row-even"><td><p>3.1</p></td>
-<td><p><a class="reference internal" href="lectures/04-Equations.html"><span class="doc std std-doc">Transient Solutions with Derivatives</span></a></p></td>
+<tr class="row-odd"><td><p>3.2</p></td>
+<td><p><a class="reference internal" href="lectures/05-EquationsAgain.html"><span class="doc std std-doc">More Equation Solving</span></a></p></td>
+<td><p>-</p></td>
+<td><p>HW03</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>4.1</p></td>
+<td><p><a class="reference internal" href="lectures/06-Derivatives.html"><span class="doc std std-doc">Derivatives and Transients</span></a></p></td>
 <td><p>-</p></td>
 <td><p>HW04</p></td>
 <td><p>-</p></td>
 </tr>
-<tr class="row-odd"><td><p>3.2</p></td>
-<td><p><span class="xref myst">Data Analysis: Regression</span></p></td>
+<tr class="row-odd"><td><p>4.2</p></td>
+<td><p><a class="reference internal" href="lectures/07-DerivativesAgain.html"><span class="doc std std-doc">More Derivatives</span></a></p></td>
+<td><p>-</p></td>
+<td><p>HW04</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>5.1</p></td>
+<td><p><a class="reference internal" href="lectures/08-Regression.html"><span class="doc std std-doc">Regression and Data</span></a></p></td>
+<td><p>-</p></td>
+<td><p>HW05</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>5.2</p></td>
+<td><p><a class="reference internal" href="lectures/09-RegressionAgain.html"><span class="doc std std-doc">More Regression</span></a></p></td>
 <td><p>-</p></td>
 <td><p>HW05</p></td>
 <td><p>-</p></td>
@@ -572,13 +598,15 @@ document.write(`
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="lectures/01-Motive.html">01-Motivation with Example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lectures/02-Functions.html">02-Functions of Ideal and Real Gases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/02-Functions.html">02-Functions of Ideal Gases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lectures/03-FunctionsAgain.html">03-Functions of Heat Transfer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lectures/04-Equations.html">04-Equations to Solve Problems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lectures/05-EquationsAgain.html">05-Systems of Equations Practice</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lectures/06-Derivatives.html">06-Transient Solutions: Derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/05-EquationsAgain.html">05-More Equation Solving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/06-Derivatives.html">06-Derivatives and Transients</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lectures/07-DerivativesAgain.html">07-More Derivatives</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lectures/08-Regression.html">08-Data Analysis: Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/08-Regression.html">08-Regression and Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/09-RegressionAgain.html">09-More Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/17-SolidWorks.html">Solidworks</a></li>
 </ul>
 </div>
 </section>

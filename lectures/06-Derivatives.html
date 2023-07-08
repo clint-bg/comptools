@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>06-Transient Solutions: Derivatives &#8212; Computational Tools for Chemical Engineers</title>
+    <title>06-Derivatives and Transients &#8212; Computational Tools for Chemical Engineers</title>
   
   
   
@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="07-More Derivatives" href="07-DerivativesAgain.html" />
-    <link rel="prev" title="05-Systems of Equations Practice" href="05-EquationsAgain.html" />
+    <link rel="prev" title="05-More Equation Solving" href="05-EquationsAgain.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -160,13 +160,15 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../topics.html">Modules</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01-Motive.html">01-Motivation with Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02-Functions.html">02-Functions of Ideal and Real Gases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-Functions.html">02-Functions of Ideal Gases</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03-FunctionsAgain.html">03-Functions of Heat Transfer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04-Equations.html">04-Equations to Solve Problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05-EquationsAgain.html">05-Systems of Equations Practice</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">06-Transient Solutions: Derivatives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-EquationsAgain.html">05-More Equation Solving</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">06-Derivatives and Transients</a></li>
 <li class="toctree-l2"><a class="reference internal" href="07-DerivativesAgain.html">07-More Derivatives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="08-Regression.html">08-Data Analysis: Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-Regression.html">08-Regression and Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09-RegressionAgain.html">09-More Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="17-SolidWorks.html">Solidworks</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -403,7 +405,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>06-Transient Solutions: Derivatives</h1>
+    <h1>06-Derivatives and Transients</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -435,8 +437,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="transient-solutions-derivatives">
-<h1>06-Transient Solutions: Derivatives<a class="headerlink" href="#transient-solutions-derivatives" title="Permalink to this heading">#</a></h1>
+  <section id="derivatives-and-transients">
+<h1>06-Derivatives and Transients<a class="headerlink" href="#derivatives-and-transients" title="Permalink to this heading">#</a></h1>
 <p>Many times in engineering, the system is not at steady state. Or in other words, the system variables are changing. We’ll look at some basic methods to readily solve problems where the system is changing with time.</p>
 <p>You should understand at the end of this discussion that if you have an expression for the derivative, you can integrate that numerically to determine the system parameters as a function of time.</p>
 <section id="first-example-frictionless-emptying-a-tank-of-fliud">
@@ -447,8 +449,8 @@ document.write(`
 <section id="analytical-solution">
 <h3>Analytical Solution<a class="headerlink" href="#analytical-solution" title="Permalink to this heading">#</a></h3>
 <p>Start with a mass balance</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ceb8f290-a740-408f-ba1a-72b8ff67e1af">
-<span class="eqno">(11)<a class="headerlink" href="#equation-ceb8f290-a740-408f-ba1a-72b8ff67e1af" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-66e8186f-ef17-4ebc-a30b-65ef67d56604">
+<span class="eqno">(11)<a class="headerlink" href="#equation-66e8186f-ef17-4ebc-a30b-65ef67d56604" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dm}{dt} &amp;= \dot{m}_{in} - \dot{m}_{out} \\
 \frac{dm}{dt} &amp;= 0 - \dot{m}_{out} \\
 \frac{dm}{dt} &amp;= -\rho A \sqrt{2 g h} \\
@@ -461,8 +463,8 @@ V &amp;= \frac{\pi}{4} D^2 h \\
 </section>
 <section id="id1">
 <h3><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-5d52cd3a-9fb2-464d-b6b0-f8905c29a019">
-<span class="eqno">(12)<a class="headerlink" href="#equation-5d52cd3a-9fb2-464d-b6b0-f8905c29a019" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b3b16b93-55ff-4544-beab-051a42daa841">
+<span class="eqno">(12)<a class="headerlink" href="#equation-b3b16b93-55ff-4544-beab-051a42daa841" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dh}{dt} &amp;= -\frac{4}{\pi D^2} A \sqrt{2 g h} \\
 \frac{dh}{\sqrt{h}} &amp;= -\frac{4}{\pi D^2} A \sqrt{2 g} dt \\
 \int \frac{dh}{\sqrt{h}} &amp;= -\frac{4}{\pi D^2} A \sqrt{2 g} \int dt \\
@@ -470,15 +472,15 @@ V &amp;= \frac{\pi}{4} D^2 h \\
 h &amp;= \left(-\frac{2}{\pi D^2} A \sqrt{2 g} t + C\right)^2 
 \end{align}\]</div>
 <p>With the initial condition that $h(0) = h0$ m, we can solve for $C$:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-57166bcf-8383-492b-822b-e5ca3bef8dd5">
-<span class="eqno">(13)<a class="headerlink" href="#equation-57166bcf-8383-492b-822b-e5ca3bef8dd5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8181abdf-d892-45b1-b3c1-4990e87ebac4">
+<span class="eqno">(13)<a class="headerlink" href="#equation-8181abdf-d892-45b1-b3c1-4990e87ebac4" title="Permalink to this equation">#</a></span>\[\begin{align}
 h(0) &amp;= \left(-\frac{2}{\pi D^2} A \sqrt{2 g} (0) + C\right)^2 \\
 h0 &amp;= C^2 \\
 C &amp;= \pm \sqrt{h0}
 \end{align}\]</div>
 <p>Thus the solution is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d80855a9-d46e-40d9-8446-3097956359dc">
-<span class="eqno">(14)<a class="headerlink" href="#equation-d80855a9-d46e-40d9-8446-3097956359dc" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-dae08e3a-e8a8-48bc-8d23-c704c3326c1d">
+<span class="eqno">(14)<a class="headerlink" href="#equation-dae08e3a-e8a8-48bc-8d23-c704c3326c1d" title="Permalink to this equation">#</a></span>\[\begin{align}
 h(t) &amp;= \left(-\frac{2}{\pi D^2} A \sqrt{2 g} t + \sqrt{h0}\right)^2 \\
 \end{align}\]</div>
 <div class="admonition note">
@@ -523,13 +525,13 @@ h(t) &amp;= \left(-\frac{2}{\pi D^2} A \sqrt{2 g} t + \sqrt{h0}\right)^2 \\
 <p>The numerical solution will use a finite difference approximation to the derivative, the simplest of which is called Euler’s method. Euler’s method is based on the definition of the derivative:</p>
 <p>$$\frac{df}{dt} = \lim_{\Delta t \rightarrow 0} \frac{f(t+\Delta t) - f(t)}{\Delta t}$$</p>
 <p>From the above the problem definition, we can rewrite the differential equation as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cc5e4494-4be3-4030-9873-682edb60ac94">
-<span class="eqno">(15)<a class="headerlink" href="#equation-cc5e4494-4be3-4030-9873-682edb60ac94" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e744c43f-06e1-42d6-b0c0-cc96b4c44d3d">
+<span class="eqno">(15)<a class="headerlink" href="#equation-e744c43f-06e1-42d6-b0c0-cc96b4c44d3d" title="Permalink to this equation">#</a></span>\[\begin{align}
 \frac{dh}{dt} = f(h) = -\frac{4}{\pi D^2} A \sqrt{2 g h} \\
 \end{align}\]</div>
 <p>Using Euler’s method:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b958d66f-7d8a-4d06-927a-5e90b5149b3e">
-<span class="eqno">(16)<a class="headerlink" href="#equation-b958d66f-7d8a-4d06-927a-5e90b5149b3e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3e4352ff-30d9-4f11-9662-86230ca27212">
+<span class="eqno">(16)<a class="headerlink" href="#equation-3e4352ff-30d9-4f11-9662-86230ca27212" title="Permalink to this equation">#</a></span>\[\begin{align}
 f(t+\Delta t) &amp;= f(t) + \frac{df}{dt} \Delta t \\
 h(t+\Delta t) &amp;= h(t) + \frac{dh}{dt} \Delta t \\
 h(t+\Delta t) &amp;= h(t) + f(h) \Delta t \\
@@ -629,15 +631,15 @@ h(t+\Delta t) &amp;= h(t) + -\frac{4}{\pi D^2} A \sqrt{2 g h(t)} \Delta t \\
 <section id="second-example-draining-of-tank-with-friction">
 <h2>Second Example: Draining of Tank with Friction<a class="headerlink" href="#second-example-draining-of-tank-with-friction" title="Permalink to this heading">#</a></h2>
 <p>Now we’ll look at the same problem, but with friction. The flow rate out of the tank is estimated by the following equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-104b3ae8-a23e-447a-ada8-054c8e4113ef">
-<span class="eqno">(17)<a class="headerlink" href="#equation-104b3ae8-a23e-447a-ada8-054c8e4113ef" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4bbc31d5-a137-4a8f-889b-86016a2a0ef5">
+<span class="eqno">(17)<a class="headerlink" href="#equation-4bbc31d5-a137-4a8f-889b-86016a2a0ef5" title="Permalink to this equation">#</a></span>\[\begin{align}
 \dot{m} &amp;= \rho A v = \rho A \sqrt{2 g h} C_d \\
 C_d &amp;= C_c C_v \\
 \end{align}\]</div>
 <p>where $\dot{m}$ is the mass flow rate, $\rho$ is the density, $A$ is the area of the hole, $g$ is the gravitational constant, $h$ is the height of the water above the hole, and $C_d$ is the discharge coefficient. $C_c$ is the coefficient of contraction and $C_v$ is the coefficient of velocity. The discharge coefficient is a dimensionless number that accounts for the frictional losses in the system. The discharge coefficient can vary depending on the geometry of the hole and the fluid viscosity.</p>
 <p>A group from the UK and Nigeria measured nozzle discharge coefficients as published <a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S0894177718314304">here</a>. There, discharge coefficients are experimentally determined and compared to empirical equations like:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8f28b6a3-c7c5-4527-bd94-99f5abfece22">
-<span class="eqno">(18)<a class="headerlink" href="#equation-8f28b6a3-c7c5-4527-bd94-99f5abfece22" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-93237a3f-baf5-4e45-af30-17ee9bc09808">
+<span class="eqno">(18)<a class="headerlink" href="#equation-93237a3f-baf5-4e45-af30-17ee9bc09808" title="Permalink to this equation">#</a></span>\[\begin{align}
 C_d &amp;= \frac{Re^{5/6}}{17.11\cdot l/d + 1.65\cdot Re^{0.8}} \\
 Re &amp;= \frac{\rho D v}{\mu} \\
 \end{align}\]</div>
@@ -669,8 +671,8 @@ Re &amp;= \frac{\rho D v}{\mu} \\
 </div>
 <p>This is a complex problem as the velocity of the fluid depends on the discharge coefficient and the discharge coefficient depends on the fluid velocity. For each call to the derivative function, an fsolve is required to determine the exit velocity.</p>
 <p>The equation to solve to determine the reynolds  number given the height of fluid in the tank is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c8cba50c-8a50-4eb2-8b13-fb34cbd8968e">
-<span class="eqno">(19)<a class="headerlink" href="#equation-c8cba50c-8a50-4eb2-8b13-fb34cbd8968e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e7cdc897-a177-4c08-b409-fc294018505f">
+<span class="eqno">(19)<a class="headerlink" href="#equation-e7cdc897-a177-4c08-b409-fc294018505f" title="Permalink to this equation">#</a></span>\[\begin{align}
 v = \frac{\dot{m}}{\rho A} = \sqrt{2 g h} C_d(Re) \\
 Re = \frac{\rho D v}{\mu} = \frac{\rho D \sqrt{2 g h} C_d(Re)}{\mu} \\
 \end{align}\]</div>
@@ -766,7 +768,7 @@ Re = \frac{\rho D v}{\mu} = \frac{\rho D \sqrt{2 g h} C_d(Re)}{\mu} \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_12556/3944168696.py:1: DeprecationWarning: Importing display from IPython.core.display is deprecated since IPython 7.14, please import from IPython display
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_14842/3944168696.py:1: DeprecationWarning: Importing display from IPython.core.display is deprecated since IPython 7.14, please import from IPython display
   from IPython.core.display import display, HTML
 </pre></div>
 </div>
@@ -855,7 +857,7 @@ Re = \frac{\rho D v}{\mu} = \frac{\rho D \sqrt{2 g h} C_d(Re)}{\mu} \\
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">05-Systems of Equations Practice</p>
+        <p class="prev-next-title">05-More Equation Solving</p>
       </div>
     </a>
     <a class="right-next"

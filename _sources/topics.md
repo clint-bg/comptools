@@ -6,10 +6,14 @@ The schedule for the course will be as follows (subject to change where Week 1.2
 |---|---|--|--|--|
 |1.1|[Course Introduction and Motivation](intro.md)|-|HW01|-|
 |1.2|[Motivation and Examples](lectures/01-Motive.ipynb)|FlameTemp|HW01|-|
-|2.1|[Functions of Real and Ideal Gases](lectures/02-Functions.ipynb)|-|HW02|-|
-|2.2|[Equations to Solve Problems](lectures/03-Equations.ipynb)|-|HW03|-|
-|3.1|[Transient Solutions with Derivatives](lectures/04-Equations.ipynb)|-|HW04|-|
-|3.2|[Data Analysis: Regression](lectures/05-Equations.ipynb)|-|HW05|-|
+|2.1|[Functions of Ideal Gases](lectures/02-Functions.ipynb)|-|HW02|-|
+|2.2|[Functions of Heat Transfer](lectures/03-FunctionsAgain.ipynb)|-|HW02|-|
+|3.1|[Equations to Solve Problems](lectures/04-Equations.ipynb)|-|HW03|-|
+|3.2|[More Equation Solving](lectures/05-EquationsAgain.ipynb)|-|HW03|-|
+|4.1|[Derivatives and Transients](lectures/06-Derivatives.ipynb)|-|HW04|-|
+|4.2|[More Derivatives](lectures/07-DerivativesAgain.ipynb)|-|HW04|-|
+|5.1|[Regression and Data](lectures/08-Regression.ipynb)|-|HW05|-|
+|5.2|[More Regression](lectures/09-RegressionAgain.ipynb)|-|HW05|-|
 
 ## Case Studies
 |4.1||HW06|-|
