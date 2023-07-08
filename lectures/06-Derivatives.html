@@ -61,7 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/06-Derivatives';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -437,52 +438,48 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="derivatives-and-transients">
+  <section class="tex2jax_ignore mathjax_ignore" id="derivatives-and-transients">
 <h1>06-Derivatives and Transients<a class="headerlink" href="#derivatives-and-transients" title="Permalink to this heading">#</a></h1>
 <p>Many times in engineering, the system is not at steady state. Or in other words, the system variables are changing. We’ll look at some basic methods to readily solve problems where the system is changing with time.</p>
 <p>You should understand at the end of this discussion that if you have an expression for the derivative, you can integrate that numerically to determine the system parameters as a function of time.</p>
 <section id="first-example-frictionless-emptying-a-tank-of-fliud">
 <h2>First Example: Frictionless emptying a tank of fliud<a class="headerlink" href="#first-example-frictionless-emptying-a-tank-of-fliud" title="Permalink to this heading">#</a></h2>
 <p>A tank of water is draining through a 1/8 inch diameter hole in the bottom of the tank. The water level in the tank is 7 and 3/16 inches above the hole. The tank is 1 and 9/16 inch in diameter. The density of water is 1000 kg/m<sup>3</sup>. The tank is open to the atmosphere. The flow rate out of the tank is estimated by the following equation:</p>
-<p>$$\dot{m} = \rho A \sqrt{2 g h}$$</p>
-<p>where $\dot{m}$ is the mass flow rate, $\rho$ is the density, $A$ is the area of the hole, $g$ is the gravitational constant, and $h$ is the height of the water above the hole. This is for a frictionless hole.</p>
+<div class="math notranslate nohighlight">
+\[\dot{m} = \rho A \sqrt{2 g h}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\dot{m}\)</span> is the mass flow rate, <span class="math notranslate nohighlight">\(\rho\)</span> is the density, <span class="math notranslate nohighlight">\(A\)</span> is the area of the hole, <span class="math notranslate nohighlight">\(g\)</span> is the gravitational constant, and <span class="math notranslate nohighlight">\(h\)</span> is the height of the water above the hole. This is for a frictionless hole.</p>
 <section id="analytical-solution">
 <h3>Analytical Solution<a class="headerlink" href="#analytical-solution" title="Permalink to this heading">#</a></h3>
 <p>Start with a mass balance</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6529363d-ff2e-4fd6-adef-86f436ef52be">
-<span class="eqno">(11)<a class="headerlink" href="#equation-6529363d-ff2e-4fd6-adef-86f436ef52be" title="Permalink to this equation">#</a></span>\[\begin{align}
-\frac{dm}{dt} &amp;= \dot{m}_{in} - \dot{m}_{out} \\
-\frac{dm}{dt} &amp;= 0 - \dot{m}_{out} \\
-\frac{dm}{dt} &amp;= -\rho A \sqrt{2 g h} \\
-m &amp;= \rho V \\
-V &amp;= \frac{\pi}{4} D^2 h \\
-\frac{dm}{dt} &amp;= \rho \frac{\pi}{4} D^2 \frac{dh}{dt} = -\rho A \sqrt{2 g h} \\
-\frac{dh}{dt} &amp;= -\frac{4}{\pi D^2} A \sqrt{2 g h} \\
-
-\end{align}\]</div>
+<p>\begin{align}
+\frac{dm}{dt} &amp;= \dot{m}<em>{in} - \dot{m}</em>{out} \
+\frac{dm}{dt} &amp;= 0 - \dot{m}_{out} \
+\frac{dm}{dt} &amp;= -\rho A \sqrt{2 g h} \
+m &amp;= \rho V \
+V &amp;= \frac{\pi}{4} D^2 h \
+\frac{dm}{dt} &amp;= \rho \frac{\pi}{4} D^2 \frac{dh}{dt} = -\rho A \sqrt{2 g h} \
+\frac{dh}{dt} &amp;= -\frac{4}{\pi D^2} A \sqrt{2 g h} \</p>
+<p>\end{align}</p>
 </section>
 <section id="id1">
 <h3><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-99df047f-9264-4a64-a1c0-0c4207813f1c">
-<span class="eqno">(12)<a class="headerlink" href="#equation-99df047f-9264-4a64-a1c0-0c4207813f1c" title="Permalink to this equation">#</a></span>\[\begin{align}
-\frac{dh}{dt} &amp;= -\frac{4}{\pi D^2} A \sqrt{2 g h} \\
-\frac{dh}{\sqrt{h}} &amp;= -\frac{4}{\pi D^2} A \sqrt{2 g} dt \\
-\int \frac{dh}{\sqrt{h}} &amp;= -\frac{4}{\pi D^2} A \sqrt{2 g} \int dt \\
-2 \sqrt{h} &amp;= -\frac{4}{\pi D^2} A \sqrt{2 g} t + C \\
-h &amp;= \left(-\frac{2}{\pi D^2} A \sqrt{2 g} t + C\right)^2 
-\end{align}\]</div>
-<p>With the initial condition that $h(0) = h0$ m, we can solve for $C$:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cfcc3a78-9c99-48ca-9f30-8e617673c06e">
-<span class="eqno">(13)<a class="headerlink" href="#equation-cfcc3a78-9c99-48ca-9f30-8e617673c06e" title="Permalink to this equation">#</a></span>\[\begin{align}
-h(0) &amp;= \left(-\frac{2}{\pi D^2} A \sqrt{2 g} (0) + C\right)^2 \\
-h0 &amp;= C^2 \\
+<p>\begin{align}
+\frac{dh}{dt} &amp;= -\frac{4}{\pi D^2} A \sqrt{2 g h} \
+\frac{dh}{\sqrt{h}} &amp;= -\frac{4}{\pi D^2} A \sqrt{2 g} dt \
+\int \frac{dh}{\sqrt{h}} &amp;= -\frac{4}{\pi D^2} A \sqrt{2 g} \int dt \
+2 \sqrt{h} &amp;= -\frac{4}{\pi D^2} A \sqrt{2 g} t + C \
+h &amp;= \left(-\frac{2}{\pi D^2} A \sqrt{2 g} t + C\right)^2
+\end{align}</p>
+<p>With the initial condition that <span class="math notranslate nohighlight">\(h(0) = h0\)</span> m, we can solve for <span class="math notranslate nohighlight">\(C\)</span>:</p>
+<p>\begin{align}
+h(0) &amp;= \left(-\frac{2}{\pi D^2} A \sqrt{2 g} (0) + C\right)^2 \
+h0 &amp;= C^2 \
 C &amp;= \pm \sqrt{h0}
-\end{align}\]</div>
-<p>Thus the solution is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-67ab936c-8676-41f6-a8ca-2a06c71832f1">
-<span class="eqno">(14)<a class="headerlink" href="#equation-67ab936c-8676-41f6-a8ca-2a06c71832f1" title="Permalink to this equation">#</a></span>\[\begin{align}
-h(t) &amp;= \left(-\frac{2}{\pi D^2} A \sqrt{2 g} t + \sqrt{h0}\right)^2 \\
-\end{align}\]</div>
+\end{align}</p>
+<p>Thus the solution is
+\begin{align}
+h(t) &amp;= \left(-\frac{2}{\pi D^2} A \sqrt{2 g} t + \sqrt{h0}\right)^2 \
+\end{align}</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Note that the solution is not dependent on the fluid density or viscosity. Does that make sense? Or in other words, would you expect a low viscosity fluid like water to drain faster or slower than a highly viscous fluid like honey? Logic says the honey would drain slower, but the solution says it would drain at the same rate. Why is that?</p>
@@ -534,20 +531,19 @@ h(t) &amp;= \left(-\frac{2}{\pi D^2} A \sqrt{2 g} t + \sqrt{h0}\right)^2 \\
 <section id="numerical-solution-euler-s-method">
 <h3>Numerical Solution: Euler’s Method<a class="headerlink" href="#numerical-solution-euler-s-method" title="Permalink to this heading">#</a></h3>
 <p>The numerical solution will use a finite difference approximation to the derivative, the simplest of which is called Euler’s method. Euler’s method is based on the definition of the derivative:</p>
-<p>$$\frac{df}{dt} = \lim_{\Delta t \rightarrow 0} \frac{f(t+\Delta t) - f(t)}{\Delta t}$$</p>
+<div class="math notranslate nohighlight">
+\[\frac{df}{dt} = \lim_{\Delta t \rightarrow 0} \frac{f(t+\Delta t) - f(t)}{\Delta t}\]</div>
 <p>From the above the problem definition, we can rewrite the differential equation as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6ccf0079-0d89-4fe8-8ddd-086acec439c1">
-<span class="eqno">(15)<a class="headerlink" href="#equation-6ccf0079-0d89-4fe8-8ddd-086acec439c1" title="Permalink to this equation">#</a></span>\[\begin{align}
-\frac{dh}{dt} = f(h) = -\frac{4}{\pi D^2} A \sqrt{2 g h} \\
-\end{align}\]</div>
-<p>Using Euler’s method:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c696730b-258c-4082-9a11-6551ccdebc2e">
-<span class="eqno">(16)<a class="headerlink" href="#equation-c696730b-258c-4082-9a11-6551ccdebc2e" title="Permalink to this equation">#</a></span>\[\begin{align}
-f(t+\Delta t) &amp;= f(t) + \frac{df}{dt} \Delta t \\
-h(t+\Delta t) &amp;= h(t) + \frac{dh}{dt} \Delta t \\
-h(t+\Delta t) &amp;= h(t) + f(h) \Delta t \\
-h(t+\Delta t) &amp;= h(t) + -\frac{4}{\pi D^2} A \sqrt{2 g h(t)} \Delta t \\
-\end{align}\]</div>
+<p>\begin{align}
+\frac{dh}{dt} = f(h) = -\frac{4}{\pi D^2} A \sqrt{2 g h} \
+\end{align}</p>
+<p>Using Euler’s method:
+\begin{align}
+f(t+\Delta t) &amp;= f(t) + \frac{df}{dt} \Delta t \
+h(t+\Delta t) &amp;= h(t) + \frac{dh}{dt} \Delta t \
+h(t+\Delta t) &amp;= h(t) + f(h) \Delta t \
+h(t+\Delta t) &amp;= h(t) + -\frac{4}{\pi D^2} A \sqrt{2 g h(t)} \Delta t \
+\end{align}</p>
 <p>Now we’ll use the above formulation to solve for the fluid height as a function of time. We’ll also compare that solution to the analytical solution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -642,19 +638,17 @@ h(t+\Delta t) &amp;= h(t) + -\frac{4}{\pi D^2} A \sqrt{2 g h(t)} \Delta t \\
 <section id="second-example-draining-of-tank-with-friction">
 <h2>Second Example: Draining of Tank with Friction<a class="headerlink" href="#second-example-draining-of-tank-with-friction" title="Permalink to this heading">#</a></h2>
 <p>Now we’ll look at the same problem, but with friction. The flow rate out of the tank is estimated by the following equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-80df7858-d338-47c6-8d03-635491e5167b">
-<span class="eqno">(17)<a class="headerlink" href="#equation-80df7858-d338-47c6-8d03-635491e5167b" title="Permalink to this equation">#</a></span>\[\begin{align}
-\dot{m} &amp;= \rho A v = \rho A \sqrt{2 g h} C_d \\
-C_d &amp;= C_c C_v \\
-\end{align}\]</div>
-<p>where $\dot{m}$ is the mass flow rate, $\rho$ is the density, $A$ is the area of the hole, $g$ is the gravitational constant, $h$ is the height of the water above the hole, and $C_d$ is the discharge coefficient. $C_c$ is the coefficient of contraction and $C_v$ is the coefficient of velocity. The discharge coefficient is a dimensionless number that accounts for the frictional losses in the system. The discharge coefficient can vary depending on the geometry of the hole and the fluid viscosity.</p>
+<p>\begin{align}
+\dot{m} &amp;= \rho A v = \rho A \sqrt{2 g h} C_d \
+C_d &amp;= C_c C_v \
+\end{align}</p>
+<p>where <span class="math notranslate nohighlight">\(\dot{m}\)</span> is the mass flow rate, <span class="math notranslate nohighlight">\(\rho\)</span> is the density, <span class="math notranslate nohighlight">\(A\)</span> is the area of the hole, <span class="math notranslate nohighlight">\(g\)</span> is the gravitational constant, <span class="math notranslate nohighlight">\(h\)</span> is the height of the water above the hole, and <span class="math notranslate nohighlight">\(C_d\)</span> is the discharge coefficient. <span class="math notranslate nohighlight">\(C_c\)</span> is the coefficient of contraction and <span class="math notranslate nohighlight">\(C_v\)</span> is the coefficient of velocity. The discharge coefficient is a dimensionless number that accounts for the frictional losses in the system. The discharge coefficient can vary depending on the geometry of the hole and the fluid viscosity.</p>
 <p>A group from the UK and Nigeria measured nozzle discharge coefficients as published <a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S0894177718314304">here</a>. There, discharge coefficients are experimentally determined and compared to empirical equations like:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e9ab6e7c-c6f9-4d02-a468-67c2c2f25e13">
-<span class="eqno">(18)<a class="headerlink" href="#equation-e9ab6e7c-c6f9-4d02-a468-67c2c2f25e13" title="Permalink to this equation">#</a></span>\[\begin{align}
-C_d &amp;= \frac{Re^{5/6}}{17.11\cdot l/d + 1.65\cdot Re^{0.8}} \\
-Re &amp;= \frac{\rho D v}{\mu} \\
-\end{align}\]</div>
-<p>where $Re$ is the Reynolds number and $l/d$ is the length to diameter ratio of the nozzle. Solving for an analytical solution is not that easy but using the ODEINT function from the <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code> module, we can solve the problem numerically.</p>
+<p>\begin{align}
+C_d &amp;= \frac{Re^{5/6}}{17.11\cdot l/d + 1.65\cdot Re^{0.8}} \
+Re &amp;= \frac{\rho D v}{\mu} \
+\end{align}</p>
+<p>where <span class="math notranslate nohighlight">\(Re\)</span> is the Reynolds number and <span class="math notranslate nohighlight">\(l/d\)</span> is the length to diameter ratio of the nozzle. Solving for an analytical solution is not that easy but using the ODEINT function from the <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code> module, we can solve the problem numerically.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the discharge coefficient function</span>
@@ -682,11 +676,10 @@ Re &amp;= \frac{\rho D v}{\mu} \\
 </div>
 <p>This is a complex problem as the velocity of the fluid depends on the discharge coefficient and the discharge coefficient depends on the fluid velocity. For each call to the derivative function, an fsolve is required to determine the exit velocity.</p>
 <p>The equation to solve to determine the reynolds  number given the height of fluid in the tank is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-270cd06d-6edb-4799-83be-fb39196da167">
-<span class="eqno">(19)<a class="headerlink" href="#equation-270cd06d-6edb-4799-83be-fb39196da167" title="Permalink to this equation">#</a></span>\[\begin{align}
-v = \frac{\dot{m}}{\rho A} = \sqrt{2 g h} C_d(Re) \\
-Re = \frac{\rho D v}{\mu} = \frac{\rho D \sqrt{2 g h} C_d(Re)}{\mu} \\
-\end{align}\]</div>
+<p>\begin{align}
+v = \frac{\dot{m}}{\rho A} = \sqrt{2 g h} C_d(Re) \
+Re = \frac{\rho D v}{\mu} = \frac{\rho D \sqrt{2 g h} C_d(Re)}{\mu} \
+\end{align}</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a function that should equal zero to determine the Reynolds number</span>

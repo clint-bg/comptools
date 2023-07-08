@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'homework/HW01';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -440,7 +442,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="hw01-introduction-to-python">
+  <section class="tex2jax_ignore mathjax_ignore" id="hw01-introduction-to-python">
 <h1>HW01: Introduction to Python<a class="headerlink" href="#hw01-introduction-to-python" title="Permalink to this heading">#</a></h1>
 <p>The first homework problem is solved with Python. You’ll complete the below labeled actions. Look for places where an <strong>Action</strong> is required. The following topics are covered:</p>
 <ul class="simple">
@@ -482,7 +484,7 @@ document.write(`
 <section id="problem-1">
 <h2>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h2>
 <p>Install Python if you have a laptop computer. If not, then skip this step and use the CAEDM computer that already has Anaconda and Jupyter notebook. You can also use Google Colab.</p>
-<p><em><strong>Action 1a:</strong></em> Download and install Anaconda (Jupyter Notebook) from https://www.anaconda.com/distribution/</p>
+<p><em><strong>Action 1a:</strong></em> Download and install Anaconda (Jupyter Notebook) from <a class="reference external" href="https://www.anaconda.com/distribution/">https://www.anaconda.com/distribution/</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">video</span><span class="p">(</span><span class="s1">&#39;LrMOrMb8-3s&#39;</span><span class="p">)</span>
@@ -683,7 +685,7 @@ print(...)
 </tr>
 </tbody>
 </table>
-<p><em><strong>Action 1h:</strong></em> Use the operator list to determine whether $5^5$ is greater than $2^{10}$.</p>
+<p><em><strong>Action 1h:</strong></em> Use the operator list to determine whether <span class="math notranslate nohighlight">\(5^5\)</span> is greater than <span class="math notranslate nohighlight">\(2^{10}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># modify to determine whether 5^5 is greater than 2^10</span>
@@ -720,8 +722,8 @@ print(...)
 </div>
 <p>You can import a package with <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">**package**</span> <span class="pre">as</span> <span class="pre">**pk**</span></code> where <code class="docutils literal notranslate"><span class="pre">**package**</span></code> is the package name and <code class="docutils literal notranslate"><span class="pre">**pk**</span></code> is the abbreviated name.</p>
 <p><em><strong>Action 2a:</strong></em> Import the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> package as <code class="docutils literal notranslate"><span class="pre">np</span></code> (shortened name) and get help on the <code class="docutils literal notranslate"><span class="pre">np.linspace</span></code> function.</p>
-<p><em><strong>Action 2b:</strong></em> Use <code class="docutils literal notranslate"><span class="pre">np.linspace</span></code> to define 20 equally spaced values between $0$ and $2,\pi$. Name the variable <code class="docutils literal notranslate"><span class="pre">x</span></code> and use the built-in <code class="docutils literal notranslate"><span class="pre">np.pi</span></code> constant for $\pi$.</p>
-<p><em><strong>Action 2c:</strong></em> Use <code class="docutils literal notranslate"><span class="pre">np.sin</span></code> to calculate a new variable <code class="docutils literal notranslate"><span class="pre">y</span></code> as $y=2,\sin{\left(\frac{x}{2}\right)}$.</p>
+<p><em><strong>Action 2b:</strong></em> Use <code class="docutils literal notranslate"><span class="pre">np.linspace</span></code> to define 20 equally spaced values between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(2\,\pi\)</span>. Name the variable <code class="docutils literal notranslate"><span class="pre">x</span></code> and use the built-in <code class="docutils literal notranslate"><span class="pre">np.pi</span></code> constant for <span class="math notranslate nohighlight">\(\pi\)</span>.</p>
+<p><em><strong>Action 2c:</strong></em> Use <code class="docutils literal notranslate"><span class="pre">np.sin</span></code> to calculate a new variable <code class="docutils literal notranslate"><span class="pre">y</span></code> as <span class="math notranslate nohighlight">\(y=2\,\sin{\left(\frac{x}{2}\right)}\)</span>.</p>
 <p><em><strong>Action 2d:</strong></em> Import the <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> package as <code class="docutils literal notranslate"><span class="pre">plt</span></code> (shortened name) and show the help on the <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code> function. To show plots in an IPython notebook, the additional code <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">inline</span></code> is required.</p>
 <p><em><strong>Action 2e:</strong></em> Create a plot of <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> with the <code class="docutils literal notranslate"><span class="pre">plt.plot</span></code> function. Add an x-label with <code class="docutils literal notranslate"><span class="pre">plt.xlabel</span></code> and a y-label with <code class="docutils literal notranslate"><span class="pre">plt.ylabel</span></code>. If you are not using an IPython notebook, include <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> to display the plot. You can also include it in an IPython notebook but it won’t have any effect.</p>
 </section>

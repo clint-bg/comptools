@@ -61,7 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'homework/HW03';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -430,7 +431,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="hw03-solve-equations">
+  <section class="tex2jax_ignore mathjax_ignore" id="hw03-solve-equations">
 <h1>HW03: Solve Equations<a class="headerlink" href="#hw03-solve-equations" title="Permalink to this heading">#</a></h1>
 <p>Systems of equations are solved by finding variable values that satisfy all of the equations. With linear systems of equations, there is typically a unique solution that is easy to solve, even for large-scale systems. Nonlinear equations can be more challenging to solve and may have multiple solutions. Variable bounds and a good initial guess are sometimes required for nonlinear systems of equations. This section is to solve systems of:</p>
 <ul class="simple">
@@ -439,11 +440,11 @@ document.write(`
 </ul>
 <section id="problem-1">
 <h2>Problem #1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h2>
-<p>Solve the following systems of linear algebraic equations $\left(A,x = b\right)$ using matrix calculations such as:</p>
-<p>$\left[ {\begin{array}{cc} 1 &amp; 2 \ 1.5 &amp; -1 \ \end{array} } \right] \left[ {\begin{array}{c} x_0 \ x_1 \end{array} } \right] = \left[ {\begin{array}{c} 0 \ 0.5 \end{array} } \right]$</p>
+<p>Solve the following systems of linear algebraic equations <span class="math notranslate nohighlight">\(\left(A\,x = b\right)\)</span> using matrix calculations such as:</p>
+<p><span class="math notranslate nohighlight">\(\left[ {\begin{array}{cc} 1 &amp; 2 \\ 1.5 &amp; -1 \\ \end{array} } \right] \left[ {\begin{array}{c} x_0 \\ x_1 \end{array} } \right] = \left[ {\begin{array}{c} 0 \\ 0.5 \end{array} } \right]\)</span></p>
 <p>An array is defined with square brackets as a list or numpy array.</p>
 <p><em><strong>Vector:</strong></em> A vector (1D array) is:</p>
-<p>$b = \left[ {\begin{array}{c} 0 \ 0.5 \end{array} } \right]$</p>
+<p><span class="math notranslate nohighlight">\(b = \left[ {\begin{array}{c} 0 \\ 0.5 \end{array} } \right]\)</span></p>
 <p>and is defined as a list:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">]</span>
 </pre></div>
@@ -453,7 +454,7 @@ document.write(`
 </pre></div>
 </div>
 <p><em><strong>Matrix:</strong></em> A matrix (2D array) is:</p>
-<p>$A = \left[ {\begin{array}{cc} 1 &amp; 2 \ 1.5 &amp; -1 \ \end{array} } \right]$</p>
+<p><span class="math notranslate nohighlight">\(A = \left[ {\begin{array}{cc} 1 &amp; 2 \\ 1.5 &amp; -1 \\ \end{array} } \right]\)</span></p>
 <p>and is defined as a list:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],[</span><span class="mf">1.5</span><span class="p">,</span><span class="o">-</span><span class="mf">1.0</span><span class="p">]]</span>
 </pre></div>
@@ -462,8 +463,8 @@ document.write(`
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],[</span><span class="mf">1.5</span><span class="p">,</span><span class="o">-</span><span class="mf">1.0</span><span class="p">]])</span>
 </pre></div>
 </div>
-<p><em><strong>Solution Method #1:</strong></em> The solution to this set of equations can be found by inverting the matrix $A$ and multiplying by $b$ as $x=A^{-1},b$.</p>
-<p>$\left[ {\begin{array}{c} x_0 \ x_1 \end{array} } \right] = \left[ {\begin{array}{cc} 1 &amp; 2 \ 1.5 &amp; -1 \ \end{array} } \right]^{-1} \left[ {\begin{array}{c} 0 \ 0.5 \end{array} } \right]$</p>
+<p><em><strong>Solution Method #1:</strong></em> The solution to this set of equations can be found by inverting the matrix <span class="math notranslate nohighlight">\(A\)</span> and multiplying by <span class="math notranslate nohighlight">\(b\)</span> as <span class="math notranslate nohighlight">\(x=A^{-1}\,b\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\left[ {\begin{array}{c} x_0 \\ x_1 \end{array} } \right] = \left[ {\begin{array}{cc} 1 &amp; 2 \\ 1.5 &amp; -1 \\ \end{array} } \right]^{-1} \left[ {\begin{array}{c} 0 \\ 0.5 \end{array} } \right]\)</span></p>
 <p>The inverse of a matrix can be found with the function <code class="docutils literal notranslate"><span class="pre">np.linalg.inv</span></code>. Two matrices are multiplied together with the dot product with function <code class="docutils literal notranslate"><span class="pre">np.dot</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -546,8 +547,8 @@ document.write(`
 </div>
 </div>
 </div>
-<p><em><strong>Action:</strong></em> Find the values of <code class="docutils literal notranslate"><span class="pre">x</span></code> that satisfy the following system of linear equations ($A , x = b$):</p>
-<p>$\left[ {\begin{array}{ccccc} 11 &amp; 7 &amp; 0 &amp; 1 &amp; 2 \ 0 &amp; 5 &amp; 2 &amp; 0 &amp; 1 \ 3 &amp; 2 &amp; 7 &amp; 1 &amp; 0 \ 4 &amp; 0 &amp; 4 &amp; 10 &amp; 1 \ 2 &amp; 5&amp; 1 &amp; 3 &amp; 14 \end{array} } \right] \left[ {\begin{array}{c} x_0 \ x_1 \ x_2 \ x_3 \ x_4 \end{array} } \right] = \left[ {\begin{array}{c} 45 \ 30 \ 15 \ 20 \ 92 \end{array} } \right]$</p>
+<p><em><strong>Action:</strong></em> Find the values of <code class="docutils literal notranslate"><span class="pre">x</span></code> that satisfy the following system of linear equations (<span class="math notranslate nohighlight">\(A \, x = b\)</span>):</p>
+<p><span class="math notranslate nohighlight">\(\left[ {\begin{array}{ccccc} 11 &amp; 7 &amp; 0 &amp; 1 &amp; 2 \\ 0 &amp; 5 &amp; 2 &amp; 0 &amp; 1 \\ 3 &amp; 2 &amp; 7 &amp; 1 &amp; 0 \\ 4 &amp; 0 &amp; 4 &amp; 10 &amp; 1 \\ 2 &amp; 5&amp; 1 &amp; 3 &amp; 14 \end{array} } \right] \left[ {\begin{array}{c} x_0 \\ x_1 \\ x_2 \\ x_3 \\ x_4 \end{array} } \right] = \left[ {\begin{array}{c} 45 \\ 30 \\ 15 \\ 20 \\ 92 \end{array} } \right]\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">11.0</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">2.0</span><span class="p">],</span>\
@@ -566,10 +567,10 @@ document.write(`
 <section id="problem-2">
 <h2>Problem #2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h2>
 <p>A nonlinear equation solver such as <code class="docutils literal notranslate"><span class="pre">scipy.optimize.fsolve</span></code> can also solve linear equations. Returning to the introductory example:</p>
-<p>$\left[ {\begin{array}{cc} 1 &amp; 2 \ 1.5 &amp; -1 \ \end{array} } \right] \left[ {\begin{array}{c} x_0 \ x_1 \end{array} } \right] = \left[ {\begin{array}{c} 0 \ 0.5 \end{array} } \right]$</p>
+<p><span class="math notranslate nohighlight">\(\left[ {\begin{array}{cc} 1 &amp; 2 \\ 1.5 &amp; -1 \\ \end{array} } \right] \left[ {\begin{array}{c} x_0 \\ x_1 \end{array} } \right] = \left[ {\begin{array}{c} 0 \\ 0.5 \end{array} } \right]\)</span></p>
 <p>This is solved with <code class="docutils literal notranslate"><span class="pre">fsolve</span></code> by placing all of the equations to one side as:</p>
-<p>$\left[ {\begin{array}{cc} 1 &amp; 2 \ 1.5 &amp; -1 \ \end{array} } \right] \left[ {\begin{array}{c} x_0 \ x_1 \end{array} } \right] - \left[ {\begin{array}{c} 0 \ 0.5 \end{array} } \right] = \left[ {\begin{array}{c} f_0 \ f_1 \end{array} } \right]$</p>
-<p>The equation is solved when $f_0$ and $f_1$ are equal to zero. The <code class="docutils literal notranslate"><span class="pre">fsolve</span></code> function requires a function that returns the residuals ($f_1$ and $f_2$).</p>
+<p><span class="math notranslate nohighlight">\(\left[ {\begin{array}{cc} 1 &amp; 2 \\ 1.5 &amp; -1 \\ \end{array} } \right] \left[ {\begin{array}{c} x_0 \\ x_1 \end{array} } \right] - \left[ {\begin{array}{c} 0 \\ 0.5 \end{array} } \right] = \left[ {\begin{array}{c} f_0 \\ f_1 \end{array} } \right]\)</span></p>
+<p>The equation is solved when <span class="math notranslate nohighlight">\(f_0\)</span> and <span class="math notranslate nohighlight">\(f_1\)</span> are equal to zero. The <code class="docutils literal notranslate"><span class="pre">fsolve</span></code> function requires a function that returns the residuals (<span class="math notranslate nohighlight">\(f_1\)</span> and <span class="math notranslate nohighlight">\(f_2\)</span>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -598,7 +599,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Guess values for $x_0$ and $x_1$ are selected as <code class="docutils literal notranslate"><span class="pre">[1,1]</span></code> and <code class="docutils literal notranslate"><span class="pre">fsolve</span></code> finds the solution.</p>
+<p>Guess values for <span class="math notranslate nohighlight">\(x_0\)</span> and <span class="math notranslate nohighlight">\(x_1\)</span> are selected as <code class="docutils literal notranslate"><span class="pre">[1,1]</span></code> and <code class="docutils literal notranslate"><span class="pre">fsolve</span></code> finds the solution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span>
@@ -613,21 +614,21 @@ document.write(`
 </div>
 </div>
 </div>
-<p><em><strong>Action:</strong></em> Determine one solution for $x$ and $y$ to the following equations (there are 4 possible solutions).</p>
-<p>$2 x^2 + y^2 = 1$</p>
-<p>$(0.5x-0.5)^2+2(y-0.25)^2=1$</p>
+<p><em><strong>Action:</strong></em> Determine one solution for <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> to the following equations (there are 4 possible solutions).</p>
+<p><span class="math notranslate nohighlight">\(2 x^2 + y^2 = 1\)</span></p>
+<p><span class="math notranslate nohighlight">\((0.5x-0.5)^2+2(y-0.25)^2=1\)</span></p>
 <p>The initial guess can be adjusted to find a different solution.</p>
 </section>
 <section id="problem-3">
 <h2>Problem #3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h2>
 <p>The Redlich/Kwong Equation of State is</p>
-<p>$P = \frac{R_g , T}{V-b} - \frac{a}{T^{1/2} , V , \left(V+b\right)}$</p>
-<p>where $T$ is the temperature, $V$ is the molar volume, $R_g$ is the universal gas constant, and $a$ and $b$ are compound-specific constants.  Find the molar volume of ethane for each phase that is present at $T = 77 , °C$ and $P = 1 , bar$.  For ethane, $a = 2.877×10^8 , \frac{cm^6 bar K^{0.5}}{mol^2}$ and $b = 60.211 , \frac{cm^3}{mol}$.</p>
+<p><span class="math notranslate nohighlight">\(P = \frac{R_g \, T}{V-b} - \frac{a}{T^{1/2} \, V \, \left(V+b\right)}\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(T\)</span> is the temperature, <span class="math notranslate nohighlight">\(V\)</span> is the molar volume, <span class="math notranslate nohighlight">\(R_g\)</span> is the universal gas constant, and <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are compound-specific constants.  Find the molar volume of ethane for each phase that is present at <span class="math notranslate nohighlight">\(T = 77 \, °C\)</span> and <span class="math notranslate nohighlight">\(P = 1 \, bar\)</span>.  For ethane, <span class="math notranslate nohighlight">\(a = 2.877×10^8 \, \frac{cm^6 bar K^{0.5}}{mol^2}\)</span> and <span class="math notranslate nohighlight">\(b = 60.211 \, \frac{cm^3}{mol}\)</span>.</p>
 <ul class="simple">
 <li><p>Use the ideal gas law to obtain the guess of the vapor volume and 1.1*b to obtain the guess for the liquid volume.  (Graphing helps find good guesses for solver)</p></li>
 <li><p>You may need to include some constraints.</p></li>
 <li><p>IF YOU ARE STUCK ask a friend, the TA OR the instructor!  Don’t spent so much time feeling lost that you become discouraged.</p></li>
-<li><p>You should obtain something around 28637 $cm^3/mol$ for the vapor volume and 82.477 $cm^3/mol$ for the liquid volume.  The middle root (not required but for your information) is in between.</p></li>
+<li><p>You should obtain something around 28637 <span class="math notranslate nohighlight">\(cm^3/mol\)</span> for the vapor volume and 82.477 <span class="math notranslate nohighlight">\(cm^3/mol\)</span> for the liquid volume.  The middle root (not required but for your information) is in between.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -654,18 +655,16 @@ document.write(`
 <section id="problem-4">
 <h2>Problem #4<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h2>
 <p>Imagine mixing liquid benzene (species 1) and toluene (species 2) together in an initially empty container. At equilibrium, some of the liquid from both species evaporates into the vapor phase and some is left liquid phase for certain temperatures and pressures. In thermodynamics, you learn that Raoult’s law may be used to describe the distribution of species in each phase. For the specific example mentioned above, Raoult’s law gives the following two expressions describing the equilibrium state</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ba2664ac-a247-4c9f-92c0-5e900f3961b8">
-<span class="eqno">(21)<a class="headerlink" href="#equation-ba2664ac-a247-4c9f-92c0-5e900f3961b8" title="Permalink to this equation">#</a></span>\[\begin{align}
-y_1 P = x_1 P_1^{sat}(T) \\
+<p>\begin{align}
+y_1 P = x_1 P_1^{sat}(T) \
 y_2 P = x_2 P_2^{sat}(T)
-\end{align}\]</div>
-<p>where $y_i$ is the mole fraction of species $i$ (either 1 or 2) in the vapor phase, $x_i$ is the mole fraction of species $i$ in the liquid phase, $P_i^{sat}(T)$ is the vapor pressure of species $i$ at the system temperature $T$, and $P$ is the system pressure.</p>
-<p>The vapor pressures of benzene and toluene can be found using the Antione Equation given below:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9f964b50-1987-4a34-9781-e62fa4f79f57">
-<span class="eqno">(22)<a class="headerlink" href="#equation-9f964b50-1987-4a34-9781-e62fa4f79f57" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\end{align}</p>
+<p>where <span class="math notranslate nohighlight">\(y_i\)</span> is the mole fraction of species <span class="math notranslate nohighlight">\(i\)</span> (either 1 or 2) in the vapor phase, <span class="math notranslate nohighlight">\(x_i\)</span> is the mole fraction of species <span class="math notranslate nohighlight">\(i\)</span> in the liquid phase, <span class="math notranslate nohighlight">\(P_i^{sat}(T)\)</span> is the vapor pressure of species <span class="math notranslate nohighlight">\(i\)</span> at the system temperature <span class="math notranslate nohighlight">\(T\)</span>, and <span class="math notranslate nohighlight">\(P\)</span> is the system pressure.</p>
+<p>The vapor pressures of benzene and toluene can be found using the Antione Equation given below:
+\begin{equation}
 \ln{\left(P_i^{sat}(T) \right)} = A_i - \frac{B_i}{T+ C_i}
-\end{equation}\]</div>
-<p>Note that $P_i^{sat}(T)$ is not $P_i^{sat}$ times $T$, but is simply showing that $P_i^{sat}$ is a function of $T$ in kPa.  The constants, $A$, $B$, and $C$, are compound specific and are found in the table below. $T$ is in $°C$.</p>
+\end{equation}</p>
+<p>Note that <span class="math notranslate nohighlight">\(P_i^{sat}(T)\)</span> is not <span class="math notranslate nohighlight">\(P_i^{sat}\)</span> times <span class="math notranslate nohighlight">\(T\)</span>, but is simply showing that <span class="math notranslate nohighlight">\(P_i^{sat}\)</span> is a function of <span class="math notranslate nohighlight">\(T\)</span> in kPa.  The constants, <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, and <span class="math notranslate nohighlight">\(C\)</span>, are compound specific and are found in the table below. <span class="math notranslate nohighlight">\(T\)</span> is in <span class="math notranslate nohighlight">\(°C\)</span>.</p>
 <p><em><strong>Antoine Constants for Benzene and Toluene:</strong></em></p>
 <table class="table">
 <thead>
@@ -688,11 +687,11 @@ y_2 P = x_2 P_2^{sat}(T)
 </tr>
 </tbody>
 </table>
-<p>If a mixture of benzene (species 1) and toluene (species 2) has $y_1 = 0.33$ and $P = 120 , kPa$, find $x_1$ and $T$. Remember that the mole fractions of each phase must sum to 1.</p>
+<p>If a mixture of benzene (species 1) and toluene (species 2) has <span class="math notranslate nohighlight">\(y_1 = 0.33\)</span> and <span class="math notranslate nohighlight">\(P = 120 \, kPa\)</span>, find <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(T\)</span>. Remember that the mole fractions of each phase must sum to 1.</p>
 <ul class="simple">
 <li><p>First figure out what you are solving for.  Then figure out how many equations you have.</p></li>
-<li><p>You might want to set up a function for $P_1^{sat}$ and $P_2^{sat}$ that are a function of $T$.</p></li>
-<li><p>You should get about 0.17 for $x_1$ and $109 °C$ for $T$.</p></li>
+<li><p>You might want to set up a function for <span class="math notranslate nohighlight">\(P_1^{sat}\)</span> and <span class="math notranslate nohighlight">\(P_2^{sat}\)</span> that are a function of <span class="math notranslate nohighlight">\(T\)</span>.</p></li>
+<li><p>You should get about 0.17 for <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(109 °C\)</span> for <span class="math notranslate nohighlight">\(T\)</span>.</p></li>
 </ul>
 <p>Credit to Dr. John Hedengren for these problems.</p>
 </section>
