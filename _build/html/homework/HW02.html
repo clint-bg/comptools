@@ -61,7 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'homework/HW02';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -432,7 +433,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="hw02-conditionals-and-functions">
+  <section class="tex2jax_ignore mathjax_ignore" id="hw02-conditionals-and-functions">
 <h1>HW02: Conditionals and Functions<a class="headerlink" href="#hw02-conditionals-and-functions" title="Permalink to this heading">#</a></h1>
 <section id="problem-1">
 <h2>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h2>
@@ -441,9 +442,9 @@ document.write(`
 <p><strong>(b)</strong> x and y are given below. Write an if statement that will print whether x and y are both positive, or both negative, or if one or both are zero.</p>
 <p>x=-4 y=3.2</p>
 <p><strong>(c)</strong> Write a single line (condensed) if statement that will evaluate y = 1/x if x is not zero. If x is 0, then y=0. Print y.</p>
-<p><strong>(d)</strong> The ideal gas law is an approximation, but it is only a good approximation under certain circumstances. The general rule of thumb is: when the specifc volume is greater than 5 L/mol for diatomic gases and 20 L/mol for all other gases. (Specific volume: $\hat{V} = \frac{V}{n}$ )
-$$\hat{V}=\frac{RT}{P} &gt; 5 L/mol $$
-$$ …….                &gt;20 L/mol$$
+<p><strong>(d)</strong> The ideal gas law is an approximation, but it is only a good approximation under certain circumstances. The general rule of thumb is: when the specifc volume is greater than 5 L/mol for diatomic gases and 20 L/mol for all other gases. (Specific volume: <span class="math notranslate nohighlight">\(\hat{V} = \frac{V}{n}\)</span> )
+$<span class="math notranslate nohighlight">\(\hat{V}=\frac{RT}{P} &gt; 5 L/mol \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( .......                &gt;20 L/mol\)</span>$
 Write an if statement that will print the specifc volume of O2, and state whether or not the ideal gas law is a good approximation.</p>
 <p>T = 600 K</p>
 <p>P = 15 atm</p>
@@ -452,7 +453,7 @@ Write an if statement that will print the specifc volume of O2, and state whethe
 <section id="problem-2">
 <h2>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h2>
 <p><strong>(a)</strong> Write a function called “sum” that takes two numbers and returns the sum of them.</p>
-<p><strong>(b)</strong> Write a function called “quad” that takes three numbers $a$, $b$, and $c$ as function arguments that are the coefficients of the quadratic formula $ax^2+bx+c=0$, and returns the two roots. Test your function on $a=1,,b=-1,, c=-2$. You should get roots of 2 and -1.</p>
+<p><strong>(b)</strong> Write a function called “quad” that takes three numbers <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span> as function arguments that are the coefficients of the quadratic formula <span class="math notranslate nohighlight">\(ax^2+bx+c=0\)</span>, and returns the two roots. Test your function on <span class="math notranslate nohighlight">\(a=1,\,b=-1,\, c=-2\)</span>. You should get roots of 2 and -1.</p>
 <p><strong>(c)</strong> Functions are a convenient way to convert units. Write a function that converts</p>
 <ol class="arabic simple">
 <li><p>Celsius for Farhenheit</p></li>
@@ -472,21 +473,23 @@ Write an if statement that will print the specifc volume of O2, and state whethe
 <section id="problem-4">
 <h2>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h2>
 <p>Write a function for the Peng Robinson equation of state. The Peng Robinson equation of state is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2e31b325-d903-435d-9b40-383c2217631f">
-<span class="eqno">(20)<a class="headerlink" href="#equation-2e31b325-d903-435d-9b40-383c2217631f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
 P = \frac{RT}{V_m-b}&amp;-\frac{a\alpha}{V_m(V_m+b)+b(V_m-b)} \tag{1} \\ 
 a &amp;= 0.45724\frac{R^2T_c^2}{P_c} \tag{2a} \\
 b &amp;= 0.07780\frac{RT_c}{P_c} \tag{2b} \\
 \alpha &amp;= \left[1+\kappa\left(1-\sqrt{\frac{T}{T_c}}\right)\right]^2 \tag{2c}\\
 \kappa &amp;= 0.37464+1.54226\omega-0.26992\omega^2 \tag{2d} \\
 T_r &amp;= \frac{T}{T_c} \tag{2e}\\
-\end{align}\]</div>
-<p>where T_c is the critical temperature, P_c is the critical pressure, $\omega$ is the acentric factor, and $T_r$ is the reduced temperature. The critical properties for carbon dioxide are $T_c = 304.2$ K and $P_c = 73.8$ atm. The acentric factor for carbon dioxide is $\omega = 0.225$. The gas constant is $R = 0.08206$ L atm/(mol K).</p>
+\end{align}
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(T_c\)</span> is the critical temperature, <span class="math notranslate nohighlight">\(P_c\)</span> is the critical pressure, <span class="math notranslate nohighlight">\(\omega\)</span> is the acentric factor, and <span class="math notranslate nohighlight">\(T_r\)</span> is the reduced temperature. The critical properties for carbon dioxide are <span class="math notranslate nohighlight">\(T_c = 304.2\)</span> K and <span class="math notranslate nohighlight">\(P_c = 73.8\)</span> atm. The acentric factor for carbon dioxide is <span class="math notranslate nohighlight">\(\omega = 0.225\)</span>. The gas constant is <span class="math notranslate nohighlight">\(R = 0.08206\)</span> L atm/(mol K).</p>
 <p>Evaluate the function to determine the pressure for the following conditions:</p>
 <ul class="simple">
 <li><p>T = 600 K</p></li>
-<li><p>V = 0.05 m^3/mol</p></li>
-<li><p>Carbon dioxide (CO2) is the gas</p></li>
+<li><p>V = 0.05 <span class="math notranslate nohighlight">\(\text{m}^3\)</span>/mol</p></li>
+<li><p>Carbon dioxide (<span class="math notranslate nohighlight">\(\text{CO}_2\)</span>) is the gas</p></li>
 </ul>
 </section>
 <section id="problem-5">

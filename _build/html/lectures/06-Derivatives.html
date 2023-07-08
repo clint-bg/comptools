@@ -61,7 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/06-Derivatives';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -437,20 +438,22 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="derivatives-and-transients">
+  <section class="tex2jax_ignore mathjax_ignore" id="derivatives-and-transients">
 <h1>06-Derivatives and Transients<a class="headerlink" href="#derivatives-and-transients" title="Permalink to this heading">#</a></h1>
 <p>Many times in engineering, the system is not at steady state. Or in other words, the system variables are changing. We’ll look at some basic methods to readily solve problems where the system is changing with time.</p>
 <p>You should understand at the end of this discussion that if you have an expression for the derivative, you can integrate that numerically to determine the system parameters as a function of time.</p>
 <section id="first-example-frictionless-emptying-a-tank-of-fliud">
 <h2>First Example: Frictionless emptying a tank of fliud<a class="headerlink" href="#first-example-frictionless-emptying-a-tank-of-fliud" title="Permalink to this heading">#</a></h2>
 <p>A tank of water is draining through a 1/8 inch diameter hole in the bottom of the tank. The water level in the tank is 7 and 3/16 inches above the hole. The tank is 1 and 9/16 inch in diameter. The density of water is 1000 kg/m<sup>3</sup>. The tank is open to the atmosphere. The flow rate out of the tank is estimated by the following equation:</p>
-<p>$$\dot{m} = \rho A \sqrt{2 g h}$$</p>
-<p>where $\dot{m}$ is the mass flow rate, $\rho$ is the density, $A$ is the area of the hole, $g$ is the gravitational constant, and $h$ is the height of the water above the hole. This is for a frictionless hole.</p>
+<div class="math notranslate nohighlight">
+\[\dot{m} = \rho A \sqrt{2 g h}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\dot{m}\)</span> is the mass flow rate, <span class="math notranslate nohighlight">\(\rho\)</span> is the density, <span class="math notranslate nohighlight">\(A\)</span> is the area of the hole, <span class="math notranslate nohighlight">\(g\)</span> is the gravitational constant, and <span class="math notranslate nohighlight">\(h\)</span> is the height of the water above the hole. This is for a frictionless hole.</p>
 <section id="analytical-solution">
 <h3>Analytical Solution<a class="headerlink" href="#analytical-solution" title="Permalink to this heading">#</a></h3>
 <p>Start with a mass balance</p>
-<div class="amsmath math notranslate nohighlight" id="equation-31bcc144-4fcf-4d39-a2ce-49b8540814ec">
-<span class="eqno">(11)<a class="headerlink" href="#equation-31bcc144-4fcf-4d39-a2ce-49b8540814ec" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
 \frac{dm}{dt} &amp;= \dot{m}_{in} - \dot{m}_{out} \\
 \frac{dm}{dt} &amp;= 0 - \dot{m}_{out} \\
 \frac{dm}{dt} &amp;= -\rho A \sqrt{2 g h} \\
@@ -458,31 +461,37 @@ m &amp;= \rho V \\
 V &amp;= \frac{\pi}{4} D^2 h \\
 \frac{dm}{dt} &amp;= \rho \frac{\pi}{4} D^2 \frac{dh}{dt} = -\rho A \sqrt{2 g h} \\
 \frac{dh}{dt} &amp;= -\frac{4}{\pi D^2} A \sqrt{2 g h} \\
-
-\end{align}\]</div>
+\end{align}
+\end{split}\]</div>
 </section>
 <section id="id1">
 <h3><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-86540ab0-9f8a-448f-b74c-72a453d606a4">
-<span class="eqno">(12)<a class="headerlink" href="#equation-86540ab0-9f8a-448f-b74c-72a453d606a4" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
 \frac{dh}{dt} &amp;= -\frac{4}{\pi D^2} A \sqrt{2 g h} \\
 \frac{dh}{\sqrt{h}} &amp;= -\frac{4}{\pi D^2} A \sqrt{2 g} dt \\
 \int \frac{dh}{\sqrt{h}} &amp;= -\frac{4}{\pi D^2} A \sqrt{2 g} \int dt \\
 2 \sqrt{h} &amp;= -\frac{4}{\pi D^2} A \sqrt{2 g} t + C \\
 h &amp;= \left(-\frac{2}{\pi D^2} A \sqrt{2 g} t + C\right)^2 
-\end{align}\]</div>
-<p>With the initial condition that $h(0) = h0$ m, we can solve for $C$:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b6b2f15a-d4c5-4505-bf2e-749c09ace254">
-<span class="eqno">(13)<a class="headerlink" href="#equation-b6b2f15a-d4c5-4505-bf2e-749c09ace254" title="Permalink to this equation">#</a></span>\[\begin{align}
+\end{align}
+\end{split}\]</div>
+<p>With the initial condition that <span class="math notranslate nohighlight">\(h(0) = h0\)</span> m, we can solve for <span class="math notranslate nohighlight">\(C\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
 h(0) &amp;= \left(-\frac{2}{\pi D^2} A \sqrt{2 g} (0) + C\right)^2 \\
 h0 &amp;= C^2 \\
 C &amp;= \pm \sqrt{h0}
-\end{align}\]</div>
+\end{align}
+\end{split}\]</div>
 <p>Thus the solution is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6d5ec99e-2799-451d-9e68-e90a5c1d777e">
-<span class="eqno">(14)<a class="headerlink" href="#equation-6d5ec99e-2799-451d-9e68-e90a5c1d777e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
 h(t) &amp;= \left(-\frac{2}{\pi D^2} A \sqrt{2 g} t + \sqrt{h0}\right)^2 \\
-\end{align}\]</div>
+\end{align}
+\end{split}\]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Note that the solution is not dependent on the fluid density or viscosity. Does that make sense? Or in other words, would you expect a low viscosity fluid like water to drain faster or slower than a highly viscous fluid like honey? Logic says the honey would drain slower, but the solution says it would drain at the same rate. Why is that?</p>
@@ -498,7 +507,7 @@ h(t) &amp;= \left(-\frac{2}{\pi D^2} A \sqrt{2 g} t + \sqrt{h0}\right)^2 \\
 <span class="n">gravity</span> <span class="o">=</span> <span class="mf">9.81</span> <span class="c1">#m/s^2</span>
 <span class="n">orificeDiameter</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">8</span><span class="o">*</span><span class="mf">0.0254</span> <span class="c1">#m</span>
 <span class="n">Area</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="n">orificeDiameter</span><span class="o">**</span><span class="mi">2</span> <span class="c1">#exit area of the water jet, m^2</span>
-<span class="n">height0</span> <span class="o">=</span> <span class="p">(</span><span class="mi">7</span><span class="o">+</span><span class="mi">3</span><span class="o">/</span><span class="mi">16</span><span class="p">)</span><span class="o">*</span><span class="mf">0.0254</span> <span class="c1">#initial height of water in the tank, m</span>
+<span class="n">height0</span> <span class="o">=</span> <span class="p">(</span><span class="mf">6.68</span><span class="p">)</span><span class="o">*</span><span class="mf">0.0254</span> <span class="c1">#initial height of water in the tank, m</span>
 <span class="n">Dia</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">9</span><span class="o">/</span><span class="mi">16</span><span class="p">)</span><span class="o">*</span><span class="mf">0.0254</span> <span class="c1">#diameter of the tank, m</span>
 <span class="c1"># 3rd determine the emptying time</span>
 <span class="n">emptiedTime</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">height0</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">Dia</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">Area</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">gravity</span><span class="p">))</span>
@@ -516,27 +525,32 @@ h(t) &amp;= \left(-\frac{2}{\pi D^2} A \sqrt{2 g} t + \sqrt{h0}\right)^2 \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/985c4368f3a88ad179ff6e72a13230f3da8a02440f57a6a74159405243a25bc2.png" src="../_images/985c4368f3a88ad179ff6e72a13230f3da8a02440f57a6a74159405243a25bc2.png" />
+<img alt="../_images/f3901c956a63acf5934bea9fc4bf0f75a05d8379162d297ef12f553c9c351678.png" src="../_images/f3901c956a63acf5934bea9fc4bf0f75a05d8379162d297ef12f553c9c351678.png" />
 </div>
 </div>
 </section>
 <section id="numerical-solution-euler-s-method">
 <h3>Numerical Solution: Euler’s Method<a class="headerlink" href="#numerical-solution-euler-s-method" title="Permalink to this heading">#</a></h3>
 <p>The numerical solution will use a finite difference approximation to the derivative, the simplest of which is called Euler’s method. Euler’s method is based on the definition of the derivative:</p>
-<p>$$\frac{df}{dt} = \lim_{\Delta t \rightarrow 0} \frac{f(t+\Delta t) - f(t)}{\Delta t}$$</p>
+<div class="math notranslate nohighlight">
+\[\frac{df}{dt} = \lim_{\Delta t \rightarrow 0} \frac{f(t+\Delta t) - f(t)}{\Delta t}\]</div>
 <p>From the above the problem definition, we can rewrite the differential equation as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f745f9cd-640f-405f-a1d0-9187edfed9bc">
-<span class="eqno">(15)<a class="headerlink" href="#equation-f745f9cd-640f-405f-a1d0-9187edfed9bc" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
 \frac{dh}{dt} = f(h) = -\frac{4}{\pi D^2} A \sqrt{2 g h} \\
-\end{align}\]</div>
+\end{align}
+\end{split}\]</div>
 <p>Using Euler’s method:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-db21c768-c403-4902-8826-2654b762f8de">
-<span class="eqno">(16)<a class="headerlink" href="#equation-db21c768-c403-4902-8826-2654b762f8de" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
 f(t+\Delta t) &amp;= f(t) + \frac{df}{dt} \Delta t \\
 h(t+\Delta t) &amp;= h(t) + \frac{dh}{dt} \Delta t \\
 h(t+\Delta t) &amp;= h(t) + f(h) \Delta t \\
 h(t+\Delta t) &amp;= h(t) + -\frac{4}{\pi D^2} A \sqrt{2 g h(t)} \Delta t \\
-\end{align}\]</div>
+\end{align}
+\end{split}\]</div>
 <p>Now we’ll use the above formulation to solve for the fluid height as a function of time. We’ll also compare that solution to the analytical solution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -577,7 +591,7 @@ h(t+\Delta t) &amp;= h(t) + -\frac{4}{\pi D^2} A \sqrt{2 g h(t)} \Delta t \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6a6b959cdb9152dbf99f9f0512a3f43914809ca7f2be203595ad3697def9c2b2.png" src="../_images/6a6b959cdb9152dbf99f9f0512a3f43914809ca7f2be203595ad3697def9c2b2.png" />
+<img alt="../_images/f36a13bd8dbcd5e10e47fdb9d6454bb5f0a0e5c719e124426006ea5b7e6707fa.png" src="../_images/f36a13bd8dbcd5e10e47fdb9d6454bb5f0a0e5c719e124426006ea5b7e6707fa.png" />
 </div>
 </div>
 <div class="admonition note">
@@ -619,7 +633,7 @@ h(t+\Delta t) &amp;= h(t) + -\frac{4}{\pi D^2} A \sqrt{2 g h(t)} \Delta t \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/bceca16985db5ca65c4b8f6c90bbd8aae21e9e7bbeefee88d26358fdc3e23c00.png" src="../_images/bceca16985db5ca65c4b8f6c90bbd8aae21e9e7bbeefee88d26358fdc3e23c00.png" />
+<img alt="../_images/007f5e5fa6a9d3f4baddcba2965dbbe8b7268ccbfbca160cd5905431a72f9270.png" src="../_images/007f5e5fa6a9d3f4baddcba2965dbbe8b7268ccbfbca160cd5905431a72f9270.png" />
 </div>
 </div>
 <div class="admonition note">
@@ -631,19 +645,23 @@ h(t+\Delta t) &amp;= h(t) + -\frac{4}{\pi D^2} A \sqrt{2 g h(t)} \Delta t \\
 <section id="second-example-draining-of-tank-with-friction">
 <h2>Second Example: Draining of Tank with Friction<a class="headerlink" href="#second-example-draining-of-tank-with-friction" title="Permalink to this heading">#</a></h2>
 <p>Now we’ll look at the same problem, but with friction. The flow rate out of the tank is estimated by the following equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6fdc5c88-536c-4cd4-9445-f6a235f7c865">
-<span class="eqno">(17)<a class="headerlink" href="#equation-6fdc5c88-536c-4cd4-9445-f6a235f7c865" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
 \dot{m} &amp;= \rho A v = \rho A \sqrt{2 g h} C_d \\
 C_d &amp;= C_c C_v \\
-\end{align}\]</div>
-<p>where $\dot{m}$ is the mass flow rate, $\rho$ is the density, $A$ is the area of the hole, $g$ is the gravitational constant, $h$ is the height of the water above the hole, and $C_d$ is the discharge coefficient. $C_c$ is the coefficient of contraction and $C_v$ is the coefficient of velocity. The discharge coefficient is a dimensionless number that accounts for the frictional losses in the system. The discharge coefficient can vary depending on the geometry of the hole and the fluid viscosity.</p>
+\end{align}
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\dot{m}\)</span> is the mass flow rate, <span class="math notranslate nohighlight">\(\rho\)</span> is the density, <span class="math notranslate nohighlight">\(A\)</span> is the area of the hole, <span class="math notranslate nohighlight">\(g\)</span> is the gravitational constant, <span class="math notranslate nohighlight">\(h\)</span> is the height of the water above the hole, and <span class="math notranslate nohighlight">\(C_d\)</span> is the discharge coefficient. <span class="math notranslate nohighlight">\(C_c\)</span> is the coefficient of contraction and <span class="math notranslate nohighlight">\(C_v\)</span> is the coefficient of velocity. The discharge coefficient is a dimensionless number that accounts for the frictional losses in the system. The discharge coefficient can vary depending on the geometry of the hole and the fluid viscosity.</p>
 <p>A group from the UK and Nigeria measured nozzle discharge coefficients as published <a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S0894177718314304">here</a>. There, discharge coefficients are experimentally determined and compared to empirical equations like:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d3b3b6a8-c0c9-40d4-9c8c-65025ad08e57">
-<span class="eqno">(18)<a class="headerlink" href="#equation-d3b3b6a8-c0c9-40d4-9c8c-65025ad08e57" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
 C_d &amp;= \frac{Re^{5/6}}{17.11\cdot l/d + 1.65\cdot Re^{0.8}} \\
 Re &amp;= \frac{\rho D v}{\mu} \\
-\end{align}\]</div>
-<p>where $Re$ is the Reynolds number and $l/d$ is the length to diameter ratio of the nozzle. Solving for an analytical solution is not that easy but using the ODEINT function from the <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code> module, we can solve the problem numerically.</p>
+\end{align}
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(Re\)</span> is the Reynolds number and <span class="math notranslate nohighlight">\(l/d\)</span> is the length to diameter ratio of the nozzle. Solving for an analytical solution is not that easy but using the ODEINT function from the <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code> module, we can solve the problem numerically.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the discharge coefficient function</span>
@@ -671,11 +689,13 @@ Re &amp;= \frac{\rho D v}{\mu} \\
 </div>
 <p>This is a complex problem as the velocity of the fluid depends on the discharge coefficient and the discharge coefficient depends on the fluid velocity. For each call to the derivative function, an fsolve is required to determine the exit velocity.</p>
 <p>The equation to solve to determine the reynolds  number given the height of fluid in the tank is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5b472c25-d6e3-459d-bebc-4d48270c3a0a">
-<span class="eqno">(19)<a class="headerlink" href="#equation-5b472c25-d6e3-459d-bebc-4d48270c3a0a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
 v = \frac{\dot{m}}{\rho A} = \sqrt{2 g h} C_d(Re) \\
 Re = \frac{\rho D v}{\mu} = \frac{\rho D \sqrt{2 g h} C_d(Re)}{\mu} \\
-\end{align}\]</div>
+\end{align}
+\end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a function that should equal zero to determine the Reynolds number</span>
@@ -746,13 +766,13 @@ Re = \frac{\rho D v}{\mu} = \frac{\rho D \sqrt{2 g h} C_d(Re)}{\mu} \\
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">timeE</span><span class="p">,</span> <span class="n">heightEuler</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Euler method, dt = </span><span class="si">{</span><span class="n">dt</span><span class="si">}</span><span class="s1">s&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">timeE</span><span class="p">,</span> <span class="n">heightODEINT</span><span class="p">,</span> <span class="s1">&#39;g-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;ODEINT method, dt = </span><span class="si">{</span><span class="n">dt</span><span class="si">}</span><span class="s1">s&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">timeE</span><span class="p">,</span> <span class="n">heightODEINT2</span><span class="p">,</span> <span class="s1">&#39;k-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;ODEINT method with friction, dt = </span><span class="si">{</span><span class="n">dt</span><span class="si">}</span><span class="s1">s&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Height (m)&#39;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a9eba1499619d65cd4044d2f08d6c4223afebc62cd49420dcce4958af22c8d2f.png" src="../_images/a9eba1499619d65cd4044d2f08d6c4223afebc62cd49420dcce4958af22c8d2f.png" />
+<img alt="../_images/27004f27b3e20e54166a94015e726ff4f84e36978c05793c13e1add2b2490363.png" src="../_images/27004f27b3e20e54166a94015e726ff4f84e36978c05793c13e1add2b2490363.png" />
 </div>
 </div>
 <section id="video-of-the-above-scenario">
@@ -768,7 +788,7 @@ Re = \frac{\rho D v}{\mu} = \frac{\rho D \sqrt{2 g h} C_d(Re)}{\mu} \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_17493/3944168696.py:1: DeprecationWarning: Importing display from IPython.core.display is deprecated since IPython 7.14, please import from IPython display
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_27786/3944168696.py:1: DeprecationWarning: Importing display from IPython.core.display is deprecated since IPython 7.14, please import from IPython display
   from IPython.core.display import display, HTML
 </pre></div>
 </div>
@@ -806,13 +826,13 @@ Re = \frac{\rho D v}{\mu} = \frac{\rho D \sqrt{2 g h} C_d(Re)}{\mu} \\
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">timeE</span><span class="p">,</span> <span class="n">heightODEINT</span><span class="p">,</span> <span class="s1">&#39;g-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;ODEINT method, dt = </span><span class="si">{</span><span class="n">dt</span><span class="si">}</span><span class="s1">s&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">timeE</span><span class="p">,</span> <span class="n">heightODEINT2</span><span class="p">,</span> <span class="s1">&#39;k-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;ODEINT method with friction, dt = </span><span class="si">{</span><span class="n">dt</span><span class="si">}</span><span class="s1">s&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">exptime</span><span class="p">,</span> <span class="n">expheight</span><span class="p">,</span> <span class="s1">&#39;ko&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Experimental&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Height (m)&#39;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2977cd46f9c6de4f080335639fbea2adca6457745760ec71ce6094891cbf7e56.png" src="../_images/2977cd46f9c6de4f080335639fbea2adca6457745760ec71ce6094891cbf7e56.png" />
+<img alt="../_images/695f0e59bec436f3463a8612d06706bae90f3f7a4ddd736cd30493dfe20db5f5.png" src="../_images/695f0e59bec436f3463a8612d06706bae90f3f7a4ddd736cd30493dfe20db5f5.png" />
 </div>
 </div>
 <p>The agreement between the numerical solution including friction and the experimental values (roughly estimated from the video) is pretty good. What does that mean? What else can you conclude? How else could you use this information?</p>

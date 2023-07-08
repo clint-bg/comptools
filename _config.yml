@@ -35,10 +35,3 @@ html:
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 launch_buttons:
   colab_url: "https://colab.research.google.com"
-
-# Add code to display equations using latex
-parse:
-  myst_enable_extensions:
-    # don't forget to list any other extensions you want enabled,
-    # including those that are enabled by default!
-    - amsmath

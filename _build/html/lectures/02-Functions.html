@@ -61,7 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/02-Functions';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -437,16 +438,17 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="functions-of-ideal-gases">
+  <section class="tex2jax_ignore mathjax_ignore" id="functions-of-ideal-gases">
 <h1>02-Functions of Ideal Gases<a class="headerlink" href="#functions-of-ideal-gases" title="Permalink to this heading">#</a></h1>
 <p>Functions are used all the time and are a way to organize code. They are an efficient way to use the computer to repeat calculations with slight variations. Multiple examples are given here of functions you’ll use in your educational and professional career.</p>
 <section id="equations-of-state-ideal-gas">
 <h2>Equations of State: Ideal Gas<a class="headerlink" href="#equations-of-state-ideal-gas" title="Permalink to this heading">#</a></h2>
-<p>Equations of state relate the pressure, temperature, and molar volume of a fluid mathematically.  These are used in almost every discipline of engineering problems chemical engineers face.  The ideal gas law is the simplest equation of state:
-$$
+<p>Equations of state relate the pressure, temperature, and molar volume of a fluid mathematically.  These are used in almost every discipline of engineering problems chemical engineers face.  The ideal gas law is the simplest equation of state:</p>
+<div class="math notranslate nohighlight">
+\[
 P = \frac{RT}{\tilde{V}}
-$$
-where $P$ is pressure, $R$ is the gas constant, $T$ is temperature, and $\tilde{V}$ is the molar volume (volume of gas divided by the moles of gas).  The molar volume is the volume of one mole of a substance.  The ideal gas law is a good approximation for many gases at low pressures and high temperatures.</p>
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(P\)</span> is pressure, <span class="math notranslate nohighlight">\(R\)</span> is the gas constant, <span class="math notranslate nohighlight">\(T\)</span> is temperature, and <span class="math notranslate nohighlight">\(\tilde{V}\)</span> is the molar volume (volume of gas divided by the moles of gas).  The molar volume is the volume of one mole of a substance.  The ideal gas law is a good approximation for many gases at low pressures and high temperatures.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#define the function that returns the pressure depending on the temperature (Kelvin) and molar volume (m^3/mol)</span>
@@ -606,11 +608,13 @@ The moles of an ideal gas at 85 kPa and 295 K inside the classroom is 26493 mol
 <section id="equation-of-state-van-der-waals">
 <h2>Equation of State: van der Waals<a class="headerlink" href="#equation-of-state-van-der-waals" title="Permalink to this heading">#</a></h2>
 <p>The van der Waals equation of state is a more complex equation of state that accounts for non-ideal behavior of gases.  The van der Waals equation of state is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2951fcc2-c6ab-4f19-a328-a75da0e00a3b">
-<span class="eqno">(3)<a class="headerlink" href="#equation-2951fcc2-c6ab-4f19-a328-a75da0e00a3b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
 P = \frac{RT}{\tilde{V} - b} - \frac{a}{\tilde{V}^2}
-\end{equation}\]</div>
-<p>where $a$ and $b$ are constants that depend on the gas.  The constants for several compounds are in the below table:</p>
+\end{equation}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are constants that depend on the gas.  The constants for several compounds are in the below table:</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Compound</p></th>

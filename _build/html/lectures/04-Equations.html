@@ -61,7 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/04-Equations';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -439,20 +440,22 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="equations-to-solve-problems">
+  <section class="tex2jax_ignore mathjax_ignore" id="equations-to-solve-problems">
 <h1>04-Equations to Solve Problems<a class="headerlink" href="#equations-to-solve-problems" title="Permalink to this heading">#</a></h1>
 <p>Solving systems of equations is a common task in engineering.  In this section, we’ll review how to solve systems of equations using Python with multiple different approaches. The exampels will come from evaluating mass balances on a processing system.</p>
 <section id="solving-linear-systems-of-equations">
 <h2>Solving Linear Systems of Equations<a class="headerlink" href="#solving-linear-systems-of-equations" title="Permalink to this heading">#</a></h2>
 <p>Separation process principles are critical to many industries. Lets say you have a flashing unit that is separating a mixture of benzene and toluene.  The feed to the unit is 40 mol% benzene and 60 mol% toluene.  The vapor leaving the unit is 80 mol% benzene and 20 mol% toluene.  The liquid leaving the unit is 10 mol% benzene and 90 mol% toluene.  The feed rate is 100 mol/hr.  The vapor and liquid leaving the unit are in equilibrium.  What are the flow rates of the vapor and liquid leaving the unit?</p>
 <p>This problem can be solved by writing a system of equations and solving for the unknowns.  In this case, we have two unknowns, the vapor and liquid flow rates.  We can write two equations, one for the benzene balance and one for the total flows. One of the equations would be a species balance and the other equation a total mass balance. A picture of the system is shown below.</p>
-<img src=supportfiles/flashingunitbasic.png width="200"><p>The inlet enters at the left and the vapor exists the top and the liquid exists the bottom. This is equivalient to a single stage of a distillation column.  The equations are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6ece07b5-9a27-4b93-9558-97dac10b84f1">
-<span class="eqno">(5)<a class="headerlink" href="#equation-6ece07b5-9a27-4b93-9558-97dac10b84f1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<img src=supportfiles/flashingunitbasic.png width="200"><p>The inlet enters at the left and the vapor exists the top and the liquid exists the bottom. This is equivalent to a single stage of a distillation column.  The equations are:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
 F &amp;= L + V \\
 z_i F &amp;= x_i L + y_i V
-\end{align}\]</div>
-<p>which for this case z_b = 0.4, F = 100 mol/hr, x_b = 0.1, y_b = 0.8. We can solve this in many different ways. We’ll solve this system of equations multiple ways:</p>
+\end{align}
+\end{split}\]</div>
+<p>which for this case <span class="math notranslate nohighlight">\(z_i\)</span> = 0.4, <span class="math notranslate nohighlight">\(F\)</span> = 100 mol/hr, <span class="math notranslate nohighlight">\(x_i\)</span> = 0.1, <span class="math notranslate nohighlight">\(y_i\)</span> = 0.8. We can solve this in many different ways. We’ll solve this system of equations multiple ways:</p>
 <ul class="simple">
 <li><p>first we’ll do it using SymPy,</p></li>
 <li><p>then we’ll do it using NumPy,</p></li>
@@ -487,23 +490,29 @@ z_i F &amp;= x_i L + y_i V
 <h3>Solve Linear System with Numpy<a class="headerlink" href="#solve-linear-system-with-numpy" title="Permalink to this heading">#</a></h3>
 <p>The above equations can be solved numerically as shown below using the numpy package. First you’ll adjust the equations algebraically to be in the form Ax = b.  Then you’ll use the numpy.linalg.solve function to solve the system of equations.</p>
 <p>The above equation rearranged into the form Ax = b is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e089bf9c-d0f3-4173-8468-66356cf7f7b5">
-<span class="eqno">(6)<a class="headerlink" href="#equation-e089bf9c-d0f3-4173-8468-66356cf7f7b5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
 L + V &amp;= 100 \\
 0.1 L + 0.8 V &amp;= 40
-\end{align}\]</div>
+\end{align}
+\end{split}\]</div>
 <p>The A matrix is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d6647e49-49e0-4de5-b6fd-d860dd443945">
-<span class="eqno">(7)<a class="headerlink" href="#equation-d6647e49-49e0-4de5-b6fd-d860dd443945" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
 1 &amp; 1 \\
 0.1 &amp; 0.8
-\end{bmatrix}\]</div>
+\end{bmatrix}
+\end{split}\]</div>
 <p>and the b vector is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d9736659-301f-4610-b78e-bfe5251c94d5">
-<span class="eqno">(8)<a class="headerlink" href="#equation-d9736659-301f-4610-b78e-bfe5251c94d5" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
 100 \\
 40
-\end{bmatrix}\]</div>
+\end{bmatrix}
+\end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -620,17 +629,21 @@ L + V &amp;= 100 \\
 </div>
 </div>
 <p>The Colbrook equation is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-307af2b1-572a-4879-9660-16679ad13b80">
-<span class="eqno">(9)<a class="headerlink" href="#equation-307af2b1-572a-4879-9660-16679ad13b80" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
 \frac{1}{\sqrt{f}} = -2.0 \log_{10} \left( \frac{\epsilon/D}{3.71} + \frac{2.51}{\text{Re} \sqrt{f}} \right)
-\end{equation}\]</div>
-<p>where f is the darcy friction factor, $\epsilon$ is the pipe roughness, D is the pipe diameter, and Re is the Reynolds number equal to the product of the fluid density, velocity, and diameter divided by the fluid viscosity. This is valid with a relative roughness of $\epsilon/D &lt; 0.05$ and $10^4 &lt; \text{Re} &lt; 10^8$.</p>
+\end{equation}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(f\)</span> is the darcy friction factor, <span class="math notranslate nohighlight">\(\epsilon\)</span> is the pipe roughness, <span class="math notranslate nohighlight">\(D\)</span> is the pipe diameter, and Re is the Reynolds number equal to the product of the fluid density, velocity, and diameter divided by the fluid viscosity. This is valid with a relative roughness of <span class="math notranslate nohighlight">\(\epsilon/D &lt; 0.05\)</span> and <span class="math notranslate nohighlight">\(10^4 &lt; \text{Re} &lt; 10^8\)</span>.</p>
 <p>The pressure loss down the length of pipe is calculated by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e67af548-2c31-4e5f-9535-12f0c45c1812">
-<span class="eqno">(10)<a class="headerlink" href="#equation-e67af548-2c31-4e5f-9535-12f0c45c1812" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
 \Delta P = f \frac{L}{D} \frac{\rho v^2}{2}
-\end{equation}\]</div>
-<p>where $\Delta P$ is the pressure drop, $f$ is the Darcy friction factor, $L$ is the length of the pipe, $D$ is the pipe diameter, $\rho$ is the fluid density, and $v$ is the fluid velocity.</p>
+\end{equation}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Delta P\)</span> is the pressure drop, <span class="math notranslate nohighlight">\(f\)</span> is the Darcy friction factor, <span class="math notranslate nohighlight">\(L\)</span> is the length of the pipe, <span class="math notranslate nohighlight">\(D\)</span> is the pipe diameter, <span class="math notranslate nohighlight">\(\rho\)</span> is the fluid density, and <span class="math notranslate nohighlight">\(v\)</span> is the fluid velocity.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#pressure loss down a length of pipe in terms of the friction factor</span>
@@ -640,7 +653,7 @@ L + V &amp;= 100 \\
 </div>
 </div>
 </div>
-<p>Example problem: calculate the pressure drop down a 100 m long pipe with a 2 inch diameter with a fluid velocity of 1 m/s.  The fluid has a density of 1000 kg/m$^3$ and a viscosity of 0.001 kg/m-s.  The pipe roughness is 0.0001 m.  What is the pressure drop?</p>
+<p>Example problem: calculate the pressure drop down a 100 m long pipe with a 2 inch diameter with a fluid velocity of 1 m/s.  The fluid has a density of 1000 kg/m<span class="math notranslate nohighlight">\(^3\)</span> and a viscosity of 0.001 kg/m-s.  The pipe roughness is 0.0001 m.  What is the pressure drop?</p>
 <section id="non-linear-solution-with-scipy-fsolve">
 <h3>Non-linear solution with scipy fsolve<a class="headerlink" href="#non-linear-solution-with-scipy-fsolve" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">

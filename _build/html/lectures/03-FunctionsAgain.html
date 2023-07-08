@@ -61,7 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/03-FunctionsAgain';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -417,14 +418,16 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="functions-of-heat-transfer">
+  <section class="tex2jax_ignore mathjax_ignore" id="functions-of-heat-transfer">
 <h1>03-Functions of Heat Transfer<a class="headerlink" href="#functions-of-heat-transfer" title="Permalink to this heading">#</a></h1>
 <p>A common equation used in heat transfer is the empirical relation relating the convective heat transfer coefficient to the temperature difference between the object and the fluid to yield the amount of heat transferred. This equation is called Newton’s Law of Cooling and is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-23d5a275-c190-497f-b162-36cc008620b6">
-<span class="eqno">(4)<a class="headerlink" href="#equation-23d5a275-c190-497f-b162-36cc008620b6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
 \dot{Q} = h A_s (T_s - T_\infty)
-\end{equation}\]</div>
-<p>where $\dot{Q}$ is the heat transfer rate, $h$ is the convective heat transfer coefficient, $A_s$ is the surface area of the object, $T_s$ is the surface temperature of the object, and $T_\infty$ is the temperature of the fluid.</p>
+\end{equation}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\dot{Q}\)</span> is the heat transfer rate, <span class="math notranslate nohighlight">\(h\)</span> is the convective heat transfer coefficient, <span class="math notranslate nohighlight">\(A_s\)</span> is the surface area of the object, <span class="math notranslate nohighlight">\(T_s\)</span> is the surface temperature of the object, and <span class="math notranslate nohighlight">\(T_\infty\)</span> is the temperature of the fluid.</p>
 </section>
 
     <script type="text/x-thebe-config">

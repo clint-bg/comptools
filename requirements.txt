@@ -4,3 +4,4 @@ numpy
 cantera
 scipy
 sympy
+param
