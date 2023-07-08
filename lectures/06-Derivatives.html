@@ -507,7 +507,7 @@ h(t) &amp;= \left(-\frac{2}{\pi D^2} A \sqrt{2 g} t + \sqrt{h0}\right)^2 \\
 <span class="n">gravity</span> <span class="o">=</span> <span class="mf">9.81</span> <span class="c1">#m/s^2</span>
 <span class="n">orificeDiameter</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">8</span><span class="o">*</span><span class="mf">0.0254</span> <span class="c1">#m</span>
 <span class="n">Area</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="n">orificeDiameter</span><span class="o">**</span><span class="mi">2</span> <span class="c1">#exit area of the water jet, m^2</span>
-<span class="n">height0</span> <span class="o">=</span> <span class="p">(</span><span class="mi">7</span><span class="o">+</span><span class="mi">3</span><span class="o">/</span><span class="mi">16</span><span class="p">)</span><span class="o">*</span><span class="mf">0.0254</span> <span class="c1">#initial height of water in the tank, m</span>
+<span class="n">height0</span> <span class="o">=</span> <span class="p">(</span><span class="mf">6.68</span><span class="p">)</span><span class="o">*</span><span class="mf">0.0254</span> <span class="c1">#initial height of water in the tank, m</span>
 <span class="n">Dia</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">9</span><span class="o">/</span><span class="mi">16</span><span class="p">)</span><span class="o">*</span><span class="mf">0.0254</span> <span class="c1">#diameter of the tank, m</span>
 <span class="c1"># 3rd determine the emptying time</span>
 <span class="n">emptiedTime</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">height0</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">Dia</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">Area</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">gravity</span><span class="p">))</span>
@@ -525,7 +525,7 @@ h(t) &amp;= \left(-\frac{2}{\pi D^2} A \sqrt{2 g} t + \sqrt{h0}\right)^2 \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/985c4368f3a88ad179ff6e72a13230f3da8a02440f57a6a74159405243a25bc2.png" src="../_images/985c4368f3a88ad179ff6e72a13230f3da8a02440f57a6a74159405243a25bc2.png" />
+<img alt="../_images/f3901c956a63acf5934bea9fc4bf0f75a05d8379162d297ef12f553c9c351678.png" src="../_images/f3901c956a63acf5934bea9fc4bf0f75a05d8379162d297ef12f553c9c351678.png" />
 </div>
 </div>
 </section>
@@ -591,7 +591,7 @@ h(t+\Delta t) &amp;= h(t) + -\frac{4}{\pi D^2} A \sqrt{2 g h(t)} \Delta t \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6a6b959cdb9152dbf99f9f0512a3f43914809ca7f2be203595ad3697def9c2b2.png" src="../_images/6a6b959cdb9152dbf99f9f0512a3f43914809ca7f2be203595ad3697def9c2b2.png" />
+<img alt="../_images/f36a13bd8dbcd5e10e47fdb9d6454bb5f0a0e5c719e124426006ea5b7e6707fa.png" src="../_images/f36a13bd8dbcd5e10e47fdb9d6454bb5f0a0e5c719e124426006ea5b7e6707fa.png" />
 </div>
 </div>
 <div class="admonition note">
@@ -633,7 +633,7 @@ h(t+\Delta t) &amp;= h(t) + -\frac{4}{\pi D^2} A \sqrt{2 g h(t)} \Delta t \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/bceca16985db5ca65c4b8f6c90bbd8aae21e9e7bbeefee88d26358fdc3e23c00.png" src="../_images/bceca16985db5ca65c4b8f6c90bbd8aae21e9e7bbeefee88d26358fdc3e23c00.png" />
+<img alt="../_images/007f5e5fa6a9d3f4baddcba2965dbbe8b7268ccbfbca160cd5905431a72f9270.png" src="../_images/007f5e5fa6a9d3f4baddcba2965dbbe8b7268ccbfbca160cd5905431a72f9270.png" />
 </div>
 </div>
 <div class="admonition note">
@@ -766,13 +766,13 @@ Re = \frac{\rho D v}{\mu} = \frac{\rho D \sqrt{2 g h} C_d(Re)}{\mu} \\
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">timeE</span><span class="p">,</span> <span class="n">heightEuler</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Euler method, dt = </span><span class="si">{</span><span class="n">dt</span><span class="si">}</span><span class="s1">s&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">timeE</span><span class="p">,</span> <span class="n">heightODEINT</span><span class="p">,</span> <span class="s1">&#39;g-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;ODEINT method, dt = </span><span class="si">{</span><span class="n">dt</span><span class="si">}</span><span class="s1">s&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">timeE</span><span class="p">,</span> <span class="n">heightODEINT2</span><span class="p">,</span> <span class="s1">&#39;k-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;ODEINT method with friction, dt = </span><span class="si">{</span><span class="n">dt</span><span class="si">}</span><span class="s1">s&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Height (m)&#39;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a9eba1499619d65cd4044d2f08d6c4223afebc62cd49420dcce4958af22c8d2f.png" src="../_images/a9eba1499619d65cd4044d2f08d6c4223afebc62cd49420dcce4958af22c8d2f.png" />
+<img alt="../_images/27004f27b3e20e54166a94015e726ff4f84e36978c05793c13e1add2b2490363.png" src="../_images/27004f27b3e20e54166a94015e726ff4f84e36978c05793c13e1add2b2490363.png" />
 </div>
 </div>
 <section id="video-of-the-above-scenario">
@@ -788,7 +788,7 @@ Re = \frac{\rho D v}{\mu} = \frac{\rho D \sqrt{2 g h} C_d(Re)}{\mu} \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_26569/3944168696.py:1: DeprecationWarning: Importing display from IPython.core.display is deprecated since IPython 7.14, please import from IPython display
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_27786/3944168696.py:1: DeprecationWarning: Importing display from IPython.core.display is deprecated since IPython 7.14, please import from IPython display
   from IPython.core.display import display, HTML
 </pre></div>
 </div>
@@ -826,13 +826,13 @@ Re = \frac{\rho D v}{\mu} = \frac{\rho D \sqrt{2 g h} C_d(Re)}{\mu} \\
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">timeE</span><span class="p">,</span> <span class="n">heightODEINT</span><span class="p">,</span> <span class="s1">&#39;g-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;ODEINT method, dt = </span><span class="si">{</span><span class="n">dt</span><span class="si">}</span><span class="s1">s&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">timeE</span><span class="p">,</span> <span class="n">heightODEINT2</span><span class="p">,</span> <span class="s1">&#39;k-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;ODEINT method with friction, dt = </span><span class="si">{</span><span class="n">dt</span><span class="si">}</span><span class="s1">s&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">exptime</span><span class="p">,</span> <span class="n">expheight</span><span class="p">,</span> <span class="s1">&#39;ko&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Experimental&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Height (m)&#39;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2977cd46f9c6de4f080335639fbea2adca6457745760ec71ce6094891cbf7e56.png" src="../_images/2977cd46f9c6de4f080335639fbea2adca6457745760ec71ce6094891cbf7e56.png" />
+<img alt="../_images/695f0e59bec436f3463a8612d06706bae90f3f7a4ddd736cd30493dfe20db5f5.png" src="../_images/695f0e59bec436f3463a8612d06706bae90f3f7a4ddd736cd30493dfe20db5f5.png" />
 </div>
 </div>
 <p>The agreement between the numerical solution including friction and the experimental values (roughly estimated from the video) is pretty good. What does that mean? What else can you conclude? How else could you use this information?</p>
