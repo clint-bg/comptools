@@ -160,13 +160,15 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../topics.html">Modules</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/01-Motive.html">01-Motivation with Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/02-Functions.html">02-Functions of Ideal and Real Gases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/02-Functions.html">02-Functions of Ideal Gases</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/03-FunctionsAgain.html">03-Functions of Heat Transfer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/04-Equations.html">04-Equations to Solve Problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/05-EquationsAgain.html">05-Systems of Equations Practice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/06-Derivatives.html">06-Transient Solutions: Derivatives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/05-EquationsAgain.html">05-More Equation Solving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/06-Derivatives.html">06-Derivatives and Transients</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/07-DerivativesAgain.html">07-More Derivatives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/08-Regression.html">08-Data Analysis: Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/08-Regression.html">08-Regression and Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/09-RegressionAgain.html">09-More Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/17-SolidWorks.html">Solidworks</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
@@ -644,15 +646,15 @@ document.write(`
 <section id="problem-4">
 <h2>Problem #4<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h2>
 <p>Imagine mixing liquid benzene (species 1) and toluene (species 2) together in an initially empty container. At equilibrium, some of the liquid from both species evaporates into the vapor phase and some is left liquid phase for certain temperatures and pressures. In thermodynamics, you learn that Raoult’s law may be used to describe the distribution of species in each phase. For the specific example mentioned above, Raoult’s law gives the following two expressions describing the equilibrium state</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c4fd060f-1f83-45d2-8958-b6efa53ab5c4">
-<span class="eqno">(21)<a class="headerlink" href="#equation-c4fd060f-1f83-45d2-8958-b6efa53ab5c4" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6fff67d0-897a-481a-bf2d-1a9d45974cbc">
+<span class="eqno">(21)<a class="headerlink" href="#equation-6fff67d0-897a-481a-bf2d-1a9d45974cbc" title="Permalink to this equation">#</a></span>\[\begin{align}
 y_1 P = x_1 P_1^{sat}(T) \\
 y_2 P = x_2 P_2^{sat}(T)
 \end{align}\]</div>
 <p>where $y_i$ is the mole fraction of species $i$ (either 1 or 2) in the vapor phase, $x_i$ is the mole fraction of species $i$ in the liquid phase, $P_i^{sat}(T)$ is the vapor pressure of species $i$ at the system temperature $T$, and $P$ is the system pressure.</p>
 <p>The vapor pressures of benzene and toluene can be found using the Antione Equation given below:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bda2bdd1-c4a0-4cdf-8163-ea36bef15772">
-<span class="eqno">(22)<a class="headerlink" href="#equation-bda2bdd1-c4a0-4cdf-8163-ea36bef15772" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f6f99d41-e84d-4364-9581-cb16d3810c8b">
+<span class="eqno">(22)<a class="headerlink" href="#equation-f6f99d41-e84d-4364-9581-cb16d3810c8b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \ln{\left(P_i^{sat}(T) \right)} = A_i - \frac{B_i}{T+ C_i}
 \end{equation}\]</div>
 <p>Note that $P_i^{sat}(T)$ is not $P_i^{sat}$ times $T$, but is simply showing that $P_i^{sat}$ is a function of $T$ in kPa.  The constants, $A$, $B$, and $C$, are compound specific and are found in the table below. $T$ is in $°C$.</p>

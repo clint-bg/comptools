@@ -15,6 +15,7 @@ chapters:
     - file: lectures/07-DerivativesAgain
     - file: lectures/08-Regression
     - file: lectures/09-RegressionAgain
+    - file: lectures/17-SolidWorks
   - file: homework
     sections:
     - file: homework/HW01
