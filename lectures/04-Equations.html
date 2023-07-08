@@ -447,12 +447,15 @@ document.write(`
 <h2>Solving Linear Systems of Equations<a class="headerlink" href="#solving-linear-systems-of-equations" title="Permalink to this heading">#</a></h2>
 <p>Separation process principles are critical to many industries. Lets say you have a flashing unit that is separating a mixture of benzene and toluene.  The feed to the unit is 40 mol% benzene and 60 mol% toluene.  The vapor leaving the unit is 80 mol% benzene and 20 mol% toluene.  The liquid leaving the unit is 10 mol% benzene and 90 mol% toluene.  The feed rate is 100 mol/hr.  The vapor and liquid leaving the unit are in equilibrium.  What are the flow rates of the vapor and liquid leaving the unit?</p>
 <p>This problem can be solved by writing a system of equations and solving for the unknowns.  In this case, we have two unknowns, the vapor and liquid flow rates.  We can write two equations, one for the benzene balance and one for the total flows. One of the equations would be a species balance and the other equation a total mass balance. A picture of the system is shown below.</p>
-<img src=supportfiles/flashingunitbasic.png width="200"><p>The inlet enters at the left and the vapor exists the top and the liquid exists the bottom. This is equivalient to a single stage of a distillation column.  The equations are:
+<img src=supportfiles/flashingunitbasic.png width="200"><p>The inlet enters at the left and the vapor exists the top and the liquid exists the bottom. This is equivalent to a single stage of a distillation column.  The equations are:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{align}
-F &amp;= L + V \
+F &amp;= L + V \\
 z_i F &amp;= x_i L + y_i V
 \end{align}
-which for this case z_b = 0.4, F = 100 mol/hr, x_b = 0.1, y_b = 0.8. We can solve this in many different ways. We’ll solve this system of equations multiple ways:</p>
+\end{split}\]</div>
+<p>which for this case <span class="math notranslate nohighlight">\(z_i\)</span> = 0.4, <span class="math notranslate nohighlight">\(F\)</span> = 100 mol/hr, <span class="math notranslate nohighlight">\(x_i\)</span> = 0.1, <span class="math notranslate nohighlight">\(y_i\)</span> = 0.8. We can solve this in many different ways. We’ll solve this system of equations multiple ways:</p>
 <ul class="simple">
 <li><p>first we’ll do it using SymPy,</p></li>
 <li><p>then we’ll do it using NumPy,</p></li>
@@ -478,37 +481,38 @@ which for this case z_b = 0.4, F = 100 mol/hr, x_b = 0.1, y_b = 0.8. We can solv
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sym</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">L</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">)</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;sympy&#39;
-</pre></div>
-</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left\{ L : 57.1428571428571, \  V : 42.8571428571429\right\}\]</div>
 </div>
 </div>
 </section>
 <section id="solve-linear-system-with-numpy">
 <h3>Solve Linear System with Numpy<a class="headerlink" href="#solve-linear-system-with-numpy" title="Permalink to this heading">#</a></h3>
 <p>The above equations can be solved numerically as shown below using the numpy package. First you’ll adjust the equations algebraically to be in the form Ax = b.  Then you’ll use the numpy.linalg.solve function to solve the system of equations.</p>
-<p>The above equation rearranged into the form Ax = b is:
+<p>The above equation rearranged into the form Ax = b is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{align}
-L + V &amp;= 100 \
+L + V &amp;= 100 \\
 0.1 L + 0.8 V &amp;= 40
-\end{align}</p>
-<p>The A matrix is:
+\end{align}
+\end{split}\]</div>
+<p>The A matrix is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{bmatrix}
-1 &amp; 1 \
+1 &amp; 1 \\
 0.1 &amp; 0.8
 \end{bmatrix}
-and the b vector is:
+\end{split}\]</div>
+<p>and the b vector is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{bmatrix}
-100 \
+100 \\
 40
-\end{bmatrix}</p>
+\end{bmatrix}
+\end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -624,16 +628,22 @@ and the b vector is:
 </div>
 </div>
 </div>
-<p>The Colbrook equation is:
+<p>The Colbrook equation is:</p>
+<div class="math notranslate nohighlight">
+\[
 \begin{equation}
 \frac{1}{\sqrt{f}} = -2.0 \log_{10} \left( \frac{\epsilon/D}{3.71} + \frac{2.51}{\text{Re} \sqrt{f}} \right)
 \end{equation}
-where f is the darcy friction factor, <span class="math notranslate nohighlight">\(\epsilon\)</span> is the pipe roughness, D is the pipe diameter, and Re is the Reynolds number equal to the product of the fluid density, velocity, and diameter divided by the fluid viscosity. This is valid with a relative roughness of <span class="math notranslate nohighlight">\(\epsilon/D &lt; 0.05\)</span> and <span class="math notranslate nohighlight">\(10^4 &lt; \text{Re} &lt; 10^8\)</span>.</p>
-<p>The pressure loss down the length of pipe is calculated by:
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(f\)</span> is the darcy friction factor, <span class="math notranslate nohighlight">\(\epsilon\)</span> is the pipe roughness, <span class="math notranslate nohighlight">\(D\)</span> is the pipe diameter, and Re is the Reynolds number equal to the product of the fluid density, velocity, and diameter divided by the fluid viscosity. This is valid with a relative roughness of <span class="math notranslate nohighlight">\(\epsilon/D &lt; 0.05\)</span> and <span class="math notranslate nohighlight">\(10^4 &lt; \text{Re} &lt; 10^8\)</span>.</p>
+<p>The pressure loss down the length of pipe is calculated by:</p>
+<div class="math notranslate nohighlight">
+\[
 \begin{equation}
 \Delta P = f \frac{L}{D} \frac{\rho v^2}{2}
 \end{equation}
-where <span class="math notranslate nohighlight">\(\Delta P\)</span> is the pressure drop, <span class="math notranslate nohighlight">\(f\)</span> is the Darcy friction factor, <span class="math notranslate nohighlight">\(L\)</span> is the length of the pipe, <span class="math notranslate nohighlight">\(D\)</span> is the pipe diameter, <span class="math notranslate nohighlight">\(\rho\)</span> is the fluid density, and <span class="math notranslate nohighlight">\(v\)</span> is the fluid velocity.</p>
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Delta P\)</span> is the pressure drop, <span class="math notranslate nohighlight">\(f\)</span> is the Darcy friction factor, <span class="math notranslate nohighlight">\(L\)</span> is the length of the pipe, <span class="math notranslate nohighlight">\(D\)</span> is the pipe diameter, <span class="math notranslate nohighlight">\(\rho\)</span> is the fluid density, and <span class="math notranslate nohighlight">\(v\)</span> is the fluid velocity.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#pressure loss down a length of pipe in terms of the friction factor</span>

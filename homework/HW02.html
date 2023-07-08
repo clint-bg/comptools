@@ -472,21 +472,24 @@ Write an if statement that will print the specifc volume of O2, and state whethe
 </section>
 <section id="problem-4">
 <h2>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h2>
-<p>Write a function for the Peng Robinson equation of state. The Peng Robinson equation of state is given by:
+<p>Write a function for the Peng Robinson equation of state. The Peng Robinson equation of state is given by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{align}
-P = \frac{RT}{V_m-b}&amp;-\frac{a\alpha}{V_m(V_m+b)+b(V_m-b)} \tag{1} \
-a &amp;= 0.45724\frac{R^2T_c^2}{P_c} \tag{2a} \
-b &amp;= 0.07780\frac{RT_c}{P_c} \tag{2b} \
-\alpha &amp;= \left[1+\kappa\left(1-\sqrt{\frac{T}{T_c}}\right)\right]^2 \tag{2c}\
-\kappa &amp;= 0.37464+1.54226\omega-0.26992\omega^2 \tag{2d} \
-T_r &amp;= \frac{T}{T_c} \tag{2e}\
+P = \frac{RT}{V_m-b}&amp;-\frac{a\alpha}{V_m(V_m+b)+b(V_m-b)} \tag{1} \\ 
+a &amp;= 0.45724\frac{R^2T_c^2}{P_c} \tag{2a} \\
+b &amp;= 0.07780\frac{RT_c}{P_c} \tag{2b} \\
+\alpha &amp;= \left[1+\kappa\left(1-\sqrt{\frac{T}{T_c}}\right)\right]^2 \tag{2c}\\
+\kappa &amp;= 0.37464+1.54226\omega-0.26992\omega^2 \tag{2d} \\
+T_r &amp;= \frac{T}{T_c} \tag{2e}\\
 \end{align}
-where T_c is the critical temperature, P_c is the critical pressure, <span class="math notranslate nohighlight">\(\omega\)</span> is the acentric factor, and <span class="math notranslate nohighlight">\(T_r\)</span> is the reduced temperature. The critical properties for carbon dioxide are <span class="math notranslate nohighlight">\(T_c = 304.2\)</span> K and <span class="math notranslate nohighlight">\(P_c = 73.8\)</span> atm. The acentric factor for carbon dioxide is <span class="math notranslate nohighlight">\(\omega = 0.225\)</span>. The gas constant is <span class="math notranslate nohighlight">\(R = 0.08206\)</span> L atm/(mol K).</p>
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(T_c\)</span> is the critical temperature, <span class="math notranslate nohighlight">\(P_c\)</span> is the critical pressure, <span class="math notranslate nohighlight">\(\omega\)</span> is the acentric factor, and <span class="math notranslate nohighlight">\(T_r\)</span> is the reduced temperature. The critical properties for carbon dioxide are <span class="math notranslate nohighlight">\(T_c = 304.2\)</span> K and <span class="math notranslate nohighlight">\(P_c = 73.8\)</span> atm. The acentric factor for carbon dioxide is <span class="math notranslate nohighlight">\(\omega = 0.225\)</span>. The gas constant is <span class="math notranslate nohighlight">\(R = 0.08206\)</span> L atm/(mol K).</p>
 <p>Evaluate the function to determine the pressure for the following conditions:</p>
 <ul class="simple">
 <li><p>T = 600 K</p></li>
-<li><p>V = 0.05 m^3/mol</p></li>
-<li><p>Carbon dioxide (CO2) is the gas</p></li>
+<li><p>V = 0.05 <span class="math notranslate nohighlight">\(\text{m}^3\)</span>/mol</p></li>
+<li><p>Carbon dioxide (<span class="math notranslate nohighlight">\(\text{CO}_2\)</span>) is the gas</p></li>
 </ul>
 </section>
 <section id="problem-5">
