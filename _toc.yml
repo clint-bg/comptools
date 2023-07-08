@@ -28,7 +28,7 @@ chapters:
   - file: casestudies
     sections:
     - file: casestudies/casestudysch
-    - file: casestudies/heatflux
+    - file: casestudies/heattransfer
     - file: casestudies/casestudydocs
   - file: foundations
     sections:
