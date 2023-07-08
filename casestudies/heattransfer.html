@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Case Study Documentation &#8212; Computational Tools for Chemical Engineers</title>
+    <title>Heat Transfer &#8212; Computational Tools for Chemical Engineers</title>
   
   
   
@@ -61,11 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'casestudies/casestudydocs';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'casestudies/heattransfer';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Foundations" href="../foundations.html" />
-    <link rel="prev" title="Case Study Schedule" href="casestudysch.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -156,7 +156,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../topics.html">Modules</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/01-Motive.html">01-Motivation with Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/02-Functions.html">02-Functions of Ideal Gases</a></li>
@@ -180,9 +180,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW07.html">HW07: Additional Practice</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="casestudysch.html">Case Study Schedule</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Case Study Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="casestudydocs.html">Case Study Documentation</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../foundations.html">Foundations</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -239,6 +239,37 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/clint-bg/comptools/blob/gh-pages/docs/casestudies/heattransfer.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -264,7 +295,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/clint-bg/comptools/issues/new?title=Issue%20on%20page%20%2Fcasestudies/casestudydocs.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/clint-bg/comptools/issues/new?title=Issue%20on%20page%20%2Fcasestudies/heattransfer.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -294,7 +325,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/casestudies/casestudydocs.md" target="_blank"
+      <li><a href="../_sources/casestudies/heattransfer.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -304,7 +335,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -363,7 +394,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -374,11 +407,26 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Case Study Documentation</h1>
+    <h1>Heat Transfer</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-heat-equation">1-D Heat Equation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analytical-solution">Analytical Solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-solution-manual">Numerical Solution - Manual</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-between-the-above-two-methods">Comparison between the above two methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-of-software-to-solve-the-heat-equation-ansys-workbench">Use of Software to Solve the Heat Equation: Ansys Workbench</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-results">Experimental results</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -388,17 +436,155 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="case-study-documentation">
-<h1>Case Study Documentation<a class="headerlink" href="#case-study-documentation" title="Permalink to this heading">#</a></h1>
-<p>You’ll be required to write a document of each case study you complete as a two-person team. The document should be a minimum of 400 words. The summary should include the following:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="heat-transfer">
+<h1>Heat Transfer<a class="headerlink" href="#heat-transfer" title="Permalink to this heading">#</a></h1>
+<p>In this case-study, you’ll evaluate multiple techniques to determine the rate of heat transfer down the length of a rod heated at one end. You’ll be determining the temperature distribution in that rod as a function of time and distance using multiple techniques (assumed to be one-dimensional):</p>
 <ul class="simple">
-<li><p>An executive summary.</p></li>
-<li><p>A description of the scenario.</p></li>
-<li><p>A description of the results you obtained.</p></li>
-<li><p>A description of the experimental setup with a photo or diagram.</p></li>
-<li><p>Figure or photo captions with a discussion or explanation of the figure or photo in the text.</p></li>
-<li><p>Conclusions you drew from the modeling and experimental results.</p></li>
+<li><p>Experimental solution</p></li>
+<li><p>Analytical solution</p></li>
+<li><p>Two numerical solutions</p></li>
 </ul>
+<p>You’ll need a few tools:</p>
+<ul class="simple">
+<li><p>A basic understanding of the heat equation and an example solution,</p></li>
+<li><p>Two numerical techniques to estimate the solution of the heat equation:</p>
+<ul>
+<li><p>finite element (manual)</p></li>
+<li><p>finite element (with software)</p></li>
+</ul>
+</li>
+<li><p>A safe, basic experimental setup available to you in your apartment with purchase of an item that’s less than $10.</p>
+<ul>
+<li><p>With an ESP32 and one MAX6675 thermocouple amplifier with a thermocouple to collect temperature data from the experiment.</p></li>
+<li><p>A small diameter brass or steel rod (available from the TA or Instructor)</p></li>
+</ul>
+</li>
+</ul>
+<section id="d-heat-equation">
+<h2>1-D Heat Equation<a class="headerlink" href="#d-heat-equation" title="Permalink to this heading">#</a></h2>
+<p>The heat equation is a well-known partial differential equation that describes the distribution of heat in a given region over time subject to boundary conditions. We’ll solve for the temperature as a function of position and time given a constant heat flux at one end of the rod.</p>
+<section id="analytical-solution">
+<h3>Analytical Solution<a class="headerlink" href="#analytical-solution" title="Permalink to this heading">#</a></h3>
+<p>For a rod of length <span class="math notranslate nohighlight">\(L\)</span> with a constant cross-sectional area <span class="math notranslate nohighlight">\(A\)</span> and a constant thermal conductivity <span class="math notranslate nohighlight">\(k\)</span>, the heat equation is given by:
+\begin{equation}
+\frac{\partial T}{\partial t} = \alpha \frac{\partial^2 T}{\partial x^2}
+\end{equation}
+where <span class="math notranslate nohighlight">\(\alpha\)</span> is the thermal diffusivity equal to <span class="math notranslate nohighlight">\(k/\rho C_p\)</span> where <span class="math notranslate nohighlight">\(k\)</span> is the thermal conductivity, <span class="math notranslate nohighlight">\(\rho\)</span> is the density, and <span class="math notranslate nohighlight">\(C_p\)</span> is the specific heat capacity.</p>
+<p>The solution to that specific one-deminensional semi-infinite scenario for a constant heat flux is:
+\begin{equation}
+T(x,t) = T_0 + \frac{2q^{‘’}_o(\alpha t/\pi)^{0.5}}{k} \exp \left( \frac{-x^2}{4 \alpha t} \right) - \frac{q^{‘’}_o x}{k} erfc \left( \frac{x}{2 \sqrt{\alpha t}} \right) \tag{2}
+\end{equation}</p>
+<p>The solution for a constant surface temperature is:
+\begin{align}
+T(x,t) - T_i = (T_s - T_i)\cdot \left[1 - erf \left( \frac{x}{2\sqrt{\alpha t}} \right) \right] \tag{3a}\
+q^{‘’}_s(t) = \frac{k(T_s - T_i)}{\sqrt{\pi \alpha t}} \tag{3b}
+\end{align}</p>
+<p><strong>Task 1 Description</strong>:
+Define two functions such that you can evaluate the temperature distribution in a rod as a function of time and distance using the above equations. The first function should be for a constant heat flux and the second function should be for a constant surface temperature. The material properties are not inputs to the function but are constants defined for tool steel or brass. Those two functions are then used to evaluate the temperature distribution in a rod as a function of time and distance for the two cases.</p>
+<p>There should be two plots with each plot having multiple curves for the temperature as a function of distance for at least 3 but no more than 8 different times up to 10 seconds. The two plots should have a title, axis labels, and a legend.</p>
+</section>
+<section id="numerical-solution-manual">
+<h3>Numerical Solution - Manual<a class="headerlink" href="#numerical-solution-manual" title="Permalink to this heading">#</a></h3>
+<p>The numerical solution treats a finite section of the rod to have a constant temperature and properties. Discretization of Equation 1 for a similar 1-D scenario results in the following equaions where 4b is for the last node furthest from the heat source and 4a is for all other nodes:</p>
+<p>\begin{align}
+T[i+1,j] = T[i,j] + \alpha*\delta t/\delta x^2*(T[i,j+1]-2<em>T[i,j]+T[i,j-1]) \tag{4a} \
+T[i+1,j] = T[i,j] + \alpha</em>\delta t/\delta x^2*(T[i,j-1]-2*T[i,j]+T[i,j-1]) \tag{4b}
+\end{align}</p>
+<p><strong>Task 2 Description</strong>: Plot the temperature distribution in a rod as a function of time and distance using the above 1-D numerical equations. Use the same properties as in Task 1. The plots should have a title, axis labels, and a legend. Compare the numberical result to the analytical solution as a function of time for a given position.</p>
+<p>Note that the above analytical solution is assuming an infinitely long rod. Therefore, make sure the numerical solution has a sufficiently long rod (typically twice as long as the distance where the temperature changers are occuring).</p>
+</section>
+<section id="comparison-between-the-above-two-methods">
+<h3>Comparison between the above two methods<a class="headerlink" href="#comparison-between-the-above-two-methods" title="Permalink to this heading">#</a></h3>
+<p><strong>Task 3 Description</strong>: Compare the analytical and numerical result as a function of time for a given position along the rod. The plots should have a title, axis labels, and a legend. Also include an estimate of some measure of accuracy comparison whether that’s an r-squared value or other (like a mean absolute percent error).</p>
+</section>
+<section id="use-of-software-to-solve-the-heat-equation-ansys-workbench">
+<h3>Use of Software to Solve the Heat Equation: Ansys Workbench<a class="headerlink" href="#use-of-software-to-solve-the-heat-equation-ansys-workbench" title="Permalink to this heading">#</a></h3>
+<p><strong>Task 4</strong> Use Ansys Workbench to obtain a plot of the temperature in the rod for one of the two above boundary conditions.</p>
+</section>
+<section id="experimental-results">
+<h3>Experimental results<a class="headerlink" href="#experimental-results" title="Permalink to this heading">#</a></h3>
+<p><strong>Task 5</strong> Obtain experimental results with the ESP32, MAX6675, thermocouple, small diameter rod, and lighter. A rod is fitted with one thermocouple at 5-10 cm away from the flame. The rod is safely heated with the lighter at one end. The rod can be supported on a stand. The temperature is recorded with an ESP32 and the data is sent to a phone via bluetooth and then saved and plotted. Results are compared to the analytical and numerical solutions.</p>
+<p>Example results are below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import file from folder</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">exdata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/Users/clintguymon/Downloads/brassheatingrod.txt&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">3</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">exdata</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Small Thermocouple (C)</th>
+      <th>Timestamp (seconds)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>827</th>
+      <td>51.46</td>
+      <td>447.12</td>
+    </tr>
+    <tr>
+      <th>828</th>
+      <td>51.46</td>
+      <td>447.32</td>
+    </tr>
+    <tr>
+      <th>829</th>
+      <td>51.20</td>
+      <td>447.52</td>
+    </tr>
+    <tr>
+      <th>830</th>
+      <td>51.20</td>
+      <td>447.72</td>
+    </tr>
+    <tr>
+      <th>831</th>
+      <td>50.95</td>
+      <td>447.92</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">exdata</span><span class="p">[</span><span class="n">exdata</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">-</span><span class="mi">276</span><span class="p">,</span><span class="n">exdata</span><span class="p">[</span><span class="n">exdata</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature (C)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1">#title=&#39;Brass Heating Rod&#39;, grid=True, legend=False)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/0b10c24b740a340b0452c425eb6100bd12fdfca924b5725da3f595cbf3c5662e.png" src="../_images/0b10c24b740a340b0452c425eb6100bd12fdfca924b5725da3f595cbf3c5662e.png" />
+</div>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -432,24 +618,6 @@ document.write(`
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="casestudysch.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Case Study Schedule</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="../foundations.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Foundations</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div></div>
   
 </div>
@@ -459,6 +627,27 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-heat-equation">1-D Heat Equation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analytical-solution">Analytical Solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-solution-manual">Numerical Solution - Manual</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-between-the-above-two-methods">Comparison between the above two methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-of-software-to-solve-the-heat-equation-ansys-workbench">Use of Software to Solve the Heat Equation: Ansys Workbench</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-results">Experimental results</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

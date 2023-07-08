@@ -5,47 +5,28 @@ The schedule for the course will be as follows (subject to change where Week 1.2
 |Week.Lecture|Module|Demo|HW|Exam|
 |---|---|--|--|--|
 |1.1|[Course Introduction and Motivation](intro.md)|-|HW01|-|
-|1.2|[Motivation and Examples](lectures/01-Motive.ipynb)|FlameTemp|HW01|-|
-|2.1|[Functions of Ideal Gases](lectures/02-Functions.ipynb)|-|HW02|-|
-|2.2|[Functions of Heat Transfer](lectures/03-FunctionsAgain.ipynb)|-|HW02|-|
-|3.1|[Equations to Solve Problems](lectures/04-Equations.ipynb)|-|HW03|-|
-|3.2|[More Equation Solving](lectures/05-EquationsAgain.ipynb)|-|HW03|-|
-|4.1|[Derivatives and Transients](lectures/06-Derivatives.ipynb)|-|HW04|-|
-|4.2|[More Derivatives](lectures/07-DerivativesAgain.ipynb)|-|HW04|-|
-|5.1|[Regression and Data](lectures/08-Regression.ipynb)|-|HW05|-|
-|5.2|[More Regression](lectures/09-RegressionAgain.ipynb)|-|HW05|-|
+|1.2|[Motivation and Examples](lectures/01-Motive.ipynb)|FlameTemp|HW02|-|
+|2.1|[Functions of Ideal Gases](lectures/02-Functions.ipynb)|-|HW03|-|
+|2.2|[Functions of Heat Transfer](lectures/03-FunctionsAgain.ipynb)|-|HW04|-|
+|3.1|[Equations to Solve Problems](lectures/04-Equations.ipynb)|-|HW05|-|
+|3.2|[More Equation Solving](lectures/05-EquationsAgain.ipynb)|-|HW06|-|
+|4.1|[Derivatives and Transients](lectures/06-Derivatives.ipynb)|Fluid Drain|HW07|-|
+|4.2|[More Derivatives](lectures/07-DerivativesAgain.ipynb)|-|HW08|-|
+|5.1|[Regression and Data](lectures/08-Regression.ipynb)|-|HW09|-|
+|5.2|[More Regression](lectures/09-RegressionAgain.ipynb)|-|HW010|-|
+|6.1|[Units](lectures/10-Units.ipynb)|-|HW011|-|
+|6.2|[Debug](lectures/11-Debug.ipynb)|-|HW012|-|
+|7.1|[Loops](lectures/12-Loops.ipynb)|-|HW013|-|
 
 ## Case Studies
-|4.1||HW06|-|
-|4.2||HW07|-|
-|5.1||HW08|-|
-|5.2||HW09|-|
-|6.1||HW10|-|
-|6.2||HW11|-|
-|7.1||HW12|-|
-|7.2||HW13|-|
-|8.1||HW14|-|
-|8.2||HW15|-|
-|9.1||HW16|-|
-|9.2||HW17|-|
-|10.1||HW18|-|
-|10.2||HW19|-|
-|11.1||HW20|-|
-|11.2||HW21|-|
-|12.1||HW22|-|
-|12.2||HW23|-|
-|13.1||HW24|-|
-|13.2||HW25|-|
-|14.1||HW26|-|
-|14.2||HW27|-|
-
-[^1]: See the [Case Studies Schedule](casestudies/casestudydocs.md) for more information.
+[Heat Transfer](casestudies/heattransfer.ipynb)
 
 ## Modules
 
 The below modules will be discussed throughout the semester with the case studies that you will work on together in pairs also using these tools as well as some experimental setups and data collection devices.
 
 - Python
+- Cantera
 - Aspen Hysys
 - Ansys Workbench
 - Excel
@@ -98,9 +79,7 @@ The below modules will be discussed throughout the semester with the case studie
 - Regression and Interpolation
 - Solving Linear Equations with Linear Algebra
 - Solving Nonlinear Equations with Solver
-- Solving Differential Equations with Euler and RK4
 - Completing repetitive tasks with VBA
-- Solving Differential Equations with VBA
 - Pivot Tables
 
 ```{tableofcontents}
