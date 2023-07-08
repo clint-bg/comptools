@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/04-Equations';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="05-Systems of Equations Practice" href="05-EquationsAgain.html" />
+    <link rel="next" title="05-More Equation Solving" href="05-EquationsAgain.html" />
     <link rel="prev" title="03-Functions of Heat Transfer" href="03-FunctionsAgain.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -160,13 +160,15 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../topics.html">Modules</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01-Motive.html">01-Motivation with Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02-Functions.html">02-Functions of Ideal and Real Gases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-Functions.html">02-Functions of Ideal Gases</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03-FunctionsAgain.html">03-Functions of Heat Transfer</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">04-Equations to Solve Problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05-EquationsAgain.html">05-Systems of Equations Practice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06-Derivatives.html">06-Transient Solutions: Derivatives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-EquationsAgain.html">05-More Equation Solving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-Derivatives.html">06-Derivatives and Transients</a></li>
 <li class="toctree-l2"><a class="reference internal" href="07-DerivativesAgain.html">07-More Derivatives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="08-Regression.html">08-Data Analysis: Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-Regression.html">08-Regression and Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09-RegressionAgain.html">09-More Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="17-SolidWorks.html">Solidworks</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -445,8 +447,8 @@ document.write(`
 <p>Separation process principles are critical to many industries. Lets say you have a flashing unit that is separating a mixture of benzene and toluene.  The feed to the unit is 40 mol% benzene and 60 mol% toluene.  The vapor leaving the unit is 80 mol% benzene and 20 mol% toluene.  The liquid leaving the unit is 10 mol% benzene and 90 mol% toluene.  The feed rate is 100 mol/hr.  The vapor and liquid leaving the unit are in equilibrium.  What are the flow rates of the vapor and liquid leaving the unit?</p>
 <p>This problem can be solved by writing a system of equations and solving for the unknowns.  In this case, we have two unknowns, the vapor and liquid flow rates.  We can write two equations, one for the benzene balance and one for the total flows. One of the equations would be a species balance and the other equation a total mass balance. A picture of the system is shown below.</p>
 <img src=supportfiles/flashingunitbasic.png width="200"><p>The inlet enters at the left and the vapor exists the top and the liquid exists the bottom. This is equivalient to a single stage of a distillation column.  The equations are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-90ba526b-8b95-40bd-8ff7-4253d95d6def">
-<span class="eqno">(5)<a class="headerlink" href="#equation-90ba526b-8b95-40bd-8ff7-4253d95d6def" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-32d60547-26b5-4b9f-ac3c-48e6c6a94ea5">
+<span class="eqno">(5)<a class="headerlink" href="#equation-32d60547-26b5-4b9f-ac3c-48e6c6a94ea5" title="Permalink to this equation">#</a></span>\[\begin{align}
 F &amp;= L + V \\
 z_i F &amp;= x_i L + y_i V
 \end{align}\]</div>
@@ -485,20 +487,20 @@ z_i F &amp;= x_i L + y_i V
 <h3>Solve Linear System with Numpy<a class="headerlink" href="#solve-linear-system-with-numpy" title="Permalink to this heading">#</a></h3>
 <p>The above equations can be solved numerically as shown below using the numpy package. First you’ll adjust the equations algebraically to be in the form Ax = b.  Then you’ll use the numpy.linalg.solve function to solve the system of equations.</p>
 <p>The above equation rearranged into the form Ax = b is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-07289077-a644-4e99-ae3d-91e671b08e2d">
-<span class="eqno">(6)<a class="headerlink" href="#equation-07289077-a644-4e99-ae3d-91e671b08e2d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4a9167ae-f8e9-4e12-b5db-b7c369cb3936">
+<span class="eqno">(6)<a class="headerlink" href="#equation-4a9167ae-f8e9-4e12-b5db-b7c369cb3936" title="Permalink to this equation">#</a></span>\[\begin{align}
 L + V &amp;= 100 \\
 0.1 L + 0.8 V &amp;= 40
 \end{align}\]</div>
 <p>The A matrix is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c13b8420-8a66-4836-8424-81bad20bc1ea">
-<span class="eqno">(7)<a class="headerlink" href="#equation-c13b8420-8a66-4836-8424-81bad20bc1ea" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-e092d6cd-d28d-48b9-bdf2-a6a3042a4484">
+<span class="eqno">(7)<a class="headerlink" href="#equation-e092d6cd-d28d-48b9-bdf2-a6a3042a4484" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
 1 &amp; 1 \\
 0.1 &amp; 0.8
 \end{bmatrix}\]</div>
 <p>and the b vector is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-46f24c0d-4009-457b-99a1-9531b11309cd">
-<span class="eqno">(8)<a class="headerlink" href="#equation-46f24c0d-4009-457b-99a1-9531b11309cd" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-02478b3d-c859-48dc-a0aa-b3c22d8925db">
+<span class="eqno">(8)<a class="headerlink" href="#equation-02478b3d-c859-48dc-a0aa-b3c22d8925db" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
 100 \\
 40
 \end{bmatrix}\]</div>
@@ -618,14 +620,14 @@ L + V &amp;= 100 \\
 </div>
 </div>
 <p>The Colbrook equation is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-aaa57176-75b8-4551-a6c3-f0be6161ac29">
-<span class="eqno">(9)<a class="headerlink" href="#equation-aaa57176-75b8-4551-a6c3-f0be6161ac29" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e95ac40a-057b-4e05-a4c6-cb76c3c8b6b0">
+<span class="eqno">(9)<a class="headerlink" href="#equation-e95ac40a-057b-4e05-a4c6-cb76c3c8b6b0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{1}{\sqrt{f}} = -2.0 \log_{10} \left( \frac{\epsilon/D}{3.71} + \frac{2.51}{\text{Re} \sqrt{f}} \right)
 \end{equation}\]</div>
 <p>where f is the darcy friction factor, $\epsilon$ is the pipe roughness, D is the pipe diameter, and Re is the Reynolds number equal to the product of the fluid density, velocity, and diameter divided by the fluid viscosity. This is valid with a relative roughness of $\epsilon/D &lt; 0.05$ and $10^4 &lt; \text{Re} &lt; 10^8$.</p>
 <p>The pressure loss down the length of pipe is calculated by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6706ee1a-78d9-4fdd-9262-127c830d75d6">
-<span class="eqno">(10)<a class="headerlink" href="#equation-6706ee1a-78d9-4fdd-9262-127c830d75d6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ed252fe9-753d-4ad5-950d-b8abd413617d">
+<span class="eqno">(10)<a class="headerlink" href="#equation-ed252fe9-753d-4ad5-950d-b8abd413617d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \Delta P = f \frac{L}{D} \frac{\rho v^2}{2}
 \end{equation}\]</div>
 <p>where $\Delta P$ is the pressure drop, $f$ is the Darcy friction factor, $L$ is the length of the pipe, $D$ is the pipe diameter, $\rho$ is the fluid density, and $v$ is the fluid velocity.</p>
@@ -847,7 +849,7 @@ The pressure drop is 25.97 Pa (or 3.76 psi)
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">05-Systems of Equations Practice</p>
+        <p class="prev-next-title">05-More Equation Solving</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
