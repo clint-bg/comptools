@@ -3,10 +3,10 @@
 Computational tools are essential in chemical engineering.  This course will introduce you to some of the tools you will use as you succeed in your academic and professional career. The class, hopefully, will also help you think critically and creatively about how to use these tools to solve problems. Additionally, course content will help grow your faith in Jesus Christ and to follow His example and the words of His prophets.
 
 ---
-The information presented here augments that found on the [course Canvas site](https://byui.instructure.com/courses/14908).  Please refer to the Canvas site for the most up-to-date information.
+The information presented here augments that found on the course Canvas site.  
 
 ## Syllabus
-The syllabus is available [here](https://byui.instructure.com/courses/14908/files/1047880/download?wrap=1).
+The syllabus is available on Canvas.
 
 ## Learning Outcomes
 Learning Outcomes. Students will be able to:
