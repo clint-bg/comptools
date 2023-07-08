@@ -447,8 +447,8 @@ document.write(`
 <p>Separation process principles are critical to many industries. Lets say you have a flashing unit that is separating a mixture of benzene and toluene.  The feed to the unit is 40 mol% benzene and 60 mol% toluene.  The vapor leaving the unit is 80 mol% benzene and 20 mol% toluene.  The liquid leaving the unit is 10 mol% benzene and 90 mol% toluene.  The feed rate is 100 mol/hr.  The vapor and liquid leaving the unit are in equilibrium.  What are the flow rates of the vapor and liquid leaving the unit?</p>
 <p>This problem can be solved by writing a system of equations and solving for the unknowns.  In this case, we have two unknowns, the vapor and liquid flow rates.  We can write two equations, one for the benzene balance and one for the total flows. One of the equations would be a species balance and the other equation a total mass balance. A picture of the system is shown below.</p>
 <img src=supportfiles/flashingunitbasic.png width="200"><p>The inlet enters at the left and the vapor exists the top and the liquid exists the bottom. This is equivalient to a single stage of a distillation column.  The equations are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-32d60547-26b5-4b9f-ac3c-48e6c6a94ea5">
-<span class="eqno">(5)<a class="headerlink" href="#equation-32d60547-26b5-4b9f-ac3c-48e6c6a94ea5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6ece07b5-9a27-4b93-9558-97dac10b84f1">
+<span class="eqno">(5)<a class="headerlink" href="#equation-6ece07b5-9a27-4b93-9558-97dac10b84f1" title="Permalink to this equation">#</a></span>\[\begin{align}
 F &amp;= L + V \\
 z_i F &amp;= x_i L + y_i V
 \end{align}\]</div>
@@ -487,20 +487,20 @@ z_i F &amp;= x_i L + y_i V
 <h3>Solve Linear System with Numpy<a class="headerlink" href="#solve-linear-system-with-numpy" title="Permalink to this heading">#</a></h3>
 <p>The above equations can be solved numerically as shown below using the numpy package. First you’ll adjust the equations algebraically to be in the form Ax = b.  Then you’ll use the numpy.linalg.solve function to solve the system of equations.</p>
 <p>The above equation rearranged into the form Ax = b is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4a9167ae-f8e9-4e12-b5db-b7c369cb3936">
-<span class="eqno">(6)<a class="headerlink" href="#equation-4a9167ae-f8e9-4e12-b5db-b7c369cb3936" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e089bf9c-d0f3-4173-8468-66356cf7f7b5">
+<span class="eqno">(6)<a class="headerlink" href="#equation-e089bf9c-d0f3-4173-8468-66356cf7f7b5" title="Permalink to this equation">#</a></span>\[\begin{align}
 L + V &amp;= 100 \\
 0.1 L + 0.8 V &amp;= 40
 \end{align}\]</div>
 <p>The A matrix is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e092d6cd-d28d-48b9-bdf2-a6a3042a4484">
-<span class="eqno">(7)<a class="headerlink" href="#equation-e092d6cd-d28d-48b9-bdf2-a6a3042a4484" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-d6647e49-49e0-4de5-b6fd-d860dd443945">
+<span class="eqno">(7)<a class="headerlink" href="#equation-d6647e49-49e0-4de5-b6fd-d860dd443945" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
 1 &amp; 1 \\
 0.1 &amp; 0.8
 \end{bmatrix}\]</div>
 <p>and the b vector is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-02478b3d-c859-48dc-a0aa-b3c22d8925db">
-<span class="eqno">(8)<a class="headerlink" href="#equation-02478b3d-c859-48dc-a0aa-b3c22d8925db" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-d9736659-301f-4610-b78e-bfe5251c94d5">
+<span class="eqno">(8)<a class="headerlink" href="#equation-d9736659-301f-4610-b78e-bfe5251c94d5" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
 100 \\
 40
 \end{bmatrix}\]</div>
@@ -620,14 +620,14 @@ L + V &amp;= 100 \\
 </div>
 </div>
 <p>The Colbrook equation is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e95ac40a-057b-4e05-a4c6-cb76c3c8b6b0">
-<span class="eqno">(9)<a class="headerlink" href="#equation-e95ac40a-057b-4e05-a4c6-cb76c3c8b6b0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-307af2b1-572a-4879-9660-16679ad13b80">
+<span class="eqno">(9)<a class="headerlink" href="#equation-307af2b1-572a-4879-9660-16679ad13b80" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{1}{\sqrt{f}} = -2.0 \log_{10} \left( \frac{\epsilon/D}{3.71} + \frac{2.51}{\text{Re} \sqrt{f}} \right)
 \end{equation}\]</div>
 <p>where f is the darcy friction factor, $\epsilon$ is the pipe roughness, D is the pipe diameter, and Re is the Reynolds number equal to the product of the fluid density, velocity, and diameter divided by the fluid viscosity. This is valid with a relative roughness of $\epsilon/D &lt; 0.05$ and $10^4 &lt; \text{Re} &lt; 10^8$.</p>
 <p>The pressure loss down the length of pipe is calculated by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ed252fe9-753d-4ad5-950d-b8abd413617d">
-<span class="eqno">(10)<a class="headerlink" href="#equation-ed252fe9-753d-4ad5-950d-b8abd413617d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e67af548-2c31-4e5f-9535-12f0c45c1812">
+<span class="eqno">(10)<a class="headerlink" href="#equation-e67af548-2c31-4e5f-9535-12f0c45c1812" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \Delta P = f \frac{L}{D} \frac{\rho v^2}{2}
 \end{equation}\]</div>
 <p>where $\Delta P$ is the pressure drop, $f$ is the Darcy friction factor, $L$ is the length of the pipe, $D$ is the pipe diameter, $\rho$ is the fluid density, and $v$ is the fluid velocity.</p>
