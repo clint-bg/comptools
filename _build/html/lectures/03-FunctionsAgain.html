@@ -449,7 +449,7 @@ document.write(`
 <section id="example-external-flow-across-a-cylinder-in-crossflow">
 <h2>Example: External flow across a cylinder in crossflow<a class="headerlink" href="#example-external-flow-across-a-cylinder-in-crossflow" title="Permalink to this heading">#</a></h2>
 <p>Suppose we have a heated rod with a fan blowing air across it. We’ll first estimate the heat transfer coefficient and then the total heat lost given some details about the scenario.</p>
-<img src='./supportfiles/crossflowcyl.png' size='200'><p>The heat transfer coefficient is often put in terms of the Nusselt number, <span class="math notranslate nohighlight">\(Nu\)</span>, which is defined as:</p>
+<img src="https://github.com/clint-bg/comptools/blob/main/lectures/supportfiles/crossflowcyl.png?raw=true" size='200'><p>The heat transfer coefficient is often put in terms of the Nusselt number, <span class="math notranslate nohighlight">\(Nu\)</span>, which is defined as:</p>
 <div class="math notranslate nohighlight">
 \[
 \begin{equation}
@@ -573,7 +573,10 @@ Nu = C Re^n Pr^{1/3}
 </section>
 <section id="method-2-using-a-function-only-when-i-have-too">
 <h3>Method 2: Using a Function only when I have too.<a class="headerlink" href="#method-2-using-a-function-only-when-i-have-too" title="Permalink to this heading">#</a></h3>
-<p>I don’t want to use objects. I also don’t want to use a lot of functions. I know I need one for the Nusselt number correlation so I’ll start with that first. Otherwise I’ll just type everything in.</p>
+<p>Some may say</p>
+<blockquote>
+<div><p>“I don’t want to use objects. I also don’t want to use a lot of functions. I know I need one for the Nusselt number correlation so I’ll start with that first. Otherwise I’ll just type everything in.”</p>
+</div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Nu</span><span class="p">(</span><span class="n">Re</span><span class="p">,</span> <span class="n">Pr</span><span class="p">):</span>
