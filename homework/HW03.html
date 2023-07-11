@@ -608,6 +608,9 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 0.25  -0.125]
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 <p><em><strong>Action:</strong></em> Determine one solution for <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> to the following equations (there are 4 possible solutions).</p>
@@ -651,15 +654,21 @@ document.write(`
 <section id="problem-4">
 <h2>Problem #4<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h2>
 <p>Imagine mixing liquid benzene (species 1) and toluene (species 2) together in an initially empty container. At equilibrium, some of the liquid from both species evaporates into the vapor phase and some is left liquid phase for certain temperatures and pressures. In thermodynamics, you learn that Raoult’s law may be used to describe the distribution of species in each phase. For the specific example mentioned above, Raoult’s law gives the following two expressions describing the equilibrium state</p>
-<p>\begin{align}
-y_1 P = x_1 P_1^{sat}(T) \
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+y_1 P = x_1 P_1^{sat}(T) \\
 y_2 P = x_2 P_2^{sat}(T)
-\end{align}</p>
+\end{align}
+\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(y_i\)</span> is the mole fraction of species <span class="math notranslate nohighlight">\(i\)</span> (either 1 or 2) in the vapor phase, <span class="math notranslate nohighlight">\(x_i\)</span> is the mole fraction of species <span class="math notranslate nohighlight">\(i\)</span> in the liquid phase, <span class="math notranslate nohighlight">\(P_i^{sat}(T)\)</span> is the vapor pressure of species <span class="math notranslate nohighlight">\(i\)</span> at the system temperature <span class="math notranslate nohighlight">\(T\)</span>, and <span class="math notranslate nohighlight">\(P\)</span> is the system pressure.</p>
-<p>The vapor pressures of benzene and toluene can be found using the Antione Equation given below:
+<p>The vapor pressures of benzene and toluene can be found using the Antione Equation given below:</p>
+<div class="math notranslate nohighlight">
+\[
 \begin{equation}
 \ln{\left(P_i^{sat}(T) \right)} = A_i - \frac{B_i}{T+ C_i}
-\end{equation}</p>
+\end{equation}
+\]</div>
 <p>Note that <span class="math notranslate nohighlight">\(P_i^{sat}(T)\)</span> is not <span class="math notranslate nohighlight">\(P_i^{sat}\)</span> times <span class="math notranslate nohighlight">\(T\)</span>, but is simply showing that <span class="math notranslate nohighlight">\(P_i^{sat}\)</span> is a function of <span class="math notranslate nohighlight">\(T\)</span> in kPa.  The constants, <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, and <span class="math notranslate nohighlight">\(C\)</span>, are compound specific and are found in the table below. <span class="math notranslate nohighlight">\(T\)</span> is in <span class="math notranslate nohighlight">\(°C\)</span>.</p>
 <p><em><strong>Antoine Constants for Benzene and Toluene:</strong></em></p>
 <table class="table">

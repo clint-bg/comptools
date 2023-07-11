@@ -450,7 +450,7 @@ document.write(`
 <p>Equations of state relate the pressure, temperature, and molar volume of a fluid mathematically.  These are used in almost every discipline of engineering problems chemical engineers face.  The ideal gas law is the simplest equation of state:</p>
 <div class="math notranslate nohighlight">
 \[
-P = \frac{RT}{\tilde{V}}
+P = \frac{nRT}{V} = \frac{RT}{\tilde{V}}
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(P\)</span> is pressure, <span class="math notranslate nohighlight">\(R\)</span> is the gas constant, <span class="math notranslate nohighlight">\(T\)</span> is temperature, and <span class="math notranslate nohighlight">\(\tilde{V}\)</span> is the molar volume (volume of gas divided by the moles of gas).  The molar volume is the volume of one mole of a substance.  The ideal gas law is a good approximation for many gases at low pressures and high temperatures.</p>
 <div class="cell docutils container">
@@ -757,9 +757,8 @@ P = \frac{RT}{\tilde{V} - b} - \frac{a}{\tilde{V}^2}
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can also name each object</span>
-<span class="n">tank1</span> <span class="o">=</span> <span class="n">sphtanks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The level in the first spherical tank is </span><span class="si">{</span><span class="n">tank1</span><span class="o">.</span><span class="n">level</span><span class="si">}</span><span class="s1"> m&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can access the parameters of the class by calling the class name and the parameter name</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The level in the first spherical tank is </span><span class="si">{</span><span class="n">sphtanks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">level</span><span class="si">}</span><span class="s1"> m&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
