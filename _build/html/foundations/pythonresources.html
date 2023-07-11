@@ -419,16 +419,15 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment-operator-vs-equality-operator">Assignment operator vs. equality operator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data Types</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple">Tuple</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-and-arrays">Lists and Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">Dictionaries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">Loops</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inline-loop-to-generate-a-list">Inline loop to generate a list</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objects">Objects</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-and-arrays">Lists and Arrays</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">Dictionaries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-data">Importing Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-science-with-pandas">Data Science with Pandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bits">Bits</a></li>
 </ul>
             </nav>
@@ -461,10 +460,68 @@ document.write(`
 </div>
 </div>
 </section>
+<section id="data-types">
+<h2>Data Types<a class="headerlink" href="#data-types" title="Permalink to this heading">#</a></h2>
+<p>There are several data types in Python.  The most common are <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, and <code class="docutils literal notranslate"><span class="pre">NoneType</span></code>. <code class="docutils literal notranslate"><span class="pre">int</span></code> is an integer, <code class="docutils literal notranslate"><span class="pre">float</span></code> is a decimal number potentially, <code class="docutils literal notranslate"><span class="pre">str</span></code> is a string like ‘a’ or ‘hello’, <code class="docutils literal notranslate"><span class="pre">bool</span></code> is True or False, and <code class="docutils literal notranslate"><span class="pre">NoneType</span></code> is an empty value. The <code class="docutils literal notranslate"><span class="pre">type</span></code> function can be used to determine the type of a variable.  Below is example code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">7.5</span><span class="p">);</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">7.97</span><span class="p">;</span> <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;Hello World&#39;</span><span class="p">;</span> <span class="n">d</span> <span class="o">=</span> <span class="kc">True</span><span class="p">;</span> <span class="n">e</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;a is </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s1">, b is </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s1">, c is </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s1">, d is </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s1">, e is </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a is 7, b is 7.97, c is Hello World, d is True, e is None
+</pre></div>
+</div>
+</div>
+</div>
+<p>Other common data types are given below</p>
+</section>
 <section id="tuple">
 <h2>Tuple<a class="headerlink" href="#tuple" title="Permalink to this heading">#</a></h2>
 <p>What’s a tuple? How is it different from a list?
-A tuple is a sequence of immutable Python objects. Tuples are sequences, just like lists. The differences between tuples and lists are, the tuples cannot be changed (immutable) unlike lists and tuples use parentheses, whereas lists use square brackets. Tuples can be useful as in this example:</p>
+A tuple is a sequence of immutable Python objects. Tuples are sequences, just like lists. The differences between tuples and lists are, the tuples cannot be changed (immutable) unlike lists and tuples use parenthesis (althouth not required), whereas lists use square brackets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tup</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="c1">#set a variable name tup to a tuple</span>
+<span class="n">tup</span> <span class="o">=</span> <span class="n">tup</span> <span class="o">+</span> <span class="p">(</span><span class="mi">6</span><span class="p">,)</span> <span class="c1"># add another value to the tuple</span>
+<span class="n">anothertup</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span><span class="mi">8</span> <span class="c1">#create a tuple without parentheses</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The value of tup is </span><span class="si">{</span><span class="n">tup</span><span class="si">}</span><span class="s1"> and tup[0] is </span><span class="si">{</span><span class="n">tup</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The value of anothertup is </span><span class="si">{</span><span class="n">anothertup</span><span class="si">}</span><span class="s1"> and the type of anothertup is </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">anothertup</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="c1">#now we&#39;ll try and change the value of tup[0]</span>
+<span class="n">tup</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="c1">#reassign the variable to a different tuple</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tup</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The value of tup is (4, 5, 6) and tup[0] is 4
+The value of anothertup is (7, 8) and the type of anothertup is &lt;class &#39;tuple&#39;&gt;
+(3, 4)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that the variable ‘tup’ can be reassigned to a different tuple but that once a tuple has been set, it cannot be changed.  This is different from a list which can be changed (as it’s immutable). For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tup</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1">#try and reassign the first element of the tuple to 4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">tup</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1">#try and reassign the first element of the tuple to 4</span>
+
+<span class="ne">TypeError</span>: &#39;tuple&#39; object does not support item assignment
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tuples can be useful as in this example where we want to pass multiple values to a function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span>
@@ -485,7 +542,122 @@ A tuple is a sequence of immutable Python objects. Tuples are sequences, just li
 </div>
 </div>
 </div>
-<p>Here p is a tuple as well as (L,V) and (1,1) as they’re in parenthesis.</p>
+</section>
+<section id="lists-and-arrays">
+<h2>Lists and Arrays<a class="headerlink" href="#lists-and-arrays" title="Permalink to this heading">#</a></h2>
+<p>Lists and arrays are similar in that they are both a series of values.  However, lists can contain different types of values.  Arrays are typically all the same type of value.  Arrays are also more efficient to use for calculations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Here&#39;s a list of numbers</span>
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The numbers are </span><span class="si">{</span><span class="n">numbers</span><span class="si">}</span><span class="s1"> and the type is </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The numbers are [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] and the type is &lt;class &#39;list&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Here is a list that has different items in it</span>
+<span class="n">blist</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">numbers</span><span class="p">,</span><span class="mf">3.14</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">blist</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;hello&#39;, 3, 5, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3.14]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Heres how to access the third item in the list</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">blist</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="c1">#remember that python is zero indexed</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Here are two ways to access the last item in the list</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">blist</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="c1">#index -1 is the last item in the list</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">blist</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">blist</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="c1">#len(blist) is the length of the list</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.14
+3.14
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#an array is useful and different than a list as it is considered a vector</span>
+<span class="c1">#a list can easily be converted to an array</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The array is </span><span class="si">{</span><span class="n">arr</span><span class="si">}</span><span class="s1"> and the type is </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The array is [ 1  2  3  4  5  6  7  8  9 10] and the type is &lt;class &#39;numpy.ndarray&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Some python operations can be done on a list but other operations cannot and are better done with an array. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+<span class="c1">#versus</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4, 5, 6]
+[5 7 9]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="dictionaries">
+<h2>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this heading">#</a></h2>
+<p>Dictionary is a collection of key:value pairs.  It is similar to a list, but you can access the values by the key instead of the index.  Here is an example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adictionary</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span> <span class="c1">#create a dictionary</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">adictionary</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">])</span> <span class="c1">#access the value associated with the key &#39;a&#39;</span>
+<span class="c1">#or </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">adictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">))</span> <span class="c1">#access the value associated with the key &#39;a&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dictionaries can be very helpful when you have data and you want to access it by a key.  For example, if you have a list of students and you want to access their grades, you can use a dictionary with the student name as the key and the grade as the value. A dictionary can also be thought of as a database. They can easily be converted to a pandas dataframe.</p>
 </section>
 <section id="loops">
 <h2>Loops<a class="headerlink" href="#loops" title="Permalink to this heading">#</a></h2>
@@ -524,14 +696,13 @@ A tuple is a sequence of immutable Python objects. Tuples are sequences, just li
 <h3>Inline loop to generate a list<a class="headerlink" href="#inline-loop-to-generate-a-list" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
-<span class="n">anotherlist</span> <span class="o">=</span> <span class="p">[</span><span class="n">each</span><span class="o">*</span><span class="mi">2</span> <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">alist</span><span class="p">]</span> <span class="c1">#an inline for loop</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">alist</span><span class="p">,</span><span class="n">anotherlist</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anotherlist</span> <span class="o">=</span> <span class="p">[</span><span class="n">each</span><span class="o">*</span><span class="mi">2</span> <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">a</span><span class="p">]</span> <span class="c1">#an inline for loop</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">anotherlist</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4, 5] [2, 4, 6, 8, 10]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 2, 8, 18, 32, 0, 0, 0, 0, 0]
 </pre></div>
 </div>
 </div>
@@ -557,95 +728,102 @@ A tuple is a sequence of immutable Python objects. Tuples are sequences, just li
 </div>
 </div>
 </div>
-</section>
-<section id="lists-and-arrays">
-<h2>Lists and Arrays<a class="headerlink" href="#lists-and-arrays" title="Permalink to this heading">#</a></h2>
-<p>Lists and arrays are similar in that they are both a series of values.  However, lists can contain different types of values.  Arrays are typically all the same type of value.  Arrays are also more efficient to use for calculations.</p>
+<p>I can also make my own objects by defining a class.  For example, I can make a class called <code class="docutils literal notranslate"><span class="pre">Person</span></code> and give it properties like <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">age</span></code>.  I can also give it functions like <code class="docutils literal notranslate"><span class="pre">birthday</span></code> and <code class="docutils literal notranslate"><span class="pre">greet</span></code>.  Here is an example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Here is a list that has different items in it</span>
-<span class="n">blist</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">anotherlist</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">blist</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;hello&#39;, 3, 5, [2, 4, 6, 8, 10]]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">person</span><span class="p">():</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">age</span><span class="p">):</span> <span class="c1">#the __init__ method is called when the class is instantiated</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span> <span class="c1">#self refers to the instance of the class</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Heres how to access the third item in the list</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">blist</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="c1">#remember that python is zero indexed</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">joe</span> <span class="o">=</span> <span class="n">person</span><span class="p">(</span><span class="s1">&#39;Joe Bai&#39;</span><span class="p">,</span><span class="mi">25</span><span class="p">)</span> <span class="c1">#create an object (an instance)  of the person class</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Hello, my name is </span><span class="si">{</span><span class="n">joe</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1"> and I</span><span class="se">\&#39;</span><span class="s1">m </span><span class="si">{</span><span class="n">joe</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span> <span class="c1">#access the name attribute of the joe object</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, my name is Joe Bai and I&#39;m 25.
+</pre></div>
+</div>
+</div>
+</div>
+<p>I recommend using the <a class="reference external" href="https://param.holoviz.org/index.html">param</a> package to define objects.  It’s has many benefits.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">param</span>
+<span class="k">class</span> <span class="nc">gas</span><span class="p">(</span><span class="n">param</span><span class="o">.</span><span class="n">Parameterized</span><span class="p">):</span>
+    <span class="n">Mw</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mf">0.02897</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="kc">None</span><span class="p">),</span> <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;Molecular weight of the gas, kg/mol&#39;</span><span class="p">)</span>
+    <span class="n">Rg</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mf">8.314</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="kc">None</span><span class="p">),</span> <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;Gas constant, J/mol/K&#39;</span><span class="p">,</span><span class="n">constant</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="kc">None</span><span class="p">),</span> <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;Temperature of the gas, K&#39;</span><span class="p">)</span>
+    <span class="n">P</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">101325</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="kc">None</span><span class="p">),</span> <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;Pressure of the gas, Pa&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">density</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">Mw</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">P</span><span class="o">/</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Rg</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="c1">#density in kg/m^3</span>
+
+<span class="n">air</span> <span class="o">=</span> <span class="n">gas</span><span class="p">(</span><span class="n">Mw</span><span class="o">=</span><span class="mf">28.97</span><span class="p">,</span><span class="n">T</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The density of air at </span><span class="si">{</span><span class="n">air</span><span class="o">.</span><span class="n">T</span><span class="si">}</span><span class="s1"> K and </span><span class="si">{</span><span class="n">air</span><span class="o">.</span><span class="n">P</span><span class="si">}</span><span class="s1"> Pa is </span><span class="si">{</span><span class="n">air</span><span class="o">.</span><span class="n">density</span><span class="p">()</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> kg/m^3&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The density of air at 300 K and 101325 Pa is 1176.88 kg/m^3
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Here are two ways to access the last item in the list</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">blist</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="c1">#index -1 is the last item in the list</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">blist</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">blist</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="c1">#len(blist) is the length of the list</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Here&#39;s a benefit of the param library, I can get the doc&#39;s on each parameter</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">air</span><span class="o">.</span><span class="n">param</span><span class="o">.</span><span class="n">Mw</span><span class="o">.</span><span class="n">doc</span><span class="p">)</span>
+<span class="n">help</span><span class="p">(</span><span class="n">air</span><span class="o">.</span><span class="n">param</span><span class="o">.</span><span class="n">Mw</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 4, 6, 8, 10]
-[2, 4, 6, 8, 10]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Molecular weight of the gas, kg/mol
+Help on Number in module param:
+
+    Molecular weight of the gas, kg/mol
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="dictionaries">
-<h2>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this heading">#</a></h2>
-<p>Dictionary is a collection of key:value pairs.  It is similar to a list, but you can access the values by the key instead of the index.  Here is an example:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adictionary</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span> <span class="c1">#create a dictionary</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">adictionary</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">])</span> <span class="c1">#access the value associated with the key &#39;a&#39;</span>
-<span class="c1">#or </span>
-<span class="nb">print</span><span class="p">(</span><span class="n">adictionary</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">))</span> <span class="c1">#access the value associated with the key &#39;a&#39;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-1
-</pre></div>
-</div>
-</div>
-</div>
-<p>Dictionaries can be very helpful when you have a lot of data and you want to access it by a key.  For example, if you have a list of students and you want to access their grades, you can use a dictionary with the student name as the key and the grade as the value.</p>
-</section>
-<section id="importing-data">
-<h2>Importing Data<a class="headerlink" href="#importing-data" title="Permalink to this heading">#</a></h2>
-<p>There are many ways to import data into Python.  Here are a few examples:</p>
-</section>
-<section id="data-science-with-pandas">
-<h2>Data Science with Pandas<a class="headerlink" href="#data-science-with-pandas" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="bits">
 <h2>Bits<a class="headerlink" href="#bits" title="Permalink to this heading">#</a></h2>
-<p>Bits are collections of 1s and 0s (or on versus off in a transistor).  They are the basis of all computer operations.  Below is a code snippet to calculate the number of bits required to represent a number.</p>
+<p>Bits are collections of 1s and 0s (or on versus off in a transistor).  They are the basis of all computer operations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># THis calculates the number of bits a variable holds</span>
-<span class="k">def</span> <span class="nf">bits</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">n</span><span class="p">))</span><span class="o">-</span><span class="mi">2</span> <span class="c1">#bin(n) returns the binary representation of n as a string</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">bits</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># &#39;101&#39; is </span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;001 is 2^2*1 + 2^1*0 + 2^0*1 = </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="o">**</span><span class="mi">1</span><span class="o">*</span><span class="mi">0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="o">**</span><span class="mi">0</span><span class="o">*</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="c1">#or</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="s1">&#39;101&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>001 is 2^2*1 + 2^1*0 + 2^0*1 = 5
+5
+</pre></div>
+</div>
+</div>
+</div>
+<p>Below is a code snippet to calculate the number of bits required to represent a number.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This calculates the number of bits a variable holds</span>
+<span class="k">def</span> <span class="nf">bits</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">n</span><span class="p">))</span><span class="o">-</span><span class="mi">2</span> <span class="c1">#bin(n) returns the binary representation of n as a string</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bits</span><span class="p">(</span><span class="mi">255</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
 </pre></div>
 </div>
 </div>
@@ -721,16 +899,15 @@ A tuple is a sequence of immutable Python objects. Tuples are sequences, just li
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assignment-operator-vs-equality-operator">Assignment operator vs. equality operator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">Data Types</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuple">Tuple</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-and-arrays">Lists and Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">Dictionaries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">Loops</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inline-loop-to-generate-a-list">Inline loop to generate a list</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objects">Objects</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-and-arrays">Lists and Arrays</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">Dictionaries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-data">Importing Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-science-with-pandas">Data Science with Pandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bits">Bits</a></li>
 </ul>
   </nav></div>
