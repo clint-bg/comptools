@@ -196,6 +196,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../foundations/safety.html">Safety</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgement.html">Acknowledgement</a></li>
 </ul>
 
     </div>
@@ -430,7 +431,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-non-linear-systems-of-equations">Solving Non-Linear Systems of Equations</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-solution-with-scipy-fsolve">Non-linear solution with scipy fsolve</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-solution-with-gekko">Non-linear solution with Gekko</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-solution-with-newton-s-method">Non-linear solution with Newton’s method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-solution-with-newton-s-method">Non-linear solution with Newton’s method</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#derivation-of-newton-s-method">Derivation of Newton’s method</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -719,6 +723,30 @@ The pressure drop is 25.97 Pa (or 3.76 psi)
 <section id="non-linear-solution-with-newton-s-method">
 <h3>Non-linear solution with Newton’s method<a class="headerlink" href="#non-linear-solution-with-newton-s-method" title="Permalink to this heading">#</a></h3>
 <p>Newton’s method is a numerical method for solving non-linear equations.  It is an iterative method that uses the derivative of the function to find the root.  The derivative of the function is used to find the tangent line to the function at the current point.  The tangent line is then used to find the next point where the tangent line crosses the x-axis.  This process is repeated until the solution is found.</p>
+<section id="derivation-of-newton-s-method">
+<h4>Derivation of Newton’s method<a class="headerlink" href="#derivation-of-newton-s-method" title="Permalink to this heading">#</a></h4>
+<p>First use the Taylor series expansion of the function <span class="math notranslate nohighlight">\(f(x)\)</span> about the point <span class="math notranslate nohighlight">\(x_0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+f(x) = f(x_0) + f'(x_0)(x-x_0) + \frac{f''(x_0)}{2!}(x-x_0)^2 + \frac{f'''(x_0)}{3!}(x-x_0)^3 + \cdots
+\end{equation}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(f'\)</span> is the 1st derivative of x and <span class="math notranslate nohighlight">\(f''\)</span> is the second derivative and so on. If we neglect the higher order terms, we can write:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+f(x) \approx f(x_0) + f'(x_0)(x-x_0)
+\end{equation}
+\]</div>
+<p>If we set <span class="math notranslate nohighlight">\(f(x) = 0\)</span> and solve for <span class="math notranslate nohighlight">\(x\)</span>, we get:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+x = x_0 - \frac{f(x_0)}{f'(x_0)}
+\end{equation}
+\]</div>
+<p>This is the Newton’s method equation for finding the root of a function. <span class="math notranslate nohighlight">\(x_0\)</span> is the initial guess and <span class="math notranslate nohighlight">\(x\)</span> is the new guess. Iterations are completed until the value of x is close enough to zero. The derivative of the function is used as an estimate for the next guess according to the above. This is a first order approximation as a the first derivative is used. There are other numerical methods for root finding.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Solve the Colbrook equation with Newton&#39;s method</span>
@@ -820,6 +848,7 @@ The pressure drop is 25.97 Pa (or 3.76 psi)
 </section>
 </section>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -898,7 +927,10 @@ The pressure drop is 25.97 Pa (or 3.76 psi)
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-non-linear-systems-of-equations">Solving Non-Linear Systems of Equations</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-solution-with-scipy-fsolve">Non-linear solution with scipy fsolve</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-solution-with-gekko">Non-linear solution with Gekko</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-solution-with-newton-s-method">Non-linear solution with Newton’s method</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-solution-with-newton-s-method">Non-linear solution with Newton’s method</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#derivation-of-newton-s-method">Derivation of Newton’s method</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

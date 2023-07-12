@@ -37,4 +37,5 @@ chapters:
     - file: foundations/excelresources
     - file: foundations/equipment
     - file: foundations/safety
+  - file: acknowledgement
 
