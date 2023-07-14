@@ -161,16 +161,25 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="lectures/01-Motive.html">01-Motivation with Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lectures/02-Functions.html">02-Functions of Ideal Gases</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lectures/03-FunctionsAgain.html">03-Functions of Heat Transfer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lectures/04-Equations.html">04-Equations to Solve Problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lectures/05-EquationsAgain.html">05-More Equation Solving</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lectures/06-Derivatives.html">06-Derivatives and Transients</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lectures/07-DerivativesAgain.html">07-More Derivatives</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lectures/08-Regression.html">08-Regression and Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lectures/09-RegressionAgain.html">09-More Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lectures/10-Units.html">10-Units</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lectures/11-Debug.html">11-Debug</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lectures/12-Loops.html">12-Loops: Brownian Motion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="lectures/17-SolidWorks.html">17-SolidWorks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lectures/04-Debug.html">04-Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lectures/05-Units.html">05-Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lectures/06-Equations.html">06-Equations to Solve Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lectures/07-EquationsAgain.html">07-More Equation Solving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lectures/08-Derivatives.html">08-Derivatives and Transients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lectures/09-DerivativesAgain.html">09-More Derivatives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lectures/10-Loops.html">10-Loops: Brownian Motion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lectures/11-Regression.html">11-Regression and Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lectures/12-RegressionAgain.html">12-More Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lectures/13-ExamReview.html">Exam Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lectures/14-ExcelBasics.html">Excel Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lectures/15-MoreExcel.html">More Excel Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lectures/16-SolidWorks.html">16-SolidWorks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lectures/17-AspenHysys.html">Aspen Hysys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lectures/18-Ansys.html">Ansys Workbench</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lectures/19-Cantera.html">Cantera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lectures/20-CaseStudy1.html">First Case Study Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lectures/21-CaseStudy2.html">Second Case Study Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lectures/22-FinalReview.html">Final Exam Review</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -183,6 +192,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="casestudies/casestudysch.html">Case Study Schedule</a></li>
 <li class="toctree-l2"><a class="reference internal" href="casestudies/heattransfer.html">Heat Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="casestudies/thermo.html">Thermodynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="casestudies/MD.html">Molecular Dynamics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="casestudies/casestudydocs.html">Case Study Documentation</a></li>
 </ul>
 </li>
@@ -452,71 +463,151 @@ document.write(`
 <td><p>-</p></td>
 </tr>
 <tr class="row-even"><td><p>3.1</p></td>
-<td><p><a class="reference internal" href="lectures/04-Equations.html"><span class="doc std std-doc">Equations to Solve Problems</span></a></p></td>
+<td><p><a class="reference internal" href="lectures/04-Debug.html"><span class="doc std std-doc">Debug</span></a></p></td>
 <td><p>-</p></td>
 <td><p>HW05</p></td>
 <td><p>-</p></td>
 </tr>
 <tr class="row-odd"><td><p>3.2</p></td>
-<td><p><a class="reference internal" href="lectures/05-EquationsAgain.html"><span class="doc std std-doc">More Equation Solving</span></a></p></td>
+<td><p><a class="reference internal" href="lectures/05-Units.html"><span class="doc std std-doc">Units</span></a></p></td>
 <td><p>-</p></td>
 <td><p>HW06</p></td>
 <td><p>-</p></td>
 </tr>
 <tr class="row-even"><td><p>4.1</p></td>
-<td><p><a class="reference internal" href="lectures/06-Derivatives.html"><span class="doc std std-doc">Derivatives and Transients</span></a></p></td>
-<td><p>Fluid Drain</p></td>
+<td><p><a class="reference internal" href="lectures/06-Equations.html"><span class="doc std std-doc">Equations to Solve Problems</span></a></p></td>
+<td><p>-</p></td>
 <td><p>HW07</p></td>
 <td><p>-</p></td>
 </tr>
 <tr class="row-odd"><td><p>4.2</p></td>
-<td><p><a class="reference internal" href="lectures/07-DerivativesAgain.html"><span class="doc std std-doc">More Derivatives</span></a></p></td>
+<td><p><a class="reference internal" href="lectures/07-EquationsAgain.html"><span class="doc std std-doc">More Equation Solving</span></a></p></td>
 <td><p>-</p></td>
 <td><p>HW08</p></td>
 <td><p>-</p></td>
 </tr>
 <tr class="row-even"><td><p>5.1</p></td>
-<td><p><a class="reference internal" href="lectures/08-Regression.html"><span class="doc std std-doc">Regression and Data</span></a></p></td>
-<td><p>-</p></td>
+<td><p><a class="reference internal" href="lectures/08-Derivatives.html"><span class="doc std std-doc">Derivatives and Transients</span></a></p></td>
+<td><p>Fluid Drain</p></td>
 <td><p>HW09</p></td>
 <td><p>-</p></td>
 </tr>
 <tr class="row-odd"><td><p>5.2</p></td>
-<td><p><a class="reference internal" href="lectures/09-RegressionAgain.html"><span class="doc std std-doc">More Regression</span></a></p></td>
-<td><p>-</p></td>
-<td><p>HW010</p></td>
+<td><p><a class="reference internal" href="lectures/09-DerivativesAgain.html"><span class="doc std std-doc">More Derivatives</span></a></p></td>
+<td><p>Terrarium</p></td>
+<td><p>HW10</p></td>
 <td><p>-</p></td>
 </tr>
 <tr class="row-even"><td><p>6.1</p></td>
-<td><p><a class="reference internal" href="lectures/10-Units.html"><span class="doc std std-doc">Units</span></a></p></td>
+<td><p><a class="reference internal" href="lectures/10-Loops.html"><span class="doc std std-doc">Loops</span></a></p></td>
 <td><p>-</p></td>
 <td><p>HW011</p></td>
 <td><p>-</p></td>
 </tr>
 <tr class="row-odd"><td><p>6.2</p></td>
-<td><p><a class="reference internal" href="lectures/11-Debug.html"><span class="doc std std-doc">Debug</span></a></p></td>
+<td><p><a class="reference internal" href="lectures/11-Regression.html"><span class="doc std std-doc">Regression and Data</span></a></p></td>
 <td><p>-</p></td>
-<td><p>HW012</p></td>
+<td><p>HW12</p></td>
 <td><p>-</p></td>
 </tr>
 <tr class="row-even"><td><p>7.1</p></td>
-<td><p><a class="reference internal" href="lectures/12-Loops.html"><span class="doc std std-doc">Loops</span></a></p></td>
+<td><p><a class="reference internal" href="lectures/12-RegressionAgain.html"><span class="doc std std-doc">More Regression</span></a></p></td>
 <td><p>-</p></td>
-<td><p>HW013</p></td>
+<td><p>HW13</p></td>
 <td><p>-</p></td>
 </tr>
-<tr class="row-odd"><td><p>10.2</p></td>
+<tr class="row-odd"><td><p>7.2</p></td>
+<td><p><a class="reference internal" href="lectures/13-ExamReview.html"><span class="doc std std-doc">Exam Review</span></a></p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>Exam</p></td>
+</tr>
+<tr class="row-even"><td><p>8.1</p></td>
+<td><p><a class="reference internal" href="lectures/14-ExcelBasics.html"><span class="doc std std-doc">Excel Basics</span></a></p></td>
+<td><p>-</p></td>
+<td><p>HW14</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>8.2</p></td>
+<td><p><a class="reference internal" href="lectures/15-MoreExcel.html"><span class="doc std std-doc">More Excel</span></a></p></td>
+<td><p>-</p></td>
+<td><p>HW15</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>9.1</p></td>
 <td><p><span class="xref myst">SolidWorks</span></p></td>
 <td><p>-</p></td>
 <td><p>HW016</p></td>
 <td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>9.2</p></td>
+<td><p><a class="reference internal" href="lectures/17-AspenHysys.html"><span class="doc std std-doc">Aspen Hysys</span></a></p></td>
+<td><p>-</p></td>
+<td><p>HW17</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>10.1</p></td>
+<td><p><a class="reference internal" href="lectures/18-Ansys.html"><span class="doc std std-doc">Ansys Workbench</span></a></p></td>
+<td><p>-</p></td>
+<td><p>HW18</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>10.2</p></td>
+<td><p><a class="reference internal" href="lectures/19-Cantera.html"><span class="doc std std-doc">Cantera</span></a></p></td>
+<td><p>-</p></td>
+<td><p>HW19</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>11.1</p></td>
+<td><p><a class="reference internal" href="lectures/20-CaseStudy1.html"><span class="doc std std-doc">CaseStudy1</span></a></p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>11.2</p></td>
+<td><p>Review &amp; Support</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>12.1</p></td>
+<td><p>Review &amp; Support</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>12.2</p></td>
+<td><p><a class="reference internal" href="lectures/21-CaseStudy2.html"><span class="doc std std-doc">CaseStudy2</span></a></p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>12.2</p></td>
+<td><p>Review &amp; Support</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-odd"><td><p>13.2</p></td>
+<td><p>Review &amp; Support</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+</tr>
+<tr class="row-even"><td><p>14.1</p></td>
+<td><p><a class="reference internal" href="lectures/22-FinalReview.html"><span class="doc std std-doc">Final Exam Review</span></a></p></td>
+<td><p>-</p></td>
+<td><p>-</p></td>
+<td><p>Final</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="case-studies">
 <h2>Case Studies<a class="headerlink" href="#case-studies" title="Permalink to this heading">#</a></h2>
-<p><a class="reference internal" href="casestudies/heattransfer.html"><span class="doc std std-doc">Heat Transfer</span></a></p>
+<p><a class="reference internal" href="casestudies/heattransfer.html"><span class="doc std std-doc">Heat Transfer</span></a>
+<a class="reference internal" href="casestudies/thermo.html"><span class="doc std std-doc">Thermodynamics</span></a>
+<a class="reference internal" href="casestudies/MD.html"><span class="doc std std-doc">Molecular Dynamics</span></a></p>
 </section>
 <section id="id1">
 <h2>Modules<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
@@ -607,16 +698,25 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="lectures/01-Motive.html">01-Motivation with Example</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lectures/02-Functions.html">02-Functions of Ideal Gases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lectures/03-FunctionsAgain.html">03-Functions of Heat Transfer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lectures/04-Equations.html">04-Equations to Solve Problems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lectures/05-EquationsAgain.html">05-More Equation Solving</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lectures/06-Derivatives.html">06-Derivatives and Transients</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lectures/07-DerivativesAgain.html">07-More Derivatives</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lectures/08-Regression.html">08-Regression and Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lectures/09-RegressionAgain.html">09-More Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lectures/10-Units.html">10-Units</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lectures/11-Debug.html">11-Debug</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lectures/12-Loops.html">12-Loops: Brownian Motion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lectures/17-SolidWorks.html">17-SolidWorks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/04-Debug.html">04-Debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/05-Units.html">05-Units</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/06-Equations.html">06-Equations to Solve Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/07-EquationsAgain.html">07-More Equation Solving</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/08-Derivatives.html">08-Derivatives and Transients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/09-DerivativesAgain.html">09-More Derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/10-Loops.html">10-Loops: Brownian Motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/11-Regression.html">11-Regression and Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/12-RegressionAgain.html">12-More Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/13-ExamReview.html">Exam Review</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/14-ExcelBasics.html">Excel Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/15-MoreExcel.html">More Excel Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/16-SolidWorks.html">16-SolidWorks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/17-AspenHysys.html">Aspen Hysys</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/18-Ansys.html">Ansys Workbench</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/19-Cantera.html">Cantera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/20-CaseStudy1.html">First Case Study Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/21-CaseStudy2.html">Second Case Study Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lectures/22-FinalReview.html">Final Exam Review</a></li>
 </ul>
 </div>
 </section>
