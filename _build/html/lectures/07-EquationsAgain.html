@@ -1,0 +1,1253 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>07-More Equation Solving &#8212; Computational Tools for Chemical Engineers</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/07-EquationsAgain';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="08-Derivatives and Transients" href="08-Derivatives.html" />
+    <link rel="prev" title="06-Equations to Solve Problems" href="06-Equations.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Intro and Approach
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../topics.html">Modules</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01-Motive.html">01-Motivation with Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-Functions.html">02-Functions of Ideal Gases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-FunctionsAgain.html">03-Functions of Heat Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-Debug.html">04-Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-Units.html">05-Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-Equations.html">06-Equations to Solve Problems</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">07-More Equation Solving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-Derivatives.html">08-Derivatives and Transients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09-DerivativesAgain.html">09-More Derivatives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10-Loops.html">10-Loops: Brownian Motion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11-Regression.html">11-Regression and Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12-RegressionAgain.html">12-More Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13-ExamReview.html">Exam Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-ExcelBasics.html">Excel Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="15-MoreExcel.html">More Excel Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="16-SolidWorks.html">16-SolidWorks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="17-AspenHysys.html">Aspen Hysys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="18-Ansys.html">Ansys Workbench</a></li>
+<li class="toctree-l2"><a class="reference internal" href="19-Cantera.html">Cantera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-CaseStudy1.html">First Case Study Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="21-CaseStudy2.html">Second Case Study Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="22-FinalReview.html">Final Exam Review</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW01.html">HW01: Introduction to Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW02.html">HW02: Conditionals and Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW03.html">HW03: Solve Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW07.html">HW07: Additional Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/casestudysch.html">Case Study Schedule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/heattransfer.html">Heat Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/thermo.html">Thermodynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/MD.html">Molecular Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/casestudydocs.html">Case Study Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../foundations.html">Foundations</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/preClassPrep.html">Pre-course Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/pythonresources.html">Python Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/excelresources.html">Excel Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/equipment.html">Equipment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/safety.html">Safety</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgement.html">Acknowledgement</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/clint-bg/comptools/blob/gh-pages/docs/lectures/07-EquationsAgain.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/clint-bg/comptools" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/clint-bg/comptools/issues/new?title=Issue%20on%20page%20%2Flectures/07-EquationsAgain.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lectures/07-EquationsAgain.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>07-More Equation Solving</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions">Definitions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-equations">Non-linear Equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-equations">Linear Equations</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coupled-equations">Coupled Equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-coupled-equations">Non-coupled Equations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-linear-coupled-equations">Review: Linear coupled equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nonlinear-equations">Nonlinear equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-equations-1-equation-in-1-unknown">1-D equations (1 equation in 1 unknown).</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-equations-in-multiple-unknowns">Multiple equations in multiple unknowns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sympy-solution">Sympy Solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#another-exercise">Another Exercise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#args-and-tuple-expansion"><code class="docutils literal notranslate"><span class="pre">args</span></code> and tuple expansion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">Example 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2">Example 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3">Example 3</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="more-equation-solving">
+<h1>07-More Equation Solving<a class="headerlink" href="#more-equation-solving" title="Permalink to this heading">#</a></h1>
+<p>Systems of equations, whether linear or non-linear, coupled or non-coupled come up in many different chemical engineering applications.  In this notebook, we will practice more solving systems of equations using Python and SymPy.</p>
+<section id="definitions">
+<h2>Definitions<a class="headerlink" href="#definitions" title="Permalink to this heading">#</a></h2>
+<section id="non-linear-equations">
+<h3>Non-linear Equations<a class="headerlink" href="#non-linear-equations" title="Permalink to this heading">#</a></h3>
+<p>Non-linear equations have terms with exponents other than 1 or functions of variables like <span class="math notranslate nohighlight">\(\sin(x)\)</span> or <span class="math notranslate nohighlight">\(\exp(x)\)</span>. <span class="math notranslate nohighlight">\(y = 2x^2 + 3\)</span> or <span class="math notranslate nohighlight">\(y=sin(x)\)</span> are both non-linear equations. Most of the equations you’ll encounter in chemical engineering are non-linear.</p>
+<section id="linear-equations">
+<h4>Linear Equations<a class="headerlink" href="#linear-equations" title="Permalink to this heading">#</a></h4>
+<p>Linear equations have variables that are not raised to a power and are not functions of variables.  For example, <span class="math notranslate nohighlight">\(y = 2x + 3\)</span> is a linear equation.</p>
+</section>
+</section>
+<section id="coupled-equations">
+<h3>Coupled Equations<a class="headerlink" href="#coupled-equations" title="Permalink to this heading">#</a></h3>
+<p>Couple equations are equations that have variables in common.  For example, <span class="math notranslate nohighlight">\(y = 2x + 3\)</span> and <span class="math notranslate nohighlight">\(y = 3x + 2\)</span> are coupled equations because they both have <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> in common.</p>
+</section>
+<section id="non-coupled-equations">
+<h3>Non-coupled Equations<a class="headerlink" href="#non-coupled-equations" title="Permalink to this heading">#</a></h3>
+<p>Non-coupled equations do not have variables in common.  For example, <span class="math notranslate nohighlight">\(y = 2x + 3\)</span> and <span class="math notranslate nohighlight">\(z = 3p + 2\)</span> are non-coupled equations because they do not have any variables in common.</p>
+</section>
+</section>
+<section id="review-linear-coupled-equations">
+<h2>Review: Linear coupled equations<a class="headerlink" href="#review-linear-coupled-equations" title="Permalink to this heading">#</a></h2>
+<p>Linear coupled equations are often seen in when solving material and energy balances during steady state conditions.</p>
+<p>Remember, using linear algebra, we can write a system of linear equations as a matrix equation Ax=b:</p>
+<ul class="simple">
+<li><p>First define the matrix <span class="math notranslate nohighlight">\(A\)</span> and the array <span class="math notranslate nohighlight">\(b\)</span>.</p></li>
+<li><p>Use x = np.linalg.solve(A,b)</p></li>
+</ul>
+<p>An example problem with multiple equations and variables is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+-2x_0 + x_1 = 1 \\
+x_0 - 2x_1 + x_2 = 2 \\
+x_1 - 2x_2 + x_3 = 3 \\
+x_2 - 2x_3 + x_4 = 4 \\
+x_3 - 2x_4 = 5
+\end{align}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\begin{split}
+\left[
+\begin{array}{ccccc}
+  -2 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+  1 &amp; -2 &amp; 1 &amp; 0 &amp; 0 \\
+  0 &amp; 1 &amp; -2 &amp; 1 &amp; 0 \\
+  0 &amp; 0 &amp; 1 &amp; -2 &amp; 1 \\
+  0 &amp; 0 &amp; 0 &amp; 1 &amp; -2 \\
+\end{array}\right]\cdot\end{split}\\\begin{split}\left[
+\begin{array}{c}
+  x_0 \\
+  x_1 \\
+  x_2 \\
+  x_3 \\
+  x_4 \\
+\end{array}\right] =\end{split}\\\begin{split}\left[
+\begin{array}{c}
+  1 \\
+  2 \\
+  3 \\
+  4 \\
+  5 \\
+\end{array}\right]
+\end{split}\end{aligned}\end{align} \]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x =&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x = [ -5.83333333 -10.66666667 -13.5        -13.33333333  -9.16666667]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here’s a <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/routines.linalg.html">link</a> to more linear algebra operations.</p>
+</section>
+<section id="nonlinear-equations">
+<h2>Nonlinear equations<a class="headerlink" href="#nonlinear-equations" title="Permalink to this heading">#</a></h2>
+<section id="d-equations-1-equation-in-1-unknown">
+<h3>1-D equations (1 equation in 1 unknown).<a class="headerlink" href="#d-equations-1-equation-in-1-unknown" title="Permalink to this heading">#</a></h3>
+<p>Solving a nonlinear equation involves first putting it in the form <span class="math notranslate nohighlight">\(f(x)=0\)</span>. We know the function <span class="math notranslate nohighlight">\(f\)</span> and we want to find the value of <span class="math notranslate nohighlight">\(x\)</span> that gives <span class="math notranslate nohighlight">\(f(x)=0\)</span>.</p>
+<p>To solve this, do the following:</p>
+<ul class="simple">
+<li><p>Define the function f(x)</p></li>
+<li><p>Set an initial guess for x.</p></li>
+<li><p>We need to import a library: <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">scipy.optimize</span> <span class="pre">import</span> <span class="pre">fsolve</span></code></p></li>
+<li><p>Call the <code class="docutils literal notranslate"><span class="pre">fsolve</span></code> function: <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">fsolve(f,</span> <span class="pre">x0)</span></code></p>
+<ul>
+<li><p>f is the name of the function you are solving, and x0 is your initial guess.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="exercise">
+<h3>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading">#</a></h3>
+<p>Solve for both roots of $<span class="math notranslate nohighlight">\(f(x) = x^2-5.\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">5</span>
+
+<span class="n">xguess_1</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">xguess_1</span><span class="p">)</span>
+
+<span class="n">xguess_2</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">xguess_2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2.23606798] [-2.23606798]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">fsolve</span></code> returns an array of solutions:
+-This is because <code class="docutils literal notranslate"><span class="pre">fsolve</span></code> can be used to find the solution to multiple equations in multiple unknowns.</p>
+<ul>
+<li><p>If you just have one equation in one unknown, they you can recover just the scalar answer instead of the array:</p>
+<ul>
+<li><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">x</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xguess</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="multiple-equations-in-multiple-unknowns">
+<h3>Multiple equations in multiple unknowns<a class="headerlink" href="#multiple-equations-in-multiple-unknowns" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>We call this a <em>multi-dimensional</em> problem.</p></li>
+<li><p>Instead of <span class="math notranslate nohighlight">\(f(x)=0\)</span>, we solve</p></li>
+<li><p><span class="math notranslate nohighlight">\(\vec{f}(\vec{x})=\vec{0}\)</span>.</p>
+<ul>
+<li><p>That is, <span class="math notranslate nohighlight">\(\vec{x}\)</span> is a vector of unknowns, and <span class="math notranslate nohighlight">\(\vec{f}\)</span> is a vector of functions.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\vec{f}(\vec{x})\)</span> takes a vector <span class="math notranslate nohighlight">\(\vec{x}\)</span>, and returns a vector <span class="math notranslate nohighlight">\(\vec{f}\)</span>.</p></li>
+</ul>
+</li>
+</ul>
+<p>Consider solving the <strong>two functions</strong> for the <strong>two unknowns</strong>: <span class="math notranslate nohighlight">\(h(y,z) = 0 = y+2z\)</span>, and <span class="math notranslate nohighlight">\(g(y,z)=0=\sin(y)/z\)</span>.
+We typically want all solvers to look like <span class="math notranslate nohighlight">\(f(x)=0\)</span></p>
+<ul class="simple">
+<li><p>We would write these as $<span class="math notranslate nohighlight">\(f_0(x_0,x_1) = x_0+2x_1,\)</span><span class="math notranslate nohighlight">\( \)</span><span class="math notranslate nohighlight">\(f_1(x_0,x_1) = \sin(x_0)/x_1,\)</span><span class="math notranslate nohighlight">\(
+which becomes: \)</span><span class="math notranslate nohighlight">\(\left[\begin{matrix} f_0(x_0,x_1) \\ f_1(x_0,x_1)\end{matrix}\right] = \left[\begin{matrix}x_0+2x_1 \\ \sin(x_0)/x_1\end{matrix}\right] = \left[\begin{matrix}0 \\ 0\end{matrix}\right],\)</span><span class="math notranslate nohighlight">\(
+or \)</span><span class="math notranslate nohighlight">\(\vec{f}(\vec{x}) = \left[\begin{matrix}x_0+2x_1 \\ \sin(x_0)/x_1\end{matrix}\right] = \vec{0},\)</span><span class="math notranslate nohighlight">\(
+that is, \)</span><span class="math notranslate nohighlight">\(\vec{f}(\vec{x})=\vec{0}.\)</span>$</p></li>
+<li><p>We solve the system just like before:</p>
+<ul>
+<li><p>Just define the vector function. It takes an array of unknowns <span class="math notranslate nohighlight">\(\vec{x}\)</span>, and returns an array of function values <span class="math notranslate nohighlight">\(\vec{f}\)</span>.</p></li>
+<li><p>We use the same solver, but we give an array of initial guesses <span class="math notranslate nohighlight">\(\vec{x}_0\)</span> of [y=1 and z=2].</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Note</strong> Here is a <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fsolve.html">link</a> to more information about the fsolve function with extra arguments that can give more control over the solution process.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hg</span><span class="p">(</span><span class="n">yz</span><span class="p">):</span>  
+    <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">yz</span>                 <span class="c1"># recover the vars for convenience </span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">z</span>              <span class="c1"># compute the function values</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="n">z</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">g</span><span class="p">)</span>  <span class="c1"># return array of function values</span>
+
+<span class="n">yz</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="n">hg</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;y=</span><span class="si">{</span><span class="n">yz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="se">\u03C0</span><span class="s2">, z=</span><span class="si">{</span><span class="n">yz</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="se">\u03C0</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>y=3.0π, z=-1.5π
+</pre></div>
+</div>
+</div>
+</div>
+<p>There can be multiple solutions to non-linear equations.  The solver will only find one of them.  In some cases you may need to find all of the solutions. For example, in the above scenario, if the guess is changed to 100,2 (see below), I git a completely different answer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yz</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="n">hg</span><span class="p">,</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;y=</span><span class="si">{</span><span class="n">yz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="se">\u03C0</span><span class="s2">, z=</span><span class="si">{</span><span class="n">yz</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="se">\u03C0</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>y=38.0π, z=-19.0π
+</pre></div>
+</div>
+</div>
+</div>
+<p>One way to do find many of the solutions is to loop through multiple guesses and if the solution is different, you could collect that solution into a list or array. For example, see the below code where the solver is called for an array of guess values and combinations thereof.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solutions</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;y&#39;</span><span class="p">:[],</span> <span class="s1">&#39;z&#39;</span><span class="p">:[]}</span> <span class="c1">#initialize a dictionary to store solutions</span>
+<span class="n">yguesses</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">zguesses</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">yguess</span> <span class="ow">in</span> <span class="n">yguesses</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">zguess</span> <span class="ow">in</span> <span class="n">zguesses</span><span class="p">:</span>
+        <span class="n">yz</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="n">hg</span><span class="p">,</span> <span class="p">(</span><span class="n">yguess</span><span class="p">,</span><span class="n">zguess</span><span class="p">))</span>
+        <span class="n">solutions</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">yz</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="c1">#number is converted to string to </span>
+        <span class="n">solutions</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">yz</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="c1">#help with removing duplicates</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#now, using pandas, remove the duplicates</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">solutions</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The number of unique solutions is at least </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number of unique solutions is at least 224
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#now we can plot those solutions</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="c1">#convert the strings back to floats</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;y/</span><span class="se">\u03C0</span><span class="s1">&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;z/</span><span class="se">\u03C0</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3373aa7fd63978ec7f0271a0e32baeaf43f066773edb1b78c3418b9319ef1aec.png" src="../_images/3373aa7fd63978ec7f0271a0e32baeaf43f066773edb1b78c3418b9319ef1aec.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      -0.001592
+16     -0.001592
+26      0.000000
+27      0.000000
+48      0.000000
+          ...   
+9249    0.001592
+9549    0.000000
+9751    0.000000
+9752    0.000000
+9778   -0.001592
+Length: 224, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>It looks like the solutions lie in a line where <span class="math notranslate nohighlight">\(z = -1/2*y\)</span>.</p>
+</section>
+<section id="sympy-solution">
+<h3>Sympy Solution<a class="headerlink" href="#sympy-solution" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#solve the above using sympy</span>
+<span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sym</span>
+<span class="n">y</span><span class="p">,</span><span class="n">z</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;y,z&#39;</span><span class="p">)</span>
+<span class="n">sym</span><span class="o">.</span><span class="n">solve</span><span class="p">([</span><span class="n">y</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">z</span><span class="p">,</span> <span class="n">sym</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="n">z</span><span class="p">],</span> <span class="p">[</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(-pi, pi/2)]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="another-exercise">
+<h3>Another Exercise<a class="headerlink" href="#another-exercise" title="Permalink to this heading">#</a></h3>
+<p>Solve the following system of three equations in three unknowns:</p>
+<div class="math notranslate nohighlight">
+\[x^2 + y^2 = 1,\]</div>
+<div class="math notranslate nohighlight">
+\[xy + yz = -1.1,\]</div>
+<div class="math notranslate nohighlight">
+\[y^2 + z^2 = 2.\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">funcs</span><span class="p">(</span><span class="n">xyz</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span> <span class="o">=</span> <span class="n">xyz</span>
+    
+    <span class="n">eq0</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">eq1</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="n">y</span><span class="o">*</span><span class="n">z</span>   <span class="o">+</span> <span class="mf">1.1</span>
+    <span class="n">eq2</span> <span class="o">=</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span>
+    
+    <span class="k">return</span> <span class="n">eq0</span><span class="p">,</span> <span class="n">eq1</span><span class="p">,</span> <span class="n">eq2</span>
+
+<span class="n">xyzGuess</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">xyz</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="n">funcs</span><span class="p">,</span> <span class="n">xyzGuess</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span> <span class="o">=</span> <span class="n">xyz</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x=</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">, y=</span><span class="si">{</span><span class="n">y</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">, z=</span><span class="si">{</span><span class="n">z</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x=0.10056, y=-0.99493, z=1.00504
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solns</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:[],</span><span class="s1">&#39;y&#39;</span><span class="p">:[],</span><span class="s1">&#39;z&#39;</span><span class="p">:[]}</span> <span class="c1">#initialize a dictionary to store solutions</span>
+<span class="n">xguesses</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">yguesses</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">zguesses</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">xguess</span> <span class="ow">in</span> <span class="n">xguesses</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">yguess</span> <span class="ow">in</span> <span class="n">yguesses</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">zguess</span> <span class="ow">in</span> <span class="n">zguesses</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">xyz</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="n">funcs</span><span class="p">,</span> <span class="p">(</span><span class="n">xguess</span><span class="p">,</span><span class="n">yguess</span><span class="p">,</span><span class="n">zguess</span><span class="p">))</span>
+                <span class="n">solns</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">xyz</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="c1">#number is converted to string to</span>
+                <span class="n">solns</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">xyz</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="c1">#number is converted to string to </span>
+                <span class="n">solns</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">xyz</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span> <span class="c1">#help with removing duplicates</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/clintguymon/opt/anaconda3/envs/jupiterbook/lib/python3.9/site-packages/scipy/optimize/_minpack_py.py:177: RuntimeWarning: The iteration is not making good progress, as measured by the 
+  improvement from the last ten iterations.
+  warnings.warn(msg, RuntimeWarning)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#now, using pandas, remove the duplicates</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">solns</span><span class="p">)</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">df2</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The number of unique solutions is at least </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number of unique solutions is at least 20
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.10</td>
+      <td>-0.99</td>
+      <td>1.01</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>-0.10</td>
+      <td>0.99</td>
+      <td>-1.01</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>-0.86</td>
+      <td>0.50</td>
+      <td>-1.32</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>-10.00</td>
+      <td>-3.33</td>
+      <td>10.00</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>-10.00</td>
+      <td>-1.11</td>
+      <td>10.00</td>
+    </tr>
+    <tr>
+      <th>148</th>
+      <td>-7.78</td>
+      <td>-1.11</td>
+      <td>7.78</td>
+    </tr>
+    <tr>
+      <th>247</th>
+      <td>-5.56</td>
+      <td>-1.11</td>
+      <td>5.56</td>
+    </tr>
+    <tr>
+      <th>346</th>
+      <td>-3.33</td>
+      <td>-1.11</td>
+      <td>3.33</td>
+    </tr>
+    <tr>
+      <th>405</th>
+      <td>-1.11</td>
+      <td>-10.00</td>
+      <td>1.11</td>
+    </tr>
+    <tr>
+      <th>425</th>
+      <td>-1.11</td>
+      <td>-5.56</td>
+      <td>1.11</td>
+    </tr>
+    <tr>
+      <th>534</th>
+      <td>0.86</td>
+      <td>-0.50</td>
+      <td>1.32</td>
+    </tr>
+    <tr>
+      <th>653</th>
+      <td>3.33</td>
+      <td>1.11</td>
+      <td>-3.33</td>
+    </tr>
+    <tr>
+      <th>752</th>
+      <td>5.56</td>
+      <td>1.11</td>
+      <td>-5.56</td>
+    </tr>
+    <tr>
+      <th>762</th>
+      <td>5.56</td>
+      <td>3.33</td>
+      <td>-5.56</td>
+    </tr>
+    <tr>
+      <th>851</th>
+      <td>7.78</td>
+      <td>1.11</td>
+      <td>-7.78</td>
+    </tr>
+    <tr>
+      <th>861</th>
+      <td>7.78</td>
+      <td>3.33</td>
+      <td>-7.78</td>
+    </tr>
+    <tr>
+      <th>950</th>
+      <td>10.00</td>
+      <td>1.11</td>
+      <td>-10.00</td>
+    </tr>
+    <tr>
+      <th>960</th>
+      <td>10.00</td>
+      <td>3.33</td>
+      <td>-10.00</td>
+    </tr>
+    <tr>
+      <th>970</th>
+      <td>10.00</td>
+      <td>5.56</td>
+      <td>-10.00</td>
+    </tr>
+    <tr>
+      <th>980</th>
+      <td>10.00</td>
+      <td>7.78</td>
+      <td>-10.00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="args-and-tuple-expansion">
+<h2><code class="docutils literal notranslate"><span class="pre">args</span></code> and tuple expansion<a class="headerlink" href="#args-and-tuple-expansion" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Functions like <code class="docutils literal notranslate"><span class="pre">fsolve</span></code>, <code class="docutils literal notranslate"><span class="pre">quad</span></code> and others have an argument called <code class="docutils literal notranslate"><span class="pre">args</span></code> that you can set to have those functions pass extra arguments to the function provide.</p></li>
+<li><p>But <code class="docutils literal notranslate"><span class="pre">fsolve</span></code> and <code class="docutils literal notranslate"><span class="pre">quad</span></code> (etc.) don’t know how many arguments there are, and there could be an arbitrary number.</p></li>
+<li><p><strong>Tuple expansion to the rescue!</strong></p></li>
+</ul>
+<section id="example-1">
+<h3>Example 1<a class="headerlink" href="#example-1" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Below, function <code class="docutils literal notranslate"><span class="pre">f</span></code> can take any number of arguments.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">args</span></code> is a tuple, and the <code class="docutils literal notranslate"><span class="pre">*</span></code> part of <code class="docutils literal notranslate"><span class="pre">*args</span></code> can be thought of as <strong>collapsing</strong> the provided list of arguments into the tuple <code class="docutils literal notranslate"><span class="pre">args</span></code>.</p>
+<ul>
+<li><p>The name <code class="docutils literal notranslate"><span class="pre">args</span></code> doesn’t matter. It can be anything.</p></li>
+</ul>
+</li>
+<li><p>You can then loop over the elements of <code class="docutils literal notranslate"><span class="pre">args</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>        <span class="c1"># args is a tuple</span>
+    <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>   <span class="c1"># loop over elements of args</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+    
+<span class="n">f</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">)</span>       <span class="c1"># call the func with multiple arguments</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.1, 2.2, 3.3)
+1.1
+2.2
+3.3
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="example-2">
+<h3>Example 2<a class="headerlink" href="#example-2" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Below, function <code class="docutils literal notranslate"><span class="pre">f</span></code> takes three arguments.</p></li>
+<li><p>When calling the function, we first make a tuple with three elements,</p></li>
+<li><p>Then we <strong>expand</strong> the tuple into values using <code class="docutils literal notranslate"><span class="pre">*xyz</span></code>.</p>
+<ul>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">*</span></code> part of <code class="docutils literal notranslate"><span class="pre">*xyz</span></code> acts to <strong>expand</strong> the tuple into elements that are then placed in the individual arguments that the function takes.</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+    
+<span class="n">xyz</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">)</span>
+<span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">xyz</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.1
+2.2
+3.3
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="example-3">
+<h3>Example 3<a class="headerlink" href="#example-3" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Write my own version of <code class="docutils literal notranslate"><span class="pre">quad</span></code> that uses the trapazoid method, and passes in extra arguments that my function will need.</p></li>
+<li><p>See the line <code class="docutils literal notranslate"><span class="pre">fx</span> <span class="pre">=</span> <span class="pre">f(x,</span> <span class="pre">*args)</span></code> where the tuple of <code class="docutils literal notranslate"><span class="pre">args</span></code> I pass in to <code class="docutils literal notranslate"><span class="pre">myQuad</span></code> is expanded into the coefficients <code class="docutils literal notranslate"><span class="pre">c0</span></code>, <code class="docutils literal notranslate"><span class="pre">c1</span></code>, and <code class="docutils literal notranslate"><span class="pre">c2</span></code> of my quadratic function, defined below.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myQuad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">Δx</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">args</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">fx</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fx</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="o">-</span><span class="n">Δx</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">fx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">fx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="n">Δx</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">fx</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">I</span>
+    
+<span class="c1">#---------------</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">c0</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">c2</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">c1</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">c0</span>
+
+<span class="c1">#---------------</span>
+
+<span class="n">I</span> <span class="o">=</span> <span class="n">myQuad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15.40044893378227
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="06-Equations.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">06-Equations to Solve Problems</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="08-Derivatives.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">08-Derivatives and Transients</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions">Definitions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-equations">Non-linear Equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-equations">Linear Equations</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coupled-equations">Coupled Equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-coupled-equations">Non-coupled Equations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-linear-coupled-equations">Review: Linear coupled equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nonlinear-equations">Nonlinear equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-equations-1-equation-in-1-unknown">1-D equations (1 equation in 1 unknown).</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-equations-in-multiple-unknowns">Multiple equations in multiple unknowns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sympy-solution">Sympy Solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#another-exercise">Another Exercise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#args-and-tuple-expansion"><code class="docutils literal notranslate"><span class="pre">args</span></code> and tuple expansion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">Example 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2">Example 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3">Example 3</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Clint Guymon, Brigham Young University
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

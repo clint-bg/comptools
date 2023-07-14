@@ -8,19 +8,34 @@ The schedule for the course will be as follows (subject to change where Week 1.2
 |1.2|[Motivation and Examples](lectures/01-Motive.ipynb)|FlameTemp|HW02|-|
 |2.1|[Functions of Ideal Gases](lectures/02-Functions.ipynb)|-|HW03|-|
 |2.2|[Functions of Heat Transfer](lectures/03-FunctionsAgain.ipynb)|-|HW04|-|
-|3.1|[Equations to Solve Problems](lectures/04-Equations.ipynb)|-|HW05|-|
-|3.2|[More Equation Solving](lectures/05-EquationsAgain.ipynb)|-|HW06|-|
-|4.1|[Derivatives and Transients](lectures/06-Derivatives.ipynb)|Fluid Drain|HW07|-|
-|4.2|[More Derivatives](lectures/07-DerivativesAgain.ipynb)|-|HW08|-|
-|5.1|[Regression and Data](lectures/08-Regression.ipynb)|-|HW09|-|
-|5.2|[More Regression](lectures/09-RegressionAgain.ipynb)|-|HW010|-|
-|6.1|[Units](lectures/10-Units.ipynb)|-|HW011|-|
-|6.2|[Debug](lectures/11-Debug.ipynb)|-|HW012|-|
-|7.1|[Loops](lectures/12-Loops.ipynb)|-|HW013|-|
-|10.2|[SolidWorks](lectures/17-Solidworks)|-|HW016|-|
+|3.1|[Debug](lectures/04-Debug.ipynb)|-|HW05|-|
+|3.2|[Units](lectures/05-Units.ipynb)|-|HW06|-|
+|4.1|[Equations to Solve Problems](lectures/06-Equations.ipynb)|-|HW07|-|
+|4.2|[More Equation Solving](lectures/07-EquationsAgain.ipynb)|-|HW08|-|
+|5.1|[Derivatives and Transients](lectures/08-Derivatives.ipynb)|Fluid Drain|HW09|-|
+|5.2|[More Derivatives](lectures/09-DerivativesAgain.ipynb)|Terrarium|HW10|-|
+|6.1|[Loops](lectures/10-Loops.ipynb)|-|HW011|-|
+|6.2|[Regression and Data](lectures/11-Regression.ipynb)|-|HW12|-|
+|7.1|[More Regression](lectures/12-RegressionAgain.ipynb)|-|HW13|-|
+|7.2|[Exam Review](lectures/13-ExamReview.ipynb)|-|-|Exam|
+|8.1|[Excel Basics](lectures/14-ExcelBasics.md)|-|HW14|-|
+|8.2|[More Excel](lectures/15-MoreExcel.md)|-|HW15|-|
+|9.1|[SolidWorks](lectures/16-Solidworks)|-|HW016|-|
+|9.2|[Aspen Hysys](lectures/17-AspenHysys)|-|HW17|-|
+|10.1|[Ansys Workbench](lectures/18-Ansys)|-|HW18|-|
+|10.2|[Cantera](lectures/19-Cantera)|-|HW19|-|
+|11.1|[CaseStudy1](lectures/20-CaseStudy1)|-|-|-|
+|11.2|Review & Support|-|-|-|
+|12.1|Review & Support|-|-|-|
+|12.2|[CaseStudy2](lectures/21-CaseStudy2)|-|-|-|
+|12.2|Review & Support|-|-|-|
+|13.2|Review & Support|-|-|-|
+|14.1|[Final Exam Review](lectures/22-FinalReview)|-|-|Final|
 
 ## Case Studies
 [Heat Transfer](casestudies/heattransfer.ipynb)
+[Thermodynamics](casestudies/thermo.ipynb)
+[Molecular Dynamics](casestudies/MD.ipynb)
 
 ## Modules
 
