@@ -1,4 +1,4 @@
-# Exam Review
+# 13-Exam Review
 This is a short writeup of some of the key points that we have covered in the course thus far. You should be familiar with these points. 
 
 ## Motivation
