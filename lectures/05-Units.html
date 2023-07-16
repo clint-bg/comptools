@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/05-Units';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -170,16 +172,16 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="10-Loops.html">10-Loops: Brownian Motion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="11-Regression.html">11-Regression and Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="12-RegressionAgain.html">12-More Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="13-ExamReview.html">Exam Review</a></li>
-<li class="toctree-l2"><a class="reference internal" href="14-ExcelBasics.html">Excel Basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="15-MoreExcel.html">More Excel Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13-ExamReview.html">13-Exam Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-ExcelBasics.html">14-Excel Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="15-MoreExcel.html">15-More Excel Practice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="16-SolidWorks.html">16-SolidWorks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="17-AspenHysys.html">Aspen Hysys</a></li>
-<li class="toctree-l2"><a class="reference internal" href="18-Ansys.html">Ansys Workbench</a></li>
-<li class="toctree-l2"><a class="reference internal" href="19-Cantera.html">Cantera</a></li>
-<li class="toctree-l2"><a class="reference internal" href="20-CaseStudy1.html">First Case Study Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="21-CaseStudy2.html">Second Case Study Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="22-FinalReview.html">Final Exam Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="17-AspenHysys.html">17-Aspen Hysys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="18-Ansys.html">18-Ansys Workbench</a></li>
+<li class="toctree-l2"><a class="reference internal" href="19-Cantera.html">19-Cantera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-CaseStudy1.html">20-First Case Study Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="21-CaseStudy2.html">21-Second Case Study Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="22-FinalReview.html">22-Final Exam Review</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -407,7 +409,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -423,6 +427,19 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annotating-units">Annotating Units</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#si-units">SI Units</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#english-units">English Units</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#round-off-error">Round-off Error</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -442,6 +459,175 @@ document.write(`
 <li><p>CGS Units</p></li>
 <li><p>English Units</p></li>
 </ul>
+<section id="annotating-units">
+<h2>Annotating Units<a class="headerlink" href="#annotating-units" title="Permalink to this heading">#</a></h2>
+<p>When working with units in your technical code, you should work in either SI or English units to avoid confusion.  For example, if I’m working in SI units, I could write the following code and know that the final answer is also in SI units.  The SI units are m, kg, s, K, mol. When working with those units, your pressure and energy will be in Joules and your pressure in Pascals.</p>
+<section id="si-units">
+<h3>SI Units<a class="headerlink" href="#si-units" title="Permalink to this heading">#</a></h3>
+<p><strong>meter, second, kilogram, Kelvin, and mole (base units)</strong> <br>
+Newton, Joule, Pascal, Watt (derived units) <br>
+kiloJoules, millimeter, etc (prefixes)</p>
+<p>A Joule is a Newton-meter, a Newton is kg-m/s^2, a Pascal is a Newton/m^2, and a Watt is a Joule/s. <br>
+The gas constant, R, is 8.314 J/mol-K in those consistent units.</p>
+<p>Example calculation below of the kinetic energy of a 2 kilogram mass moving at 20 miles per hour.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># example calculation of kinetic energy</span>
+<span class="n">conv</span> <span class="o">=</span> <span class="mf">0.44704</span> <span class="c1"># miles per hour to m/s</span>
+<span class="n">velocity</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">conv</span> <span class="c1"># 20 miles per hour to m/s</span>
+<span class="n">mass</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># kg</span>
+<span class="n">kinetic_energy</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">mass</span> <span class="o">*</span> <span class="n">velocity</span><span class="o">**</span><span class="mi">2</span> <span class="c1"># J or kg m^2/s^2</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;kinetic energy = </span><span class="si">{</span><span class="n">kinetic_energy</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> J&#39;</span><span class="p">)</span> <span class="c1"># I know this is Joules as I used the SI units</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>kinetic energy = 79.94 J
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that each line has a comment with the units. If perhaps the units are not SI, for instance the velocity is given in miles per hour, then you’d convert miles per hour to the SI unit of m/s as shown on the first and second lines above.</p>
+<p><strong>Dimensional Analysis</strong> like the conversion of the velocity from miles per hour to meters per second is needed when completing engineering calculations. For example:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+8.9408\frac{m}{s} &amp;= 20 \, \sout{miles/hr} \times 0.44704 \frac{m/s}{\sout{miles/hr}} \\
+8.9408\frac{m}{s} &amp;= 20 \, \sout{miles}/\sout{hr} \times \frac{5280\,\sout{ft}}{\sout{mile}} \times \frac{12\,\sout{in}}{\sout{ft}} \times \frac{2.54\,\sout{cm}}{\sout{in}} \times \frac{1\,m}{100\,\sout{cm}} \times \frac{1\,\sout{hr}}{3600\,s} \\
+\end{align}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ideal gas calculation</span>
+<span class="c1">#PV = nRT</span>
+<span class="c1"># What&#39;s the pressure of 1 mole of an ideal gas at 300 K in a 1 m^3 container?</span>
+<span class="n">Pres</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="mf">8.314</span> <span class="o">*</span> <span class="mi">300</span> <span class="o">/</span> <span class="mi">1</span> <span class="c1"># Pa</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Pressure = </span><span class="si">{</span><span class="n">Pres</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> Pa&#39;</span><span class="p">)</span> <span class="c1"># I know this is Pascals as I used the SI units</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pressure = 2494.20 Pa
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="english-units">
+<h3>English Units<a class="headerlink" href="#english-units" title="Permalink to this heading">#</a></h3>
+<p><strong>foot, second, pound-mass, Rankine, and mole (base units)</strong> <br>
+pound-force, foot-pound-force, pound-force/square foot, and pound-force foot per second (derived units)  <br>
+BTU, psi, and horsepower (other derived units)</p>
+<p>Thus if you work in feet, seconds, pound-mass, and Rankine, you’ll need conversion factors to report energy, work, pressure, and power to commonly used english units such as BTU, psi, and horsepower. Plus you’ll need to make sure you correctly use gc in your calculations.</p>
+<div class="math notranslate nohighlight">
+\[ g_c = 32.174 \frac{lb_m \cdot ft}{lbf \cdot s^2} \]</div>
+<p>A pound-force is a pound-mass times the acceleration of gravity divided by <span class="math notranslate nohighlight">\(g_c\)</span> (numerically 1 lb-m yields 1 lb-f). <br>
+The gas constant, R, is 3.4088 foot-lb/mol-R in those consistent units.</p>
+<p>Example calculation below of the kinetic energy of a 2 kilogram mass moving at 20 miles per hour.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># example calculation of kinetic energy</span>
+<span class="n">gc</span> <span class="o">=</span> <span class="mf">32.174</span> <span class="c1"># ft/s^2*lbm/lbf</span>
+<span class="n">conv</span> <span class="o">=</span> <span class="mf">1.467</span> <span class="c1"># miles per hour to ft/s</span>
+<span class="n">velocity</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">conv</span> <span class="c1"># 20 miles per hour to ft/s</span>
+<span class="n">convm</span> <span class="o">=</span> <span class="mf">2.205</span> <span class="c1"># kg to lbm</span>
+<span class="n">mass</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">convm</span> <span class="c1"># kg to lbm</span>
+<span class="n">kinetic_energy_e</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">mass</span> <span class="o">*</span> <span class="n">velocity</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span><span class="n">gc</span> <span class="c1"># lbm*ft^2/s^2 *lbf*s^2/lbm/ft or foot pounds (ft*lbf)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;kinetic energy = </span><span class="si">{</span><span class="n">kinetic_energy_e</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> foot-pounds&#39;</span><span class="p">)</span> <span class="c1"># I know this is foot pounds as I used the english units with gc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>kinetic energy = 59.00 foot-pounds
+</pre></div>
+</div>
+</div>
+</div>
+<p>Converting 59 foot pounds to Joules yields 80 Joules with is the same as the answer above. Note the necessary use of gc in the conversion from lbm to lbf in the above calculation (if left out, you get the wrong answer). Keeping track of units when working in English units is more difficult than working in SI units.</p>
+<p>One option is to use pint, a python package that allows you to annotate your units.  You can then convert to other units as needed.  For example, if you want to convert 20 miles per hour to feet per second, you can do the following:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pint</span>
+<span class="n">ureg</span> <span class="o">=</span> <span class="n">pint</span><span class="o">.</span><span class="n">UnitRegistry</span><span class="p">()</span>
+<span class="n">Q_</span> <span class="o">=</span> <span class="n">ureg</span><span class="o">.</span><span class="n">Quantity</span>
+<span class="c1"># example calculation of kinetic energy</span>
+<span class="n">velocity</span> <span class="o">=</span> <span class="n">Q_</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="s1">&#39;miles/hour&#39;</span><span class="p">)</span>
+<span class="n">mass</span> <span class="o">=</span> <span class="n">Q_</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;kg&#39;</span><span class="p">)</span>
+<span class="n">kinetic_energy_p</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">mass</span> <span class="o">*</span> <span class="n">velocity</span><span class="o">**</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;kinetic energy = </span><span class="si">{</span><span class="n">kinetic_energy_p</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&quot;J&quot;</span><span class="p">)</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;kinetic energy = </span><span class="si">{</span><span class="n">kinetic_energy_p</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&quot;footpound&quot;</span><span class="p">)</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> 
+<span class="c1">#Documentation is lacking on what units are already defined and how to reference them</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>kinetic energy = 79.94 joule
+kinetic energy = 58.96 foot_pound
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I don’t recommend you use pint. I recommend you switch you’re english input units to SI units (as above) and then convert back to english units at the end of your code when required.</p>
+</div>
+</section>
+</section>
+<section id="round-off-error">
+<h2>Round-off Error<a class="headerlink" href="#round-off-error" title="Permalink to this heading">#</a></h2>
+<p>Round-off error occurs when you truncate a decimal number before completing the calculation. Using a calculation program with variables helps to avoid round-off error. Of course, with any finite decimal number, there is some round-off error, although small as there are 15 decimal places that are stored in a float.  For example, the following code shows that the round-off error is small, but it is still there.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Significant digits:</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">number</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">3</span><span class="o">/</span><span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.6331895677277015
+</pre></div>
+</div>
+</div>
+</div>
+<p>Floating point numbers are tracked to 16 decimal places.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#code to show accumulation of round off error</span>
+<span class="n">cutnumb</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span><span class="o">/</span><span class="mi">1000000</span>
+<span class="n">percenterror</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="n">cutnumb</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error when truncated after 2nd digit </span><span class="si">{</span><span class="n">percenterror</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error when truncated after 2nd digit 0.15%
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#code to show accumulation of round off error</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">cutnumb</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">10</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">percenterror</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">cutnumb</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error when truncated after 1 decimal place when multiplied </span><span class="si">{</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s1"> times together: </span><span class="si">{</span><span class="n">percenterror</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error when truncated after 1 decimal place when multiplied 1 times together: 1.32%
+Error when truncated after 1 decimal place when multiplied 2 times together: 2.63%
+Error when truncated after 1 decimal place when multiplied 3 times together: 3.92%
+Error when truncated after 1 decimal place when multiplied 4 times together: 5.19%
+Error when truncated after 1 decimal place when multiplied 5 times together: 6.45%
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -502,6 +688,25 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annotating-units">Annotating Units</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#si-units">SI Units</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#english-units">English Units</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#round-off-error">Round-off Error</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
