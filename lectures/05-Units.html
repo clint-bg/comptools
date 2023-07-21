@@ -175,13 +175,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="13-ExamReview.html">13-Exam Review</a></li>
 <li class="toctree-l2"><a class="reference internal" href="14-ExcelBasics.html">14-Excel Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="15-MoreExcel.html">15-More Excel Practice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="16-SolidWorks.html">16-SolidWorks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="17-AspenHysys.html">17-Aspen Hysys</a></li>
-<li class="toctree-l2"><a class="reference internal" href="18-Ansys.html">18-Ansys Workbench</a></li>
-<li class="toctree-l2"><a class="reference internal" href="19-Cantera.html">19-Cantera</a></li>
-<li class="toctree-l2"><a class="reference internal" href="20-CaseStudy1.html">20-First Case Study Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="21-CaseStudy2.html">21-Second Case Study Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="22-FinalReview.html">22-Final Exam Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="16-ExcelFunctions.html">16-Excel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="17-SolidWorks.html">17-SolidWorks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="18-AspenHysys.html">18-Aspen Hysys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="19-Ansys.html">19-Ansys Workbench</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-Cantera.html">20-Cantera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="21-CaseStudy1.html">21-First Case Study Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="22-CaseStudy2.html">22-Second Case Study Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="23-FinalReview.html">23-Final Exam Review</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -567,6 +568,35 @@ kinetic energy = 58.96 foot_pound
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">**</span><span class="n">kinetic_energy_p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">DimensionalityError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="mi">2</span><span class="o">**</span><span class="n">kinetic_energy_p</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/jupiterbook/lib/python3.9/site-packages/pint/facets/plain/quantity.py:100,</span> in <span class="ni">check_implemented.&lt;locals&gt;.wrapped</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="n">other</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)):</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span>     <span class="k">return</span> <span class="bp">NotImplemented</span>
+<span class="ne">--&gt; </span><span class="mi">100</span> <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/jupiterbook/lib/python3.9/site-packages/pint/facets/plain/quantity.py:1264,</span> in <span class="ni">PlainQuantity.__rpow__</span><span class="nt">(self, other)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1262</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1263</span>     <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">dimensionless</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1264</span>         <span class="k">raise</span> <span class="n">DimensionalityError</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_units</span><span class="p">,</span> <span class="s2">&quot;dimensionless&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1265</span>     <span class="n">new_self</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_root_units</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1266</span>     <span class="k">return</span> <span class="n">other</span><span class="o">**</span><span class="n">new_self</span><span class="o">.</span><span class="n">_magnitude</span>
+
+<span class="ne">DimensionalityError</span>: Cannot convert from &#39;kilogram * mile ** 2 / hour ** 2&#39; to &#39;dimensionless&#39;
+</pre></div>
+</div>
+</div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>I don’t recommend you use pint. I recommend you switch you’re english input units to SI units (as above) and then convert back to english units at the end of your code when required.</p>
@@ -587,6 +617,32 @@ kinetic energy = 58.96 foot_pound
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.6331895677277015
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numberBig</span> <span class="o">=</span> <span class="n">number</span> <span class="o">*</span> <span class="mf">1e15</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">numberBig</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1633189567727701.5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numberRBig</span> <span class="o">=</span> <span class="n">numberBig</span><span class="o">*</span><span class="mf">1e5</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">numberRBig</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.6331895677277015e+20
 </pre></div>
 </div>
 </div>

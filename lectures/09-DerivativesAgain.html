@@ -172,16 +172,17 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="10-Loops.html">10-Loops: Brownian Motion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="11-Regression.html">11-Regression and Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="12-RegressionAgain.html">12-More Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="13-ExamReview.html">Exam Review</a></li>
-<li class="toctree-l2"><a class="reference internal" href="14-ExcelBasics.html">Excel Basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="15-MoreExcel.html">More Excel Practice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="16-SolidWorks.html">16-SolidWorks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="17-AspenHysys.html">Aspen Hysys</a></li>
-<li class="toctree-l2"><a class="reference internal" href="18-Ansys.html">Ansys Workbench</a></li>
-<li class="toctree-l2"><a class="reference internal" href="19-Cantera.html">Cantera</a></li>
-<li class="toctree-l2"><a class="reference internal" href="20-CaseStudy1.html">First Case Study Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="21-CaseStudy2.html">Second Case Study Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="22-FinalReview.html">Final Exam Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13-ExamReview.html">13-Exam Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-ExcelBasics.html">14-Excel Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="15-MoreExcel.html">15-More Excel Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="16-ExcelFunctions.html">16-Excel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="17-SolidWorks.html">17-SolidWorks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="18-AspenHysys.html">18-Aspen Hysys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="19-Ansys.html">19-Ansys Workbench</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-Cantera.html">20-Cantera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="21-CaseStudy1.html">21-First Case Study Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="22-CaseStudy2.html">22-Second Case Study Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="23-FinalReview.html">23-Final Exam Review</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -434,7 +435,10 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-example-predators-and-prey">First Example: Predators and Prey</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-example-solving-the-lorenz-equations">Second Example: Solving the Lorenz Equations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#third-example-carbon-dioxide-concentration">Third Example: Carbon Dioxide Concentration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#third-example-carbon-dioxide-concentration">Third Example: Carbon Dioxide Concentration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#follow-up-data">Follow-up Data</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -585,7 +589,7 @@ document.write(`
 \frac{dC_{CO_2}}{dt} = k
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(C_{CO_2}\)</span> is the concentration of <span class="math notranslate nohighlight">\(CO_2\)</span> in the terrarium (ppm) and <span class="math notranslate nohighlight">\(k\)</span> is the rate constant (1/time unit). This is a zero-order differential equation. The rate constant is proportion to the amount of soil decaying in the terrarium.</p>
-<img src='https://github.com/clint-bg/comptools/blob/main/lectures/supportfiles/terrarium.jpg?raw=true' size='200'><p>Given the above differential equation: <span class="math notranslate nohighlight">\(dC_{CO_2}/dt = k\)</span>, we can integrate both sides to obtain the concentration as a function of time easily by doing the integration analytically to yield:</p>
+<img src='https://github.com/clint-bg/comptools/blob/main/lectures/supportfiles/terrarium.jpg?raw=true' width='350'><p>Given the above differential equation: <span class="math notranslate nohighlight">\(dC_{CO_2}/dt = k\)</span>, we can integrate both sides to obtain the concentration as a function of time easily by doing the integration analytically to yield:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
@@ -609,7 +613,7 @@ C_{CO_2} &amp;= kt + C_0
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import needed packages</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="c1">#read in the data</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;supportfiles/co2concterr.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://github.com/clint-bg/comptools/raw/main/lectures/supportfiles/co2concterr.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -718,8 +722,8 @@ C_{CO_2} &amp;= kt + C_0
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#add an extra column to the dataframe that is the seconds from the start of the data from the </span>
-<span class="c1"># Epoch_UTC column</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">*</span><span class="mi">10</span> <span class="c1">#min</span>
+<span class="c1"># Epoch_UTC column, use pandas date time package to convert from year-month-dayThour:minute:second to minutes</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Local_Date_Time&#39;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%S.</span><span class="si">%f</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">/</span><span class="mf">1e9</span><span class="o">/</span><span class="mi">60</span> <span class="c1">#min</span>
 <span class="c1">#now reference from the start of the data</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">594</span><span class="p">]</span>
 </pre></div>
@@ -742,7 +746,7 @@ DP                                      24.41
 AH                                     22.113
 HI                                      26.84
 MR                                     19.572
-min                                         0
+min                                       0.0
 Name: 60870, dtype: object
 </pre></div>
 </div>
@@ -760,7 +764,7 @@ Name: 60870, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7045e7a6682d35ff796829ce42c73ace757ae32c1ace4791d8625cef019c5bc1.png" src="../_images/7045e7a6682d35ff796829ce42c73ace757ae32c1ace4791d8625cef019c5bc1.png" />
+<img alt="../_images/21f34804405b97d3bb9c379df7c5801a822601cb21f2c487889909e7511ac441.png" src="../_images/21f34804405b97d3bb9c379df7c5801a822601cb21f2c487889909e7511ac441.png" />
 </div>
 </div>
 <p>As can be seen above, our initial linear estimate isn’t very accurate. It appears that the production rate of CO2 is is initially at a constant rate and then at a certain concentration, it changes to a different rate. Perhaps a more accurate model would be:</p>
@@ -769,6 +773,7 @@ Name: 60870, dtype: object
 \frac{dC_{CO_2}}{dt} = b - a\cdot tanh((t-c)/d)
 \]</div>
 <p>This is a switching function with the hyperbolic tangent. The parameters can be adjusted such that the rate is initially at one value, then it switches to another value. We can integrate this analytically with sympy to obtain:</p>
+<p>At short times, the value of the slope is b+a. At long times, the value of the slope is b-a. The time at which the slope changes is c. The rate at which the slope changes is d.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#integrate the below function symbolically with sympy</span>
@@ -793,6 +798,15 @@ Name: 60870, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#now build the function to calculate the CO2 concentration</span>
+<span class="k">def</span> <span class="nf">co2ppm</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">trs</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">C1</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">C1</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="p">(</span><span class="n">t</span> <span class="o">+</span> <span class="n">trs</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">((</span><span class="n">loc</span><span class="o">-</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="n">trs</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">+</span><span class="n">b</span><span class="o">*</span><span class="n">t</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loc</span> <span class="o">=</span> <span class="mi">45</span>
 <span class="n">trs</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mi">80</span>
@@ -800,7 +814,7 @@ Name: 60870, dtype: object
 <span class="n">C1</span> <span class="o">=</span> <span class="mi">1000</span>
 
 <span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
-<span class="n">Con</span> <span class="o">=</span> <span class="n">C1</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="p">(</span><span class="n">time</span> <span class="o">+</span> <span class="n">trs</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">((</span><span class="n">loc</span><span class="o">-</span><span class="n">time</span><span class="p">)</span><span class="o">/</span><span class="n">trs</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">+</span><span class="n">b</span><span class="o">*</span><span class="n">time</span>
+<span class="n">Con</span> <span class="o">=</span> <span class="n">co2ppm</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">trs</span><span class="p">,</span><span class="n">loc</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">C1</span><span class="p">)</span> 
 
 <span class="c1">#plot the values</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">594</span><span class="p">:</span><span class="o">-</span><span class="mi">550</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;CO₂&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">594</span><span class="p">:</span><span class="o">-</span><span class="mi">550</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;experimental data&#39;</span><span class="p">)</span>
@@ -812,10 +826,52 @@ Name: 60870, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d796922da687d038029f9dc8d5bd57a5f87ee3c5ed712f0d0c72d0184b6643dd.png" src="../_images/d796922da687d038029f9dc8d5bd57a5f87ee3c5ed712f0d0c72d0184b6643dd.png" />
+<img alt="../_images/770502ba310d902362978ab35965aab7ca3920fa923e0663c7a7c1a02a78de9e.png" src="../_images/770502ba310d902362978ab35965aab7ca3920fa923e0663c7a7c1a02a78de9e.png" />
 </div>
 </div>
 <p>The above plot shows that the non-linear estimate (with parameters that were manually adjusted to better fit the data) is close to the actual data. Instead of manually adjusting the parameters, how could we estimate the parameters automatically? We could use a least squares approach to estimate the parameters. We’ll discuss that in the next lecture.</p>
+<section id="follow-up-data">
+<h3>Follow-up Data<a class="headerlink" href="#follow-up-data" title="Permalink to this heading">#</a></h3>
+<p>I wasn’t sure that the data above was accurate in that there is a “knee” at about the 40 min mark so I collected more data. It’s shown below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#read in the data</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;supportfiles/co2conc2.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#add an extra column to the dataframe that is the seconds from the start of the data from the </span>
+<span class="c1"># Epoch_UTC column, use pandas date time package to convert from year-month-dayThour:minute:second to minutes</span>
+<span class="n">df2</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;Local_Date_Time&#39;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%S.</span><span class="si">%f</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">/</span><span class="mf">1e9</span><span class="o">/</span><span class="mi">60</span> <span class="c1">#min</span>
+<span class="c1">#now reference from the start of the data</span>
+<span class="n">zeroindex</span> <span class="o">=</span> <span class="mi">302</span><span class="p">;</span> <span class="n">endindex</span> <span class="o">=</span> <span class="mi">250</span>
+<span class="n">df2</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df2</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="n">zeroindex</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">594</span><span class="p">:</span><span class="o">-</span><span class="mi">550</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;CO₂&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">594</span><span class="p">:</span><span class="o">-</span><span class="mi">550</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;experimental data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_min</span><span class="p">,</span><span class="n">lin_co2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;initial linear estimate&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">Con</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;nonlinear estimate&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="n">zeroindex</span><span class="p">:</span><span class="o">-</span><span class="n">endindex</span><span class="p">],</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;CO₂&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="n">zeroindex</span><span class="p">:</span><span class="o">-</span><span class="n">endindex</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;experimental data 2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time, min&#39;</span><span class="p">),</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;CO₂ Concentration,ppm&#39;</span><span class="p">)</span>
+<span class="c1">#change yaxis to log scale</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/888cf52d0fe9550fec9b3fd15713d0654d4f95c95e19a67b206a509177f91835.png" src="../_images/888cf52d0fe9550fec9b3fd15713d0654d4f95c95e19a67b206a509177f91835.png" />
+</div>
+</div>
+<p>There is a knee in both sets of data. How does the production rate of the second set of data compare to the first set of data?</p>
+</section>
 </section>
 </section>
 
@@ -888,7 +944,10 @@ Name: 60870, dtype: object
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-example-predators-and-prey">First Example: Predators and Prey</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-example-solving-the-lorenz-equations">Second Example: Solving the Lorenz Equations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#third-example-carbon-dioxide-concentration">Third Example: Carbon Dioxide Concentration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#third-example-carbon-dioxide-concentration">Third Example: Carbon Dioxide Concentration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#follow-up-data">Follow-up Data</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
