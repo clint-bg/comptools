@@ -1,7 +1,10 @@
-jupyter-book
+jupyter-book (pip install ..)
 matplotlib
 numpy
 cantera
 scipy
 sympy
 param
+seaborn
+statsmodels
+sklearn (conda install scikit-learn)

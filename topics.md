@@ -19,18 +19,19 @@ The schedule for the course will be as follows (subject to change where Week 1.2
 |7.1|[More Regression](lectures/12-RegressionAgain.ipynb)|-|HW13|-|
 |7.2|[Exam Review](lectures/13-ExamReview.ipynb)|-|-|Exam|
 |8.1|[Excel Basics](lectures/14-ExcelBasics.md)|-|HW14|-|
-|8.2|[More Excel](lectures/15-MoreExcel.md)|-|HW15|-|
-|9.1|[SolidWorks](lectures/16-Solidworks)|-|HW016|-|
-|9.2|[Aspen Hysys](lectures/17-AspenHysys)|-|HW17|-|
-|10.1|[Ansys Workbench](lectures/18-Ansys)|-|HW18|-|
-|10.2|[Cantera](lectures/19-Cantera)|-|HW19|-|
-|11.1|[CaseStudy1](lectures/20-CaseStudy1)|-|-|-|
-|11.2|Review & Support|-|-|-|
+|8.2|[Excel Functions](lectures/15-ExcelFunctions.md)|-|HW15|-|
+|9.1|[More Excel](lectures/16-MoreExcel.md)|-|HW16|-|
+|9.2|[SolidWorks](lectures/17-Solidworks)|-|HW017|-|
+|10.1|[Aspen Hysys](lectures/18-AspenHysys)|-|HW18|-|
+|10.2|[Ansys Workbench](lectures/19-Ansys)|-|HW19|-|
+|11.1|[Cantera](lectures/20-Cantera)|-|HW20|-|
+|11.2|[CaseStudy1](lectures/21-CaseStudy1)|-|-|-|
 |12.1|Review & Support|-|-|-|
-|12.2|[CaseStudy2](lectures/21-CaseStudy2)|-|-|-|
 |12.2|Review & Support|-|-|-|
+|13.1|[CaseStudy2](lectures/22-CaseStudy2)|-|-|-|
 |13.2|Review & Support|-|-|-|
-|14.1|[Final Exam Review](lectures/22-FinalReview)|-|-|Final|
+|14.1|Review & Support|-|-|-|
+|14.2|[Final Exam Review](lectures/23-FinalReview)|-|-|Final|
 
 ## Case Studies
 [Heat Transfer](casestudies/heattransfer.ipynb)
@@ -97,6 +98,3 @@ The below modules will be discussed throughout the semester with the case studie
 - Solving Nonlinear Equations with Solver
 - Completing repetitive tasks with VBA
 - Pivot Tables
-
-```{tableofcontents}
-```

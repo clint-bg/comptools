@@ -172,16 +172,17 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="10-Loops.html">10-Loops: Brownian Motion</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">11-Regression and Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="12-RegressionAgain.html">12-More Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="13-ExamReview.html">Exam Review</a></li>
-<li class="toctree-l2"><a class="reference internal" href="14-ExcelBasics.html">Excel Basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="15-MoreExcel.html">More Excel Practice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="16-SolidWorks.html">16-SolidWorks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="17-AspenHysys.html">Aspen Hysys</a></li>
-<li class="toctree-l2"><a class="reference internal" href="18-Ansys.html">Ansys Workbench</a></li>
-<li class="toctree-l2"><a class="reference internal" href="19-Cantera.html">Cantera</a></li>
-<li class="toctree-l2"><a class="reference internal" href="20-CaseStudy1.html">First Case Study Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="21-CaseStudy2.html">Second Case Study Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="22-FinalReview.html">Final Exam Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13-ExamReview.html">13-Exam Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-ExcelBasics.html">14-Excel Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="15-MoreExcel.html">15-More Excel Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="16-ExcelFunctions.html">16-Excel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="17-SolidWorks.html">17-SolidWorks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="18-AspenHysys.html">18-Aspen Hysys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="19-Ansys.html">19-Ansys Workbench</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-Cantera.html">20-Cantera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="21-CaseStudy1.html">21-First Case Study Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="22-CaseStudy2.html">22-Second Case Study Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="23-FinalReview.html">23-Final Exam Review</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -437,6 +438,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#method-2-minimizing-the-squared-error-with-scipy-minimize">Method 2: Minimizing the squared error with scipy minimize</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation">Interpolation</a></li>
 </ul>
             </nav>
         </div>
@@ -451,6 +453,8 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="regression-and-data">
 <h1>11-Regression and Data<a class="headerlink" href="#regression-and-data" title="Permalink to this heading">#</a></h1>
 <p>Data regression is a critical skill to determine correlations and potential causations between different variables in a system.  In this lecture, we will learn how to use Python to perform regression and interpolation.</p>
+<p>Regression is where you use the different functions you learned about in geometry and algebra to attempt to fit a curve to a set of data.  The most common type of regression is linear regression where you attempt to fit a line to a set of data. The parameters for the curve are determined by minimizing the sum of the squares of the difference between the data and the curve.  This is called the least squares method.  For a linear regression, the parameters that are determined are the slope and intercept.</p>
+<p>Below is an example of a non-linear regression where first the data is imported and then operated on to obtain the independent variable (day of the year).  Then the data is plotted and a curve is fit to the data. The same steps would be used for a linear regression.</p>
 <section id="first-example-fit-a-relationship-to-sun-rise-data-vs-day-of-year">
 <h2>First Example: Fit a Relationship to Sun Rise Data vs. Day of Year<a class="headerlink" href="#first-example-fit-a-relationship-to-sun-rise-data-vs-day-of-year" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -843,6 +847,10 @@ document.write(`
 <p>Note the above minimize result (res) that is reported with the coefficients listed in the x variable (accessed with res.x) and the SSE function value of 4.35 (which agrees with the curve_fit function). There are also some jacobian and hessian information that we won’t discuss here but shows that the minimize function is using a gradient (or derivative) based method to minimize the SSE function.</p>
 </section>
 </section>
+<section id="interpolation">
+<h2>Interpolation<a class="headerlink" href="#interpolation" title="Permalink to this heading">#</a></h2>
+<p>Interpolation is getting a value at a different point than what is given in the data table. For example, below is a snapshot of a portion of the steam table.</p>
+<img src='https://github.com/clint-bg/comptools/blob/main/lectures/supportfiles/steamtab.png?raw=true' width='350'></section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -917,6 +925,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#method-2-minimizing-the-squared-error-with-scipy-minimize">Method 2: Minimizing the squared error with scipy minimize</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation">Interpolation</a></li>
 </ul>
   </nav></div>
 
