@@ -19,8 +19,8 @@ The schedule for the course will be as follows (subject to change where Week 1.2
 |7.1|[More Regression](lectures/12-RegressionAgain.ipynb)|-|HW13|-|
 |7.2|[Exam Review](lectures/13-ExamReview.ipynb)|-|-|Exam|
 |8.1|[Excel Basics](lectures/14-ExcelBasics.md)|-|HW14|-|
-|8.2|[Excel Functions](lectures/15-ExcelFunctions.md)|-|HW15|-|
-|9.1|[More Excel](lectures/16-MoreExcel.md)|-|HW16|-|
+|8.2|[More Excel](lectures/15-MoreExcel.md)|-|HW15|-|
+|9.1|[Excel Functions](lectures/16-ExcelFunctions.md)|-|HW16|-|
 |9.2|[SolidWorks](lectures/17-Solidworks)|-|HW017|-|
 |10.1|[Aspen Hysys](lectures/18-AspenHysys)|-|HW18|-|
 |10.2|[Ansys Workbench](lectures/19-Ansys)|-|HW19|-|
