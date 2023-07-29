@@ -172,10 +172,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="10-Loops.html">10-Loops: Brownian Motion</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">11-Regression and Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="12-RegressionAgain.html">12-More Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="13-ExamReview.html">13-Exam Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13-ExamReview.html">13-Exam Review (Python)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="14-ExcelBasics.html">14-Excel Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="15-MoreExcel.html">15-More Excel Practice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="16-ExcelFunctions.html">16-Excel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="16-ExcelFunctions.html">Excel Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="17-SolidWorks.html">17-SolidWorks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="18-AspenHysys.html">18-Aspen Hysys</a></li>
 <li class="toctree-l2"><a class="reference internal" href="19-Ansys.html">19-Ansys Workbench</a></li>
@@ -849,8 +849,61 @@ document.write(`
 </section>
 <section id="interpolation">
 <h2>Interpolation<a class="headerlink" href="#interpolation" title="Permalink to this heading">#</a></h2>
-<p>Interpolation is getting a value at a different point than what is given in the data table. For example, below is a snapshot of a portion of the steam table.</p>
-<img src='https://github.com/clint-bg/comptools/blob/main/lectures/supportfiles/steamtab.png?raw=true' width='350'></section>
+<p>Interpolation is getting a value at a different point than what is given in the data table. For example, below is a snapshot of a portion of the steam table. We would like an accurate estimate of the vapor pressure at 18.2 decgrees C.</p>
+<img src='https://raw.githubusercontent.com/clint-bg/comptools/main/lectures/supportfiles/steamtab.png' width='350'><p>We’ll use the scipy interpolator (1D) although there are many other options as described <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/interpolate.html">here</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#First create a table or dictionary of the values around 18.2 C</span>
+<span class="n">table</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;TempC&#39;</span><span class="p">:[</span><span class="mi">10</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">25</span><span class="p">],</span> <span class="s1">&#39;VPkPa&#39;</span><span class="p">:[</span><span class="mf">1.2276</span><span class="p">,</span><span class="mf">1.7051</span><span class="p">,</span><span class="mf">2.3385</span><span class="p">,</span><span class="mf">3.1691</span><span class="p">]}</span>
+<span class="c1">#Now interpolate the value at 18.2 C</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span><span class="p">,</span> <span class="n">BarycentricInterpolator</span>
+<span class="c1"># Create the interpolator</span>
+<span class="n">finterp</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="s1">&#39;TempC&#39;</span><span class="p">],</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;VPkPa&#39;</span><span class="p">])</span>
+
+<span class="c1"># Evaluate the interpolator at desired location</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">finterp</span><span class="p">(</span><span class="mf">18.2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;VP at 18.2 C = </span><span class="si">{</span><span class="n">z</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1"> kPa&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VP at 18.2 C = 2.1105 kPa
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#or if you wanted to use a polynomial interpolation</span>
+<span class="c1"># Create the interpolator</span>
+<span class="n">finterpP</span> <span class="o">=</span> <span class="n">BarycentricInterpolator</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="s1">&#39;TempC&#39;</span><span class="p">],</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;VPkPa&#39;</span><span class="p">])</span>
+
+<span class="c1"># Evaluate the interpolator at desired location</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">finterpP</span><span class="p">(</span><span class="mf">18.2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;VP at 18.2 C = </span><span class="si">{</span><span class="n">z</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1"> kPa&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VP at 18.2 C = 2.0899 kPa
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#and we should get the same answer when evaluating both at 20C</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">finterp</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">finterpP</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">table</span><span class="p">[</span><span class="s2">&quot;VPkPa&quot;</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.3385, 2.3385, 2.3385
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">

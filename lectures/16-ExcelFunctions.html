@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>16-Excel Functions &#8212; Computational Tools for Chemical Engineers</title>
+    <title>Excel Functions &#8212; Computational Tools for Chemical Engineers</title>
   
   
   
@@ -170,10 +170,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="10-Loops.html">10-Loops: Brownian Motion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="11-Regression.html">11-Regression and Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="12-RegressionAgain.html">12-More Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="13-ExamReview.html">13-Exam Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13-ExamReview.html">13-Exam Review (Python)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="14-ExcelBasics.html">14-Excel Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="15-MoreExcel.html">15-More Excel Practice</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">16-Excel Functions</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Excel Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="17-SolidWorks.html">17-SolidWorks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="18-AspenHysys.html">18-Aspen Hysys</a></li>
 <li class="toctree-l2"><a class="reference internal" href="19-Ansys.html">19-Ansys Workbench</a></li>
@@ -253,37 +253,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<div class="dropdown dropdown-launch-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
-    <i class="fas fa-rocket"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://colab.research.google.com/github/clint-bg/comptools/blob/gh-pages/docs/lectures/16-ExcelFunctions.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch onColab"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img src="../_static/images/logo_colab.png">
-  </span>
-<span class="btn__text-container">Colab</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -339,7 +308,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/lectures/16-ExcelFunctions.ipynb" target="_blank"
+      <li><a href="../_sources/lectures/16-ExcelFunctions.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -349,7 +318,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.ipynb</span>
+<span class="btn__text-container">.md</span>
 </a>
 </li>
       
@@ -419,7 +388,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>16-Excel Functions</h1>
+    <h1>Excel Functions</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -434,7 +403,17 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="excel-functions">
-<h1>16-Excel Functions<a class="headerlink" href="#excel-functions" title="Permalink to this heading">#</a></h1>
+<h1>Excel Functions<a class="headerlink" href="#excel-functions" title="Permalink to this heading">#</a></h1>
+<p>This lecture treats determining relationships between variables using Excel. We will cover the following topics:</p>
+<ul class="simple">
+<li><p>Trendlines</p></li>
+<li><p>Example applications with Bacteria, Kinetics, and Vapor Pressure</p></li>
+<li><p>Minimizing the sum of squared errors</p></li>
+<li><p>Calculating the correlation coefficient, R^2</p></li>
+<li><p>Calculating the MAPE value (percent error)</p></li>
+<li><p>Calculating the 95% confidence on a regression with example sheet on <a class="reference external" href="http://tipice.byu.edu">tipice.byu.edu</a></p></li>
+</ul>
+<p>See the Excel file (excelfunctions.xlsx) in Canvas.</p>
 </section>
 
     <script type="text/x-thebe-config">

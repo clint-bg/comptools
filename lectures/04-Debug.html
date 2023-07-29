@@ -172,10 +172,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="10-Loops.html">10-Loops: Brownian Motion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="11-Regression.html">11-Regression and Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="12-RegressionAgain.html">12-More Regression</a></li>
-<li class="toctree-l2"><a class="reference internal" href="13-ExamReview.html">13-Exam Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13-ExamReview.html">13-Exam Review (Python)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="14-ExcelBasics.html">14-Excel Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="15-MoreExcel.html">15-More Excel Practice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="16-ExcelFunctions.html">16-Excel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="16-ExcelFunctions.html">Excel Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="17-SolidWorks.html">17-SolidWorks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="18-AspenHysys.html">18-Aspen Hysys</a></li>
 <li class="toctree-l2"><a class="reference internal" href="19-Ansys.html">19-Ansys Workbench</a></li>
@@ -439,7 +439,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-syntax-execution-and-logic-errors">Example 1: Syntax, Execution, and Logic Errors</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-more-errors">Example 2: More errors</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-sympy-equation-solver">Example 3: Sympy equation solver</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-using-the-debugger">Example 4: Using the debugger</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-assert-statements">Example 4: Assert statements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-using-the-debugger">Example 5: Using the debugger</a></li>
 </ul>
 </li>
 </ul>
@@ -478,6 +479,11 @@ document.write(`
 <li><p>Print the value of a variable before and after a line of code</p></li>
 <li><p>Print the value of a variable inside a loop</p></li>
 <li><p>Print the value of a variable inside a function</p></li>
+</ul>
+</li>
+<li><p>Use assert statements</p>
+<ul class="simple">
+<li><p>Assert statements are logical checks that you can use</p></li>
 </ul>
 </li>
 <li><p>Check errors and warnings</p>
@@ -653,8 +659,39 @@ x^3 + 15x^2 + 3x - 10 = 0
 </div>
 </div>
 </section>
-<section id="example-4-using-the-debugger">
-<h3>Example 4: Using the debugger<a class="headerlink" href="#example-4-using-the-debugger" title="Permalink to this heading">#</a></h3>
+<section id="example-4-assert-statements">
+<h3>Example 4: Assert statements<a class="headerlink" href="#example-4-assert-statements" title="Permalink to this heading">#</a></h3>
+<p>Assert statements are logical checks that you can use to check that your code is doing what you expect it to do. If the assert statement is true, then nothing happens. If the assert statement is false, then an error is raised. An example is shown below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we&#39;ll define a function to calculate the the log of the factorial of n</span>
+<span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span> <span class="ow">and</span> <span class="n">n</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;n must be an integer and greater than zero&quot;</span>
+    <span class="n">factorial</span> <span class="o">=</span> <span class="n">n</span>
+    <span class="k">while</span> <span class="n">n</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">factorial</span> <span class="o">=</span> <span class="n">factorial</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="n">n</span> <span class="o">=</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">factorial</span>
+<span class="k">def</span> <span class="nf">log_factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log_factorial</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>58.00360522298052
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="example-5-using-the-debugger">
+<h3>Example 5: Using the debugger<a class="headerlink" href="#example-5-using-the-debugger" title="Permalink to this heading">#</a></h3>
 <p>There is a debugger that’s associated with most IDEs (Integrated Development Environments) that allows you to step through your code and check the value of variables.</p>
 </section>
 </section>
@@ -733,7 +770,8 @@ x^3 + 15x^2 + 3x - 10 = 0
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-syntax-execution-and-logic-errors">Example 1: Syntax, Execution, and Logic Errors</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-more-errors">Example 2: More errors</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-sympy-equation-solver">Example 3: Sympy equation solver</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-using-the-debugger">Example 4: Using the debugger</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4-assert-statements">Example 4: Assert statements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-5-using-the-debugger">Example 5: Using the debugger</a></li>
 </ul>
 </li>
 </ul>
