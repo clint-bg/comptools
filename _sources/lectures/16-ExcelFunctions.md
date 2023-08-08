@@ -1,4 +1,4 @@
-# Excel Functions
+# 16-Excel Functions
 This lecture treats determining relationships between variables using Excel. We will cover the following topics:
 - Trendlines
 - Example applications with Bacteria, Kinetics, and Vapor Pressure
