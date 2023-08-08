@@ -173,7 +173,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../lectures/13-ExamReview.html">13-Exam Review (Python)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/14-ExcelBasics.html">14-Excel Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/15-MoreExcel.html">15-More Excel Practice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/16-ExcelFunctions.html">Excel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/16-ExcelFunctions.html">16-Excel Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/17-SolidWorks.html">17-SolidWorks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/18-AspenHysys.html">18-Aspen Hysys</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/19-Ansys.html">19-Ansys Workbench</a></li>
@@ -408,7 +408,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -424,6 +426,16 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-computer-modeling-of-interacting-particles">Task 1: Computer Modeling of Interacting Particles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-experimental">Task 2: Experimental</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-complete-the-documentation">Task 3: Complete the Documentation</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -435,7 +447,22 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="molecular-dynamics">
 <h1>Molecular Dynamics<a class="headerlink" href="#molecular-dynamics" title="Permalink to this heading">#</a></h1>
-<p>In this case study, you’ll simulate and measure the experimental response of confined water beads.</p>
+<p>In this case study, you’ll simulate and measure the experimental response of confined water beads. You’ll simulate a small group of interacting particles or beads in a fluid and then you’ll measure a similar experimental scenario.</p>
+<p>This exercise has application to batteries and other packing scenarios. Some chemicals or pieces can swell in their packaging. Understanding that swelling and it’s effects are often necessary or otherwise helpful.</p>
+<section id="task-1-computer-modeling-of-interacting-particles">
+<h2>Task 1: Computer Modeling of Interacting Particles<a class="headerlink" href="#task-1-computer-modeling-of-interacting-particles" title="Permalink to this heading">#</a></h2>
+<p>You will modify the code found here:
+<a class="reference external" href="https://colab.research.google.com/drive/1Mdcx_t0x8_VoIJI7bov4fF3ijv67NZcj?usp=sharing">Link to 2D Simulation</a>.</p>
+<p>The intent is to program a 3-D version of the 2-D code found at the link above. Instead of a square, the confining area would be a cylinder. You’ll have to figure out the forces from the walls (instead of left and right, it will be one wall which would be simpler). The forces from the floor and the top will be the same.</p>
+</section>
+<section id="task-2-experimental">
+<h2>Task 2: Experimental<a class="headerlink" href="#task-2-experimental" title="Permalink to this heading">#</a></h2>
+<p>You’ll measure with calipers, the diameter of 3-4 water beads as a function of time as they are immersed. You’ll also measure the volume inside a graduated cylinder with a given force on a plunger that the beads occupy.</p>
+</section>
+<section id="task-3-complete-the-documentation">
+<h2>Task 3: Complete the Documentation<a class="headerlink" href="#task-3-complete-the-documentation" title="Permalink to this heading">#</a></h2>
+<p>Document your experience with the above two tasks in a writeup according to the case study documentation.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -496,6 +523,22 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-computer-modeling-of-interacting-particles">Task 1: Computer Modeling of Interacting Particles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-experimental">Task 2: Experimental</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-complete-the-documentation">Task 3: Complete the Documentation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
