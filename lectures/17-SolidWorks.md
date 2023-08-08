@@ -12,6 +12,14 @@ You can use one of the CAEDM lab computers or you can follow the instructions on
 ## SolidWorks Basics
 Watch the above video or another similar one to get familiar with the basics of using SolidWorks, particularly the sketch and extrude features as well as the shell feature.
 
+### Submodules
+- Navigating the SolidWorks Interface (center mouse button)
+- Sketching (line, rectangle, circle, arc, spline)
+- Dimensioning (smart dimension)
+- Extruding (extrude, cut, revolve, shell)
+- Fillet and Chamfer
+
+
 ## SolidWorks Homework
 You will create a 3D model of your choosing using SolidWorks. You will then 3D print your model and bring it to class. You will also submit a pdf image of your SolidWorks file to Canvas. You must create the 3D model from scratch; meaning you can not print an existing model you download from the internet. You can use an existing model as a reference, but you must create your own model from scratch, meaning you use the tools in SolidWorks to draw and extrude and chamfer, etc. the piece.
 
