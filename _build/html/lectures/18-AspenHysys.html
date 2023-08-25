@@ -470,8 +470,9 @@ document.write(`
 <p>The vapor-liquid equilibrium (VLE) of a component or mixture is important in chemical engineering. You’ll take thermodynamics and there spend a significant amount of time on understanding VLE. Simply put, VLE is the ratio of the vapor mole fraction to the liquid mole fraction at a given temperature and pressure.</p>
 <div class="math notranslate nohighlight">
 \[K_i = \dfrac{y_i}{x_i} = \gamma_i\cdot P_i^{sat}/P \]</div>
-<p>or for ideal solutions
-$<span class="math notranslate nohighlight">\( \dfrac{y_i}{x_i} = P_i^{sat}/P\)</span>$</p>
+<p>or for ideal solutions</p>
+<div class="math notranslate nohighlight">
+\[ \dfrac{y_i}{x_i} = P_i^{sat}/P\]</div>
 <p>where <span class="math notranslate nohighlight">\(K\)</span> is the VLE ratio for a given component <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(y_i\)</span> is the vapor mole fraction, <span class="math notranslate nohighlight">\(x_i\)</span> is the liquid mole fraction, <span class="math notranslate nohighlight">\(P_i^{sat}\)</span> is the saturation pressure of the component, and <span class="math notranslate nohighlight">\(P\)</span> is the total pressure.  An ideal solution is one where the vapor and liquid phases are in equilibrium and the saturation pressure is independent of the composition of the liquid phase. Raoult’s law is an example of an ideal solution.</p>
 </section>
 <section id="vle-example-calculation-with-python">
@@ -483,14 +484,15 @@ $<span class="math notranslate nohighlight">\( \dfrac{y_i}{x_i} = P_i^{sat}/P\)<
 <li><p>The temperature</p></li>
 <li><p>The vapor and liquid flow rates</p></li>
 </ul>
-<p>The variables are found from solving the following equations assuming an ideal solution for binary system:
-$<span class="math notranslate nohighlight">\(\begin{align*}
+<p>The variables are found from solving the following equations assuming an ideal solution for binary system:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
 F &amp;= L + V \text{ : Mass Balance} \\
 z_1\cdot F &amp;= x_1\cdot L + y_1\cdot V/L\cdot L \text{ : Component Balance} \\
 H_F &amp;= H_l + H_v \text{ : Energy Balance} \\
 P &amp; = x_1\cdot P_1^{sat} + (1-x_1)\cdot P_2^{sat} \text{ : }\Sigma x = 1 \text{, Ideal} \\
 y_1 + (1-x_1)\cdot P_2^{sat}/P &amp;= 1 \text{ : } \Sigma y = 1 \text{, Ideal}
-\end{align*}\)</span>$</p>
+\end{align*}\end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Example VLE calculation</span>
