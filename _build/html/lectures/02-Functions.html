@@ -187,8 +187,8 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW01.html">HW01: Introduction to Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW02.html">HW02: Conditionals and Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW03.html">HW03: Solve Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW02.html">HW02: Functions and Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW03.html">HW03 More Functions and Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW07.html">HW07: Additional Practice</a></li>
 </ul>
 </li>
@@ -726,20 +726,24 @@ P = \frac{RT}{\tilde{V} - b} - \frac{a}{\tilde{V}^2}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#First setup the tank objects</span>
-<span class="n">totalvolume</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="c1">#spherical tanks</span>
 <span class="n">sphlevels</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mf">2.6</span><span class="p">,</span><span class="mf">3.2</span><span class="p">,</span><span class="mf">3.5</span><span class="p">]</span> <span class="c1">#in meters</span>
 <span class="n">sphtanks</span> <span class="o">=</span> <span class="p">[</span><span class="n">tank</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="s1">&#39;sphere&#39;</span><span class="p">,</span><span class="n">diameter</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">level</span><span class="o">=</span><span class="n">sphlevels</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sphlevels</span><span class="p">))]</span>
-<span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">sphtanks</span><span class="p">:</span>
-    <span class="n">totalvolume</span> <span class="o">+=</span> <span class="n">each</span><span class="o">.</span><span class="n">fluidvolume</span><span class="p">()</span>
+
 <span class="c1">#cylindrical tanks</span>
 <span class="n">cyllevels</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">2.5</span><span class="p">]</span> <span class="c1">#in meters</span>
 <span class="n">cyltanks</span> <span class="o">=</span> <span class="p">[</span><span class="n">tank</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="s1">&#39;cylinder&#39;</span><span class="p">,</span><span class="n">diameter</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">level</span><span class="o">=</span><span class="n">cyllevels</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cyllevels</span><span class="p">))]</span>
-<span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">cyltanks</span><span class="p">:</span>
-    <span class="n">totalvolume</span> <span class="o">+=</span> <span class="n">each</span><span class="o">.</span><span class="n">fluidvolume</span><span class="p">()</span>
+
 <span class="c1">#conical tanks</span>
 <span class="n">conelevels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">2.5</span><span class="p">])</span><span class="o">/</span><span class="mf">3.281</span> <span class="c1">#in meters</span>
 <span class="n">conetanks</span> <span class="o">=</span> <span class="p">[</span><span class="n">tank</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="s1">&#39;cone&#39;</span><span class="p">,</span><span class="n">diameter</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">level</span><span class="o">=</span><span class="n">conelevels</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">conelevels</span><span class="p">))]</span>
+
+<span class="c1">#Now calculate the total volume of fluid in the tanks</span>
+<span class="n">totalvolume</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">sphtanks</span><span class="p">:</span>
+    <span class="n">totalvolume</span> <span class="o">+=</span> <span class="n">each</span><span class="o">.</span><span class="n">fluidvolume</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">cyltanks</span><span class="p">:</span>
+    <span class="n">totalvolume</span> <span class="o">+=</span> <span class="n">each</span><span class="o">.</span><span class="n">fluidvolume</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">conetanks</span><span class="p">:</span>
     <span class="n">totalvolume</span> <span class="o">+=</span> <span class="n">each</span><span class="o">.</span><span class="n">fluidvolume</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The total volume of fluid in the tanks is </span><span class="si">{</span><span class="n">totalvolume</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> m3&#39;</span><span class="p">)</span>

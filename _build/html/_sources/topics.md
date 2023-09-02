@@ -26,7 +26,7 @@ The schedule for the course will be as follows (subject to change where Week 1.2
 |10.2|[Ansys Workbench](lectures/19-Ansys)|-|HW19|-|
 |11.1|[Cantera](lectures/20-Cantera)|-|HW20|-|
 |11.2|[CaseStudy1](lectures/21-CaseStudy1)|-|-|-|
-|12.1|Review & Support|-|-|-|
+|12.1|Review & Support|-|-|Exam|
 |12.2|Review & Support|-|-|-|
 |13.1|[CaseStudy2](lectures/22-CaseStudy2)|-|-|-|
 |13.2|Review & Support|-|-|-|
@@ -34,9 +34,9 @@ The schedule for the course will be as follows (subject to change where Week 1.2
 |14.2|[Final Exam Review](lectures/23-FinalReview)|-|-|Final|
 
 ## Case Studies
-[Heat Transfer](casestudies/heattransfer.ipynb)
-[Thermodynamics](casestudies/thermo.ipynb)
-[Molecular Dynamics](casestudies/MD.ipynb)
+[Heat Transfer](casestudies/heattransfer.ipynb)  
+[Thermodynamics](casestudies/thermo.ipynb)  
+[Molecular Dynamics](casestudies/MD.ipynb)  
 
 ## Modules
 
