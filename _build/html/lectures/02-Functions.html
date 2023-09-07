@@ -189,7 +189,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW01.html">HW01: Introduction to Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW02.html">HW02: Functions and Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW03.html">HW03 More Functions and Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW07.html">HW07: Additional Practice</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -435,6 +434,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equations-of-state-ideal-gas">Equations of State: Ideal Gas</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-pressure-using-our-function">Calculate the Pressure using Our Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#course-outcome">Course Outcome:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-of-the-pressure-vs-molar-volume-for-an-ideal-gas">Plot of the Pressure vs Molar Volume for an Ideal Gas</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-number-of-moles-given-a-pressure-and-temperature">Calculate the Number of Moles given a Pressure and Temperature</a></li>
 </ul>
@@ -496,6 +496,14 @@ P = \frac{nRT}{V} = \frac{RT}{\tilde{V}}
 </div>
 </div>
 </section>
+<section id="course-outcome">
+<h3>Course Outcome:<a class="headerlink" href="#course-outcome" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Students will be able to convert problem solving strategies to <strong>procedural algorithms</strong>, and</p></li>
+<li><p>make <strong>order of magnitude estimates</strong>, assess reasonableness of solutions, and select appropriate levels of solution sophistication</p></li>
+</ul>
+<p><strong>Classroom demo and Group exercise</strong>: Estimate the number of moles inside a balloon of the size shown in class. The pressure inside a balloon is approximately 0.75 psi. Make a function and then use it to calculate the number of moles of air inside the balloon.</p>
+</section>
 <section id="plot-of-the-pressure-vs-molar-volume-for-an-ideal-gas">
 <h3>Plot of the Pressure vs Molar Volume for an Ideal Gas<a class="headerlink" href="#plot-of-the-pressure-vs-molar-volume-for-an-ideal-gas" title="Permalink to this heading">#</a></h3>
 <p>We’ll use our function to create a plot of the pressure vs molar volume for an ideal gas at different temperatures.</p>
@@ -527,6 +535,7 @@ P = \frac{nRT}{V} = \frac{RT}{\tilde{V}}
 <p>One way is to create another function with the ideal gas law rearranged to return the number of moles of gas.
 Another way is to use the existing function and set the pressure to the room pressure and solve for the number of moles of gas.</p>
 </div></blockquote>
+<p>In keeping with our theme of introducing upcoming concepts when we’re learning about a related topic, we’ll introduce the <strong>fsolve</strong> method that we’ll learn more about in a couple weeks.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lets solve for the molar volume of an ideal gas at a given pressure and temperature</span>
@@ -878,6 +887,7 @@ P = \frac{RT}{\tilde{V} - b} - \frac{a}{\tilde{V}^2}
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equations-of-state-ideal-gas">Equations of State: Ideal Gas</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-pressure-using-our-function">Calculate the Pressure using Our Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#course-outcome">Course Outcome:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-of-the-pressure-vs-molar-volume-for-an-ideal-gas">Plot of the Pressure vs Molar Volume for an Ideal Gas</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-number-of-moles-given-a-pressure-and-temperature">Calculate the Number of Moles given a Pressure and Temperature</a></li>
 </ul>

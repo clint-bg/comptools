@@ -34,7 +34,6 @@ chapters:
     - file: homework/HW01
     - file: homework/HW02
     - file: homework/HW03
-    - file: homework/HW07
   - file: casestudies
     sections:
     - file: casestudies/casestudysch
