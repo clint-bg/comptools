@@ -188,7 +188,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW01.html">HW01: Introduction to Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW02.html">HW02: Functions and Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW03.html">HW03 More Functions and Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW03.html">HW03: More Functions and Objects</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -433,7 +433,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging-principles">Debugging Principles</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bug-types">Bug Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bug-types">Bug Types</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-syntax-execution-and-logic-errors">Example 1: Syntax, Execution, and Logic Errors</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-more-errors">Example 2: More errors</a></li>
@@ -480,11 +483,6 @@ document.write(`
 <li><p>Print the value of a variable inside a function</p></li>
 </ul>
 </li>
-<li><p>Use assert statements</p>
-<ul class="simple">
-<li><p>Assert statements are logical checks that you can use</p></li>
-</ul>
-</li>
 <li><p>Check errors and warnings</p>
 <ul class="simple">
 <li><p>Read the warning/error message</p></li>
@@ -497,15 +495,7 @@ document.write(`
 <li><p>Break up code into functions that can be tested separately</p></li>
 </ul>
 </li>
-<li><p>Use the debugger to step through your code</p>
-<ul class="simple">
-<li><p>Set a breakpoint</p></li>
-<li><p>Step through your code</p></li>
-<li><p>Check the value of variables</p></li>
-<li><p>Check the value of variables inside a loop</p></li>
-<li><p>Check the value of variables inside a function</p></li>
-</ul>
-</li>
+<li><p>Check your answer doing it a different way of from a reputable source.</p></li>
 </ol>
 </section>
 <section id="bug-types">
@@ -534,17 +524,153 @@ document.write(`
 </ul>
 </li>
 </ol>
-</section>
-<section id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h2>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this heading">#</a></h3>
+<p>Maybe you have to program the Haaland Equation for the friction factor from an array of Reynolds numbers (and also plot the result as a function of the Reynolds number).</p>
+<div class="math notranslate nohighlight">
+\[
+f = \frac{1}{\left( -1.8 \log_{10} \left[ \frac{6.9}{Re} + \left( \frac{\epsilon}{3.7D} \right)^{1.11} \right] \right)^2}
+\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[
+f = 64/Re \text{   if Re} &lt; 2000
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(f\)</span> is the friction factor, <span class="math notranslate nohighlight">\(Re\)</span> is the Reynolds number, <span class="math notranslate nohighlight">\(\epsilon\)</span> is the roughness of the pipe, and <span class="math notranslate nohighlight">\(D\)</span> is the diameter of the pipe.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#first import needed packages</span>
+<span class="kn">import</span> <span class="nn">numpi</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">mathplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#first import needed packages</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpi</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">mathplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpi&#39;
 </pre></div>
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Now set array of Reynolds numbers</span>
+<span class="n">Re</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linespace</span><span class="p">(</span><span class="mf">2e2</span><span class="p">,</span> <span class="mf">1e7</span><span class="p">,</span><span class="mi">100000</span><span class="p">)</span> <span class="c1"># or np.arange(1e-1, 1e4, 1)</span>
+<span class="c1">#print or show my Reynolds numbers</span>
+<span class="n">Re</span> <span class="c1"># or print(Re)</span>
+<span class="c1">#maybe print the first and last values</span>
+<span class="n">Re</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">Re</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1">#maybe just print the first 10 and last 10</span>
+<span class="n">Re</span><span class="p">[:</span><span class="mi">10</span><span class="p">],</span> <span class="n">Re</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">96</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Now set array of Reynolds numbers</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">Re</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linespace</span><span class="p">(</span><span class="mf">2e2</span><span class="p">,</span> <span class="mf">1e7</span><span class="p">,</span><span class="mi">100000</span><span class="p">)</span> <span class="c1"># or np.arange(1e-1, 1e4, 1)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#print or show my Reynolds numbers</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">Re</span> <span class="c1"># or print(Re)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/jupiterbook/lib/python3.9/site-packages/numpy/__init__.py:322,</span> in <span class="ni">__getattr__</span><span class="nt">(attr)</span>
+<span class="g g-Whitespace">    </span><span class="mi">319</span>     <span class="s2">&quot;Removed in NumPy 1.25.0&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">320</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Tester was removed in NumPy 1.25.&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">322</span> <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;module </span><span class="si">{!r}</span><span class="s2"> has no attribute &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">323</span>                      <span class="s2">&quot;</span><span class="si">{!r}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">attr</span><span class="p">))</span>
+
+<span class="ne">AttributeError</span>: module &#39;numpy&#39; has no attribute &#39;linespace&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Now set a function to calculate the friction factor</span>
+<span class="k">def</span> <span class="nf">friction_factor</span><span class="p">(</span><span class="n">Re</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">eoD</span><span class="o">=</span><span class="mf">2e-4</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">Re</span> <span class="o">&lt;</span> <span class="mi">2000</span><span class="p">:</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="mi">64</span><span class="o">/</span><span class="n">Re</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="o">-</span><span class="mf">1.8</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="mf">6.9</span><span class="o">/</span><span class="n">Re</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="n">eoD</span><span class="p">)</span><span class="o">/</span><span class="mf">3.7</span><span class="p">)</span><span class="o">**</span><span class="mf">1.11</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="n">f</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Now calculate the friction factor for each Reynolds number</span>
+<span class="n">ff</span> <span class="o">=</span> <span class="p">[</span><span class="n">friction_factor</span><span class="p">(</span><span class="n">each</span><span class="p">,</span><span class="n">Re</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">eoD</span><span class="o">=</span><span class="mf">2e-4</span><span class="p">)</span> <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">Re</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">98</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Now calculate the friction factor for each Reynolds number</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">ff</span> <span class="o">=</span> <span class="p">[</span><span class="n">friction_factor</span><span class="p">(</span><span class="n">each</span><span class="p">,</span><span class="n">Re</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">eoD</span><span class="o">=</span><span class="mf">2e-4</span><span class="p">)</span> <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">Re</span><span class="p">]</span>
+
+<span class="nn">Cell In[98], line 2,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Now calculate the friction factor for each Reynolds number</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">ff</span> <span class="o">=</span> <span class="p">[</span><span class="n">friction_factor</span><span class="p">(</span><span class="n">each</span><span class="p">,</span><span class="n">Re</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">eoD</span><span class="o">=</span><span class="mf">2e-4</span><span class="p">)</span> <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">Re</span><span class="p">]</span>
+
+<span class="ne">TypeError</span>: friction_factor() got multiple values for argument &#39;Re&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Now plot the friction factor vs Reynolds number</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">Re</span><span class="p">,</span> <span class="n">ffd</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Reynolds Number&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Friction Factor&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">100</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Now plot the friction factor vs Reynolds number</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">Re</span><span class="p">,</span> <span class="n">ffd</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Reynolds Number&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Friction Factor&#39;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;ffd&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Less often used debugging tools:</p>
+<ol class="arabic simple" start="7">
+<li><p>Use assert statements</p>
+<ul class="simple">
+<li><p>Assert statements are logical checks that you can use</p></li>
+</ul>
+</li>
+<li><p>Use the debugger to step through your code</p>
+<ul class="simple">
+<li><p>Set a breakpoint</p></li>
+<li><p>Step through your code</p></li>
+<li><p>Check the value of variables</p></li>
+<li><p>Check the value of variables inside a loop</p></li>
+<li><p>Check the value of variables inside a function</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h2>
 <section id="example-1-syntax-execution-and-logic-errors">
 <h3>Example 1: Syntax, Execution, and Logic Errors<a class="headerlink" href="#example-1-syntax-execution-and-logic-errors" title="Permalink to this heading">#</a></h3>
 <p>Take the transpose of a matrix</p>
@@ -583,7 +709,7 @@ document.write(`
 <span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
 
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">16</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">122</span><span class="p">],</span> <span class="n">line</span> <span class="mi">16</span>
 <span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
 <span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
 <span class="ne">---&gt; </span><span class="mi">16</span>         <span class="n">A_transpose</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
@@ -632,7 +758,7 @@ A_{n+1} &amp;= A_n + dt\cdot\left[ (A_{in} - A_n)/\tau - k A_n^2 \right]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">123</span><span class="p">],</span> <span class="n">line</span> <span class="mi">13</span>
     <span class="n">A</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">A</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="p">(</span> <span class="n">Ain</span><span class="o">-</span><span class="n">A</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">/</span><span class="n">tau</span>  <span class="o">-</span> <span class="n">A</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span>
     <span class="o">^</span>
 <span class="ne">SyntaxError</span>: cannot assign to function call
@@ -781,7 +907,10 @@ x^3 + 15x^2 + 3x - 10 = 0
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging-principles">Debugging Principles</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bug-types">Bug Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bug-types">Bug Types</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-syntax-execution-and-logic-errors">Example 1: Syntax, Execution, and Logic Errors</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-more-errors">Example 2: More errors</a></li>

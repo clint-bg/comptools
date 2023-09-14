@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>HW03: More Functions and Objects &#8212; Computational Tools for Chemical Engineers</title>
+    <title>HW04: Debugging and Documentation &#8212; Computational Tools for Chemical Engineers</title>
   
   
   
@@ -63,11 +63,9 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'homework/HW03';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'homework/HW04';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Case Studies" href="../casestudies.html" />
-    <link rel="prev" title="HW02: Functions and Objects" href="HW02.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -158,7 +156,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../topics.html">Modules</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/01-Motive.html">01-Motivation with Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/02-Functions.html">02-Functions of Ideal Gases</a></li>
@@ -185,10 +183,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../lectures/23-FinalReview.html">23-Final Exam Review</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="HW01.html">HW01: Introduction to Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HW02.html">HW02: Functions and Objects</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">HW03: More Functions and Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW03.html">HW03: More Functions and Objects</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -262,7 +260,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/clint-bg/comptools/blob/gh-pages/_sources/homework/HW03.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/clint-bg/comptools/blob/gh-pages/_sources/homework/HW04.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -310,7 +308,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/clint-bg/comptools/issues/new?title=Issue%20on%20page%20%2Fhomework/HW03.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/clint-bg/comptools/issues/new?title=Issue%20on%20page%20%2Fhomework/HW04.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -340,7 +338,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/homework/HW03.ipynb" target="_blank"
+      <li><a href="../_sources/homework/HW04.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -422,7 +420,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>HW03: More Functions and Objects</h1>
+    <h1>HW04: Debugging and Documentation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -436,6 +434,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5">Problem 5</a></li>
 </ul>
             </nav>
         </div>
@@ -447,49 +446,170 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="hw03-more-functions-and-objects">
-<h1>HW03: More Functions and Objects<a class="headerlink" href="#hw03-more-functions-and-objects" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="hw04-debugging-and-documentation">
+<h1>HW04: Debugging and Documentation<a class="headerlink" href="#hw04-debugging-and-documentation" title="Permalink to this heading">#</a></h1>
 <p>Purposes of this assignment is to get more practice with the following:</p>
 <ul class="simple">
-<li><p>Defining and calling functions</p></li>
+<li><p>If statements</p></li>
+<li><p>For loops</p></li>
+<li><p>Debugging</p></li>
+<li><p>Function Calls</p></li>
 <li><p>Using objects (class instance) and make a calculation using the objects attributes</p></li>
 </ul>
 <section id="problem-1">
 <h2>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h2>
-<p>Define a function to calculate the heat adsorbed by the atmosphere given the suns radiation and the albedo of the earth.  To get full credit please also specify defaults for the functions parameters. The function should have the following inputs:</p>
-<ul class="simple">
-<li><p>solar radiation (W/m^2), default value of 2000 W/m^2</p></li>
-<li><p>albedo (unitless), default value of 0.3</p></li>
-</ul>
-<p>Some hints:</p>
-<ul class="simple">
-<li><p>The heat adsorbed is the difference between the solar radiation and the reflected radiation.</p></li>
-<li><p>The reflected radiation is the solar radiation times the albedo.</p></li>
-<li><p>The function should return the heat adsorbed in units of W/m^2.</p></li>
-</ul>
-<p>Some equations:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(Q_{adsorbed} = Q_{solar} - Q_{reflected}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(Q_{reflected} = Q_{solar} \times \alpha\)</span></p></li>
-</ul>
-<p>where <span class="math notranslate nohighlight">\(\alpha\)</span> is the albedo. Calculate the heat adsorbed for an albedo of 0.3 and solar radiation of 2000 W/m^2.</p>
+<p>Write a Python function to calculate the Fibonacci sequence up to a given number n. The Fibonacci sequence is a series of numbers where each number is the sum of the two previous numbers. The first two numbers in the sequence are 0 and 1. So, the Fibonacci sequence for a given number n would be:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;n must be greater than 0&quot;</span><span class="p">)</span> 
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="nb">sum</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
+            <span class="k">return</span> <span class="nb">sum</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Can you fix the logical error in the above code?</p>
 </section>
 <section id="problem-2">
 <h2>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h2>
-<p>Create a plot that shows the heat adsorbed as a function of albedo for albedos ranging from 0 to 1.  Use the function you defined in Problem 1 to calculate the heat adsorbed.  Make sure to label your axes and title your plot. Also give a small description of what the plot is showing.</p>
+<p>Explain how the below code is working. What is the purpose of the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement? What is the purpose of the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop? What is the purpose of the <code class="docutils literal notranslate"><span class="pre">return</span></code> statements?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_prime</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_prime</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="problem-3">
 <h2>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h2>
-<p>In the last homework assignment, you made a class to calculate the properties of a gas. Specifically, the class had the critical parameters and you generated a function to determine the pressure from the Peng Robinson equation of state. In this problem, you will use that class to first create an instance (object) with the critical properties defined for CO2 and you’ll calculate the pressure of CO2 gas given the following properties by referencing the object’s attributes.</p>
-<ul class="simple">
-<li><p>temperature = 298 K</p></li>
-<li><p>volume = 1 L</p></li>
-<li><p>number of moles = 1 mol</p></li>
-</ul>
+<p>Please correct the logical error in the below code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">max_of_list</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
+    <span class="n">max_value</span> <span class="o">=</span> <span class="nb">list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="nb">list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">max_value</span> <span class="o">=</span> <span class="nb">list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">max_value</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arrayexample</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span> <span class="c1">#this is an example test, you may want to run others</span>
+<span class="n">max_of_list</span><span class="p">(</span><span class="n">arrayexample</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#this returns how much CPU time the function took to run as compared to the internal max function</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">max_of_list</span><span class="p">(</span><span class="n">arrayexample</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- </span><span class="si">%s</span><span class="s2"> seconds ---&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">))</span>
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">max</span><span class="p">(</span><span class="n">arrayexample</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- </span><span class="si">%s</span><span class="s2"> seconds ---&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- 4.410743713378906e-05 seconds ---
+--- 3.600120544433594e-05 seconds ---
+</pre></div>
+</div>
+</div>
+</div>
+<p>It’s good to discover the documentation of available packages so you don’t reinvent the wheel less efficiently. There already is an internal max function that is faster. (At least when done right it is.)</p>
 </section>
 <section id="problem-4">
 <h2>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h2>
-<p>Use the same class you used in Problem 3 to find the pressure of CO2 gas with various molar volume for a temperature of 2/3 times the critical temperature.  Plot the pressure as a function of molar volume beginning at the critical molar volume and out to very large molar volumes (1e6 L/mol).  Make sure to label your axes and title your plot. Also give a small description of what the plot is showing. Also plot the ideal gas law on the same plot.  You can use the following equation for the ideal gas law: P = RT/V.  Use the same temperature as you used for the Peng Robinson equation of state.</p>
+<p>Fix the below code to reverse the order of the string</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">reverse_string</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
+    <span class="n">reversed_str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">reversed_str</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">reversed_str</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reverse_string</span><span class="p">(</span><span class="s2">&quot;The quick brown fox jumps over the lazy dog&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;god yzal eht revo spmuj xof nworb kciuq e&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="problem-5">
+<h2>Problem 5<a class="headerlink" href="#problem-5" title="Permalink to this heading">#</a></h2>
+<p>Define arrays for the following equations</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+y1 &amp;= 2x−3 + 2x−1 \\
+y2 &amp;= 2x−3 \\
+y3 &amp;= 2x−1 \\
+\end{align}
+\end{split}\]</div>
+<p>where x ∈ [1E−2, 1E2] with at least 100 points in each array. Hint: Use the numpy function logspace.
+Plot t versus y1, y2, and y3 with the following formatting specifications, and save the plot as power law.pdf.</p>
+<ul class="simple">
+<li><p>Make the plot a log-log plot.</p></li>
+<li><p>Make the default font size 16.</p></li>
+<li><p>Plot s1 as a black solid line of width 2, s2 as a blue dashed line of default width and s3 as a red dotted line of default width.</p></li>
+<li><p>Label the x-axis with a symbol, σ.</p></li>
+<li><p>Label the y-axis with the word “Energy”</p></li>
+<li><p>Title the figure “Power-Law Crossover”</p></li>
+<li><p>Change the x-axis limits to span from 1E−2 to 1E2 and the y-axis from 1E−5 to 1E5</p></li>
+<li><p>Add a legend where s1 is labeled as “exact”, s2 is labeled as “large σ” and s3 is labeled as “small σ”.
+Hint. You are going to have to read the online documentation to learn how to do some of this formatting. I did this on purpose, so you can get comfortable doing this because it is an important skill.</p></li>
+</ul>
 </section>
 </section>
 
@@ -524,24 +644,6 @@ document.write(`
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="HW02.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">HW02: Functions and Objects</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="../casestudies.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Case Studies</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div></div>
   
 </div>
@@ -564,6 +666,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5">Problem 5</a></li>
 </ul>
   </nav></div>
 
