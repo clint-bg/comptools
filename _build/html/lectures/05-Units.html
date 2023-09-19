@@ -469,7 +469,7 @@ document.write(`
 <h3>SI Units<a class="headerlink" href="#si-units" title="Permalink to this heading">#</a></h3>
 <p><strong>meter, second, kilogram, Kelvin, and mole (base units)</strong> <br>
 Newton, Joule, Pascal, Watt (derived units) <br>
-kiloJoules, millimeter, etc (prefixes)</p>
+kilojoules, millimeter, etc (prefixes)</p>
 <p>A Joule is a Newton-meter, a Newton is kg-m/s^2, a Pascal is a Newton/m^2, and a Watt is a Joule/s. <br>
 The gas constant, R, is 8.314 J/mol-K in those consistent units.</p>
 <p>Example calculation below of the kinetic energy of a 2 kilogram mass moving at 20 miles per hour.</p>
@@ -526,7 +526,7 @@ kiloergs, millimeters, etc (prefixes)</p>
 <section id="english-units">
 <h3>English Units<a class="headerlink" href="#english-units" title="Permalink to this heading">#</a></h3>
 <p><strong>foot, second, pound-mass, Rankine, and mole (base units)</strong> <br>
-pound-force, foot-pound-force, pound-force/square foot, and pound-force foot per second (derived units)  <br>
+pound-force, foot-pound, pound-force/square foot, and foot-pound per second (derived units)  <br>
 BTU, psi, and horsepower (other derived units)</p>
 <p>Thus if you work in feet, seconds, pound-mass, and Rankine, you’ll need conversion factors to report energy, work, pressure, and power to commonly used english units such as BTU, psi, and horsepower. Plus you’ll need to make sure you correctly use gc in your calculations.</p>
 <div class="math notranslate nohighlight">
@@ -645,10 +645,10 @@ type of kinetic energy = &lt;class &#39;pint.Quantity&#39;&gt;
 <p class="admonition-title">Note</p>
 <p>I don’t recommend you use pint or unum for the following reasons:</p>
 <ul class="simple">
-<li><p>for unum, the units used may be defined elsewhere as something else m for instance may have been defined previously as mass</p></li>
-<li><p>for pint, the object type of the number your working with is not a string or a float, but a pint object. This can cause problems with other packages or calculations.</p></li>
+<li><p>for unum, the units used may be defined elsewhere as something else; m for instance may have been defined previously as mass</p></li>
+<li><p>for pint, the object type of the number you’re working with is not a string or a float, but a pint object. This can cause problems with other packages or calculations.</p></li>
 </ul>
-<p>I recommend you switch you’re english input units to SI units (as above) and then convert back to english units at the end of your code when required.</p>
+<p>I recommend you switch your english input units to SI units (as above) and then convert back to english units at the end of your code when required.</p>
 </div>
 </section>
 </section>
