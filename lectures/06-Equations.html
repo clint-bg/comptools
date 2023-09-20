@@ -190,6 +190,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW02.html">HW02: Functions and Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW03.html">HW03: More Functions and Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW04.html">HW04: Debugging and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW05.html">HW05: Units</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -434,9 +435,9 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-linear-systems-of-equations">Solving Linear Systems of Equations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-linear-system-with-sympy">Solve Linear System with Sympy</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-linear-system-with-numpy">Solve Linear System with Numpy</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-linear-system-with-scipy-s-fsolve">Solve Linear System with Scipy’s Fsolve</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-linear-system-with-sympy">Solve Linear System with Sympy</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-linear-system-with-gaussian-elimination">Solve Linear System with Gaussian Elimination</a></li>
 </ul>
 </li>
@@ -477,35 +478,13 @@ z_i F &amp;= x_i L + y_i V
 \end{split}\]</div>
 <p>which for this case <span class="math notranslate nohighlight">\(z_i\)</span> = 0.4, <span class="math notranslate nohighlight">\(F\)</span> = 100 mol/hr, <span class="math notranslate nohighlight">\(x_i\)</span> = 0.1, <span class="math notranslate nohighlight">\(y_i\)</span> = 0.8. We can solve this in many different ways. We’ll solve this system of equations multiple ways:</p>
 <ul class="simple">
-<li><p>first we’ll do it using SymPy,</p></li>
-<li><p>then we’ll do it using NumPy,</p></li>
-<li><p>then we’ll do it using SciPy,</p></li>
-<li><p>then we’ll do it using Gauss Elimination,</p></li>
-<li><p>and with Gekko (a software package for dynamic optimization).</p></li>
+<li><p>first we’ll do it using NumPy (linear algebra),</p></li>
+<li><p>then we’ll do it using SciPy (fsolve),</p></li>
+<li><p>then we’ll do it using SymPy (symbolic algebra),</p></li>
+<li><p>then we’ll do it using Gauss Elimination (a numerical method),</p></li>
+<li><p>and with Gekko (a software package for dynamic optimization),</p></li>
+<li><p>not shown is the algebraic solution.</p></li>
 </ul>
-<p>Of course this simple set could be rearranged and solved algebraically.</p>
-<section id="solve-linear-system-with-sympy">
-<h3>Solve Linear System with Sympy<a class="headerlink" href="#solve-linear-system-with-sympy" title="Permalink to this heading">#</a></h3>
-<p>The above equations can be solved symbolically as shown below using the sympy package.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sym</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>
-<span class="n">L</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">)</span>
-<span class="n">V</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;V&#39;</span><span class="p">)</span>
-<span class="n">ans</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">solve</span><span class="p">([</span><span class="mi">100</span> <span class="o">-</span> <span class="p">(</span><span class="n">L</span><span class="o">+</span><span class="n">V</span><span class="p">),</span> <span class="mf">0.4</span><span class="o">*</span><span class="mi">100</span><span class="o">-</span><span class="mf">0.1</span><span class="o">*</span><span class="n">L</span><span class="o">-</span><span class="mf">0.8</span><span class="o">*</span><span class="n">V</span><span class="p">],</span> <span class="p">[</span><span class="n">L</span><span class="p">,</span><span class="n">V</span><span class="p">])</span>
-<span class="c1">#or equiavlently you can use </span>
-<span class="c1">#ans = sym.linsolve([100 - (L+V), 0.4*100-0.1*L-0.8*V],[L,V])</span>
-<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="n">sym</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">ans</span><span class="p">)))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \left\{ L : 57.1428571428571, \  V : 42.8571428571429\right\}\]</div>
-</div>
-</div>
-</section>
 <section id="solve-linear-system-with-numpy">
 <h3>Solve Linear System with Numpy<a class="headerlink" href="#solve-linear-system-with-numpy" title="Permalink to this heading">#</a></h3>
 <p>The above equations can be solved numerically as shown below using the numpy package. First you’ll adjust the equations algebraically to be in the form Ax = b.  Then you’ll use the numpy.linalg.solve function to solve the system of equations.</p>
@@ -570,6 +549,28 @@ L + V &amp;= 100 \\
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The solution is 57.14 for L and 42.86 for V
 </pre></div>
 </div>
+</div>
+</div>
+</section>
+<section id="solve-linear-system-with-sympy">
+<h3>Solve Linear System with Sympy<a class="headerlink" href="#solve-linear-system-with-sympy" title="Permalink to this heading">#</a></h3>
+<p>The above equations can be solved symbolically as shown below using the sympy package.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sym</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>
+<span class="n">L</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">)</span>
+<span class="n">V</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;V&#39;</span><span class="p">)</span>
+<span class="n">ans</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">solve</span><span class="p">([</span><span class="mi">100</span> <span class="o">-</span> <span class="p">(</span><span class="n">L</span><span class="o">+</span><span class="n">V</span><span class="p">),</span> <span class="mf">0.4</span><span class="o">*</span><span class="mi">100</span><span class="o">-</span><span class="mf">0.1</span><span class="o">*</span><span class="n">L</span><span class="o">-</span><span class="mf">0.8</span><span class="o">*</span><span class="n">V</span><span class="p">],</span> <span class="p">[</span><span class="n">L</span><span class="p">,</span><span class="n">V</span><span class="p">])</span>
+<span class="c1">#or equiavlently you can use </span>
+<span class="c1">#ans = sym.linsolve([100 - (L+V), 0.4*100-0.1*L-0.8*V],[L,V])</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="n">sym</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">ans</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left\{ L : 57.1428571428571, \  V : 42.8571428571429\right\}\]</div>
 </div>
 </div>
 </section>
@@ -930,9 +931,9 @@ x = x_0 - \frac{f(x_0)}{f'(x_0)}
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-linear-systems-of-equations">Solving Linear Systems of Equations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-linear-system-with-sympy">Solve Linear System with Sympy</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-linear-system-with-numpy">Solve Linear System with Numpy</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-linear-system-with-scipy-s-fsolve">Solve Linear System with Scipy’s Fsolve</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-linear-system-with-sympy">Solve Linear System with Sympy</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-linear-system-with-gaussian-elimination">Solve Linear System with Gaussian Elimination</a></li>
 </ul>
 </li>
