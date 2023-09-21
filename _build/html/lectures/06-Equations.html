@@ -191,6 +191,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW03.html">HW03: More Functions and Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW04.html">HW04: Debugging and Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW05.html">HW05: Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW06.html">HW06: Solve Equations</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -439,6 +440,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-linear-system-with-scipy-s-fsolve">Solve Linear System with Scipy’s Fsolve</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-linear-system-with-sympy">Solve Linear System with Sympy</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-linear-system-with-gaussian-elimination">Solve Linear System with Gaussian Elimination</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-linear-system-with-gekko">Solve Linear System with Gekko</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-non-linear-systems-of-equations">Solving Non-Linear Systems of Equations</a><ul class="nav section-nav flex-column">
@@ -532,15 +534,15 @@ L + V &amp;= 100 \\
 </section>
 <section id="solve-linear-system-with-scipy-s-fsolve">
 <h3>Solve Linear System with Scipy’s Fsolve<a class="headerlink" href="#solve-linear-system-with-scipy-s-fsolve" title="Permalink to this heading">#</a></h3>
-<p>The above equations can be solved numerically as shown below using the scipy package. Fsolve can be used to solve for multiple variables in both a non-linear and linear scenario given there are continuous functions and the number of equations = number of unknowns.</p>
+<p>The above equations can be solved numerically as shown below using the scipy package. Fsolve can be used to solve for multiple variables in both a non-linear and linear scenario given there are continuous functions and the number of equations = number of unknowns. Method used to find roots is in the documentation: <code class="docutils literal notranslate"><span class="pre">fsolve</span></code> is a wrapper around MINPACK’s hybrd and hybrj algorithms.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span>
 <span class="k">def</span> <span class="nf">equations</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
-    <span class="n">L</span><span class="p">,</span><span class="n">V</span> <span class="o">=</span> <span class="n">p</span>
+    <span class="n">L</span><span class="p">,</span><span class="n">V</span> <span class="o">=</span> <span class="n">p</span> <span class="c1">#unpack the tuple</span>
     <span class="k">return</span> <span class="p">(</span><span class="mi">100</span> <span class="o">-</span> <span class="p">(</span><span class="n">L</span><span class="o">+</span><span class="n">V</span><span class="p">),</span> <span class="mf">0.4</span><span class="o">*</span><span class="mi">100</span><span class="o">-</span><span class="mf">0.1</span><span class="o">*</span><span class="n">L</span><span class="o">-</span><span class="mf">0.8</span><span class="o">*</span><span class="n">V</span><span class="p">)</span> <span class="c1">#each equation is set so that it is equal to zero, also the returned value is also a tuple</span>
 
-<span class="n">L</span><span class="p">,</span><span class="n">V</span> <span class="o">=</span>  <span class="n">fsolve</span><span class="p">(</span><span class="n">equations</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">L</span><span class="p">,</span><span class="n">V</span> <span class="o">=</span>  <span class="n">fsolve</span><span class="p">(</span><span class="n">equations</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="c1">#feed the function fsolve an initial guess with a tuple</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The solution is </span><span class="si">{</span><span class="n">L</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> for L and </span><span class="si">{</span><span class="n">V</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> for V&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -554,7 +556,7 @@ L + V &amp;= 100 \\
 </section>
 <section id="solve-linear-system-with-sympy">
 <h3>Solve Linear System with Sympy<a class="headerlink" href="#solve-linear-system-with-sympy" title="Permalink to this heading">#</a></h3>
-<p>The above equations can be solved symbolically as shown below using the sympy package.</p>
+<p>The above equations can be solved symbolically as shown below using the sympy package. Typically used for symbolic solutions to equations.  The sympy package can also be used to solve differential equations symbolically. The solver is for linear equations or nonlinear equations, see the documentation for further details: <a class="reference external" href="https://docs.sympy.org/latest/modules/solvers/solvers.html">https://docs.sympy.org/latest/modules/solvers/solvers.html</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sym</span>
@@ -614,6 +616,10 @@ L + V &amp;= 100 \\
 </div>
 </div>
 </div>
+</section>
+<section id="solve-linear-system-with-gekko">
+<h3>Solve Linear System with Gekko<a class="headerlink" href="#solve-linear-system-with-gekko" title="Permalink to this heading">#</a></h3>
+<p>Gekko is a software package for dynamic optimization.  It can also be used to solve systems of equations. Developed here at Brigham Young University by John Hedengren. Further information here: <a class="reference external" href="https://gekko.readthedocs.io/en/latest/">https://gekko.readthedocs.io/en/latest/</a> and here: <a class="reference external" href="https://www.mdpi.com/2227-9717/6/8/106">https://www.mdpi.com/2227-9717/6/8/106</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Solve equation with Gekko</span>
@@ -693,12 +699,11 @@ L + V &amp;= 100 \\
 <span class="n">epsil</span> <span class="o">=</span> <span class="mf">0.0001</span> <span class="c1">#m</span>
 <span class="n">pipeLen</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1">#m</span>
 <span class="c1">#solve for the friction factor</span>
-<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span>
-<span class="n">f</span> <span class="o">=</span>  <span class="n">fsolve</span><span class="p">(</span><span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">Colbrook</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Reynolds</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span><span class="n">vel</span><span class="p">,</span><span class="n">pipeDia</span><span class="p">,</span><span class="n">mu</span><span class="p">),</span><span class="n">pipeDia</span><span class="p">,</span><span class="n">epsil</span><span class="p">),</span> <span class="mf">0.01</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ffact</span> <span class="o">=</span>  <span class="n">fsolve</span><span class="p">(</span><span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">Colbrook</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Reynolds</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span><span class="n">vel</span><span class="p">,</span><span class="n">pipeDia</span><span class="p">,</span><span class="n">mu</span><span class="p">),</span><span class="n">pipeDia</span><span class="p">,</span><span class="n">epsil</span><span class="p">),</span> <span class="mf">0.01</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 <span class="c1">#calculate the pressure drop</span>
-<span class="n">ploss</span> <span class="o">=</span> <span class="n">pressure_loss</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">pipeLen</span><span class="p">,</span><span class="n">pipeDia</span><span class="p">,</span><span class="n">rho</span><span class="p">,</span><span class="n">vel</span><span class="p">)</span> <span class="c1">#Pa</span>
+<span class="n">ploss</span> <span class="o">=</span> <span class="n">pressure_loss</span><span class="p">(</span><span class="n">ffact</span><span class="p">,</span><span class="n">pipeLen</span><span class="p">,</span><span class="n">pipeDia</span><span class="p">,</span><span class="n">rho</span><span class="p">,</span><span class="n">vel</span><span class="p">)</span> <span class="c1">#Pa</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The Reynolds number is </span><span class="si">{</span><span class="n">Reynolds</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span><span class="n">vel</span><span class="p">,</span><span class="n">pipeDia</span><span class="p">,</span><span class="n">mu</span><span class="p">)</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The friction factor is </span><span class="si">{</span><span class="n">f</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The friction factor is </span><span class="si">{</span><span class="n">ffact</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The pressure drop is </span><span class="si">{</span><span class="n">ploss</span><span class="o">/</span><span class="mi">1000</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> Pa (or </span><span class="si">{</span><span class="n">ploss</span><span class="o">/</span><span class="mi">1000</span><span class="o">*</span><span class="mf">0.145</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> psi)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -935,6 +940,7 @@ x = x_0 - \frac{f(x_0)}{f'(x_0)}
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-linear-system-with-scipy-s-fsolve">Solve Linear System with Scipy’s Fsolve</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-linear-system-with-sympy">Solve Linear System with Sympy</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-linear-system-with-gaussian-elimination">Solve Linear System with Gaussian Elimination</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-linear-system-with-gekko">Solve Linear System with Gekko</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-non-linear-systems-of-equations">Solving Non-Linear Systems of Equations</a><ul class="nav section-nav flex-column">

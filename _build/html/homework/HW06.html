@@ -66,6 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'homework/HW06';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Case Studies" href="../casestudies.html" />
+    <link rel="prev" title="HW05: Units" href="HW05.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -156,7 +158,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../topics.html">Modules</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/01-Motive.html">01-Motivation with Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/02-Functions.html">02-Functions of Ideal Gases</a></li>
@@ -183,11 +185,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../lectures/23-FinalReview.html">23-Final Exam Review</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="HW01.html">HW01: Introduction to Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HW02.html">HW02: Functions and Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HW03.html">HW03: More Functions and Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HW04.html">HW04: Debugging and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW05.html">HW05: Units</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">HW06: Solve Equations</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -580,7 +584,9 @@ document.write(`
 <p>The equation is solved when <span class="math notranslate nohighlight">\(f_0\)</span> and <span class="math notranslate nohighlight">\(f_1\)</span> are equal to zero. The <code class="docutils literal notranslate"><span class="pre">fsolve</span></code> function requires a function that returns the residuals (<span class="math notranslate nohighlight">\(f_1\)</span> and <span class="math notranslate nohighlight">\(f_2\)</span>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#notice the use of the array or list to specify x0 and x1 (other variables may be specified like x and y in the equations as</span>
+<span class="c1">#variables and you&#39;d still use the array of x[:] or you could use a tuple)</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="n">f1</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">f2</span> <span class="o">=</span> <span class="mf">1.5</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mf">0.5</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">f1</span><span class="p">,</span><span class="n">f2</span><span class="p">]</span>
@@ -588,10 +594,10 @@ document.write(`
 </div>
 </div>
 </div>
-<p>The function solver <code class="docutils literal notranslate"><span class="pre">fsolve</span></code> also  an initial guess. A few guess values are evaluated below.</p>
+<p>The function solver <code class="docutils literal notranslate"><span class="pre">fsolve</span></code> also needs an initial guess. A few guess values are evaluated below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># guess solutions</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># values of the function at a few points (guesses)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">]))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">]))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">]))</span>
@@ -621,6 +627,25 @@ document.write(`
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#solving the same thing above using a tuple instead of an array</span>
+<span class="k">def</span> <span class="nf">ftuple</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">p</span> <span class="c1">#unpack the tuple</span>
+    <span class="n">f1</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">y</span>
+    <span class="n">f2</span> <span class="o">=</span> <span class="mf">1.5</span><span class="o">*</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="o">-</span><span class="mf">0.5</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">f1</span><span class="p">,</span><span class="n">f2</span><span class="p">)</span>
+<span class="n">xt</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="n">ftuple</span><span class="p">,(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="c1">#pack the tuple for the guess value</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 0.25  -0.125]
+</pre></div>
+</div>
+</div>
+</div>
 <p><em><strong>Action:</strong></em> Determine one solution for <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> to the following equations (there are 4 possible solutions).</p>
 <p><span class="math notranslate nohighlight">\(2 x^2 + y^2 = 1\)</span></p>
 <p><span class="math notranslate nohighlight">\((0.5x-0.5)^2+2(y-0.25)^2=1\)</span></p>
@@ -630,12 +655,16 @@ document.write(`
 <h2>Problem #3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h2>
 <p>The Redlich/Kwong Equation of State is</p>
 <p><span class="math notranslate nohighlight">\(P = \frac{R_g \, T}{V-b} - \frac{a}{T^{1/2} \, V \, \left(V+b\right)}\)</span></p>
-<p>where <span class="math notranslate nohighlight">\(T\)</span> is the temperature, <span class="math notranslate nohighlight">\(V\)</span> is the molar volume, <span class="math notranslate nohighlight">\(R_g\)</span> is the universal gas constant, and <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are compound-specific constants.  Find the molar volume of ethane for each phase that is present at <span class="math notranslate nohighlight">\(T = 77 \, °C\)</span> and <span class="math notranslate nohighlight">\(P = 1 \, bar\)</span>.  For ethane, <span class="math notranslate nohighlight">\(a = 2.877×10^8 \, \frac{cm^6 bar K^{0.5}}{mol^2}\)</span> and <span class="math notranslate nohighlight">\(b = 60.211 \, \frac{cm^3}{mol}\)</span>.</p>
+<p>where <span class="math notranslate nohighlight">\(T\)</span> is the temperature, <span class="math notranslate nohighlight">\(V\)</span> is the molar volume, <span class="math notranslate nohighlight">\(R_g\)</span> is the universal gas constant, and <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are compound-specific constants.</p>
+<p>A plot of the pressure as a function of the molar volume at a temperature of -87 C is shown below. Notice there are three roots at that temperature (three molar volumes where the curve yields 1 bar). The left most is the liquid phase and the right most is the vapor phase.</p>
+<img src="https://github.com/clint-bg/comptools/blob/main/homework/supportfiles/EthanePV.png?raw=true" width="600"><p>Find the molar volume of ethane for each phase (liquid and gas) that is present at <span class="math notranslate nohighlight">\(T = -87 \, °C\)</span> and <span class="math notranslate nohighlight">\(P = 1 \, bar\)</span>.  For ethane, <span class="math notranslate nohighlight">\(a = 2.877×10^8 \, \frac{cm^6 bar K^{0.5}}{mol^2}\)</span> and <span class="math notranslate nohighlight">\(b = 60.211 \, \frac{cm^3}{mol}\)</span>.</p>
 <ul class="simple">
-<li><p>Use the ideal gas law to obtain the guess of the vapor volume and 1.1*b to obtain the guess for the liquid volume.  (Graphing helps find good guesses for solver)</p></li>
-<li><p>You may need to include some constraints.</p></li>
-<li><p>IF YOU ARE STUCK ask a friend, the TA OR the instructor!  Don’t spent so much time feeling lost that you become discouraged.</p></li>
-<li><p>You should obtain something around 28637 <span class="math notranslate nohighlight">\(cm^3/mol\)</span> for the vapor volume and 82.477 <span class="math notranslate nohighlight">\(cm^3/mol\)</span> for the liquid volume.  The middle root (not required but for your information) is in between.</p></li>
+<li><p>Pay attention to units.</p></li>
+<li><p>Use the ideal gas law to obtain the guess of the vapor volume.</p></li>
+<li><p>Use a guess value of 0.9*b for the liquid volume.</p></li>
+<li><p>You should obtain something around 16000 <span class="math notranslate nohighlight">\(cm^3/mol\)</span> for the vapor volume and 55 <span class="math notranslate nohighlight">\(cm^3/mol\)</span> for the liquid volume.  The middle root (not required but for your information) is around 60 <span class="math notranslate nohighlight">\(cm^3/mol\)</span> (as shown in the above plot).</p></li>
+<li><p>Compare your answer for the vapor volume (actual) to the ideal gas law (estimate) by calculating a percent error: (actual-estiate)/actual*100).</p></li>
+<li><p>Also compare your answer for the liquid volume you solved for to the liquid volume of ethane at -87 °C (look up on the web or dippr). Also calculate a percent error.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -643,8 +672,8 @@ document.write(`
 <span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span>
 
 <span class="c1"># constants</span>
-<span class="n">TC</span> <span class="o">=</span> <span class="mi">77</span> <span class="c1"># degC</span>
-<span class="n">P</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1"># bar</span>
+<span class="n">TC</span> <span class="o">=</span> <span class="o">-</span><span class="mi">87</span> <span class="c1"># degC</span>
+<span class="n">P</span> <span class="o">=</span> <span class="mf">1e5</span> <span class="c1"># Pa</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mf">2.877e8</span> <span class="c1"># cm^6 bar K^0.5 / mol^2</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mf">60.211</span>  <span class="c1"># cm^3 / mol</span>
 <span class="n">Rg</span> <span class="o">=</span> <span class="mf">83.144598</span> <span class="c1"># cm^3 bar / K-mol</span>
@@ -652,7 +681,7 @@ document.write(`
 <span class="n">TK</span> <span class="o">=</span> <span class="n">TC</span><span class="o">+</span><span class="mf">273.15</span> <span class="c1"># K</span>
 
 <span class="c1"># define function for fsolve</span>
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">V</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">fRKP</span><span class="p">(</span><span class="n">V</span><span class="p">):</span>
     <span class="k">return</span> <span class="c1"># fill-in</span>
 </pre></div>
 </div>
@@ -677,7 +706,7 @@ y_2 P = x_2 P_2^{sat}(T)
 \ln{\left(P_i^{sat}(T) \right)} = A_i - \frac{B_i}{T+ C_i}
 \end{equation}
 \]</div>
-<p>Note that <span class="math notranslate nohighlight">\(P_i^{sat}(T)\)</span> is not <span class="math notranslate nohighlight">\(P_i^{sat}\)</span> times <span class="math notranslate nohighlight">\(T\)</span>, but is simply showing that <span class="math notranslate nohighlight">\(P_i^{sat}\)</span> is a function of <span class="math notranslate nohighlight">\(T\)</span> in kPa.  The constants, <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, and <span class="math notranslate nohighlight">\(C\)</span>, are compound specific and are found in the table below. <span class="math notranslate nohighlight">\(T\)</span> is in <span class="math notranslate nohighlight">\(°C\)</span>.</p>
+<p>Note that <span class="math notranslate nohighlight">\(P_i^{sat}(T)\)</span> is not <span class="math notranslate nohighlight">\(P_i^{sat}\)</span> times <span class="math notranslate nohighlight">\(T\)</span>, but is simply showing that <span class="math notranslate nohighlight">\(P_i^{sat}\)</span> is a function of <span class="math notranslate nohighlight">\(T\)</span> in kPa.  The constants, <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, and <span class="math notranslate nohighlight">\(C\)</span>, are compound specific and are found in the table below. <span class="math notranslate nohighlight">\(T\)</span> is in <span class="math notranslate nohighlight">\(°C\)</span> in the above equation.</p>
 <p><em><strong>Antoine Constants for Benzene and Toluene:</strong></em></p>
 <table class="table">
 <thead>
@@ -700,13 +729,23 @@ y_2 P = x_2 P_2^{sat}(T)
 </tr>
 </tbody>
 </table>
-<p>If a mixture of benzene (species 1) and toluene (species 2) has <span class="math notranslate nohighlight">\(y_1 = 0.33\)</span> and <span class="math notranslate nohighlight">\(P = 120 \, kPa\)</span>, find <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(T\)</span>. Remember that the mole fractions of each phase must sum to 1.</p>
+<p><strong>Setup Equations</strong></p>
+<p>Since the liquid (x’s) and vapor (y’s) mole fractions must sum to 1, we can write the following equations:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+y_1 P = x_1 P_1^{sat}(T) \\
+(1-y_1) P = (1-x_1) P_2^{sat}(T)
+\end{align}
+\end{split}\]</div>
+<p>If a mixture of benzene (species 1) and toluene (species 2) has <span class="math notranslate nohighlight">\(y_1 = 0.33\)</span> and <span class="math notranslate nohighlight">\(P = 120 \, kPa\)</span>, find <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(T\)</span>.</p>
 <ul class="simple">
-<li><p>First figure out what you are solving for.  Then figure out how many equations you have.</p></li>
-<li><p>You might want to set up a function for <span class="math notranslate nohighlight">\(P_1^{sat}\)</span> and <span class="math notranslate nohighlight">\(P_2^{sat}\)</span> that are a function of <span class="math notranslate nohighlight">\(T\)</span>.</p></li>
-<li><p>You should get about 0.17 for <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(109 °C\)</span> for <span class="math notranslate nohighlight">\(T\)</span>.</p></li>
+<li><p>For full credit, you must use an object-oriented approach to solve this problem; meaning you need to define a class and have a Psat function as part of that class. That Psat function should be written such that all the parameters except for the temperature are defined by self. That is, def Psat(self,T): and then the function should return the vapor pressure referring to the self.antione coefficients in the function.</p></li>
+<li><p>Use a guess value of 0.5 for <span class="math notranslate nohighlight">\(x_1\)</span> and 100 °C for <span class="math notranslate nohighlight">\(T\)</span>.</p></li>
+<li><p>You should get about 0.15 for <span class="math notranslate nohighlight">\(x_1\)</span> and 110 °C for <span class="math notranslate nohighlight">\(T\)</span>.</p></li>
+<li><p>Report the solved for <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(T\)</span> values.</p></li>
 </ul>
-<p>Credit to Dr. John Hedengren for these problems.</p>
+<p>Credit to Dr. John Hedengren for some of these problems.</p>
 </section>
 </section>
 
@@ -741,6 +780,24 @@ y_2 P = x_2 P_2^{sat}(T)
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="HW05.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">HW05: Units</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../casestudies.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Case Studies</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
