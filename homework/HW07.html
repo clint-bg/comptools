@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>HW07: Additional Practice &#8212; Computational Tools for Chemical Engineers</title>
+    <title>HW07: Additional Equation Solving Practice &#8212; Computational Tools for Chemical Engineers</title>
   
   
   
@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'homework/HW07';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -186,6 +188,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="HW02.html">HW02: Functions and Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HW03.html">HW03: More Functions and Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HW04.html">HW04: Debugging and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW05.html">HW05: Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW06.html">HW06: Solve Equations</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -419,7 +423,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>HW07: Additional Practice</h1>
+    <h1>HW07: Additional Equation Solving Practice</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -431,6 +435,8 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
 </ul>
             </nav>
         </div>
@@ -442,21 +448,59 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="hw07-additional-practice">
-<h1>HW07: Additional Practice<a class="headerlink" href="#hw07-additional-practice" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="hw07-additional-equation-solving-practice">
+<h1>HW07: Additional Equation Solving Practice<a class="headerlink" href="#hw07-additional-equation-solving-practice" title="Permalink to this heading">#</a></h1>
 <section id="problem-1">
 <h2>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h2>
-<p>This problem reviews the use of non-linear solvers. You can use any numerical non-linear solver. Below is an image of a portion of a pipe network with pipes label P1, P2, and P3. Fluid enters the left and then exits at the right through both P2 and P3. Each of those pipes have different properties (lengths, diameters, and roughness).</p>
-<img src="https://github.com/clint-bg/comptools/blob/main/homework/supportfiles/basicpipenetwork.png?raw=true" width="300"><p>Create a class called <code class="docutils literal notranslate"><span class="pre">pipeClass</span></code> using param.Parameterized that has the following properties:</p>
+<p>Succinctly repeat the in-class exercise result here. Include the Colbrook function, Colbrook_prime function and custom Newtons method you build and the function calls with your custom Newton method and the fsolve call to determine the friction factor at a guess value of 10.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="problem-2">
+<h2>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h2>
+<p>This problem reviews the use of non-linear solvers. You can use any numerical non-linear solver. Below is an image of a portion of a <strong>horizonal</strong> pipe network with pipes label P1, P2, and P3. Fluid enters the left and then exits at the right through both P2 and P3. Each of those pipes have different properties (lengths, diameters, and roughness). Your task is to solve for the flow in P2 and P3 given a flow in P1.</p>
+<img src="https://github.com/clint-bg/comptools/blob/main/homework/supportfiles/basicpipenetwork.png?raw=true" width="300"><p><strong>Action 1:</strong> Create a class called <code class="docutils literal notranslate"><span class="pre">fluid</span></code> using param.Parameterized that has the following properties:</p>
+<ul class="simple">
+<li><p>density (default of 1000 kg/m3)</p></li>
+<li><p>mu (default of 1E-3 Pa-sec for viscosity)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Action 2:</strong> Create a class called <code class="docutils literal notranslate"><span class="pre">pipeClass</span></code> using param.Parameterized that has the following properties:</p>
 <ul class="simple">
 <li><p>length (m)</p></li>
 <li><p>diameter (m)</p></li>
 <li><p>roughness (m)</p></li>
-<li><p>velocity (m/s)</p></li>
-<li><p>a function called <code class="docutils literal notranslate"><span class="pre">frictionFactor</span></code> that returns the friction factor for the pipe using the Colebrook-White equation</p></li>
-<li><p>a function called <code class="docutils literal notranslate"><span class="pre">reynoldsNumber</span></code> that returns the Reynolds number for the pipe</p></li>
+<li><p>flow (m3/s)</p></li>
+<li><p>fluidinside (a fluid object with the default being the fluid default): specify with <code class="docutils literal notranslate"><span class="pre">fluidinside</span> <span class="pre">=</span> <span class="pre">param.Parameter(fluid())</span></code>. You can refer to the fluidinside density or mu with <code class="docutils literal notranslate"><span class="pre">self.fluidinside.density</span></code> or <code class="docutils literal notranslate"><span class="pre">self.fluidinside.mu</span></code>, respectively.</p></li>
+<li><p>a function calle <code class="docutils literal notranslate"><span class="pre">velocity</span></code> that returns the velocity of the fluid given <code class="docutils literal notranslate"><span class="pre">self.flow</span></code> and <code class="docutils literal notranslate"><span class="pre">self.diameter</span></code>: i.e. <code class="docutils literal notranslate"><span class="pre">velocity</span> <span class="pre">=</span> <span class="pre">self.flow/(np.pi/4*self.diameter</span></code></p></li>
+<li><p>a function called <code class="docutils literal notranslate"><span class="pre">reynoldsNumber</span></code> that returns the Reynolds number for the pipe flow: i.e. <code class="docutils literal notranslate"><span class="pre">Re</span> <span class="pre">=</span> <span class="pre">self.velocity()*self.diameter*self.fluidinside.density/self.fluidinside.mu</span></code></p>
+<ul>
+<li><p>for the Reynolds number, assume a density of 1000 kg/m3 and a viscosity of 1E-3 Pa*sec (the default fluid() parameters)</p></li>
 </ul>
-<p>Now create three pipe objects with the following properties:</p>
+</li>
+<li><p>a function called <code class="docutils literal notranslate"><span class="pre">frictionFactor</span></code> that returns the friction factor for the pipe using the the Haaland Equation</p></li>
+<li><p>a function to determine the <code class="docutils literal notranslate"><span class="pre">pressuredrop</span></code> in the horizontal pipe = <span class="math notranslate nohighlight">\(\rho fLv^2/(2D)\)</span>. <span class="math notranslate nohighlight">\(\rho\)</span> is density, f the friction factor, L the length, v the velocity, D the diameter.</p></li>
+</ul>
+<p>All of the functions in the class need only be functions of self</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Action 3:</strong> Now create three pipe objects with the following properties:</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Pipe</p></th>
@@ -479,22 +523,210 @@ document.write(`
 <tr class="row-even"><td><p>P3</p></td>
 <td><p>50</p></td>
 <td><p>0.75</p></td>
-<td><p>0.0001</p></td>
+<td><p>0.0002</p></td>
 </tr>
 </tbody>
 </table>
 <p>Other System Properties:</p>
 <ul class="simple">
 <li><p>The total flow rate through the system is 0.1 m^3/s</p></li>
-<li><p>The fluid is water at 20 C</p></li>
+<li><p>The fluid is water with the properties above referenced.</p></li>
 <li><p>The fluid is turbulent (Re &gt; 4000)</p></li>
 </ul>
-<p>Then setup your function to solve for the velocity in each pipe. The velocity in each pipe will be different such that the total pressure drop through P1 and P3 is equal to P1 and P2.</p>
-<p>Report the flow velocity in each pipe and verify that the flow is indeed turbulent(Re &gt; 4000). Also report the total pressure drop through the system (P1 + P3) and verify that it is equal to the pressure drop through P1 and P2. There are examples in the <span class="xref myst">Equations to Solve Problem Lecture</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Action 4:</strong> Setup a function to calculate the pressure drop through P1 and a second pipe object with a given flow rate in the second pipe object using the above objects and their class functions, e.g. <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">routepressuredrop(objectj,flowj):</span></code>. You can do this step with three lines of object based code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Action 5:</strong> Then setup a function to solve for the flow in each pipe. The flow in each pipe will be different such that the total pressure drop through P1 and P3 is equal to P1 and P2, e.g. <code class="docutils literal notranslate"><span class="pre">routepressuredrop(P2,flow2)</span> <span class="pre">=</span> <span class="pre">routepressuredrop(P3,flow3)</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Action 6:</strong> Report the flow rate in each pipe and verify that the flow is indeed turbulent(Re &gt; 4000). Also report the total pressure drop through the system (P1 + P3) and verify that it is equal to the pressure drop through P1 and P2.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Results here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hopefully, this example shows you how using objects helps you keep track of the variables in your code. And that it helps reduce the errors made.</p>
 </section>
-<section id="problem-2">
-<h2>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h2>
-<p>Solve this same problem in Microsoft Excel.</p>
+<section id="problem-3">
+<h2>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h2>
+<p>Program the same problem above without using objects. I started to do this for the key and I thought it would be rude of me to ask you to actually do this so this problem is a free-bee. I’m giving you the result for free below. It doesn’t look as nice and organized as the code is above (especially if I don’t name my variables nicely).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rho</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="mf">1e-3</span>
+<span class="n">pipe1_length</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">pipe2_length</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">pipe3_length</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">pipe1_dia</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">pipe2_dia</span> <span class="o">=</span> <span class="mf">0.25</span>
+<span class="n">pipe3_dia</span> <span class="o">=</span> <span class="mf">0.75</span>
+<span class="n">pipe1_r</span> <span class="o">=</span> <span class="mf">0.0001</span>
+<span class="n">pipe2_r</span> <span class="o">=</span> <span class="mf">0.00001</span>
+<span class="n">pipe3_r</span> <span class="o">=</span> <span class="mf">0.0002</span>
+<span class="n">pipe1_flow</span> <span class="o">=</span> <span class="mf">0.1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">velocity</span><span class="p">(</span><span class="n">flow</span><span class="p">,</span><span class="n">D</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">flow</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="n">D</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">Reynolds</span><span class="p">(</span><span class="n">D</span><span class="p">,</span><span class="n">v</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">rho</span> <span class="o">*</span> <span class="n">D</span> <span class="o">*</span> <span class="n">v</span><span class="o">/</span><span class="n">mu</span>
+
+<span class="k">def</span> <span class="nf">frictionFactor</span><span class="p">(</span><span class="n">D</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">rough</span><span class="p">):</span> <span class="c1">#from Haaland equation</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="o">-</span><span class="mf">1.8</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mf">6.9</span><span class="o">/</span><span class="n">Reynolds</span><span class="p">(</span><span class="n">D</span><span class="p">,</span><span class="n">v</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="n">rough</span><span class="o">/</span><span class="p">(</span><span class="mf">3.7</span><span class="o">*</span><span class="n">D</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="mi">10</span><span class="o">/</span><span class="mi">9</span><span class="p">))))</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="k">def</span> <span class="nf">pressuredrop</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">v</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">rho</span><span class="o">*</span><span class="n">f</span><span class="o">*</span><span class="n">L</span><span class="o">/</span><span class="n">D</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">v</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">legpressuredrop12</span><span class="p">(</span><span class="n">flow2</span><span class="p">):</span>
+    <span class="n">p1drop</span> <span class="o">=</span> <span class="n">pressuredrop</span><span class="p">(</span><span class="n">frictionFactor</span><span class="p">(</span><span class="n">pipe1_dia</span><span class="p">,</span><span class="n">velocity</span><span class="p">(</span><span class="n">pipe1_flow</span><span class="p">,</span><span class="n">pipe1_dia</span><span class="p">),</span><span class="n">pipe1_r</span><span class="p">),</span><span class="n">pipe1_length</span><span class="p">,</span><span class="n">pipe1_dia</span><span class="p">,</span><span class="n">velocity</span><span class="p">(</span><span class="n">pipe1_flow</span><span class="p">,</span><span class="n">pipe1_dia</span><span class="p">))</span>
+    <span class="n">p2drop</span> <span class="o">=</span> <span class="n">pressuredrop</span><span class="p">(</span><span class="n">frictionFactor</span><span class="p">(</span><span class="n">pipe2_dia</span><span class="p">,</span><span class="n">velocity</span><span class="p">(</span><span class="n">flow2</span><span class="p">,</span><span class="n">pipe2_dia</span><span class="p">),</span><span class="n">pipe2_r</span><span class="p">),</span><span class="n">pipe2_length</span><span class="p">,</span><span class="n">pipe2_dia</span><span class="p">,</span><span class="n">velocity</span><span class="p">(</span><span class="n">flow2</span><span class="p">,</span><span class="n">pipe2_dia</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">p1drop</span> <span class="o">+</span> <span class="n">p2drop</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">legpressuredrop13</span><span class="p">(</span><span class="n">flow3</span><span class="p">):</span>
+    <span class="n">p1drop</span> <span class="o">=</span> <span class="n">pressuredrop</span><span class="p">(</span><span class="n">frictionFactor</span><span class="p">(</span><span class="n">pipe1_dia</span><span class="p">,</span><span class="n">velocity</span><span class="p">(</span><span class="n">pipe1_flow</span><span class="p">,</span><span class="n">pipe1_dia</span><span class="p">),</span><span class="n">pipe1_r</span><span class="p">),</span><span class="n">pipe1_length</span><span class="p">,</span><span class="n">pipe1_dia</span><span class="p">,</span><span class="n">velocity</span><span class="p">(</span><span class="n">pipe1_flow</span><span class="p">,</span><span class="n">pipe1_dia</span><span class="p">))</span>
+    <span class="n">p3drop</span> <span class="o">=</span> <span class="n">pressuredrop</span><span class="p">(</span><span class="n">frictionFactor</span><span class="p">(</span><span class="n">pipe3_dia</span><span class="p">,</span><span class="n">velocity</span><span class="p">(</span><span class="n">flow3</span><span class="p">,</span><span class="n">pipe3_dia</span><span class="p">),</span><span class="n">pipe3_r</span><span class="p">),</span><span class="n">pipe3_length</span><span class="p">,</span><span class="n">pipe3_dia</span><span class="p">,</span><span class="n">velocity</span><span class="p">(</span><span class="n">flow3</span><span class="p">,</span><span class="n">pipe3_dia</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">p1drop</span> <span class="o">+</span> <span class="n">p3drop</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">eqh</span><span class="p">(</span><span class="n">flow2</span><span class="p">):</span>
+    <span class="n">flow3</span> <span class="o">=</span> <span class="n">pipe1_flow</span> <span class="o">-</span> <span class="n">flow2</span>
+    <span class="k">return</span> <span class="n">legpressuredrop12</span><span class="p">(</span><span class="n">flow2</span><span class="p">)</span> <span class="o">-</span> <span class="n">legpressuredrop13</span><span class="p">(</span><span class="n">flow3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pipe2_flow</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="n">eqh</span><span class="p">,</span><span class="mf">0.03</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">pipe2_flow</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="n">eqh</span><span class="p">,</span><span class="mf">0.03</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="ne">NameError</span>: name &#39;fsolve&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pipe2_flow</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0024372371378035057
+</pre></div>
+</div>
+</div>
+</div>
+<p>By my count 32 lines of code without objects. 28 lines of code with objects. Which way do you like better? Why?</p>
+<p><code class="docutils literal notranslate"><span class="pre">Your</span> <span class="pre">response</span> <span class="pre">here</span></code></p>
+</section>
+<section id="problem-4">
+<h2>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h2>
+<p>In class we used lambda for an inline function: <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">=</span> <span class="pre">lambda</span> <span class="pre">x:</span> <span class="pre">x**2</span> <span class="pre">-5</span></code>. I can use a lambda function to define the arguments to use in a multivariable function as follows:</p>
+<p><strong>Example:</strong> Solve this equation for y given: <span class="math notranslate nohighlight">\(x^2+y^2+c =56.3\)</span> where <span class="math notranslate nohighlight">\(x = 3\)</span> and <span class="math notranslate nohighlight">\(c = -4.2\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#solve this equation:</span>
+<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">c</span> <span class="o">-</span> <span class="mf">56.3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now solve this equation with x = 3 and c = -4.2 with a guess of 3. Remembering that <strong>Call like this: fsolve(function,guess)</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="n">c</span> <span class="o">=</span> <span class="o">-</span><span class="mf">4.2</span>
+<span class="n">fsolve</span><span class="p">(</span><span class="k">lambda</span> <span class="n">var</span><span class="p">:</span> <span class="n">func</span><span class="p">(</span><span class="n">var</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">c</span><span class="p">),</span><span class="mi">3</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.176350047203662
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that I used the inline function definition with lambda to reduce my variable count to 1. Another way is with arguments:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="n">c</span> <span class="o">=</span> <span class="o">-</span><span class="mf">4.2</span>
+<span class="n">fsolve</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">c</span><span class="p">,))[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#notice the variable I&#39;m solving for is listed first in the function func</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="n">c</span> <span class="o">=</span> <span class="o">-</span><span class="mf">4.2</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">fsolve</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">c</span><span class="p">,))[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#notice the variable I&#39;m solving for is listed first in the function func</span>
+
+<span class="ne">NameError</span>: name &#39;fsolve&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Action</strong>
+Solve the below set of equations given b = 3 and c = 6. You must keep b and c as parameters in the function call.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+2\cdot x^2 + y^2 = 25 \\
+x + y + z = c \\
+y + 4.3\cdot z = b
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here#</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -549,6 +781,8 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
 </ul>
   </nav></div>
 
