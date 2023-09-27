@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>08-Derivatives and Transients &#8212; Computational Tools for Chemical Engineers</title>
+    <title>08-ODEs: Derivatives and Integration &#8212; Computational Tools for Chemical Engineers</title>
   
   
   
@@ -63,11 +63,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/08-Derivatives';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/08-ODEs';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="09-More Derivatives" href="09-DerivativesAgain.html" />
-    <link rel="prev" title="07-More Equation Solving" href="07-EquationsAgain.html" />
+    <link rel="next" title="09- ODEs: More Derivatives and Integration" href="09-ODEsAgain.html" />
+    <link rel="prev" title="07b - Newton’s Method Example Exercise" href="07b-NewtonsMethod.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -167,8 +167,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="05-Units.html">05-Units</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06-Equations.html">06-Equations to Solve Problems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="07-EquationsAgain.html">07-More Equation Solving</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">08-Derivatives and Transients</a></li>
-<li class="toctree-l2"><a class="reference internal" href="09-DerivativesAgain.html">09-More Derivatives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07b-NewtonsMethod.html">07b - Newton’s Method Example Exercise</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">08-ODEs: Derivatives and Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09-ODEsAgain.html">09- ODEs: More Derivatives and Integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="10-Loops.html">10-Loops: Brownian Motion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="11-Regression.html">11-Regression and Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="12-RegressionAgain.html">12-More Regression</a></li>
@@ -191,6 +192,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW03.html">HW03: More Functions and Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW04.html">HW04: Debugging and Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW05.html">HW05: Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW06.html">HW06: Solve Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW07.html">HW07: Additional Equation Solving Practice</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -264,7 +267,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/clint-bg/comptools/blob/gh-pages/_sources/lectures/08-Derivatives.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/clint-bg/comptools/blob/gh-pages/_sources/lectures/08-ODEs.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -312,7 +315,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/clint-bg/comptools/issues/new?title=Issue%20on%20page%20%2Flectures/08-Derivatives.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/clint-bg/comptools/issues/new?title=Issue%20on%20page%20%2Flectures/08-ODEs.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -342,7 +345,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/lectures/08-Derivatives.ipynb" target="_blank"
+      <li><a href="../_sources/lectures/08-ODEs.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -424,7 +427,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>08-Derivatives and Transients</h1>
+    <h1>08-ODEs: Derivatives and Integration</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -456,8 +459,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="derivatives-and-transients">
-<h1>08-Derivatives and Transients<a class="headerlink" href="#derivatives-and-transients" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="odes-derivatives-and-integration">
+<h1>08-ODEs: Derivatives and Integration<a class="headerlink" href="#odes-derivatives-and-integration" title="Permalink to this heading">#</a></h1>
 <p>Many times in engineering, the system is not at steady state. Or in other words, the system variables are changing. We’ll look at some basic methods to readily solve problems where the system is changing with time.</p>
 <p>You should understand at the end of this discussion that if you have an expression for the derivative, you can integrate that numerically to determine the system parameters as a function of time.</p>
 <section id="first-example-frictionless-emptying-a-tank-of-fliud">
@@ -806,7 +809,7 @@ Re = \frac{\rho D v}{\mu} = \frac{\rho D \sqrt{2 g h} C_d(Re)}{\mu} \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_82053/3944168696.py:1: DeprecationWarning: Importing display from IPython.core.display is deprecated since IPython 7.14, please import from IPython display
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_40919/3944168696.py:1: DeprecationWarning: Importing display from IPython.core.display is deprecated since IPython 7.14, please import from IPython display
   from IPython.core.display import display, HTML
 </pre></div>
 </div>
@@ -890,20 +893,20 @@ Re = \frac{\rho D v}{\mu} = \frac{\rho D \sqrt{2 g h} C_d(Re)}{\mu} \\
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="07-EquationsAgain.html"
+       href="07b-NewtonsMethod.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">07-More Equation Solving</p>
+        <p class="prev-next-title">07b - Newton’s Method Example Exercise</p>
       </div>
     </a>
     <a class="right-next"
-       href="09-DerivativesAgain.html"
+       href="09-ODEsAgain.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">09-More Derivatives</p>
+        <p class="prev-next-title">09- ODEs: More Derivatives and Integration</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
