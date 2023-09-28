@@ -66,6 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'homework/HW07';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="HW08: Solving Ordinary Differential Equations (ODEs)" href="HW08.html" />
+    <link rel="prev" title="HW06: Solve Equations" href="HW06.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -156,7 +158,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../topics.html">Modules</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/01-Motive.html">01-Motivation with Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/02-Functions.html">02-Functions of Ideal Gases</a></li>
@@ -165,8 +167,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../lectures/05-Units.html">05-Units</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/06-Equations.html">06-Equations to Solve Problems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/07-EquationsAgain.html">07-More Equation Solving</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/08-Derivatives.html">08-Derivatives and Transients</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/09-DerivativesAgain.html">09-More Derivatives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/07b-NewtonsMethod.html">07b - Newton’s Method Example Exercise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/08-ODEs.html">08-ODEs: Derivatives and Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/09-ODEsAgain.html">09- ODEs: More Derivatives and Integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/10-Loops.html">10-Loops: Brownian Motion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/11-Regression.html">11-Regression and Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/12-RegressionAgain.html">12-More Regression</a></li>
@@ -183,13 +186,15 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../lectures/23-FinalReview.html">23-Final Exam Review</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="HW01.html">HW01: Introduction to Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HW02.html">HW02: Functions and Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HW03.html">HW03: More Functions and Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HW04.html">HW04: Debugging and Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HW05.html">HW05: Units</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HW06.html">HW06: Solve Equations</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">HW07: Additional Equation Solving Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW08.html">HW08: Solving Ordinary Differential Equations (ODEs)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -483,7 +488,7 @@ document.write(`
 <li><p>roughness (m)</p></li>
 <li><p>flow (m3/s)</p></li>
 <li><p>fluidinside (a fluid object with the default being the fluid default): specify with <code class="docutils literal notranslate"><span class="pre">fluidinside</span> <span class="pre">=</span> <span class="pre">param.Parameter(fluid())</span></code>. You can refer to the fluidinside density or mu with <code class="docutils literal notranslate"><span class="pre">self.fluidinside.density</span></code> or <code class="docutils literal notranslate"><span class="pre">self.fluidinside.mu</span></code>, respectively.</p></li>
-<li><p>a function calle <code class="docutils literal notranslate"><span class="pre">velocity</span></code> that returns the velocity of the fluid given <code class="docutils literal notranslate"><span class="pre">self.flow</span></code> and <code class="docutils literal notranslate"><span class="pre">self.diameter</span></code>: i.e. <code class="docutils literal notranslate"><span class="pre">velocity</span> <span class="pre">=</span> <span class="pre">self.flow/(np.pi/4*self.diameter</span></code></p></li>
+<li><p>a function called <code class="docutils literal notranslate"><span class="pre">velocity</span></code> that returns the velocity of the fluid given <code class="docutils literal notranslate"><span class="pre">self.flow</span></code> and <code class="docutils literal notranslate"><span class="pre">self.diameter</span></code>: i.e. <code class="docutils literal notranslate"><span class="pre">velocity</span> <span class="pre">=</span> <span class="pre">self.flow/(np.pi/4*self.diameter**2)</span></code></p></li>
 <li><p>a function called <code class="docutils literal notranslate"><span class="pre">reynoldsNumber</span></code> that returns the Reynolds number for the pipe flow: i.e. <code class="docutils literal notranslate"><span class="pre">Re</span> <span class="pre">=</span> <span class="pre">self.velocity()*self.diameter*self.fluidinside.density/self.fluidinside.mu</span></code></p>
 <ul>
 <li><p>for the Reynolds number, assume a density of 1000 kg/m3 and a viscosity of 1E-3 Pa*sec (the default fluid() parameters)</p></li>
@@ -761,6 +766,24 @@ y + 4.3\cdot z = b
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="HW06.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">HW06: Solve Equations</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="HW08.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">HW08: Solving Ordinary Differential Equations (ODEs)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>

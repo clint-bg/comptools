@@ -167,8 +167,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="05-Units.html">05-Units</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06-Equations.html">06-Equations to Solve Problems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="07-EquationsAgain.html">07-More Equation Solving</a></li>
-<li class="toctree-l2"><a class="reference internal" href="08-Derivatives.html">08-Derivatives and Transients</a></li>
-<li class="toctree-l2"><a class="reference internal" href="09-DerivativesAgain.html">09-More Derivatives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07b-NewtonsMethod.html">07b - Newton’s Method Example Exercise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-ODEs.html">08-ODEs: Derivatives and Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09-ODEsAgain.html">09- ODEs: More Derivatives and Integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="10-Loops.html">10-Loops: Brownian Motion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="11-Regression.html">11-Regression and Data</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">12-More Regression</a></li>
@@ -190,6 +191,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW02.html">HW02: Functions and Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW03.html">HW03: More Functions and Objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW04.html">HW04: Debugging and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW05.html">HW05: Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW06.html">HW06: Solve Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW07.html">HW07: Additional Equation Solving Practice</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -496,7 +500,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_17163/834267956.py:2: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_40988/834267956.py:2: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
   data[&#39;time&#39;] = pd.to_datetime(data[&#39;time&#39;]) # set time to datetime to help with plotting
 </pre></div>
 </div>
@@ -760,8 +764,8 @@ Vehicle speed (mph)
 Dep. Variable:         Calculated MPG   R-squared (uncentered):                   0.902
 Model:                            OLS   Adj. R-squared (uncentered):              0.902
 Method:                 Least Squares   F-statistic:                          7.678e+04
-Date:                Thu, 14 Sep 2023   Prob (F-statistic):                        0.00
-Time:                        07:27:50   Log-Likelihood:                         -33146.
+Date:                Wed, 27 Sep 2023   Prob (F-statistic):                        0.00
+Time:                        14:28:02   Log-Likelihood:                         -33146.
 No. Observations:                8324   AIC:                                  6.629e+04
 Df Residuals:                    8323   BIC:                                  6.630e+04
 Df Model:                           1                                                  
@@ -984,8 +988,8 @@ The dot product of the vector <span class="math notranslate nohighlight">\(\vec{
 Dep. Variable:         Calculated MPG   R-squared:                       0.444
 Model:                            OLS   Adj. R-squared:                  0.444
 Method:                 Least Squares   F-statistic:                     3327.
-Date:                Thu, 14 Sep 2023   Prob (F-statistic):               0.00
-Time:                        07:27:50   Log-Likelihood:                -32092.
+Date:                Wed, 27 Sep 2023   Prob (F-statistic):               0.00
+Time:                        14:28:02   Log-Likelihood:                -32092.
 No. Observations:                8324   AIC:                         6.419e+04
 Df Residuals:                    8321   BIC:                         6.421e+04
 Df Model:                           2                                         

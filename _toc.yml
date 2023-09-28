@@ -13,8 +13,9 @@ chapters:
     - file: lectures/05-Units
     - file: lectures/06-Equations
     - file: lectures/07-EquationsAgain
-    - file: lectures/08-Derivatives
-    - file: lectures/09-DerivativesAgain
+    - file: lectures/07b-NewtonsMethod
+    - file: lectures/08-ODEs
+    - file: lectures/09-ODEsAgain
     - file: lectures/10-Loops
     - file: lectures/11-Regression
     - file: lectures/12-RegressionAgain
@@ -37,6 +38,8 @@ chapters:
     - file: homework/HW04
     - file: homework/HW05
     - file: homework/HW06
+    - file: homework/HW07
+    - file: homework/HW08
   - file: casestudies
     sections:
     - file: casestudies/casestudysch
