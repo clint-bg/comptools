@@ -574,10 +574,14 @@ and position evolve according to the following 2 rate equations:</p>
 \frac{dx}{dt} = v
 \end{split}\]</div>
 <p>Here, <span class="math notranslate nohighlight">\(\mu\)</span> = 1.85 • 10- 5 kg/(m • s) is the viscosity of air, <span class="math notranslate nohighlight">\(\rho_p\)</span> is the density of water at 1000 kg/m3, and g =
-9.81 m/s^2 . The initial position and velocity of the drop are both 0.
-(a) Numerically solve for velocity and position, each of which should be plotted on their own labeled plot for sufficient time to show initial and asymptotal behavior. Use odeint to generate smooth curves.
-(b) Find the infinite-time velocity ( called the terminal velocity) of the droplet (approximated at a long time value).</p>
+9.81 m/s^2 . The initial position and velocity of the drop are both 0.</p>
+<ul class="simple">
+<li><p>(a) Numerically solve for velocity and position, each of which should be plotted on their own labeled plot for sufficient time to show initial and asymptotal behavior. Use odeint to generate smooth curves.</p></li>
+<li><p>(b) Find the infinite-time velocity ( called the terminal velocity) of the droplet (approximated at a long time value).</p></li>
+</ul>
 <p><strong>Hint</strong> : setup your derivative function (<code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">derivative(vx,t):</span></code>) to take in both velocity and position (in a single array or tuple) and return both dvdt and dxdt in an array or tuple.</p>
+<p><strong>Action</strong>: Solve the above system of equations for the velocity and position as a function of time and plot the result. Also find the terminal velocity.</p>
+<p><strong>Action</strong>: Change the size of the droplet to 5mm and then 10 mm and plot the terminal velocity as a function of droplet size. Comment on the result.</p>
 </section>
 </section>
 
