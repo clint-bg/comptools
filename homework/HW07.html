@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'homework/HW07';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Case Studies" href="../casestudies.html" />
+    <link rel="next" title="HW08: Solving Ordinary Differential Equations (ODEs)" href="HW08.html" />
     <link rel="prev" title="HW06: Solve Equations" href="HW06.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -194,6 +194,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="HW05.html">HW05: Units</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HW06.html">HW06: Solve Equations</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">HW07: Additional Equation Solving Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW08.html">HW08: Solving Ordinary Differential Equations (ODEs)</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -487,7 +488,7 @@ document.write(`
 <li><p>roughness (m)</p></li>
 <li><p>flow (m3/s)</p></li>
 <li><p>fluidinside (a fluid object with the default being the fluid default): specify with <code class="docutils literal notranslate"><span class="pre">fluidinside</span> <span class="pre">=</span> <span class="pre">param.Parameter(fluid())</span></code>. You can refer to the fluidinside density or mu with <code class="docutils literal notranslate"><span class="pre">self.fluidinside.density</span></code> or <code class="docutils literal notranslate"><span class="pre">self.fluidinside.mu</span></code>, respectively.</p></li>
-<li><p>a function calle <code class="docutils literal notranslate"><span class="pre">velocity</span></code> that returns the velocity of the fluid given <code class="docutils literal notranslate"><span class="pre">self.flow</span></code> and <code class="docutils literal notranslate"><span class="pre">self.diameter</span></code>: i.e. <code class="docutils literal notranslate"><span class="pre">velocity</span> <span class="pre">=</span> <span class="pre">self.flow/(np.pi/4*self.diameter</span></code></p></li>
+<li><p>a function called <code class="docutils literal notranslate"><span class="pre">velocity</span></code> that returns the velocity of the fluid given <code class="docutils literal notranslate"><span class="pre">self.flow</span></code> and <code class="docutils literal notranslate"><span class="pre">self.diameter</span></code>: i.e. <code class="docutils literal notranslate"><span class="pre">velocity</span> <span class="pre">=</span> <span class="pre">self.flow/(np.pi/4*self.diameter**2)</span></code></p></li>
 <li><p>a function called <code class="docutils literal notranslate"><span class="pre">reynoldsNumber</span></code> that returns the Reynolds number for the pipe flow: i.e. <code class="docutils literal notranslate"><span class="pre">Re</span> <span class="pre">=</span> <span class="pre">self.velocity()*self.diameter*self.fluidinside.density/self.fluidinside.mu</span></code></p>
 <ul>
 <li><p>for the Reynolds number, assume a density of 1000 kg/m3 and a viscosity of 1E-3 Pa*sec (the default fluid() parameters)</p></li>
@@ -775,11 +776,11 @@ y + 4.3\cdot z = b
       </div>
     </a>
     <a class="right-next"
-       href="../casestudies.html"
+       href="HW08.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Case Studies</p>
+        <p class="prev-next-title">HW08: Solving Ordinary Differential Equations (ODEs)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

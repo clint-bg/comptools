@@ -11,7 +11,7 @@ The schedule for the course will be as follows (subject to change where Week 1.2
 |3.1|[Debug](lectures/04-Debug.ipynb)|-|HW05|-|
 |3.2|[Units](lectures/05-Units.ipynb)|-|HW06|-|
 |4.1|[Equations to Solve Problems](lectures/06-Equations.ipynb)|-|HW07|-|
-|4.2|[More Equation Solving](lectures/07-EquationsAgain.ipynb)|-|HW08|-|
+|4.2|[More Equation Solving](lectures/07-EquationsAgain.ipynb) and [Newton's Method Example](https://clint-bg.github.io/comptools/lectures/07b-NewtonsMethod.html)|-|HW08|-|
 |5.1|[Derivatives and Transients](lectures/08-Derivatives.ipynb)|Fluid Drain|HW09|-|
 |5.2|[More Derivatives](lectures/09-DerivativesAgain.ipynb)|Terrarium|HW10|-|
 |6.1|[Loops](lectures/10-Loops.ipynb)|-|HW011|-|
