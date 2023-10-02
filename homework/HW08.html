@@ -570,11 +570,10 @@ C(t) = C_0e^{-t/\tau},
 and position evolve according to the following 2 rate equations:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\frac{dv}{dt} = -g + \frac{18\mu}{\rho_p d_p^2}|v| \\
+\frac{dv}{dt} = -g + C_d \frac{3/4\rho_{air}v^2}{\rho_{w}d_p} \\
 \frac{dx}{dt} = v
 \end{split}\]</div>
-<p>Here, <span class="math notranslate nohighlight">\(\mu\)</span> = 1.85 • 10- 5 kg/(m • s) is the viscosity of air, <span class="math notranslate nohighlight">\(\rho_p\)</span> is the density of water at 1000 kg/m3, and g =
-9.81 m/s^2 . The initial position and velocity of the drop are both 0.</p>
+<p>Here <span class="math notranslate nohighlight">\(\rho_w\)</span> is the density of water at 1000 kg/m3, <span class="math notranslate nohighlight">\(\rho_{air}\)</span> is the density of air at 1.2 kg/m3, and <span class="math notranslate nohighlight">\(C_d\)</span> is the drag coefficient at approximately 0.5, and g = 9.81 m/s^2 . The initial position and velocity of the drop are both 0.</p>
 <ul class="simple">
 <li><p>(a) Numerically solve for velocity and position, each of which should be plotted on their own labeled plot for sufficient time to show initial and asymptotal behavior. Use odeint to generate smooth curves.</p></li>
 <li><p>(b) Find the infinite-time velocity ( called the terminal velocity) of the droplet (approximated at a long time value).</p></li>
