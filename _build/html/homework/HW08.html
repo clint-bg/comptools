@@ -455,20 +455,22 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="hw08-solving-ordinary-differential-equations-odes">
 <h1>HW08: Solving Ordinary Differential Equations (ODEs)<a class="headerlink" href="#hw08-solving-ordinary-differential-equations-odes" title="Permalink to this heading">#</a></h1>
 <p>Ordinary Differential Equations are equation that deal with changes with respect to one variable. For example, the equation for the velocity of a falling object is a differential equation because it describes how the velocity changes with respect to time. In this homework, we will practice solving differential equations using the Euler method and Scipy’s ODEINT.</p>
-<p>A simple version of an ODE is:
-$<span class="math notranslate nohighlight">\(
+<p>A simple version of an ODE is:</p>
+<div class="math notranslate nohighlight">
+\[
 \frac{dy}{dt} = C
-\)</span><span class="math notranslate nohighlight">\(
-where C is a constant. Here, y is changing at a constant rate with respect to time. The analytical solution is simply 
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>where C is a constant. Here, y is changing at a constant rate with respect to time. The analytical solution is simply</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \int dy = \int C dt \\
 y = Ct + y0, 
-\)</span>$
-where y0 is the initial value of y = 0.</p>
+\end{split}\]</div>
+<p>where y0 is the initial value of y = 0.</p>
 <p>Some ODE’s can be solved analytically, but many cannot. We’ll use this simple example to also integrate it numerically and compare the results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Numerically solution with Euler&#39;s method</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Importing the necessary packages</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
@@ -516,11 +518,12 @@ where y0 is the initial value of y = 0.</p>
 <hr class="docutils" />
 <section id="problem-1">
 <h2>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h2>
-<p>Please solve the below equation using the Euler method. Plot the solution and compare it to the analytical solution.:
-$<span class="math notranslate nohighlight">\(
+<p>Please solve the below equation using the Euler method. Plot the solution and compare it to the analytical solution.:</p>
+<div class="math notranslate nohighlight">
+\[
 \frac{dy}{dt} = -y + C
-\)</span>$
-where C is a constant. Here, y is changing at a constant rate with respect to time.</p>
+\]</div>
+<p>where C is a constant. Here, y is changing at a constant rate with respect to time.</p>
 <p><strong>Action 1</strong>: Solve for the analytical solution and specify a function called Analytical1 that takes values of time and returns the value of y given the C value of 3.2 and an initial vallue of 2.3.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -545,10 +548,15 @@ where C is a constant. Here, y is changing at a constant rate with respect to ti
 <section id="problem-2-radioactive-decay">
 <h2>Problem 2: Radioactive decay.<a class="headerlink" href="#problem-2-radioactive-decay" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
-\[\frac{dC}{dt} = -\frac{C}{\tau}.\]</div>
-<p>The exact solution is
-$<span class="math notranslate nohighlight">\(C(t) = C_0e^{-t/\tau},\)</span><span class="math notranslate nohighlight">\( 
-where \)</span>C_0$ is the initial concentration.</p>
+\[
+\frac{dC}{dt} = -\frac{C}{\tau}.
+\]</div>
+<p>The exact solution is</p>
+<div class="math notranslate nohighlight">
+\[
+C(t) = C_0e^{-t/\tau},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(C_0\)</span> is the initial concentration.</p>
 <p><strong>Action 1</strong>: Use sympy dsolve to solve the above equation. You should get the same answer as given above.</p>
 <p><strong>Action 2</strong>: Use the Euler method to solve the above equation. Plot the solution and compare it to the analytical solution. Use an initial concentration of 1 and a decay constant of 1. Use a step size of 1 and a total time of 10.0 starting from 0. Thus you’ll have 11 points for time for each trace: analytical, euler, and odeint.</p>
 <p><strong>Action 3:</strong> Solve the same with odeint</p>
@@ -559,16 +567,20 @@ where \)</span>C_0$ is the initial concentration.</p>
 <section id="problem-3-falling-raindrop">
 <h2>Problem 3: Falling Raindrop<a class="headerlink" href="#problem-3-falling-raindrop" title="Permalink to this heading">#</a></h2>
 <p>A <span class="math notranslate nohighlight">\(d_p\)</span> = 1 mm diameter raindrop falls in still air at 300 K, 1 atm. The drop’s falling velocity
-and position evolve according to the following 2 rate equations:
-$<span class="math notranslate nohighlight">\(
-\frac{dv}{dt} = -g + \frac{18\mu}{\rho_p d_p^2}|v| \\
+and position evolve according to the following 2 rate equations:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\frac{dv}{dt} = -g + C_d \frac{3/4\rho_{air}v^2}{\rho_{w}d_p} \\
 \frac{dx}{dt} = v
-\)</span>$</p>
-<p>Here, <span class="math notranslate nohighlight">\(\mu\)</span> = 1.85 • 10- 5 kg/(m • s) is the viscosity of air, <span class="math notranslate nohighlight">\(\rho_p\)</span> is the density of water at 1000 kg/m3, and g =
-9.81 m/s^2 . The initial position and velocity of the drop are both 0.
-(a) Numerically solve for velocity and position, each of which should be plotted on their own labeled plot for sufficient time to show initial and asymptotal behavior. Use odeint to generate smooth curves.
-(b) Find the infinite-time velocity ( called the terminal velocity) of the droplet (approximated at a long time value).</p>
+\end{split}\]</div>
+<p>Here <span class="math notranslate nohighlight">\(\rho_w\)</span> is the density of water at 1000 kg/m3, <span class="math notranslate nohighlight">\(\rho_{air}\)</span> is the density of air at 1.2 kg/m3, and <span class="math notranslate nohighlight">\(C_d\)</span> is the drag coefficient at approximately 0.5, and g = 9.81 m/s^2 . The initial position and velocity of the drop are both 0.</p>
+<ul class="simple">
+<li><p>(a) Numerically solve for velocity and position, each of which should be plotted on their own labeled plot for sufficient time to show initial and asymptotal behavior. Use odeint to generate smooth curves.</p></li>
+<li><p>(b) Find the infinite-time velocity ( called the terminal velocity) of the droplet (approximated at a long time value).</p></li>
+</ul>
 <p><strong>Hint</strong> : setup your derivative function (<code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">derivative(vx,t):</span></code>) to take in both velocity and position (in a single array or tuple) and return both dvdt and dxdt in an array or tuple.</p>
+<p><strong>Action</strong>: Solve the above system of equations for the velocity and position as a function of time and plot the result. Also find the terminal velocity.</p>
+<p><strong>Action</strong>: Change the size of the droplet to 5mm and then 10 mm and plot the terminal velocity as a function of droplet size. Comment on the result.</p>
 </section>
 </section>
 

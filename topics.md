@@ -6,32 +6,32 @@ The schedule for the course will be as follows (subject to change where Week 1.2
 |---|---|--|--|--|
 |1.1|[Course Introduction and Motivation](intro.md)|-|HW01|-|
 |1.2|[Motivation and Examples](lectures/01-Motive.ipynb)|FlameTemp|HW02|-|
-|2.1|[Functions of Ideal Gases](lectures/02-Functions.ipynb)|-|HW03|-|
-|2.2|[Functions of Heat Transfer](lectures/03-FunctionsAgain.ipynb)|-|HW04|-|
-|3.1|[Debug](lectures/04-Debug.ipynb)|-|HW05|-|
-|3.2|[Units](lectures/05-Units.ipynb)|-|HW06|-|
-|4.1|[Equations to Solve Problems](lectures/06-Equations.ipynb)|-|HW07|-|
-|4.2|[More Equation Solving](lectures/07-EquationsAgain.ipynb) and [Newton's Method Example](https://clint-bg.github.io/comptools/lectures/07b-NewtonsMethod.html)|-|HW08|-|
-|5.1|[Derivatives and Transients](lectures/08-Derivatives.ipynb)|Fluid Drain|HW09|-|
-|5.2|[More Derivatives](lectures/09-DerivativesAgain.ipynb)|Terrarium|HW10|-|
-|6.1|[Loops](lectures/10-Loops.ipynb)|-|HW011|-|
-|6.2|[Regression and Data](lectures/11-Regression.ipynb)|-|HW12|-|
-|7.1|[More Regression](lectures/12-RegressionAgain.ipynb)|-|HW13|-|
-|7.2|[Exam Review](lectures/13-ExamReview.ipynb)|-|-|Exam|
-|8.1|[Excel Basics](lectures/14-ExcelBasics.md)|-|HW14|-|
-|8.2|[More Excel](lectures/15-MoreExcel.md)|-|HW15|-|
-|9.1|[Excel Functions](lectures/16-ExcelFunctions.md)|-|HW16|-|
-|9.2|[SolidWorks](lectures/17-Solidworks)|-|HW017|-|
-|10.1|[Aspen Hysys](lectures/18-AspenHysys)|-|HW18|-|
-|10.2|[Ansys Workbench](lectures/19-Ansys)|-|HW19|-|
-|11.1|[Cantera](lectures/20-Cantera)|-|HW20|-|
-|11.2|[CaseStudy1](lectures/21-CaseStudy1)|-|-|-|
-|12.1|Review & Support|-|-|Exam|
-|12.2|Review & Support|-|-|-|
-|13.1|[CaseStudy2](lectures/22-CaseStudy2)|-|-|-|
-|13.2|Review & Support|-|-|-|
-|14.1|Review & Support|-|-|-|
-|14.2|[Final Exam Review](lectures/23-FinalReview)|-|-|Final|
+|2.3|[Functions of Ideal Gases](lectures/02-Functions.ipynb)|-|HW03|-|
+|2.4|[Functions of Heat Transfer](lectures/03-FunctionsAgain.ipynb)|-|HW04|-|
+|3.5|[Debug](lectures/04-Debug.ipynb)|-|HW05|-|
+|3.6|[Units](lectures/05-Units.ipynb)|-|HW06|-|
+|4.7|[Equations to Solve Problems](lectures/06-Equations.ipynb)|-|HW07|-|
+|4.8|[More Equation Solving](lectures/07-EquationsAgain.ipynb) and [Newton's Method Example](https://clint-bg.github.io/comptools/lectures/07b-NewtonsMethod.html)|-|HW08|-|
+|5.9|[ODEs and Integration of Transient Eq.](lectures/08-ODEs.ipynb)|Fluid Drain|HW09|-|
+|5.10|[More ODE's and Integration](lectures/09-ODEsAgain.ipynb)|Terrarium|HW10|-|
+|6.11|[Loops](lectures/10-Loops.ipynb)|-|HW011|-|
+|6.12|[Regression and Data](lectures/11-Regression.ipynb)|-|HW12|-|
+|7.13|[More Regression](lectures/12-RegressionAgain.ipynb)|-|HW13|-|
+|7.14|[Exam Review](lectures/13-ExamReview.ipynb)|-|-|Exam|
+|8.15|[Excel Basics](lectures/14-ExcelBasics.md)|-|HW14|-|
+|8.16|[More Excel](lectures/15-MoreExcel.md)|-|HW15|-|
+|9.17|[Excel Functions](lectures/16-ExcelFunctions.md)|-|HW16|-|
+|9.18|[SolidWorks](lectures/17-Solidworks)|-|HW017|-|
+|10.19|[Aspen Hysys](lectures/18-AspenHysys)|-|HW18|-|
+|10.20|[Ansys Workbench](lectures/19-Ansys)|-|HW19|-|
+|11.21|[Cantera](lectures/20-Cantera)|-|HW20|-|
+|11.22|[CaseStudy1](lectures/21-CaseStudy1)|-|-|-|
+|12.23|Review & Support|-|-|Exam|
+|12.24|Review & Support|-|-|-|
+|13.25|[CaseStudy2](lectures/22-CaseStudy2)|-|-|-|
+|13.26|Review & Support|-|-|-|
+|14.27|Review & Support|-|-|-|
+|14.28|[Final Exam Review](lectures/23-FinalReview)|-|-|Final|
 
 ## Case Studies
 [Heat Transfer](casestudies/heattransfer.ipynb)  
