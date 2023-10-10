@@ -170,9 +170,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../lectures/07b-NewtonsMethod.html">07b - Newton’s Method Example Exercise</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/08-ODEs.html">08-ODEs: Derivatives and Integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/09-ODEsAgain.html">09- ODEs: More Derivatives and Integration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/09b-ODEs_Terrarium.html">CO2 concentration in Terrarium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/09b-ODEs_Terrarium.html">9b - ODE Classroom Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/10-Loops.html">10-Loops: Brownian Motion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/10b-BasicLoops.html">We love loops because they go round and round</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/10b-BasicLoops.html">10b - Basic Loops Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/11-Regression.html">11-Regression and Interpolation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/12-RegressionAgain.html">12-More Regression</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/13-ExamReview.html">13-Exam Review (Python)</a></li>
@@ -485,27 +485,10 @@ r = -\frac{dC_A}{dt} = k C_A
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Data from research team</span>
-<span class="n">Temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="mi">180</span><span class="p">])</span>
+<span class="n">Temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="mi">180</span><span class="p">])</span> <span class="c1"># in Celsius</span>
 <span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">8031385.90210512</span><span class="p">,</span>  <span class="mf">9172549.4982323</span> <span class="p">,</span> <span class="mf">15836234.10003797</span><span class="p">,</span> \
        <span class="mf">18528434.62455682</span><span class="p">,</span> <span class="mf">29494725.27289638</span><span class="p">,</span> <span class="mf">28167947.98802359</span><span class="p">,</span> \
-       <span class="mf">33220622.03710192</span><span class="p">,</span> <span class="mf">49115522.07065894</span><span class="p">,</span> <span class="mf">51245134.59894557</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">kA</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">Temp</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">len</span><span class="p">(</span><span class="n">kA</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">Temp</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;kA&#39; is not defined
+       <span class="mf">33220622.03710192</span><span class="p">,</span> <span class="mf">49115522.07065894</span><span class="p">,</span> <span class="mf">51245134.59894557</span><span class="p">])</span> <span class="c1">#rate constant in 1/s</span>
 </pre></div>
 </div>
 </div>
