@@ -16,7 +16,9 @@ chapters:
     - file: lectures/07b-NewtonsMethod
     - file: lectures/08-ODEs
     - file: lectures/09-ODEsAgain
+    - file: lectures/09b-ODEs_Terrarium
     - file: lectures/10-Loops
+    - file: lectures/10b-BasicLoops
     - file: lectures/11-Regression
     - file: lectures/12-RegressionAgain
     - file: lectures/13-ExamReview
@@ -42,6 +44,7 @@ chapters:
     - file: homework/HW08
     - file: homework/HW09
     - file: homework/HW10
+    - file: homework/HW11
   - file: casestudies
     sections:
     - file: casestudies/casestudysch

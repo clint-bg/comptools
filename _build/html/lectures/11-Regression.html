@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>11-Regression and Data &#8212; Computational Tools for Chemical Engineers</title>
+    <title>11-Regression and Interpolation &#8212; Computational Tools for Chemical Engineers</title>
   
   
   
@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="12-More Regression" href="12-RegressionAgain.html" />
-    <link rel="prev" title="10-Loops: Brownian Motion" href="10-Loops.html" />
+    <link rel="prev" title="We love loops because they go round and round" href="10b-BasicLoops.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -170,8 +170,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="07b-NewtonsMethod.html">07b - Newton’s Method Example Exercise</a></li>
 <li class="toctree-l2"><a class="reference internal" href="08-ODEs.html">08-ODEs: Derivatives and Integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="09-ODEsAgain.html">09- ODEs: More Derivatives and Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09b-ODEs_Terrarium.html">CO2 concentration in Terrarium</a></li>
 <li class="toctree-l2"><a class="reference internal" href="10-Loops.html">10-Loops: Brownian Motion</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">11-Regression and Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10b-BasicLoops.html">We love loops because they go round and round</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">11-Regression and Interpolation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="12-RegressionAgain.html">12-More Regression</a></li>
 <li class="toctree-l2"><a class="reference internal" href="13-ExamReview.html">13-Exam Review (Python)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="14-ExcelBasics.html">14-Excel Basics</a></li>
@@ -194,6 +196,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW05.html">HW05: Units</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW06.html">HW06: Solve Equations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW07.html">HW07: Additional Equation Solving Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW08.html">HW08: Solving Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW09.html">HW09: More Solving of Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW10.html">HW10: More Practice Programming Loops and Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW11.html">HW11: Regression and Interpolation</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -427,7 +433,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>11-Regression and Data</h1>
+    <h1>11-Regression and Interpolation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -437,7 +443,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-example-fit-a-relationship-to-sun-rise-data-vs-day-of-year">First Example: Fit a Relationship to Sun Rise Data vs. Day of Year</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-example-linear-regression">First Example: Linear Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-numpy-polyfit">A. Numpy Polyfit</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#r2-r-squared">R2: R-squared</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mape-value-mean-absolute-percent-error">MAPE Value (Mean Absolute Percent Error)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-scipy-optimize-curve-fit">B. Scipy Optimize Curve Fit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-scipy-optimize-minimize-a-general-method">C. Scipy Optimize Minimize (A General Method)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-example-fit-a-relationship-non-linear-to-sun-rise-data-vs-day-of-year">Second Example: Fit a Relationship (Non-Linear) to Sun Rise Data vs. Day of Year</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#method-1-using-the-curve-fit-function-from-the-scipy-optimize-module">Method 1: Using the <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> function from the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#method-2-minimizing-the-squared-error-with-scipy-minimize">Method 2: Minimizing the squared error with scipy minimize</a></li>
 </ul>
@@ -454,22 +470,195 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="regression-and-data">
-<h1>11-Regression and Data<a class="headerlink" href="#regression-and-data" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="regression-and-interpolation">
+<h1>11-Regression and Interpolation<a class="headerlink" href="#regression-and-interpolation" title="Permalink to this heading">#</a></h1>
 <p>Data regression is a critical skill to determine correlations and potential causations between different variables in a system.  In this lecture, we will learn how to use Python to perform regression and interpolation.</p>
 <p>Regression is where you use the different functions you learned about in geometry and algebra to attempt to fit a curve to a set of data.  The most common type of regression is linear regression where you attempt to fit a line to a set of data. The parameters for the curve are determined by minimizing the sum of the squares of the difference between the data and the curve.  This is called the least squares method.  For a linear regression, the parameters that are determined are the slope and intercept.</p>
-<p>Below is an example of a non-linear regression where first the data is imported and then operated on to obtain the independent variable (day of the year).  Then the data is plotted and a curve is fit to the data. The same steps would be used for a linear regression.</p>
-<section id="first-example-fit-a-relationship-to-sun-rise-data-vs-day-of-year">
-<h2>First Example: Fit a Relationship to Sun Rise Data vs. Day of Year<a class="headerlink" href="#first-example-fit-a-relationship-to-sun-rise-data-vs-day-of-year" title="Permalink to this heading">#</a></h2>
+<p>Below is an example of both a linear and a non-linear regression where first the data is imported and then operated on to obtain the independent variable (day of the year).  Then the data is plotted and a curve is fit to the data. The same steps would be used for a linear regression.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span><span class="p">,</span> <span class="n">minimize</span>
 </pre></div>
 </div>
 </div>
 </div>
+<section id="first-example-linear-regression">
+<h2>First Example: Linear Regression<a class="headerlink" href="#first-example-linear-regression" title="Permalink to this heading">#</a></h2>
+<p>First generate the data and plot it</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#first generate the data</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="o">*</span><span class="mf">0.25</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f170860972c94e6ad0588342d1326ab0e5e1c5549e8c8f529e3e58d13c9fcae8.png" src="../_images/f170860972c94e6ad0588342d1326ab0e5e1c5549e8c8f529e3e58d13c9fcae8.png" />
+</div>
+</div>
+<p>Regression involves making an approximation to relate the independent variable (what you can control) to the dependent variable (what you measure). x is typically the independent variable and y is the dependent variable.</p>
+<p>Once you have the data, there are multiple ways to obtain an estimate or approximation of the relationship between the variables.  Here we’ll review multiple methods:</p>
+<ul class="simple">
+<li><p>numpy.polyfit</p></li>
+<li><p>scipy.optimize.curve_fit</p></li>
+<li><p>scipy.optimize.minimize</p></li>
+<li><p>(there are many other packages that you could use)</p></li>
+</ul>
+<section id="a-numpy-polyfit">
+<h3>A. Numpy Polyfit<a class="headerlink" href="#a-numpy-polyfit" title="Permalink to this heading">#</a></h3>
+<p>Numpy polyfit can be used to fit a polynomial to a set of data. The polynomial can be first order which is a linear regression or higher order.  The higher the order, the more complex the curve can be.  The polyfit function returns the coefficients of the polynomial.  The coefficients can be used to plot the polynomial.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">param</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">#linear fit yielding the slope and intercept</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The slope is </span><span class="si">{</span><span class="n">param</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1"> and the intercept is </span><span class="si">{</span><span class="n">param</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope is 0.504 and the intercept is -0.014
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#now plot the fit</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">param</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">param</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span> <span class="c1">#</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/c8e29d23a771b48b2911eeab0ce795a247f0968949f7329c5baf8de7d1f08ad7.png" src="../_images/c8e29d23a771b48b2911eeab0ce795a247f0968949f7329c5baf8de7d1f08ad7.png" />
+</div>
+</div>
+<p>Regression statistics can be calculated to the rsquared and the mape value which are measures of how well the regression line fits the data.</p>
+<section id="r2-r-squared">
+<h4>R2: R-squared<a class="headerlink" href="#r2-r-squared" title="Permalink to this heading">#</a></h4>
+<p>R-squared ranges from 0 to 1 with values closer to 1 indicating a better fit. It is calculated as 1 - (SSres/SStot) where SSres is the sum of the squares of the residuals and SStot is the total sum of the squares as given below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#calculate the r-squared value</span>
+<span class="n">yhat</span> <span class="o">=</span> <span class="n">param</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">param</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#the predicted values</span>
+<span class="n">ybar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="c1">#the mean of the observed values</span>
+<span class="n">SStot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y</span><span class="o">-</span><span class="n">ybar</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#total sum of squares</span>
+<span class="n">SSres</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y</span><span class="o">-</span><span class="n">yhat</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#residual sum of squares</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">SSres</span><span class="o">/</span><span class="n">SStot</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The r-squared value is </span><span class="si">{</span><span class="n">r2</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The r-squared value is 0.974
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="mape-value-mean-absolute-percent-error">
+<h4>MAPE Value (Mean Absolute Percent Error)<a class="headerlink" href="#mape-value-mean-absolute-percent-error" title="Permalink to this heading">#</a></h4>
+<p>I like the MAPE value better than R-squared value as it indicates the total percent error. You could have a high R-squared value but still have a large error.  The MAPE value is calculated as the sum of the absolute value of the difference between the data and the regression line divided by the sum of the data.  The MAPE value is given below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#MAPE value</span>
+<span class="n">MAPE</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">y</span><span class="o">-</span><span class="n">yhat</span><span class="p">)</span><span class="o">/</span><span class="n">y</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The MAPE value is </span><span class="si">{</span><span class="n">MAPE</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The MAPE value is 18.793%
+</pre></div>
+</div>
+</div>
+</div>
+<p>Thus, using the predicted line relating x to y, the error you might expect in doing so is 23% (the MAPE value). Using the R-squared value, it’s not straightforward how you would make such a statement.</p>
+</section>
+</section>
+<section id="b-scipy-optimize-curve-fit">
+<h3>B. Scipy Optimize Curve Fit<a class="headerlink" href="#b-scipy-optimize-curve-fit" title="Permalink to this heading">#</a></h3>
+<p>Curve Fit is a scipy package that uses non-linear least squares to fit data to a function. It also generates a covariance matrix as detailed in the online documentation <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#first specify the linear model (equation for a line)</span>
+<span class="k">def</span> <span class="nf">line</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">m</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Now call the curve_fit function</span>
+<span class="n">popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The slope is </span><span class="si">{</span><span class="n">popt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1"> and the intercept is </span><span class="si">{</span><span class="n">popt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The uncertainties in the two parameters is </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">pcov</span><span class="p">))</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope is 0.504 and the intercept is -0.014
+The uncertainties in the two parameters is [0.0083938  0.04858385]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="c-scipy-optimize-minimize-a-general-method">
+<h3>C. Scipy Optimize Minimize (A General Method)<a class="headerlink" href="#c-scipy-optimize-minimize-a-general-method" title="Permalink to this heading">#</a></h3>
+<p>Minimize is beneficial as you can use it for many different things not just regression.  It is a general method that can be used to minimize a function.  In this case, we are minimizing the sum of the squares of the difference between the data and the curve.  The minimize function requires an initial guess for the parameters.  Further information is here: <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html#scipy.optimize.minimize">https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html#scipy.optimize.minimize</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#first define a function that will calculate the error</span>
+<span class="k">def</span> <span class="nf">error</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y</span> <span class="o">-</span> <span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">p</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#now use the minimize function to find the best fit parameters</span>
+<span class="n">p0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="c1">#initial guess for the parameters</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  message: Desired error not necessarily achieved due to precision loss.
+  success: False
+   status: 2
+      fun: 5.87012811539683
+        x: [ 5.042e-01 -1.431e-02]
+      nit: 4
+      jac: [ 4.220e-05  6.020e-06]
+ hess_inv: [[ 5.900e-04 -2.898e-03]
+            [-2.898e-03  1.910e-02]]
+     nfev: 126
+     njev: 38
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="second-example-fit-a-relationship-non-linear-to-sun-rise-data-vs-day-of-year">
+<h2>Second Example: Fit a Relationship (Non-Linear) to Sun Rise Data vs. Day of Year<a class="headerlink" href="#second-example-fit-a-relationship-non-linear-to-sun-rise-data-vs-day-of-year" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./supportfiles/sunrisedata.csv&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
@@ -689,7 +878,6 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Curve fitting with scipy</span>
-<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
 
 <span class="c1"># define the function to fit</span>
 <span class="k">def</span> <span class="nf">cosFunc</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
@@ -942,12 +1130,12 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="10-Loops.html"
+       href="10b-BasicLoops.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">10-Loops: Brownian Motion</p>
+        <p class="prev-next-title">We love loops because they go round and round</p>
       </div>
     </a>
     <a class="right-next"
@@ -977,7 +1165,17 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-example-fit-a-relationship-to-sun-rise-data-vs-day-of-year">First Example: Fit a Relationship to Sun Rise Data vs. Day of Year</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-example-linear-regression">First Example: Linear Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-numpy-polyfit">A. Numpy Polyfit</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#r2-r-squared">R2: R-squared</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mape-value-mean-absolute-percent-error">MAPE Value (Mean Absolute Percent Error)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-scipy-optimize-curve-fit">B. Scipy Optimize Curve Fit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-scipy-optimize-minimize-a-general-method">C. Scipy Optimize Minimize (A General Method)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-example-fit-a-relationship-non-linear-to-sun-rise-data-vs-day-of-year">Second Example: Fit a Relationship (Non-Linear) to Sun Rise Data vs. Day of Year</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#method-1-using-the-curve-fit-function-from-the-scipy-optimize-module">Method 1: Using the <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> function from the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#method-2-minimizing-the-squared-error-with-scipy-minimize">Method 2: Minimizing the squared error with scipy minimize</a></li>
 </ul>
