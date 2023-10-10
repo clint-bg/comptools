@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="12-More Regression" href="12-RegressionAgain.html" />
-    <link rel="prev" title="We love loops because they go round and round" href="10b-BasicLoops.html" />
+    <link rel="prev" title="10b - Basic Loops Example" href="10b-BasicLoops.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -170,9 +170,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="07b-NewtonsMethod.html">07b - Newton’s Method Example Exercise</a></li>
 <li class="toctree-l2"><a class="reference internal" href="08-ODEs.html">08-ODEs: Derivatives and Integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="09-ODEsAgain.html">09- ODEs: More Derivatives and Integration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="09b-ODEs_Terrarium.html">CO2 concentration in Terrarium</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09b-ODEs_Terrarium.html">9b - ODE Classroom Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="10-Loops.html">10-Loops: Brownian Motion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10b-BasicLoops.html">We love loops because they go round and round</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10b-BasicLoops.html">10b - Basic Loops Example</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">11-Regression and Interpolation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="12-RegressionAgain.html">12-More Regression</a></li>
 <li class="toctree-l2"><a class="reference internal" href="13-ExamReview.html">13-Exam Review (Python)</a></li>
@@ -500,7 +500,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f170860972c94e6ad0588342d1326ab0e5e1c5549e8c8f529e3e58d13c9fcae8.png" src="../_images/f170860972c94e6ad0588342d1326ab0e5e1c5549e8c8f529e3e58d13c9fcae8.png" />
+<img alt="../_images/92927c23b75be14acafe9236b29a9ef52d3794242df98e684eff1b779db3c15a.png" src="../_images/92927c23b75be14acafe9236b29a9ef52d3794242df98e684eff1b779db3c15a.png" />
 </div>
 </div>
 <p>Regression involves making an approximation to relate the independent variable (what you can control) to the dependent variable (what you measure). x is typically the independent variable and y is the dependent variable.</p>
@@ -522,7 +522,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope is 0.504 and the intercept is -0.014
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope is 0.491 and the intercept is 0.054
 </pre></div>
 </div>
 </div>
@@ -537,7 +537,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c8e29d23a771b48b2911eeab0ce795a247f0968949f7329c5baf8de7d1f08ad7.png" src="../_images/c8e29d23a771b48b2911eeab0ce795a247f0968949f7329c5baf8de7d1f08ad7.png" />
+<img alt="../_images/efd047d1a23b5c7366c39b8846e5fb25830e671a18d158245f54747bcc5687d0.png" src="../_images/efd047d1a23b5c7366c39b8846e5fb25830e671a18d158245f54747bcc5687d0.png" />
 </div>
 </div>
 <p>Regression statistics can be calculated to the rsquared and the mape value which are measures of how well the regression line fits the data.</p>
@@ -557,7 +557,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The r-squared value is 0.974
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The r-squared value is 0.978
 </pre></div>
 </div>
 </div>
@@ -575,7 +575,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The MAPE value is 18.793%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The MAPE value is 15.764%
 </pre></div>
 </div>
 </div>
@@ -605,8 +605,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope is 0.504 and the intercept is -0.014
-The uncertainties in the two parameters is [0.0083938  0.04858385]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope is 0.491 and the intercept is 0.054
+The uncertainties in the two parameters is [0.00744105 0.04306926]
 </pre></div>
 </div>
 </div>
@@ -643,14 +643,14 @@ The uncertainties in the two parameters is [0.0083938  0.04858385]
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  message: Desired error not necessarily achieved due to precision loss.
   success: False
    status: 2
-      fun: 5.87012811539683
-        x: [ 5.042e-01 -1.431e-02]
-      nit: 4
-      jac: [ 4.220e-05  6.020e-06]
- hess_inv: [[ 5.900e-04 -2.898e-03]
-            [-2.898e-03  1.910e-02]]
-     nfev: 126
-     njev: 38
+      fun: 4.613165973679056
+        x: [ 4.913e-01  5.385e-02]
+      nit: 3
+      jac: [ 4.971e-05  7.153e-06]
+ hess_inv: [[ 5.434e-04 -2.771e-03]
+            [-2.771e-03  1.946e-02]]
+     nfev: 72
+     njev: 20
 </pre></div>
 </div>
 </div>
@@ -661,7 +661,7 @@ The uncertainties in the two parameters is [0.0083938  0.04858385]
 <h2>Second Example: Fit a Relationship (Non-Linear) to Sun Rise Data vs. Day of Year<a class="headerlink" href="#second-example-fit-a-relationship-non-linear-to-sun-rise-data-vs-day-of-year" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./supportfiles/sunrisedata.csv&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://github.com/clint-bg/comptools/blob/main/lectures/supportfiles/sunrisedata.csv?raw=True&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 <span class="c1"># sort based on the Month and Day</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;Month&#39;</span><span class="p">,</span> <span class="s1">&#39;Day&#39;</span><span class="p">])</span>
 </pre></div>
@@ -1135,7 +1135,7 @@ The uncertainties in the two parameters is [0.0083938  0.04858385]
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">We love loops because they go round and round</p>
+        <p class="prev-next-title">10b - Basic Loops Example</p>
       </div>
     </a>
     <a class="right-next"
