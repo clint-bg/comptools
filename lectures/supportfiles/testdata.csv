@@ -1,0 +1,6 @@
+This is a description of the data in the file that could be multirowed
+Time (s), Concentration (M), Temperature (K)
+0, 0.0, 300
+1, 0.1, 310
+2, 0.2, 320
+3, 0.3, 330

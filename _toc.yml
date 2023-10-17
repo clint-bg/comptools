@@ -20,7 +20,7 @@ chapters:
     - file: lectures/10-Loops
     - file: lectures/10b-BasicLoops
     - file: lectures/11-Regression
-    - file: lectures/12-RegressionAgain
+    - file: lectures/12-Models
     - file: lectures/13-ExamReview
     - file: lectures/14-ExcelBasics
     - file: lectures/15-MoreExcel
@@ -45,6 +45,7 @@ chapters:
     - file: homework/HW09
     - file: homework/HW10
     - file: homework/HW11
+    - file: homework/HW12
   - file: casestudies
     sections:
     - file: casestudies/casestudysch
