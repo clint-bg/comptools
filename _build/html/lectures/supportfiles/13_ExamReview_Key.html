@@ -583,7 +583,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1681a8ac0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x168032ac0&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/bd65ecdae915cebb7ab27658456deee351d96ceb448d62a8c32f807eb17142bc.png" src="../../_images/bd65ecdae915cebb7ab27658456deee351d96ceb448d62a8c32f807eb17142bc.png" />
@@ -635,7 +635,19 @@ temps = slope*time + b</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">V</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#m^3/mol</span>
 <span class="n">T</span> <span class="o">=</span> <span class="mi">300</span> <span class="c1">#K</span>
 <span class="n">R</span> <span class="o">=</span> <span class="mi">8314</span> <span class="c1">#L-Pa/(mol-K)</span>
-<span class="n">P</span> <span class="o">=</span> <span class="n">R</span><span class="o">*</span><span class="n">T</span><span class="o">/</span><span class="n">V</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">R</span><span class="o">*</span><span class="n">T</span><span class="o">/</span><span class="n">V</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span> <span class="c1">#units in mPa</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2494200.0
 </pre></div>
 </div>
 </div>
@@ -654,12 +666,26 @@ temps = slope*time + b</p>
 <p>For example, the following system of equations can be solved any number of ways.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-x + y + q = 4 \\
+2x + y + q = 4 \\
 x + z = 5 \\
 y + z = 6 \\
 q + x + y = 10
 \end{split}\]</div>
 <p>How would you go about solving the above using linear algebra?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-6., -5., 11., 21.])
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="ode-s-and-derivatives">
 <h2>ODE’s and Derivatives<a class="headerlink" href="#ode-s-and-derivatives" title="Permalink to this heading">#</a></h2>
@@ -672,6 +698,36 @@ q + x + y = 10
 \[
 \frac{dx}{dt} = -kx^2
 \]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
+<span class="k">def</span> <span class="nf">dxdt</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>    
+    <span class="k">return</span> <span class="o">-</span><span class="n">k</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">dxdt</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">time</span><span class="p">,</span><span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1681a7d60&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/d85d3d3dc23593d3702d56e6b6659ece5d1cd140727b0506847fdd3c961d5243.png" src="../../_images/d85d3d3dc23593d3702d56e6b6659ece5d1cd140727b0506847fdd3c961d5243.png" />
+</div>
+</div>
 </section>
 <section id="loops">
 <h2>Loops<a class="headerlink" href="#loops" title="Permalink to this heading">#</a></h2>
@@ -768,7 +824,8 @@ y = [1.23,3.9,9.3,9.1,16.3,25.5,26]
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">minimize</span><span class="p">(</span><span class="n">error</span><span class="p">,(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">y</span><span class="p">,))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">error</span><span class="p">,(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">y</span><span class="p">,))</span>
+<span class="n">sol</span>
 </pre></div>
 </div>
 </div>
@@ -789,6 +846,21 @@ y = [1.23,3.9,9.3,9.1,16.3,25.5,26]
 </div>
 </div>
 </div>
+<p>Lets plot the data and the fit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xplot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xplot</span><span class="p">,</span><span class="n">model</span><span class="p">(</span><span class="n">xplot</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xplot</span><span class="p">,</span><span class="n">model</span><span class="p">(</span><span class="n">xplot</span><span class="p">,</span><span class="o">*</span><span class="n">sol</span><span class="o">.</span><span class="n">x</span><span class="p">),</span><span class="s1">&#39;k-.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/500a7881b5a5a5eb64c604804432704c4e9586f3091b18a5f335df43f0d8683b.png" src="../../_images/500a7881b5a5a5eb64c604804432704c4e9586f3091b18a5f335df43f0d8683b.png" />
+</div>
+</div>
+<p>The solutions overlap.</p>
 </section>
 <section id="file-i-o">
 <h2>File I/O<a class="headerlink" href="#file-i-o" title="Permalink to this heading">#</a></h2>
