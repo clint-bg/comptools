@@ -10,5 +10,5 @@ In this lectures, we'll focus on using Excel in the following ways:
 - Basic Plotting of data with line plots, bar graphs, and pie charts
 - Loading data into Excel
 
-See the Excel file (excelbasics.xlsx) in Canvas.
+See the Excel file (excelbasics.xlsx) in Canvas as well as this file that includes some of the in-class exercises: 
 
