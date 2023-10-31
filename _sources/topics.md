@@ -19,19 +19,20 @@ The schedule for the course will be as follows (subject to change where Week 1.2
 |7.13|[More Regression](lectures/12-RegressionAgain.ipynb)|-|HW13|-|
 |7.14|[Exam Review](lectures/13-ExamReview.ipynb)|-|-|Exam|
 |8.15|[Excel Basics](lectures/14-ExcelBasics.md)|-|HW14|-|
-|8.16|[More Excel](lectures/15-MoreExcel.md)|-|HW15|-|
+|8.16|[Excel Solver](lectures/15-ExcelSolver.md)|-|HW15|-|
 |9.17|[Excel Functions](lectures/16-ExcelFunctions.md)|-|HW16|-|
-|9.18|[SolidWorks](lectures/17-Solidworks)|-|HW017|-|
-|10.19|[Aspen Hysys](lectures/18-AspenHysys)|-|HW18|-|
-|10.20|[Ansys Workbench](lectures/19-Ansys)|-|HW19|-|
-|11.21|[Cantera](lectures/20-Cantera)|-|HW20|-|
-|11.22|[CaseStudy1](lectures/21-CaseStudy1)|-|-|-|
-|12.23|Review & Support|-|-|Exam|
-|12.24|Review & Support|-|-|-|
-|13.25|[CaseStudy2](lectures/22-CaseStudy2)|-|-|-|
-|13.26|Review & Support|-|-|-|
-|14.27|Review & Support|-|-|-|
-|14.28|[Final Exam Review](lectures/23-FinalReview)|-|-|Final|
+|9.18|[Excel VBA](lectures/17-ExcelVBA.md)|-|HW17|-|
+|10.19|[SolidWorks](lectures/18-Solidworks)|-|HW017|-|
+|10.20|[Aspen Hysys](lectures/19-AspenHysys)|-|HW18|-|
+|11.21|[Ansys Workbench](lectures/20-Ansys)|-|HW19|-|
+|11.22|[Cantera](lectures/21-Cantera)|-|HW20|-|
+|12.23|[CaseStudy1](lectures/22-CaseStudy1)|-|-|-|
+|12.24|Review & Support|-|-|Exam|
+|12.25|Review & Support|-|-|-|
+|13.26|[CaseStudy2](lectures/23-CaseStudy2)|-|-|-|
+|13.27|Review & Support|-|-|-|
+|14.28|Review & Support|-|-|-|
+|14.29|[Final Exam Review](lectures/24-FinalReview)|-|-|Final|
 
 ## Case Studies
 [Heat Transfer](casestudies/heattransfer.ipynb)  
