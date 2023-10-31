@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'homework/HW12';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Case Studies" href="../casestudies.html" />
+    <link rel="next" title="HW13-Excel Introduction" href="HW13.html" />
     <link rel="prev" title="HW11: Regression and Interpolation" href="HW11.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -177,15 +177,16 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../lectures/12-Models.html">12-Files, Interpolation, and Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/13-ExamReview.html">13-Exam Review (Python)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/14-ExcelBasics.html">14-Excel Basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/15-MoreExcel.html">15-More Excel Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/15-ExcelSolver.html">15-More Excel Practice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/16-ExcelFunctions.html">16-Excel Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/17-SolidWorks.html">17-SolidWorks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/18-AspenHysys.html">18-Aspen Hysys</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/19-Ansys.html">19-Ansys Workbench</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/20-Cantera.html">20-Cantera</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/21-CaseStudy1.html">21-First Case Study Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/22-CaseStudy2.html">22-Second Case Study Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/23-FinalReview.html">23-Final Exam Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/17-ExcelVBA.html">17-Excel and Visual Basic for Applications (VBA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/18-SolidWorks.html">18-SolidWorks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/19-AspenHysys.html">19-Aspen Hysys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/20-Ansys.html">20-Ansys Workbench</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/21-Cantera.html">21-Cantera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/22-CaseStudy1.html">22-First Case Study Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/23-CaseStudy2.html">23-Second Case Study Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/24-FinalReview.html">24-Final Exam Review</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
@@ -201,6 +202,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="HW10.html">HW10: More Practice Programming Loops and Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HW11.html">HW11: Regression and Interpolation</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">HW12: Interpolation and Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW13.html">HW13-Excel Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW14.html">Excel Homework 14</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -534,31 +537,31 @@ document.write(`
       <th>0</th>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>5.027828</td>
+      <td>5.061722</td>
     </tr>
     <tr>
       <th>1</th>
       <td>0.020408</td>
       <td>0.010204</td>
-      <td>5.113324</td>
+      <td>5.169308</td>
     </tr>
     <tr>
       <th>2</th>
       <td>0.040816</td>
       <td>0.020408</td>
-      <td>5.194761</td>
+      <td>5.236384</td>
     </tr>
     <tr>
       <th>3</th>
       <td>0.061224</td>
       <td>0.030612</td>
-      <td>5.351559</td>
+      <td>5.265506</td>
     </tr>
     <tr>
       <th>4</th>
       <td>0.081633</td>
       <td>0.040816</td>
-      <td>5.367930</td>
+      <td>5.440129</td>
     </tr>
   </tbody>
 </table>
@@ -608,11 +611,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../casestudies.html"
+       href="HW13.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Case Studies</p>
+        <p class="prev-next-title">HW13-Excel Introduction</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

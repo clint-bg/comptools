@@ -175,15 +175,16 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../12-Models.html">12-Files, Interpolation, and Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../13-ExamReview.html">13-Exam Review (Python)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../14-ExcelBasics.html">14-Excel Basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../15-MoreExcel.html">15-More Excel Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15-ExcelSolver.html">15-More Excel Practice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../16-ExcelFunctions.html">16-Excel Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../17-SolidWorks.html">17-SolidWorks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../18-AspenHysys.html">18-Aspen Hysys</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../19-Ansys.html">19-Ansys Workbench</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../20-Cantera.html">20-Cantera</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../21-CaseStudy1.html">21-First Case Study Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../22-CaseStudy2.html">22-Second Case Study Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../23-FinalReview.html">23-Final Exam Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../17-ExcelVBA.html">17-Excel and Visual Basic for Applications (VBA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../18-SolidWorks.html">18-SolidWorks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../19-AspenHysys.html">19-Aspen Hysys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../20-Ansys.html">20-Ansys Workbench</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../21-Cantera.html">21-Cantera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../22-CaseStudy1.html">22-First Case Study Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../23-CaseStudy2.html">23-Second Case Study Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../24-FinalReview.html">24-Final Exam Review</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -200,6 +201,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../../homework/HW11.html">HW11: Regression and Interpolation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../homework/HW12.html">HW12: Interpolation and Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../homework/HW13.html">HW13-Excel Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../homework/HW14.html">Excel Homework 14</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -583,7 +585,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x168032ac0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x167448ac0&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/bd65ecdae915cebb7ab27658456deee351d96ceb448d62a8c32f807eb17142bc.png" src="../../_images/bd65ecdae915cebb7ab27658456deee351d96ceb448d62a8c32f807eb17142bc.png" />
@@ -722,7 +724,7 @@ q + x + y = 10
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1681a7d60&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1675bdb50&gt;]
 </pre></div>
 </div>
 <img alt="../../_images/d85d3d3dc23593d3702d56e6b6659ece5d1cd140727b0506847fdd3c961d5243.png" src="../../_images/d85d3d3dc23593d3702d56e6b6659ece5d1cd140727b0506847fdd3c961d5243.png" />
@@ -850,14 +852,16 @@ y = [1.23,3.9,9.3,9.1,16.3,25.5,26]
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xplot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xplot</span><span class="p">,</span><span class="n">model</span><span class="p">(</span><span class="n">xplot</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xplot</span><span class="p">,</span><span class="n">model</span><span class="p">(</span><span class="n">xplot</span><span class="p">,</span><span class="o">*</span><span class="n">sol</span><span class="o">.</span><span class="n">x</span><span class="p">),</span><span class="s1">&#39;k-.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/500a7881b5a5a5eb64c604804432704c4e9586f3091b18a5f335df43f0d8683b.png" src="../../_images/500a7881b5a5a5eb64c604804432704c4e9586f3091b18a5f335df43f0d8683b.png" />
+<img alt="../../_images/ffc425d8505c4933eb3faeb7731635fca3efa922ae271306e0a48e148eac61ff.png" src="../../_images/ffc425d8505c4933eb3faeb7731635fca3efa922ae271306e0a48e148eac61ff.png" />
 </div>
 </div>
 <p>The solutions overlap.</p>

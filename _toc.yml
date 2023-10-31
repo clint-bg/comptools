@@ -23,15 +23,16 @@ chapters:
     - file: lectures/12-Models
     - file: lectures/13-ExamReview
     - file: lectures/14-ExcelBasics
-    - file: lectures/15-MoreExcel
+    - file: lectures/15-ExcelSolver
     - file: lectures/16-ExcelFunctions
-    - file: lectures/17-SolidWorks
-    - file: lectures/18-AspenHysys
-    - file: lectures/19-Ansys
-    - file: lectures/20-Cantera
-    - file: lectures/21-CaseStudy1
-    - file: lectures/22-CaseStudy2
-    - file: lectures/23-FinalReview
+    - file: lectures/17-ExcelVBA
+    - file: lectures/18-SolidWorks
+    - file: lectures/19-AspenHysys
+    - file: lectures/20-Ansys
+    - file: lectures/21-Cantera
+    - file: lectures/22-CaseStudy1
+    - file: lectures/23-CaseStudy2
+    - file: lectures/24-FinalReview
   - file: homework
     sections:
     - file: homework/HW01
@@ -47,6 +48,7 @@ chapters:
     - file: homework/HW11
     - file: homework/HW12
     - file: homework/HW13
+    - file: homework/HW14 
   - file: casestudies
     sections:
     - file: casestudies/casestudysch
