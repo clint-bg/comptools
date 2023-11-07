@@ -447,8 +447,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aspen-hysys-software-access">Aspen Hysys Software Access</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aspen-plus-software-access">Aspen Plus Software Access</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aspen-help-video">Aspen Help Video</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#material-balance-example">Material Balance Example</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vapor-liquid-equilibrium-background">Vapor Liquid Equilibrium Background</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vle-example-calculation-with-python">VLE Example Calculation with Python</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vle-example-calculation-with-aspen-plus">VLE Example Calculation with Aspen Plus</a><ul class="nav section-nav flex-column">
@@ -470,14 +471,40 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="aspen-hysys">
 <h1>19-Aspen Hysys<a class="headerlink" href="#aspen-hysys" title="Permalink to this heading">#</a></h1>
-<p>In this exercise we’ll discuss how simulators like Aspen Hysys can be used to estimate unit operation behavior, specifically a flash drum. This is an exercise to give you an introduction on vapor liquid equilibrium.</p>
-<section id="aspen-hysys-software-access">
-<h2>Aspen Hysys Software Access<a class="headerlink" href="#aspen-hysys-software-access" title="Permalink to this heading">#</a></h2>
-<p>You’ll log onto one of the computers in the UO lab and open Aspen Hysys. You can also access that software remotely using ‘labconnect’ for example.</p>
+<p>In this exercise we’ll discuss how simulators like Aspen Hysys (Aspen Plus) can be used to estimate unit operation behavior, specifically a flash drum. This is an exercise to give you an introduction to material balances and on vapor liquid equilibrium.</p>
+<section id="aspen-plus-software-access">
+<h2>Aspen Plus Software Access<a class="headerlink" href="#aspen-plus-software-access" title="Permalink to this heading">#</a></h2>
+<p>You’ll log onto one of the CAEDM computers and open Aspen Plus. You can also access that software remotely using ‘labconnect’ for example.</p>
 </section>
 <section id="aspen-help-video">
 <h2>Aspen Help Video<a class="headerlink" href="#aspen-help-video" title="Permalink to this heading">#</a></h2>
 <p>Link to video that explains a simple flash point calculation or flash drum separation step: <a class="reference external" href="https://www.youtube.com/watch?v=qijWOzm7irc">Hysys flash drum video</a></p>
+</section>
+<section id="material-balance-example">
+<h2>Material Balance Example<a class="headerlink" href="#material-balance-example" title="Permalink to this heading">#</a></h2>
+<p>A helpful video of this scenario can be found here: <a class="reference external" href="https://youtu.be/EX_NTuqH3ck">Aspen Plus Flash Drum Example</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#For steady State scenario</span>
+<span class="n">Waterin</span>  <span class="o">=</span> <span class="mi">100</span> <span class="c1"># kg/min</span>
+<span class="n">Dryairin</span> <span class="o">=</span> <span class="mi">400</span> <span class="c1"># kg/min</span>
+<span class="n">VaporOut</span> <span class="o">=</span> <span class="mf">434.94</span> <span class="c1"># kg/min</span>
+<span class="c1">#First total balance:</span>
+<span class="n">LiquidOut</span> <span class="o">=</span> <span class="n">Waterin</span> <span class="o">+</span> <span class="n">Dryairin</span> <span class="o">-</span> <span class="n">VaporOut</span>
+<span class="c1">#Now the component balance (water):</span>
+<span class="n">LiquidOutWater</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mf">0.919</span><span class="p">)</span><span class="o">*</span><span class="n">VaporOut</span> <span class="o">+</span> <span class="n">Waterin</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The amount of water in the liquid phase flowing out is: </span><span class="si">{</span><span class="n">LiquidOutWater</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> kg/min&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The fraction of air in the liquid out phase is: </span><span class="si">{</span><span class="mi">1</span><span class="o">-</span><span class="n">LiquidOutWater</span><span class="o">/</span><span class="n">LiquidOut</span><span class="si">:</span><span class="s1">0.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The amount of water in the liquid phase flowing out is: 64.77 kg/min
+The fraction of air in the liquid out phase is: 0.00446
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="vapor-liquid-equilibrium-background">
 <h2>Vapor Liquid Equilibrium Background<a class="headerlink" href="#vapor-liquid-equilibrium-background" title="Permalink to this heading">#</a></h2>
@@ -509,21 +536,18 @@ y_1 + (1-x_1)\cdot P_2^{sat}/P &amp;= 1 \text{ : } \Sigma y = 1 \text{, Ideal}
 \end{align*}\end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Example VLE calculation</span>
-<span class="c1"># first import packages</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first import packages</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">param</span>
 <span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span> <span class="c1">#import fsolve from scipy.optimize</span>
 <span class="kn">import</span> <span class="nn">scipy.integrate</span> <span class="k">as</span> <span class="nn">integrate</span> <span class="c1">#import integrate from scipy to get enthalpy</span>
-
-<span class="c1"># define constants</span>
-<span class="n">TFlow</span> <span class="o">=</span> <span class="mi">30</span> <span class="c1">#kg/hr, total flow</span>
-<span class="n">VoverL</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="c1"># ratio of the vapor flow rate to the liquid flow rate in the feed</span>
-<span class="n">P</span> <span class="o">=</span> <span class="mf">1.6e5</span> <span class="c1"># Pa, pressure of the system</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.95</span><span class="p">,</span><span class="mf">0.05</span><span class="p">])</span> <span class="c1"># feed composition </span>
-<span class="c1">#Tref = 298 # K, reference temperature for heat capacity</span>
-
-<span class="c1">#define the properties of the components</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Define the properties of the components</span>
 <span class="k">class</span> <span class="nc">component</span><span class="p">(</span><span class="n">param</span><span class="o">.</span><span class="n">Parameterized</span><span class="p">):</span>
     <span class="n">Tref</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">298</span><span class="p">,</span><span class="n">doc</span><span class="o">=</span> <span class="s2">&quot;K, reference temperature for heat capacity&quot;</span><span class="p">)</span>
     <span class="n">VPcoef</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">List</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">doc</span><span class="o">=</span><span class="s2">&quot;Vapor pressure coefficients to yield Psat in Pa, T in K&quot;</span><span class="p">)</span>
@@ -559,6 +583,18 @@ y_1 + (1-x_1)\cdot P_2^{sat}/P &amp;= 1 \text{ : } \Sigma y = 1 \text{, Ideal}
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define constants</span>
+<span class="n">TFlow</span> <span class="o">=</span> <span class="mi">30</span> <span class="c1">#kg/hr, total flow</span>
+<span class="n">VoverL</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="c1"># ratio of the vapor flow rate to the liquid flow rate in the feed</span>
+<span class="n">P</span> <span class="o">=</span> <span class="mf">1.6e5</span> <span class="c1"># Pa, pressure of the system</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.95</span><span class="p">,</span><span class="mf">0.05</span><span class="p">])</span> <span class="c1"># feed composition </span>
+<span class="c1">#Tref = 298 # K, reference temperature for heat capacity</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the function to be solved</span>
 <span class="k">def</span> <span class="nf">VLE</span><span class="p">(</span><span class="n">xvar</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">xvar</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># first element of xvar is the liquid composition of methanol</span>
@@ -581,14 +617,36 @@ y_1 + (1-x_1)\cdot P_2^{sat}/P &amp;= 1 \text{ : } \Sigma y = 1 \text{, Ideal}
     <span class="n">HL</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">methanol</span><span class="o">.</span><span class="n">Hl</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="o">*</span><span class="n">L</span><span class="o">/</span><span class="n">methanol</span><span class="o">.</span><span class="n">MW</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">ethanol</span><span class="o">.</span><span class="n">Hl</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="o">*</span><span class="n">L</span><span class="o">/</span><span class="n">ethanol</span><span class="o">.</span><span class="n">MW</span> <span class="c1">#kJ/hr</span>
     <span class="n">eq</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">HF</span> <span class="o">-</span> <span class="n">HV</span> <span class="o">-</span> <span class="n">HL</span>
     <span class="k">return</span> <span class="n">eq</span>
-
-<span class="c1"># initial guess</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># initial guess</span>
 <span class="n">xvar0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">350</span><span class="p">,</span><span class="n">TFlow</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">VoverL</span><span class="p">),</span><span class="n">VoverL</span><span class="p">])</span>
-
-<span class="c1"># solve the function</span>
+<span class="n">VLE</span><span class="p">(</span><span class="n">xvar0</span><span class="p">)</span> <span class="c1"># check the function</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-3.55271368e-15, -8.17978938e+02, -3.55271368e-15, -1.98048970e-02,
+        4.65661287e-10])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># solve the function</span>
 <span class="n">out</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="n">VLE</span><span class="p">,</span><span class="n">xvar0</span><span class="p">)</span>
-
-<span class="c1"># print the results</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print the results</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The liquid and vapor compositions of methanol are &#39;</span><span class="p">,</span><span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The temperature is </span><span class="si">{</span><span class="n">out</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="mi">273</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> C&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The vapor and liquid flow rates are </span><span class="si">{</span><span class="n">out</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> and </span><span class="si">{</span><span class="n">TFlow</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">out</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> kg/hr&#39;</span><span class="p">)</span>
@@ -628,9 +686,10 @@ The vapor to liquid ratio is 0.09957
 <li><p>Open Aspen Plus</p></li>
 <li><p>Add a component to the simulation (I added methanol and ethanol)</p></li>
 <li><p>Specify fluid properties (I used the an Ideal Solution)</p></li>
-<li><p>Add a separator to the simulation</p></li>
-<li><p>Specify the inlet feed composition, feed vapor fraction, and pressure (the same as specified above for the manual calculation)</p></li>
-<li><p>Name the liquid and vapor exit streams</p></li>
+<li><p>Add a separator (Flash2 unit) to the simulation</p></li>
+<li><p>Specify the inlet and outlet stream names by clicking on the Flowsheet tab and then Global and then the drop down on the Block ID for the unit.</p></li>
+<li><p>Specify the inlet feed composition, feed vapor fraction, and pressure (the same as specified above for the manual calculation) by  then clicking on the streams dropdown tab.</p></li>
+<li><p>Specify the operating condition of the flash drum by clicking on the Blocks tab and then name of the flash drum and then input. There specify the pressure of the unit and the desired vapor fraction (by mass) of the outlets.</p></li>
 <li><p>Press the play button to run the simulation</p></li>
 </ol>
 <img src="https://raw.githubusercontent.com/clint-bg/comptools/main/lectures/supportfiles/AspenPlusImg.png" width="800"><p>Compared to the above manual results, the ideal solutions agree fairly well despite differences in the vapor pressure and enthalpies. If you specify a different fluid package that includes non-idealities in the solution, you’ll get a slightly different answer (hopefully a more accurate answer).</p>
@@ -715,8 +774,9 @@ The vapor to liquid ratio is 0.09957
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aspen-hysys-software-access">Aspen Hysys Software Access</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aspen-plus-software-access">Aspen Plus Software Access</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aspen-help-video">Aspen Help Video</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#material-balance-example">Material Balance Example</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vapor-liquid-equilibrium-background">Vapor Liquid Equilibrium Background</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vle-example-calculation-with-python">VLE Example Calculation with Python</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vle-example-calculation-with-aspen-plus">VLE Example Calculation with Aspen Plus</a><ul class="nav section-nav flex-column">

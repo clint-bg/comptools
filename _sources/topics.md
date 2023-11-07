@@ -42,7 +42,7 @@ The schedule for the course will be as follows (subject to change where Week 1.2
 
 ## Modules
 
-The below modules will be discussed throughout the semester with the case studies that you will work on together in pairs also using these tools as well as some experimental setups and data collection devices.
+The below modules will be discussed throughout the semester with the case studies that you will work on together in a group of 3 also using these tools as well as some experimental setups and data collection devices.
 
 - Python
 - Cantera
