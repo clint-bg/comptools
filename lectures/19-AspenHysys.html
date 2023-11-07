@@ -483,24 +483,40 @@ document.write(`
 <section id="material-balance-example">
 <h2>Material Balance Example<a class="headerlink" href="#material-balance-example" title="Permalink to this heading">#</a></h2>
 <p>A helpful video of this scenario can be found here: <a class="reference external" href="https://youtu.be/EX_NTuqH3ck">Aspen Plus Flash Drum Example</a></p>
-<img src="https://github.com/clint-bg/comptools/blob/main/lectures/supportfiles/AspenPlusMatbal.png?raw=true" width="600"><div class="cell docutils container">
+<img src="https://github.com/clint-bg/comptools/blob/main/lectures/supportfiles/AspenPlusMatbal.png?raw=true" width="600"><p>The conditions in the above equilibrium unit is 50C and 1 bar (see the above video).</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#For steady State scenario</span>
 <span class="n">Waterin</span>  <span class="o">=</span> <span class="mi">100</span> <span class="c1"># kg/min</span>
 <span class="n">Dryairin</span> <span class="o">=</span> <span class="mi">400</span> <span class="c1"># kg/min</span>
-<span class="n">VaporOut</span> <span class="o">=</span> <span class="mf">434.94</span> <span class="c1"># kg/min</span>
+<span class="n">VaporOut</span> <span class="o">=</span> <span class="mf">434.936</span> <span class="c1"># kg/min</span>
+<span class="n">massFractionwaterVaporout</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="mf">0.91945</span> <span class="c1"># kg/kg</span>
 <span class="c1">#First total balance:</span>
-<span class="n">LiquidOut</span> <span class="o">=</span> <span class="n">Waterin</span> <span class="o">+</span> <span class="n">Dryairin</span> <span class="o">-</span> <span class="n">VaporOut</span>
+<span class="n">LiquidOut</span> <span class="o">=</span> <span class="n">Waterin</span> <span class="o">+</span> <span class="n">Dryairin</span> <span class="o">-</span> <span class="n">VaporOut</span> <span class="c1">#This is the liquid out flow rate</span>
 <span class="c1">#Now the component balance (water):</span>
-<span class="n">LiquidOutWater</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mf">0.919</span><span class="p">)</span><span class="o">*</span><span class="n">VaporOut</span> <span class="o">+</span> <span class="n">Waterin</span>
+<span class="n">LiquidOutWater</span> <span class="o">=</span> <span class="o">-</span><span class="n">massFractionwaterVaporout</span><span class="o">*</span><span class="n">VaporOut</span> <span class="o">+</span> <span class="n">Waterin</span> <span class="c1">#This is the water balance in the liquid phase flowing out in the LiquidOut stream</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The total liquid flow rate out is </span><span class="si">{</span><span class="n">LiquidOut</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> kg/min&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The amount of water in the liquid phase flowing out is: </span><span class="si">{</span><span class="n">LiquidOutWater</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> kg/min&#39;</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The fraction of air in the liquid out phase is: </span><span class="si">{</span><span class="mi">1</span><span class="o">-</span><span class="n">LiquidOutWater</span><span class="o">/</span><span class="n">LiquidOut</span><span class="si">:</span><span class="s1">0.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The mass fraction of air in the liquid out phase is: </span><span class="si">{</span><span class="mi">1</span><span class="o">-</span><span class="n">LiquidOutWater</span><span class="o">/</span><span class="n">LiquidOut</span><span class="si">:</span><span class="s1">0.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The amount of water in the liquid phase flowing out is: 64.77 kg/min
-The fraction of air in the liquid out phase is: 0.00446
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The total liquid flow rate out is 65.06 kg/min
+The amount of water in the liquid phase flowing out is: 64.97 kg/min
+The mass fraction of air in the liquid out phase is: 0.00151
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">massFractionwaterVaporout</span><span class="o">*</span><span class="n">VaporOut</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35.034094800000005
 </pre></div>
 </div>
 </div>
@@ -508,7 +524,7 @@ The fraction of air in the liquid out phase is: 0.00446
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Using Raoult&#39;s law:</span>
-<span class="n">y_water</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mf">0.00446</span><span class="p">)</span><span class="o">*</span><span class="mf">0.122</span><span class="o">/</span><span class="mi">1</span>
+<span class="n">y_water</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mf">0.00446</span><span class="p">)</span><span class="o">*</span><span class="mf">0.122</span><span class="o">/</span><span class="mi">1</span> <span class="c1">#y[i] = x[i]*Psat[i]/P, Psat of water at 50C = 0.122 bar approximately</span>
 <span class="c1">#mole fraction to mass fraction</span>
 <span class="n">ywm</span> <span class="o">=</span> <span class="n">y_water</span><span class="o">*</span><span class="mi">18</span><span class="o">/</span><span class="p">(</span><span class="n">y_water</span><span class="o">*</span><span class="mi">18</span><span class="o">+</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">y_water</span><span class="p">)</span><span class="o">*</span><span class="mf">28.97</span><span class="p">)</span>
 <span class="mi">1</span><span class="o">-</span><span class="n">ywm</span>
