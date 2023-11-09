@@ -494,11 +494,12 @@ document.write(`
 </div>
 <section id="steady-state-scenario">
 <h3>Steady-state Scenario<a class="headerlink" href="#steady-state-scenario" title="Permalink to this heading">#</a></h3>
-<p>For each of the finite elements:
-$<span class="math notranslate nohighlight">\(
+<p>For each of the finite elements:</p>
+<div class="math notranslate nohighlight">
+\[
 0 = \alpha\frac{d^2T}{dx^2}
-\)</span>$
-Equations for each element can be set and then solved using Scipy’s fsolve.</p>
+\]</div>
+<p>Equations for each element can be set and then solved using Scipy’s fsolve.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">totallength</span> <span class="o">=</span> <span class="mi">1</span>
@@ -556,11 +557,12 @@ Equations for each element can be set and then solved using Scipy’s fsolve.</p
 </section>
 <section id="transient-scenario">
 <h3>Transient Scenario<a class="headerlink" href="#transient-scenario" title="Permalink to this heading">#</a></h3>
-<p>For each of the finite elements:
-$<span class="math notranslate nohighlight">\(
+<p>For each of the finite elements:</p>
+<div class="math notranslate nohighlight">
+\[
 \frac{dT}{dt} = \alpha\frac{d^2T}{dx^2}
-\)</span>$
-Equations for each element can be set and then solved using Euler’s method or with odeint. Both methods are shown below.</p>
+\]</div>
+<p>Equations for each element can be set and then solved using Euler’s method or with odeint. Both methods are shown below.</p>
 <section id="eulers-method">
 <h4>Eulers Method<a class="headerlink" href="#eulers-method" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
@@ -682,7 +684,7 @@ Equations for each element can be set and then solved using Euler’s method or 
 </section>
 <section id="ansys-workbench">
 <h2>Ansys Workbench<a class="headerlink" href="#ansys-workbench" title="Permalink to this heading">#</a></h2>
-<p>The above programmatic solutions are great for simple problems, but for more complex problems, it is better to use a program like Ansys Workbench. Ansys Workbench is a program that allows you to build a model and then solve it using FEA. The following video is shoes a brief introduction to Ansys Workbench.</p>
+<p>The above programmatic solutions are great for simple problems, but for more complex problems, it is better to use a program like Ansys Workbench. Ansys Workbench is a program that allows you to build a model and then solve it using FEA. The following video is shows a brief introduction to Ansys Workbench.</p>
 <p><a class="reference external" href="https://youtu.be/KANEX_6yAwM"><img alt="Ansys Workbench Transient Simulation" src="https://github.com/clint-bg/comptools/blob/main/lectures/supportfiles/263%20Shorts%20(Ansys).png?raw=true" /></a></p>
 </section>
 </section>
