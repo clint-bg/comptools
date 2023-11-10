@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'homework/HW19';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -464,8 +466,19 @@ document.write(`
 <h1>HW19: Ansys Workbench Practice<a class="headerlink" href="#hw19-ansys-workbench-practice" title="Permalink to this heading">#</a></h1>
 <section id="problem-1">
 <h2>Problem 1:<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h2>
-<p>Follow the example calculation for the transient conduction problem (using odeint) as outlined in the lecture (<a class="reference external" href="https://clint-bg.github.io/comptools/lectures/20-Ansys.htmlLinks">https://clint-bg.github.io/comptools/lectures/20-Ansys.htmlLinks</a> to an external site.) to complete a similar 1D heat conduction problem but instead of a given temperature at both ends, set the left most element to a heat transfer rate of 10 W and the other end to a temperature of 25C. Plot contours of the temperature every 5 seconds up to 20 seconds. Assume the 20 cm length and 1cm diameter rod is made of plastic with a thermal diffusivity (alpha) of 0.1 mm^2/sec. The initial temperature of the entire rod is 25C. Submit a pdf of your executed python code. Roughly how long before the heated end starts to melt? (&gt;200C).</p>
-<p>Hint: your left most dT/dt will be equal to 10 W (and divided by the  product of the plastic density (1.1 g/cc), the heat capacity (1.8 J/g/K), and the volume of one element) + alpha<em>2</em>(T1-T0)/Dx^2.</p>
+<p>Follow the example calculation for the transient conduction problem (using odeint) as outlined in the lecture (<a class="reference external" href="https://clint-bg.github.io/comptools/lectures/20-Ansys.htmlLinks">https://clint-bg.github.io/comptools/lectures/20-Ansys.htmlLinks</a>) to complete a similar 1D heat conduction problem but instead of a given temperature at both ends, set the left most element to a heat transfer rate of 10 W and the other end to a temperature of 25C. Plot contours of the temperature every 5 seconds up to 20 seconds. Assume the 20 cm length and 1cm diameter rod is made of plastic with a thermal diffusivity (alpha) of 0.1 mm^2/sec. The initial temperature of the entire rod is 25C. Submit a pdf of your executed python code. Roughly how long before the heated end starts to melt? (&gt;200C).</p>
+<p>Hints:</p>
+<ul class="simple">
+<li><p>Your left most dT/dt will be equal to 10 W (and divided by the  product of the plastic density (1.1 g/cc), the heat capacity (1.8 J/g/K), and the volume of one element) + alpha<em>2</em>(T1-T0)/Dx^2:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+10/(1.1*1.8*dx*area/1e3) + alpha*2*(T[1]-T[0])/(dx**2)
+\]</div>
+<ul class="simple">
+<li><p>You’ll want to setup an array of temperatures for the end element that correspond to the different times</p></li>
+<li><p>You can use CubicSpline or another interpolation function to estimate the time at which the temperature of the end element reaches 200</p></li>
+</ul>
 </section>
 <section id="problem-2">
 <h2>Problem 2:<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h2>
