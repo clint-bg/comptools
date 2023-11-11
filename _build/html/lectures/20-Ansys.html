@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>20-Ansys Workbench &#8212; Computational Tools for Chemical Engineers</title>
+    <title>20-Ansys Workbench and Finite Element Analysis (FEA) &#8212; Computational Tools for Chemical Engineers</title>
   
   
   
@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/20-Ansys';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -180,7 +182,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="17-ExcelVBA.html">17-Excel and Visual Basic for Applications (VBA)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="18-SolidWorks.html">18-SolidWorks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="19-AspenHysys.html">19-Aspen Hysys</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">20-Ansys Workbench</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">20-Ansys Workbench and Finite Element Analysis (FEA)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="21-Cantera.html">21-Cantera</a></li>
 <li class="toctree-l2"><a class="reference internal" href="22-CaseStudy1.html">22-First Case Study Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="23-CaseStudy2.html">23-Second Case Study Introduction</a></li>
@@ -267,6 +269,37 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/clint-bg/comptools/blob/gh-pages/_sources/lectures/20-Ansys.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -322,7 +355,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/lectures/20-Ansys.md" target="_blank"
+      <li><a href="../_sources/lectures/20-Ansys.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -332,7 +365,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -391,7 +424,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -402,11 +437,28 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>20-Ansys Workbench</h1>
+    <h1>20-Ansys Workbench and Finite Element Analysis (FEA)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-heat-equation-heat-conduction-down-a-rod">1D Heat Equation (Heat Conduction Down a Rod)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#steady-state-scenario">Steady-state Scenario</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transient-scenario">Transient Scenario</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eulers-method">Eulers Method</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#odeint-more-stable">Odeint (More stable)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ansys-workbench">Ansys Workbench</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -416,9 +468,225 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="ansys-workbench">
-<h1>20-Ansys Workbench<a class="headerlink" href="#ansys-workbench" title="Permalink to this heading">#</a></h1>
-<p>You will follow these below steps to calculate and display a 3-D heated rod with a constant heat flux boundary condition for your homework.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="ansys-workbench-and-finite-element-analysis-fea">
+<h1>20-Ansys Workbench and Finite Element Analysis (FEA)<a class="headerlink" href="#ansys-workbench-and-finite-element-analysis-fea" title="Permalink to this heading">#</a></h1>
+<p>The following is a brief introduction to Ansys Workbench and Finite Element Analysis (FEA). FEA can be a very powerful tool in analyzing heat transfer and momentum transfer problems. For fluids, another name for it is Computational Fluid Dynamics (CFD). The following is a brief introduction to Ansys Workbench and Finite Element Analysis (FEA).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import needed packages</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="d-heat-equation-heat-conduction-down-a-rod">
+<h2>1D Heat Equation (Heat Conduction Down a Rod)<a class="headerlink" href="#d-heat-equation-heat-conduction-down-a-rod" title="Permalink to this heading">#</a></h2>
+<img src="https://github.com/clint-bg/comptools/blob/main/lectures/supportfiles/1DHeatEqImg.png?raw=true" width="600"><img src="https://github.com/clint-bg/comptools/blob/main/lectures/supportfiles/1DHeatEqImg2.png?raw=true" width="600"><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># consistent parameters</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.01</span>  <span class="c1"># Thermal diffusivity, k/Cp/rho</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="steady-state-scenario">
+<h3>Steady-state Scenario<a class="headerlink" href="#steady-state-scenario" title="Permalink to this heading">#</a></h3>
+<p>For each of the finite elements:</p>
+<div class="math notranslate nohighlight">
+\[
+0 = \alpha\frac{d^2T}{dx^2}
+\]</div>
+<p>Equations for each element can be set and then solved using Scipy’s fsolve.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">totallength</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">sections</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">totallength</span><span class="o">/</span><span class="n">sections</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#initial temps/boundary conditions</span>
+<span class="n">Temps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sections</span><span class="p">))</span><span class="o">*</span><span class="mi">400</span>
+<span class="n">Temps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span> <span class="n">Temps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">Tinitial</span> <span class="o">=</span> <span class="n">Temps</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#equations to solve</span>
+<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">dTdt</span> <span class="o">=</span> <span class="p">[</span><span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">Temps</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+    <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sections</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">dTdt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">alpha</span><span class="o">/</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">each</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">T</span><span class="p">[</span><span class="n">each</span><span class="p">]</span> <span class="o">+</span> <span class="n">T</span><span class="p">[</span><span class="n">each</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="c1">#dTdt.append(alpha/dx**2*(T[-2] - 2*T[-1] + T[-2])) #adiabatic end </span>
+    <span class="n">dTdt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">Temps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="c1">#constant temperature end</span>
+    <span class="k">return</span> <span class="n">dTdt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="n">Temps</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xpos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">Temps</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span><span class="p">,</span><span class="n">dx</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xpos</span><span class="p">,</span><span class="n">Tinitial</span><span class="p">,</span><span class="s1">&#39;k-+&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;initial condition&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xpos</span><span class="p">,</span><span class="n">sol</span><span class="p">,</span><span class="s1">&#39;b-+&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;steady state&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x position&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/318624fd787e71d73fe65d420f669546d4644c5933ba06c38d906b543165c0af.png" src="../_images/318624fd787e71d73fe65d420f669546d4644c5933ba06c38d906b543165c0af.png" />
+</div>
+</div>
+</section>
+<section id="transient-scenario">
+<h3>Transient Scenario<a class="headerlink" href="#transient-scenario" title="Permalink to this heading">#</a></h3>
+<p>For each of the finite elements:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dT}{dt} = \alpha\frac{d^2T}{dx^2}
+\]</div>
+<p>Equations for each element can be set and then solved using Euler’s method or with odeint. Both methods are shown below.</p>
+<section id="eulers-method">
+<h4>Eulers Method<a class="headerlink" href="#eulers-method" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parameters</span>
+
+<span class="n">L</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># Length of the rod</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1"># Total time</span>
+<span class="n">Nx</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Number of spatial points</span>
+<span class="n">Nt</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Number of time steps</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">L</span> <span class="o">/</span> <span class="p">(</span><span class="n">Nx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Spatial step size</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">T</span> <span class="o">/</span> <span class="n">Nt</span>  <span class="c1"># Time step size</span>
+
+<span class="c1"># Initial condition</span>
+<span class="k">def</span> <span class="nf">initial_condition</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">400</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="c1">#np.sin(np.pi * x)</span>
+
+<span class="c1"># Set up the grid</span>
+<span class="n">x_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">Nx</span><span class="p">)</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">initial_condition</span><span class="p">(</span><span class="n">x_values</span><span class="p">)</span>  <span class="c1"># Set initial temperature distribution</span>
+
+<span class="c1"># Applying boundary conditions</span>
+<span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">500</span>  <span class="c1"># Set left end of the bar to 500°C</span>
+<span class="n">u</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">300</span>  <span class="c1"># Set right end of the bar to 300°C</span>
+
+<span class="c1"># Explicit finite difference method</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Nt</span><span class="p">):</span>
+    <span class="n">u_new</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Nx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">d2Tdx2</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">u</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="n">u_new</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">d2Tdx2</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">u_new</span>
+
+<span class="c1"># Plotting the results</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Temperature distribution&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;1D Heat Equation with Boundary Conditions&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Rod Length&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e7400a97b5c8495aea20fbc621e8fbac33176a06091621af4f7f650cb3929c60.png" src="../_images/e7400a97b5c8495aea20fbc621e8fbac33176a06091621af4f7f650cb3929c60.png" />
+</div>
+</div>
+</section>
+<section id="odeint-more-stable">
+<h4>Odeint (More stable)<a class="headerlink" href="#odeint-more-stable" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">totallength</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">sections</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">totallength</span><span class="o">/</span><span class="n">sections</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#initial temps</span>
+<span class="n">Temps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sections</span><span class="p">))</span><span class="o">*</span><span class="mi">400</span>
+<span class="n">Temps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span> <span class="n">Temps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="c1">#time array</span>
+<span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dTdt</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">time</span><span class="p">):</span> <span class="c1">#T is an array</span>
+    <span class="n">dTdt</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sections</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">dTdt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">alpha</span><span class="o">/</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">each</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">T</span><span class="p">[</span><span class="n">each</span><span class="p">]</span> <span class="o">+</span> <span class="n">T</span><span class="p">[</span><span class="n">each</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="c1">#dTdt.append(alpha/dx**2*(T[-2] - 2*T[-1] + T[-2])) #adiabatic end </span>
+    <span class="n">dTdt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1">#constant temperature end</span>
+    <span class="k">return</span> <span class="n">dTdt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">dTdt</span><span class="p">,</span><span class="n">Temps</span><span class="p">,</span><span class="n">times</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xpos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">Temps</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span><span class="p">,</span><span class="n">dx</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">times</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="k">10</span> == 0:
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xpos</span><span class="p">,</span><span class="n">sol</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="k">pass</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xpos</span><span class="p">,</span><span class="n">sol</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="s1">&#39;k-.&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Euler&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">295</span><span class="p">,</span><span class="mi">505</span><span class="p">]);</span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ed1db60da8138cfafab653458371d91ac00b3dcdb9483175c9f9853bfde9fe19.png" src="../_images/ed1db60da8138cfafab653458371d91ac00b3dcdb9483175c9f9853bfde9fe19.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="ansys-workbench">
+<h2>Ansys Workbench<a class="headerlink" href="#ansys-workbench" title="Permalink to this heading">#</a></h2>
+<p>The above programmatic solutions are great for simple problems, but for more complex problems, it is better to use a program like Ansys Workbench. Ansys Workbench is a program that allows you to build a model and then solve it using FEA. The following video is shows a brief introduction to Ansys Workbench.</p>
+<p><a class="reference external" href="https://youtu.be/KANEX_6yAwM"><img alt="Ansys Workbench Transient Simulation" src="https://github.com/clint-bg/comptools/blob/main/lectures/supportfiles/263%20Shorts%20(Ansys).png?raw=true" /></a></p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -479,6 +747,29 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-heat-equation-heat-conduction-down-a-rod">1D Heat Equation (Heat Conduction Down a Rod)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#steady-state-scenario">Steady-state Scenario</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transient-scenario">Transient Scenario</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eulers-method">Eulers Method</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#odeint-more-stable">Odeint (More stable)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ansys-workbench">Ansys Workbench</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

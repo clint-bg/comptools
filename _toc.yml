@@ -27,7 +27,7 @@ chapters:
     - file: lectures/16-ExcelFunctions
     - file: lectures/17-ExcelVBA
     - file: lectures/18-SolidWorks
-    - file: lectures/19-AspenHysys
+    - file: lectures/19-Aspen
     - file: lectures/20-Ansys
     - file: lectures/21-Cantera
     - file: lectures/22-CaseStudy1
@@ -49,6 +49,7 @@ chapters:
     - file: homework/HW12
     - file: homework/HW13
     - file: homework/HW14 
+    - file: homework/HW19
   - file: casestudies
     sections:
     - file: casestudies/casestudysch

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>19-Aspen Hysys &#8212; Computational Tools for Chemical Engineers</title>
+    <title>19-Aspen Plus &#8212; Computational Tools for Chemical Engineers</title>
   
   
   
@@ -63,7 +63,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/19-AspenHysys';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/19-Aspen';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="20-Ansys Workbench and Finite Element Analysis (FEA)" href="20-Ansys.html" />
@@ -181,7 +181,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="16-ExcelFunctions.html">16-Excel Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="17-ExcelVBA.html">17-Excel and Visual Basic for Applications (VBA)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="18-SolidWorks.html">18-SolidWorks</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">19-Aspen Hysys</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">19-Aspen Plus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="20-Ansys.html">20-Ansys Workbench and Finite Element Analysis (FEA)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="21-Cantera.html">21-Cantera</a></li>
 <li class="toctree-l2"><a class="reference internal" href="22-CaseStudy1.html">22-First Case Study Introduction</a></li>
@@ -202,8 +202,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW10.html">HW10: More Practice Programming Loops and Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW11.html">HW11: Regression and Interpolation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW12.html">HW12: Interpolation and Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW13.html">HW13-Excel Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW14.html">Excel Homework 14</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW13.html">HW13: Excel Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW14.html">HW14: Excel Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW19.html">HW19: Ansys Workbench Practice</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -277,7 +278,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/clint-bg/comptools/blob/gh-pages/_sources/lectures/19-AspenHysys.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/clint-bg/comptools/blob/gh-pages/_sources/lectures/19-Aspen.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -325,7 +326,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/clint-bg/comptools/issues/new?title=Issue%20on%20page%20%2Flectures/19-AspenHysys.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/clint-bg/comptools/issues/new?title=Issue%20on%20page%20%2Flectures/19-Aspen.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -355,7 +356,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/lectures/19-AspenHysys.ipynb" target="_blank"
+      <li><a href="../_sources/lectures/19-Aspen.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -437,7 +438,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>19-Aspen Hysys</h1>
+    <h1>19-Aspen Plus</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -469,8 +470,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="aspen-hysys">
-<h1>19-Aspen Hysys<a class="headerlink" href="#aspen-hysys" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="aspen-plus">
+<h1>19-Aspen Plus<a class="headerlink" href="#aspen-plus" title="Permalink to this heading">#</a></h1>
 <p>In this exercise we’ll discuss how simulators like Aspen Hysys (Aspen Plus) can be used to estimate unit operation behavior, specifically a flash drum. This is an exercise to give you an introduction to material balances and on vapor liquid equilibrium.</p>
 <section id="aspen-plus-software-access">
 <h2>Aspen Plus Software Access<a class="headerlink" href="#aspen-plus-software-access" title="Permalink to this heading">#</a></h2>
@@ -604,11 +605,27 @@ y_1 + (1-x_1)\cdot P_2^{sat}/P &amp;= 1 \text{ : } \Sigma y = 1 \text{, Ideal}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define constants</span>
-<span class="n">TFlow</span> <span class="o">=</span> <span class="mi">30</span> <span class="c1">#kg/hr, total flow</span>
+<span class="n">TFlowM</span> <span class="o">=</span> <span class="mi">30</span> <span class="c1">#kg/hr, total flow</span>
 <span class="n">VoverL</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="c1"># ratio of the vapor flow rate to the liquid flow rate in the feed</span>
 <span class="n">P</span> <span class="o">=</span> <span class="mf">1.6e5</span> <span class="c1"># Pa, pressure of the system</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.95</span><span class="p">,</span><span class="mf">0.05</span><span class="p">])</span> <span class="c1"># feed composition </span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.95</span><span class="p">,</span><span class="mf">0.05</span><span class="p">])</span> <span class="c1"># molar feed composition, methanol, ethanol</span>
+<span class="c1">#mass fractions</span>
+<span class="n">zwm</span> <span class="o">=</span> <span class="p">[</span><span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">methanol</span><span class="o">.</span><span class="n">MW</span><span class="o">/</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">methanol</span><span class="o">.</span><span class="n">MW</span><span class="o">+</span><span class="n">z</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">ethanol</span><span class="o">.</span><span class="n">MW</span><span class="p">),</span><span class="n">z</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">ethanol</span><span class="o">.</span><span class="n">MW</span><span class="o">/</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">methanol</span><span class="o">.</span><span class="n">MW</span><span class="o">+</span><span class="n">z</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">ethanol</span><span class="o">.</span><span class="n">MW</span><span class="p">)]</span>
+<span class="c1">#Total molar flow rate</span>
+<span class="n">TFlow</span> <span class="o">=</span> <span class="n">TFlowM</span><span class="o">*</span><span class="n">zwm</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">methanol</span><span class="o">.</span><span class="n">MW</span> <span class="o">+</span> <span class="n">TFlowM</span><span class="o">*</span><span class="n">zwm</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">ethanol</span><span class="o">.</span><span class="n">MW</span>
 <span class="c1">#Tref = 298 # K, reference temperature for heat capacity</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TFlowM</span><span class="o">*</span><span class="n">zwm</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">TFlowM</span><span class="o">*</span><span class="n">zwm</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>29.999999999999996
 </pre></div>
 </div>
 </div>
@@ -644,14 +661,14 @@ y_1 + (1-x_1)\cdot P_2^{sat}/P &amp;= 1 \text{ : } \Sigma y = 1 \text{, Ideal}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># initial guess</span>
-<span class="n">xvar0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">350</span><span class="p">,</span><span class="n">TFlow</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">VoverL</span><span class="p">),</span><span class="n">VoverL</span><span class="p">])</span>
+<span class="n">xvar0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">350</span><span class="p">,</span><span class="n">TFlow</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">VoverL</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span><span class="n">VoverL</span><span class="p">])</span>
 <span class="n">VLE</span><span class="p">(</span><span class="n">xvar0</span><span class="p">)</span> <span class="c1"># check the function</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-3.55271368e-15, -8.17978938e+02, -3.55271368e-15, -1.98048970e-02,
-        4.65661287e-10])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 9.16268344e-01, -8.17978938e+02,  8.70454927e-01, -1.98048970e-02,
+       -1.24141520e+05])
 </pre></div>
 </div>
 </div>
@@ -666,19 +683,39 @@ y_1 + (1-x_1)\cdot P_2^{sat}/P &amp;= 1 \text{ : } \Sigma y = 1 \text{, Ideal}
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Lout</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span> <span class="n">Vout</span> <span class="o">=</span> <span class="n">TFlow</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">out</span><span class="p">[</span><span class="mi">4</span><span class="p">]))</span> <span class="c1">#molar basis</span>
+<span class="n">Lcomps</span> <span class="o">=</span> <span class="p">[</span><span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">1</span><span class="o">-</span><span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="c1">#molar compositions</span>
+<span class="n">Vcomps</span> <span class="o">=</span> <span class="p">[</span><span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="mi">1</span><span class="o">-</span><span class="n">out</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="c1">#molar compositions</span>
+<span class="c1"># on a mass basis:</span>
+<span class="n">Lout_M</span> <span class="o">=</span> <span class="n">Lout</span><span class="o">*</span><span class="n">Lcomps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">methanol</span><span class="o">.</span><span class="n">MW</span> <span class="o">+</span> <span class="n">Lout</span><span class="o">*</span><span class="n">Lcomps</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">ethanol</span><span class="o">.</span><span class="n">MW</span>
+<span class="n">Vout_M</span> <span class="o">=</span> <span class="n">Vout</span><span class="o">*</span><span class="n">Vcomps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">methanol</span><span class="o">.</span><span class="n">MW</span> <span class="o">+</span> <span class="n">Vout</span><span class="o">*</span><span class="n">Vcomps</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">ethanol</span><span class="o">.</span><span class="n">MW</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Check of the mole balance:&#39;</span><span class="p">,</span><span class="n">TFlow</span> <span class="o">-</span> <span class="n">Lout</span> <span class="o">-</span> <span class="n">Vout</span><span class="p">)</span> <span class="c1"># check the mole balance</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Check of the mass balance:&#39;</span><span class="p">,</span><span class="n">TFlowM</span> <span class="o">-</span> <span class="n">Lout_M</span> <span class="o">-</span> <span class="n">Vout_M</span><span class="p">)</span> <span class="c1"># check the mass balance &#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Check of the mole balance: 1.1921019726912618e-13
+Check of the mass balance: 3.430771222667772e-10
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print the results</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The liquid and vapor compositions of methanol are &#39;</span><span class="p">,</span><span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The temperature is </span><span class="si">{</span><span class="n">out</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="mi">273</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> C&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The vapor and liquid flow rates are </span><span class="si">{</span><span class="n">out</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> and </span><span class="si">{</span><span class="n">TFlow</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">out</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> kg/hr&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The vapor to liquid ratio is </span><span class="si">{</span><span class="n">out</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The liquid and vapor flow rates are </span><span class="si">{</span><span class="n">Lout_M</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> and </span><span class="si">{</span><span class="n">Vout_M</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> mol/hr&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The molar vapor to liquid ratio is </span><span class="si">{</span><span class="n">out</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The liquid and vapor compositions of methanol are  [0.94815887 0.96849078]
 The temperature is 77.16 C
-The vapor and liquid flow rates are 27.28 and 2.72 kg/hr
-The vapor to liquid ratio is 0.09957
+The liquid and vapor flow rates are 27.30 and 2.70 mol/hr
+The molar vapor to liquid ratio is 0.09957
 </pre></div>
 </div>
 </div>
@@ -691,8 +728,8 @@ The vapor to liquid ratio is 0.09957
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.06581410e-14,  4.04543243e-08, -1.24344979e-13,  8.59312621e-14,
-        3.16649675e-08])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1.31117339e-13, -3.60887498e-09,  2.40500952e-11,  1.22790667e-13,
+        5.90822310e-07])
 </pre></div>
 </div>
 </div>
