@@ -1,2 +1,4 @@
 # 17-Excel and Visual Basic for Applications (VBA)
-Please see the file on Canvas
+Helpful VBA Cheat Sheet: 
+- https://github.com/clint-bg/comptools/blob/main/lectures/supportfiles/Lec23-VBA_handout.pdf; 
+- > Credit to Dr. Doug Tree
