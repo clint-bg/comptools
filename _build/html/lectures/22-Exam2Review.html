@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Molecular Dynamics &#8212; Computational Tools for Chemical Engineers</title>
+    <title>22-Exam 2 Review &#8212; Computational Tools for Chemical Engineers</title>
   
   
   
@@ -61,11 +61,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'casestudies/MD';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/22-Exam2Review';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Foundations" href="../foundations.html" />
-    <link rel="prev" title="Thermodynamics" href="thermo.html" />
+    <link rel="next" title="23-First Case Study Introduction" href="23-CaseStudy1.html" />
+    <link rel="prev" title="21-Cantera" href="21-Cantera.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -157,33 +159,35 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../topics.html">Modules</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/01-Motive.html">01-Motivation with Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/02-Functions.html">02-Functions of Ideal Gases</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/03-FunctionsAgain.html">03-Functions of Heat Transfer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/04-Debug.html">04-Debug</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/05-Units.html">05-Units</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/06-Equations.html">06-Equations to Solve Problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/07-EquationsAgain.html">07-More Equation Solving</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/07b-NewtonsMethod.html">07b - Newton’s Method Example Exercise</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/08-ODEs.html">08-ODEs: Derivatives and Integration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/09-ODEsAgain.html">09- ODEs: More Derivatives and Integration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/09b-ODEs_Terrarium.html">9b - ODE Classroom Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/10-Loops.html">10-Loops: Brownian Motion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/10b-BasicLoops.html">10b - Basic Loops Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/11-Regression.html">11-Regression and Interpolation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/12-Models.html">12-Files, Interpolation, and Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/13-ExamReview.html">13-Exam Review (Python)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/14-ExcelBasics.html">14-Excel Basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/15-ExcelSolver.html">15-More Excel Practice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/16-ExcelFunctions.html">16-Excel Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/17-ExcelVBA.html">17-Excel and Visual Basic for Applications (VBA)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/18-SolidWorks.html">18-SolidWorks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/19-Aspen.html">19-Aspen Plus</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/20-Ansys.html">20-Ansys Workbench and Finite Element Analysis (FEA)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/21-Cantera.html">21-Cantera</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/22-Exam2Review.html">22-Exam 2 Review</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/28-FinalReview.html">28-Final Exam Review</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../topics.html">Modules</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01-Motive.html">01-Motivation with Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-Functions.html">02-Functions of Ideal Gases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-FunctionsAgain.html">03-Functions of Heat Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-Debug.html">04-Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-Units.html">05-Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-Equations.html">06-Equations to Solve Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07-EquationsAgain.html">07-More Equation Solving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07b-NewtonsMethod.html">07b - Newton’s Method Example Exercise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-ODEs.html">08-ODEs: Derivatives and Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09-ODEsAgain.html">09- ODEs: More Derivatives and Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09b-ODEs_Terrarium.html">9b - ODE Classroom Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10-Loops.html">10-Loops: Brownian Motion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10b-BasicLoops.html">10b - Basic Loops Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11-Regression.html">11-Regression and Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12-Models.html">12-Files, Interpolation, and Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13-ExamReview.html">13-Exam Review (Python)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-ExcelBasics.html">14-Excel Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="15-ExcelSolver.html">15-More Excel Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="16-ExcelFunctions.html">16-Excel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="17-ExcelVBA.html">17-Excel and Visual Basic for Applications (VBA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="18-SolidWorks.html">18-SolidWorks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="19-Aspen.html">19-Aspen Plus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-Ansys.html">20-Ansys Workbench and Finite Element Analysis (FEA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="21-Cantera.html">21-Cantera</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">22-Exam 2 Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="23-CaseStudy1.html">23-First Case Study Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="24-CaseStudy2.html">24-Second Case Study Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="28-FinalReview.html">28-Final Exam Review</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -204,11 +208,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW19.html">HW19: Ansys Workbench Practice</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="casestudydocs.html">Case Study Documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="heattransfer.html">Heat Transfer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="thermo.html">Thermodynamics</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Molecular Dynamics</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/casestudysch.html">Case Study Schedule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/heattransfer.html">Heat Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/thermo.html">Thermodynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/MD.html">Molecular Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/casestudydocs.html">Case Study Documentation</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../foundations.html">Foundations</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -274,7 +279,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/clint-bg/comptools/blob/gh-pages/_sources/casestudies/MD.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/clint-bg/comptools/blob/gh-pages/_sources/lectures/22-Exam2Review.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -322,7 +327,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/clint-bg/comptools/issues/new?title=Issue%20on%20page%20%2Fcasestudies/MD.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/clint-bg/comptools/issues/new?title=Issue%20on%20page%20%2Flectures/22-Exam2Review.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -352,7 +357,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/casestudies/MD.ipynb" target="_blank"
+      <li><a href="../_sources/lectures/22-Exam2Review.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -434,7 +439,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Molecular Dynamics</h1>
+    <h1>22-Exam 2 Review</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -444,9 +449,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-computer-modeling-of-interacting-particles">Task 1: Computer Modeling of Interacting Particles</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-experimental">Task 2: Experimental</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-complete-the-documentation">Task 3: Complete the Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excel-functions">Excel Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equations">Equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ode-s-and-derivatives">ODE’s and Derivatives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excel-vba-loops">Excel VBA Loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regression">Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cantera">Cantera</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solidworks">SolidWorks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ansys-workbench">Ansys Workbench</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aspen-plus">Aspen Plus</a></li>
 </ul>
             </nav>
         </div>
@@ -458,23 +469,86 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="molecular-dynamics">
-<h1>Molecular Dynamics<a class="headerlink" href="#molecular-dynamics" title="Permalink to this heading">#</a></h1>
-<p>In this case study, you’ll simulate and measure the experimental response of confined water beads. You’ll simulate a small group of interacting particles or beads in a fluid and then you’ll measure a similar experimental scenario.</p>
-<p>This exercise has application to batteries and other packing scenarios. Some chemicals or pieces can swell in their packaging. Understanding that swelling and it’s effects are often necessary or otherwise helpful.</p>
-<section id="task-1-computer-modeling-of-interacting-particles">
-<h2>Task 1: Computer Modeling of Interacting Particles<a class="headerlink" href="#task-1-computer-modeling-of-interacting-particles" title="Permalink to this heading">#</a></h2>
-<p>You will modify the code found here:
-<a class="reference external" href="https://colab.research.google.com/drive/1Mdcx_t0x8_VoIJI7bov4fF3ijv67NZcj?usp=sharing">Link to 2D Simulation</a>.</p>
-<p>The intent is to program a 3-D version of the 2-D code found at the link above. Instead of a square, the confining area would be a cylinder. You’ll have to figure out the forces from the walls (instead of left and right, it will be one wall which would be simpler). The forces from the floor and the top will be the same.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="exam-2-review">
+<h1>22-Exam 2 Review<a class="headerlink" href="#exam-2-review" title="Permalink to this heading">#</a></h1>
+<p>This is a short writeup of some of the key points that we have covered in the course since the last exam. You should be familiar with these points for Excel, Aspen, Ansys, Cantera, SolidWorks.</p>
+<section id="excel-functions">
+<h2>Excel Functions<a class="headerlink" href="#excel-functions" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>How to use the functions in Excel such as max, average, count, countif, vlookup, etc.</p></li>
+</ul>
 </section>
-<section id="task-2-experimental">
-<h2>Task 2: Experimental<a class="headerlink" href="#task-2-experimental" title="Permalink to this heading">#</a></h2>
-<p>You’ll measure with calipers, the diameter of 3-4 water beads as a function of time as they are immersed. You’ll also measure the volume inside a graduated cylinder with a given force on a plunger that the beads occupy. You’ll have to design the plunger with SolidWorks and then 3D print the plunger.</p>
+<section id="equations">
+<h2>Equations<a class="headerlink" href="#equations" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Understand how to solve equations using linear algebra (Ax = b) with MINVERSE, MMULT, etc.</p></li>
+<li><p>Understand how to solve equations using root finding like solver (f(x) = 0)</p></li>
+</ul>
+<p>For example, the following system of equations can be solved any number of ways.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+2x + y + q = 4 \\
+x + z = 5 \\
+y + z = 6 \\ 
+q + x + y = 10
+\end{split}\]</div>
+<p>How would you go about solving the above using linear algebra?</p>
 </section>
-<section id="task-3-complete-the-documentation">
-<h2>Task 3: Complete the Documentation<a class="headerlink" href="#task-3-complete-the-documentation" title="Permalink to this heading">#</a></h2>
-<p>Document your experience with the above two tasks in a writeup according to the case study documentation.</p>
+<section id="ode-s-and-derivatives">
+<h2>ODE’s and Derivatives<a class="headerlink" href="#ode-s-and-derivatives" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Understand how to solve derivatives using rows and columns in Excel using Euler’s method</p></li>
+</ul>
+<p>For example if you have the following differential equation (typical of a second order reaction), how would you solve it?</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dx}{dt} = -kx^2
+\]</div>
+</section>
+<section id="excel-vba-loops">
+<h2>Excel VBA Loops<a class="headerlink" href="#excel-vba-loops" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Understand how to use VBA do and do while loops</p></li>
+</ul>
+<p>For example, the sequence of triangular numbers is generated by the following formula:</p>
+<div class="math notranslate nohighlight">
+\[
+T_n = \frac{n(n+1)}{2}
+\]</div>
+<p>Lets say you have an existing array of T = (0,1,3,6) and you want to add the next 10 triangular numbers to the array. How would you do that? The sum of the inverse of the Triangular array is a converging series, what is your estimate of the value of that converging series based on the 14 numbers in your array?</p>
+</section>
+<section id="regression">
+<h2>Regression<a class="headerlink" href="#regression" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Understand how to use regression to fit a curve to data using trendline</p></li>
+<li><p>Understand how to use regression by minimizing the sum of square errors given an equation</p></li>
+</ul>
+<p>How would you use solver to fit a parabolic curve to the following data?</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+x = [1,2,3,3,4,5,5] \\
+y = [1.23,3.9,9.3,9.1,16.3,25.5,26]
+\end{split}\]</div>
+<p>How would you use trendline to do the same thing?</p>
+</section>
+<section id="cantera">
+<h2>Cantera<a class="headerlink" href="#cantera" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Understand how to use the property data functions with Cantera including finding the enthalpy and other state variables for a given temperature and pressure.</p></li>
+<li><p>Understand how to determine the adiabatic flame temperature of a given gas with a given stoichiometric ratio.</p></li>
+</ul>
+</section>
+<section id="solidworks">
+<h2>SolidWorks<a class="headerlink" href="#solidworks" title="Permalink to this heading">#</a></h2>
+<p>Understand how to make a basic drawing in SolidWorks</p>
+</section>
+<section id="ansys-workbench">
+<h2>Ansys Workbench<a class="headerlink" href="#ansys-workbench" title="Permalink to this heading">#</a></h2>
+<p>Understand how to do steady state and transient heat transfer in Ansys using drawings from SolidWorks</p>
+</section>
+<section id="aspen-plus">
+<h2>Aspen Plus<a class="headerlink" href="#aspen-plus" title="Permalink to this heading">#</a></h2>
+<p>Understand how to do basic simulations of chemicals and flash processes.</p>
 </section>
 </section>
 
@@ -491,7 +565,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./casestudies"
+            path: "./lectures"
         },
         predefinedOutput: true
     }
@@ -510,20 +584,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="thermo.html"
+       href="21-Cantera.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Thermodynamics</p>
+        <p class="prev-next-title">21-Cantera</p>
       </div>
     </a>
     <a class="right-next"
-       href="../foundations.html"
+       href="23-CaseStudy1.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Foundations</p>
+        <p class="prev-next-title">23-First Case Study Introduction</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -545,9 +619,15 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-computer-modeling-of-interacting-particles">Task 1: Computer Modeling of Interacting Particles</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-experimental">Task 2: Experimental</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-complete-the-documentation">Task 3: Complete the Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excel-functions">Excel Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equations">Equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ode-s-and-derivatives">ODE’s and Derivatives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excel-vba-loops">Excel VBA Loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regression">Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cantera">Cantera</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solidworks">SolidWorks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ansys-workbench">Ansys Workbench</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aspen-plus">Aspen Plus</a></li>
 </ul>
   </nav></div>
 

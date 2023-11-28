@@ -30,9 +30,10 @@ chapters:
     - file: lectures/19-Aspen
     - file: lectures/20-Ansys
     - file: lectures/21-Cantera
-    - file: lectures/22-CaseStudy1
-    - file: lectures/23-CaseStudy2
-    - file: lectures/24-FinalReview
+    - file: lectures/22-Exam2Review
+    - file: lectures/23-CaseStudy1
+    - file: lectures/24-CaseStudy2
+    - file: lectures/28-FinalReview
   - file: homework
     sections:
     - file: homework/HW01
@@ -52,11 +53,10 @@ chapters:
     - file: homework/HW19
   - file: casestudies
     sections:
-    - file: casestudies/casestudysch
+    - file: casestudies/casestudydocs
     - file: casestudies/heattransfer
     - file: casestudies/thermo
     - file: casestudies/MD
-    - file: casestudies/casestudydocs
   - file: foundations
     sections:
     - file: foundations/preClassPrep
