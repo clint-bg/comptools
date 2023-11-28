@@ -64,8 +64,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'casestudies/casestudydocs';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Foundations" href="../foundations.html" />
-    <link rel="prev" title="Molecular Dynamics" href="MD.html" />
+    <link rel="next" title="Heat Transfer" href="heattransfer.html" />
+    <link rel="prev" title="Case Studies" href="../casestudies.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -179,12 +179,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../lectures/16-ExcelFunctions.html">16-Excel Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/17-ExcelVBA.html">17-Excel and Visual Basic for Applications (VBA)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/18-SolidWorks.html">18-SolidWorks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/19-AspenHysys.html">19-Aspen Hysys</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/20-Ansys.html">20-Ansys Workbench</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/19-Aspen.html">19-Aspen Plus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/20-Ansys.html">20-Ansys Workbench and Finite Element Analysis (FEA)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/21-Cantera.html">21-Cantera</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/22-CaseStudy1.html">22-First Case Study Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/23-CaseStudy2.html">23-Second Case Study Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/24-FinalReview.html">24-Final Exam Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/22-Exam2Review.html">22-Exam 2 Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/28-FinalReview.html">28-Final Exam Review</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -200,16 +199,16 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW10.html">HW10: More Practice Programming Loops and Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW11.html">HW11: Regression and Interpolation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW12.html">HW12: Interpolation and Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW13.html">HW13-Excel Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW14.html">Excel Homework 14</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW13.html">HW13: Excel Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW14.html">HW14: Excel Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW19.html">HW19: Ansys Workbench Practice</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="casestudysch.html">Case Study Schedule</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Case Study Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="heattransfer.html">Heat Transfer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="thermo.html">Thermodynamics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="MD.html">Molecular Dynamics</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Case Study Documentation</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../foundations.html">Foundations</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -418,15 +417,18 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="case-study-documentation">
 <h1>Case Study Documentation<a class="headerlink" href="#case-study-documentation" title="Permalink to this heading">#</a></h1>
-<p>You’ll be required to write a document of each case study you complete as a two-person team. The document should be a minimum of 400 words. The summary should include the following:</p>
+<p>You’ll be required to write a document of each case study you complete as a three-person team. The document should be a minimum of 400 words. The summary should include the following:</p>
 <ul class="simple">
 <li><p>An executive summary.</p></li>
 <li><p>A description of the scenario.</p></li>
-<li><p>A description of the results you obtained.</p></li>
 <li><p>A description of the experimental setup with a photo or diagram.</p></li>
-<li><p>Figure or photo captions with a discussion or explanation of the figure or photo in the text.</p></li>
+<li><p>A description of the modeling/theoretical approach.</p></li>
+<li><p>A description of the results you obtained (experimental and theoretical).</p></li>
+<li><p>Figures detailing those results.</p></li>
 <li><p>Conclusions you drew from the modeling and experimental results.</p></li>
+<li><p>Contribution statement for each team member.</p></li>
 </ul>
+<p>You can use generative AI such as ChatGPT, Claude, Bard, etc. to help you draft your document.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -461,20 +463,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="MD.html"
+       href="../casestudies.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Molecular Dynamics</p>
+        <p class="prev-next-title">Case Studies</p>
       </div>
     </a>
     <a class="right-next"
-       href="../foundations.html"
+       href="heattransfer.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Foundations</p>
+        <p class="prev-next-title">Heat Transfer</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

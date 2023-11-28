@@ -23,16 +23,15 @@ The schedule for the course will be as follows (subject to change where Week 1.2
 |9.17|[Excel Functions](lectures/16-ExcelFunctions.md)|-|HW15|-|
 |9.18|[Excel VBA](lectures/17-ExcelVBA.md)|-|HW16|-|
 |10.19|[SolidWorks](lectures/18-Solidworks)|-|HW17|-|
-|10.20|[Aspen Hysys](lectures/19-AspenHysys)|-|HW18|-|
+|10.20|[Aspen Plus](lectures/19-Aspen)|-|HW18|-|
 |11.21|[Ansys Workbench](lectures/20-Ansys)|-|HW19|-|
 |11.22|[Cantera](lectures/21-Cantera)|-|HW20|-|
 |12.23|[Exam2 Review](lectures/22-Exam2Review)|-|-|Exam|
-|12.23|[CaseStudy1](lectures/22-CaseStudy1)|-|-|-|
-|13.26|[CaseStudy2](lectures/23-CaseStudy2)|-|-|-|
-|12.24|Review & Support|-|-|-|
-|12.25|Review & Support|-|-|-|
-|13.27|Review & Support|-|-|-|
-|14.28|Review & Support|-|CaseStudy1&2|-|
+|13.24|[CaseStudies](lectures/22-CaseStudies)|-|-|-|
+|13.25|ESP32 Data Collection|-|-|-|
+|14.26|Review & Support|-|-|CaseStudy1|
+|14.27|Review & Support|-|-|-|
+|15.28|Review & Support|-|CaseStudy2|-|
 |14.29|[Final Exam Review](lectures/24-FinalReview)|-|-|Final|
 
 ## Case Studies
