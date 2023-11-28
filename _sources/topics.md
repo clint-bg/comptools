@@ -29,7 +29,7 @@ The schedule for the course will be as follows (subject to change where Week 1.2
 |12.23|[Exam2 Review](lectures/22-Exam2Review)|-|-|Exam|
 |13.24|[CaseStudies](lectures/22-CaseStudies)|-|-|-|
 |13.25|ESP32 Data Collection|-|-|-|
-|14.26|Review & Support|-|-|CaseStudy1|
+|14.26|Review & Support|-|CaseStudy1|-|
 |14.27|Review & Support|-|-|-|
 |15.28|Review & Support|-|CaseStudy2|-|
 |14.29|[Final Exam Review](lectures/24-FinalReview)|-|-|Final|
