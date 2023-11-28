@@ -32,7 +32,7 @@ The schedule for the course will be as follows (subject to change where Week 1.2
 |14.26|Review & Support|-|CaseStudy1|-|
 |14.27|Review & Support|-|-|-|
 |15.28|Review & Support|-|CaseStudy2|-|
-|14.29|[Final Exam Review](lectures/24-FinalReview)|-|-|Final|
+|15.29|[Final Exam Review](lectures/24-FinalReview)|-|-|Final|
 
 ## Case Studies
 [Heat Transfer](casestudies/heattransfer.ipynb)  
