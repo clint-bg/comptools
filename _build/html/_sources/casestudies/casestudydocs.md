@@ -9,4 +9,4 @@ You'll be required to write a document of each case study you complete as a thre
 - Conclusions you drew from the modeling and experimental results.
 - Contribution statement for each team member.
 
-You can use generative AI such as ChatGPT, Claude, Bard, etc. to help you draft your document.
+You can use generative AI such as ChatGPT, Claude, Bard, etc. to help you draft and write, and rewrite your document.

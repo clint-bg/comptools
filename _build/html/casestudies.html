@@ -183,6 +183,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="lectures/20-Ansys.html">20-Ansys Workbench and Finite Element Analysis (FEA)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lectures/21-Cantera.html">21-Cantera</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lectures/22-Exam2Review.html">22-Exam 2 Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lectures/23-CaseStudies.html">23-Case Studies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lectures/28-FinalReview.html">28-Final Exam Review</a></li>
 </ul>
 </li>
@@ -209,6 +210,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="casestudies/heattransfer.html">Heat Transfer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="casestudies/thermo.html">Thermodynamics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="casestudies/MD.html">Molecular Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="casestudies/datacollection.html">Data Collection</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="foundations.html">Foundations</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -390,9 +392,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -408,22 +408,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptions">Descriptions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cantera">Cantera</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aspen-hysys">Aspen Hysys</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ansys-workbench-fluid-flow">Ansys Workbench: Fluid Flow</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cfd-comsol">CFD: COMSOL</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">Problems</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demos-occasionally">Demos occasionally</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -435,73 +419,22 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="case-studies">
 <h1>Case Studies<a class="headerlink" href="#case-studies" title="Permalink to this heading">#</a></h1>
-<p>Now that we’ve completed boot camp, we’ll use those skills (practice those skills) by working in small teams (2 people) to complete engineering case studies where we’ll use:</p>
+<p>Now that we’ve completed much of the course, we’ll use skills we’ve practiced by working in small teams (3 people) to complete to complete a case study. Each team will select one of the following:</p>
 <ul class="simple">
-<li><p>Literature</p></li>
-<li><p>Estimates</p></li>
-<li><p>Numerical tools</p></li>
-<li><p>Higher-level numerical tools</p></li>
-<li><p>and experiments</p></li>
+<li><p><a class="reference internal" href="casestudies/heattransfer.html"><span class="doc std std-doc">Heat Transfer</span></a></p></li>
+<li><p><a class="reference internal" href="casestudies/thermo.html"><span class="doc std std-doc">Thermodynamics</span></a></p></li>
+<li><p><a class="reference internal" href="casestudies/MD.html"><span class="doc std std-doc">Molecular Dynamics</span></a></p></li>
 </ul>
-<p>to better understand several very relavant chemical engineering principles.</p>
-<p>Details here on what case studies will be completed and how and when</p>
-<section id="descriptions">
-<h2>Descriptions<a class="headerlink" href="#descriptions" title="Permalink to this heading">#</a></h2>
-<section id="cantera">
-<h3>Cantera<a class="headerlink" href="#cantera" title="Permalink to this heading">#</a></h3>
-<p>Adiabatic Flame Temperature
-Exploding Paint Can</p>
-</section>
-<section id="aspen-hysys">
-<h3>Aspen Hysys<a class="headerlink" href="#aspen-hysys" title="Permalink to this heading">#</a></h3>
-<p>Canned Air Venting</p>
-</section>
-<section id="ansys-workbench-fluid-flow">
-<h3>Ansys Workbench: Fluid Flow<a class="headerlink" href="#ansys-workbench-fluid-flow" title="Permalink to this heading">#</a></h3>
-<p>Thermal Heating of a Rod at one end</p>
-<p>I went through a tutorial on YouTube: Ansys Fluent 3D basic | fluid flow through a venturi by Science Roast posted 2 years ago. Aspen Workbench is available on the CAEDM machines.</p>
-</section>
-<section id="cfd-comsol">
-<h3>CFD: COMSOL<a class="headerlink" href="#cfd-comsol" title="Permalink to this heading">#</a></h3>
-<p>Wall stress and strain in a tank
-Need a strain gauge to measure strain (choked flow cart)</p>
-</section>
-<section id="problems">
-<h3>Problems<a class="headerlink" href="#problems" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>OBDII ELM 327 ($7)</p>
-<ul>
-<li><p>Vehicle analysis</p></li>
-</ul>
-</li>
-<li><p>ESP32 ($4)</p>
-<ul>
-<li><p>Air handling unit (HVAC) analysis</p></li>
-<li><p>Bluetooth data collection of temperature and humidity</p></li>
-</ul>
-</li>
-<li><p>Molecular Dynamics Code</p></li>
-<li><p>Heat Conduction Down a Rod</p></li>
-<li><p>Venting of difluoro ethane (dfe) from “canned air”</p></li>
-</ul>
-</section>
-</section>
-<section id="demos-occasionally">
-<h2>Demos occasionally<a class="headerlink" href="#demos-occasionally" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Flame temperature with ESP32</p></li>
-<li><p>OBDII ELM 327 Vehicle Data</p></li>
-<li><p>Heat Conduction Down a Rod</p></li>
-</ul>
+<p>Teams will work together to complete each case study and then submit a write-up of their efforts and results. The intent is to gain experience doing both theoretical estimates and compare those estimates to experimental results. You’ll use python in each scenario together with a simulation tool. You’ll also collect some data for the experimental portion of the case study.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="casestudies/casestudydocs.html">Case Study Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="casestudies/heattransfer.html">Heat Transfer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="casestudies/thermo.html">Thermodynamics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="casestudies/MD.html">Molecular Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="casestudies/datacollection.html">Data Collection</a></li>
 </ul>
 </div>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -562,28 +495,6 @@ Need a strain gauge to measure strain (choked flow cart)</p>
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptions">Descriptions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cantera">Cantera</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aspen-hysys">Aspen Hysys</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ansys-workbench-fluid-flow">Ansys Workbench: Fluid Flow</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cfd-comsol">CFD: COMSOL</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">Problems</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demos-occasionally">Demos occasionally</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
