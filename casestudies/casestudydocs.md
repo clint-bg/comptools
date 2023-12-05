@@ -7,6 +7,6 @@ You'll be required to write a document of each case study you complete as a thre
 - A description of the results you obtained (experimental and theoretical).
 - Figures detailing those results.
 - Conclusions you drew from the modeling and experimental results.
-- Contribution statement for each team member.
+- Contribution statement for each team member and an estimate of the total time that the group spent on the study.
 
 You can use generative AI such as ChatGPT, Claude, Bard, etc. to help you draft and write, and rewrite your document.

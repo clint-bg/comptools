@@ -183,6 +183,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../lectures/20-Ansys.html">20-Ansys Workbench and Finite Element Analysis (FEA)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/21-Cantera.html">21-Cantera</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/22-Exam2Review.html">22-Exam 2 Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/23-CaseStudies.html">23-Case Studies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/28-FinalReview.html">28-Final Exam Review</a></li>
 </ul>
 </li>
@@ -209,6 +210,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="heattransfer.html">Heat Transfer</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Thermodynamics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="MD.html">Molecular Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datacollection.html">Data Collection</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../foundations.html">Foundations</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -621,6 +623,15 @@ document.write(`
 <section id="task-4-aspen-plus-simulation">
 <h2>Task 4: Aspen Plus Simulation<a class="headerlink" href="#task-4-aspen-plus-simulation" title="Permalink to this heading">#</a></h2>
 <p>Simulate with Aspen Plus a separator with difluoroethane (CAS 75-37-6) where the inlet pressure is 85 kPa and the vapor fraction is 0. Estimate the heat transferred to the can (separator) such that the mass loss mimics the mass loss rate from the experiment.</p>
+<p>I found simulating a batch condition to be difficult (I haven’t figured out how to do it yet). If you’re having problems as well, you can instead simulate a continuous flash drum with the following conditions:</p>
+<ul class="simple">
+<li><p>6.3 bar inlet pressure of 100% difluoroethane (C2H4F2)</p></li>
+<li><p>0.01 inlet vapor fraction</p></li>
+<li><p>0.1 kg/hr inlet flow rate</p></li>
+<li><p>1 bar pressure in the flash drum</p></li>
+<li><p>Flash drum duty of 0 cal/sec</p></li>
+</ul>
+<p>Report the resultant flow rates of the liquid and vapor and the temperature of the liquid and vapor.</p>
 </section>
 <section id="task-5-complete-the-documentation">
 <h2>Task 5: Complete the Documentation<a class="headerlink" href="#task-5-complete-the-documentation" title="Permalink to this heading">#</a></h2>
