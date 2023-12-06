@@ -185,6 +185,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../lectures/20-Ansys.html">20-Ansys Workbench and Finite Element Analysis (FEA)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/21-Cantera.html">21-Cantera</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/22-Exam2Review.html">22-Exam 2 Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/23-CaseStudies.html">23-Case Studies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/28-FinalReview.html">28-Final Exam Review</a></li>
 </ul>
 </li>
@@ -211,6 +212,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Heat Transfer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="thermo.html">Thermodynamics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="MD.html">Molecular Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datacollection.html">Data Collection</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../foundations.html">Foundations</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -455,6 +457,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5-document-your-experience">Task 5: Document your Experience</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heat-transfer-project-rubric">Heat Transfer Project Rubric</a></li>
 </ul>
             </nav>
         </div>
@@ -634,6 +637,40 @@ T[i+1,j] = T[i,j] + \alpha\cdot\delta t/\delta x^2\cdot(T[i,j-1]-2\cdot T[i,j]+T
 <p>Document your experience with the above tasks in a write-up.</p>
 </section>
 </section>
+<section id="heat-transfer-project-rubric">
+<h2>Heat Transfer Project Rubric<a class="headerlink" href="#heat-transfer-project-rubric" title="Permalink to this heading">#</a></h2>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Task</p></th>
+<th class="head"><p>Points</p></th>
+<th class="head"><p>Some criteria</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Code Development</p></td>
+<td><p>10</p></td>
+<td><p>Analytical and numerical functions are generated to yield the temperature at any point along the rod and a given time are developed with python and are plotted.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Experimental Data</p></td>
+<td><p>15</p></td>
+<td><p>Experimental data is collected where the temperature upon exposure to a heat source is collected for a given time frame at a given distance. Data at multiple distances is recommended. Data can also be collected with different materials (copper, steel, or brass).</p></td>
+</tr>
+<tr class="row-even"><td><p>Comparison</p></td>
+<td><p>10</p></td>
+<td><p>A plot showing the experimental and modeling result for the temperature as a function of time</p></td>
+</tr>
+<tr class="row-odd"><td><p>Writeup</p></td>
+<td><p>25</p></td>
+<td><p>Documentation is complete according to the <a class="reference external" href="https://clint-bg.github.io/comptools/casestudies/casestudydocs.html">Case Study Documentation</a>. It’s important to show evidence (plot or plots) of the modeling and experimental results and discuss the implications.</p></td>
+</tr>
+<tr class="row-even"><td><p>Total</p></td>
+<td><p>60</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p>Note the intent is to gain experience with the modeling and experimental process and to compare those results. The modeling and experimental results may not be perfect.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -712,6 +749,7 @@ T[i+1,j] = T[i,j] + \alpha\cdot\delta t/\delta x^2\cdot(T[i,j-1]-2\cdot T[i,j]+T
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5-document-your-experience">Task 5: Document your Experience</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heat-transfer-project-rubric">Heat Transfer Project Rubric</a></li>
 </ul>
   </nav></div>
 

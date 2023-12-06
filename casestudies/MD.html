@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'casestudies/MD';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Foundations" href="../foundations.html" />
+    <link rel="next" title="Data Collection" href="datacollection.html" />
     <link rel="prev" title="Thermodynamics" href="thermo.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -183,6 +183,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../lectures/20-Ansys.html">20-Ansys Workbench and Finite Element Analysis (FEA)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/21-Cantera.html">21-Cantera</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/22-Exam2Review.html">22-Exam 2 Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/23-CaseStudies.html">23-Case Studies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/28-FinalReview.html">28-Final Exam Review</a></li>
 </ul>
 </li>
@@ -209,6 +210,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="heattransfer.html">Heat Transfer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="thermo.html">Thermodynamics</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Molecular Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datacollection.html">Data Collection</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../foundations.html">Foundations</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -447,6 +449,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-computer-modeling-of-interacting-particles">Task 1: Computer Modeling of Interacting Particles</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-experimental">Task 2: Experimental</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-complete-the-documentation">Task 3: Complete the Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#md-project-rubric">MD Project Rubric</a></li>
 </ul>
             </nav>
         </div>
@@ -475,6 +478,44 @@ document.write(`
 <section id="task-3-complete-the-documentation">
 <h2>Task 3: Complete the Documentation<a class="headerlink" href="#task-3-complete-the-documentation" title="Permalink to this heading">#</a></h2>
 <p>Document your experience with the above two tasks in a writeup according to the case study documentation.</p>
+</section>
+<section id="md-project-rubric">
+<h2>MD Project Rubric<a class="headerlink" href="#md-project-rubric" title="Permalink to this heading">#</a></h2>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Task</p></th>
+<th class="head"><p>Points</p></th>
+<th class="head"><p>Some criteria</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Code Development</p></td>
+<td><p>15</p></td>
+<td><p>Existing code is used and further developed to estimate the relationship or effect of changing diameter on the volume of the confined scenario in a 3D geometry.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Experimental Data</p></td>
+<td><p>10</p></td>
+<td><p>Experimental data is collected where the diameter of the spheres are measured at different times after exposure to water. Also, data is collected and at those same corresponding times of the volume of the swelling spheres inside a confined scenario in a graduated cylinder.</p></td>
+</tr>
+<tr class="row-even"><td><p>3D Print</p></td>
+<td><p>5</p></td>
+<td><p>A 3D print of the plunger to confine the spheres is generated in SolidWorks and then printed and used.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Comparison</p></td>
+<td><p>5</p></td>
+<td><p>A plot showing the experimental and modeling result for the normalized cube of the radius (or diameter) is plotted against the normalized volume. In other words, the cubed radius divided by the cubed initial radius is plotted versus the volume divided by the initial volume.</p></td>
+</tr>
+<tr class="row-even"><td><p>Writeup</p></td>
+<td><p>25</p></td>
+<td><p>Documentation is complete according to the <a class="reference external" href="https://clint-bg.github.io/comptools/casestudies/casestudydocs.html">Case Study Documentation</a>. It’s important to show evidence (plot or plots) of the modeling and experimental results and discuss the implications.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Total</p></td>
+<td><p>60</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p>Note the intent is to gain experience with the modeling and experimental process and to compare those results. The modeling and experimental results may not be perfect. The modeling results may not be fully completed and you could still get full credit.</p>
 </section>
 </section>
 
@@ -519,11 +560,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../foundations.html"
+       href="datacollection.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Foundations</p>
+        <p class="prev-next-title">Data Collection</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -548,6 +589,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-computer-modeling-of-interacting-particles">Task 1: Computer Modeling of Interacting Particles</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-experimental">Task 2: Experimental</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-complete-the-documentation">Task 3: Complete the Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#md-project-rubric">MD Project Rubric</a></li>
 </ul>
   </nav></div>
 
