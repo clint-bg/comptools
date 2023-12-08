@@ -185,6 +185,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../lectures/20-Ansys.html">20-Ansys Workbench and Finite Element Analysis (FEA)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/21-Cantera.html">21-Cantera</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/22-Exam2Review.html">22-Exam 2 Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/23-CaseStudies.html">23-Case Studies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/28-FinalReview.html">28-Final Exam Review</a></li>
 </ul>
 </li>
@@ -211,6 +212,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Heat Transfer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="thermo.html">Thermodynamics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="MD.html">Molecular Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datacollection.html">Data Collection</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../foundations.html">Foundations</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -448,13 +450,30 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-heat-equation">1-D Heat Equation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analytical-solution">Analytical Solution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-solution-manual">Numerical Solution - Manual</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-between-the-above-two-methods">Comparison between the above two methods</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-of-software-to-solve-the-heat-equation-ansys-workbench">Use of Software to Solve the Heat Equation: Ansys Workbench</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-results">Experimental results</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5-document-your-experience">Task 5: Document your Experience</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-description"><strong>Task 1 Description</strong>:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-solution">Numerical Solution</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-method">Euler method</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-description"><strong>Task 2 Description</strong>:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-between-the-above-two-methods">Comparison between the above two methods</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-description"><strong>Task 3 Description</strong>:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-of-software-to-solve-the-heat-equation-ansys-workbench">Use of Software to Solve the Heat Equation: Ansys Workbench</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4-description"><strong>Task 4 Description</strong>:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-results">Experimental results</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5-description"><strong>Task 5 Description</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6-document-your-experience"><strong>Task 6: Document your Experience</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heat-transfer-project-rubric">Heat Transfer Project Rubric</a></li>
 </ul>
             </nav>
         </div>
@@ -520,12 +539,98 @@ q^{''}_s(t) = \frac{k(T_s - T_i)}{\sqrt{\pi \alpha t}} \tag{3b}
 \end{align}
 \end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(T_s\)</span> is the surface temperature, <span class="math notranslate nohighlight">\(T_i\)</span> is the initial temperature, and <span class="math notranslate nohighlight">\(q^{''}_s\)</span> is the heat flux at the surface.</p>
-<p><strong>Task 1 Description</strong>:
-Define two functions such that you can evaluate the temperature distribution in a rod as a function of time and distance using the above equations. The first function should be for a constant heat flux and the second function should be for a constant surface temperature. The material properties are not inputs to the function but are constants defined for tool steel or brass. Those two functions are then used to evaluate the temperature distribution in a rod as a function of time and distance for the two cases.</p>
-<p>There should be two plots with each plot having multiple curves for the temperature as a function of distance for at least 3 but no more than 8 different times up to 10 seconds. The two plots should have a title, axis labels, and a legend.</p>
 </section>
-<section id="numerical-solution-manual">
-<h3>Numerical Solution - Manual<a class="headerlink" href="#numerical-solution-manual" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="task-1-description">
+<h2><strong>Task 1 Description</strong>:<a class="headerlink" href="#task-1-description" title="Permalink to this heading">#</a></h2>
+<p>Define two functions such that you can evaluate the temperature distribution in a rod as a function of time and distance using the above equations. The first function should be for a constant heat flux and the second function should be for a constant surface temperature. The material properties are not inputs to the function but are constants defined for tool steel or brass. Those two functions are then used to evaluate the temperature distribution in a rod as a function of time and distance for the two cases.</p>
+<p>There should be two plots with each plot having multiple curves for the temperature as a function of distance for at least 3 but no more than 8 different times up to 10 seconds. The two plots should have a title, axis labels, and a legend.</p>
+<section id="numerical-solution">
+<h3>Numerical Solution<a class="headerlink" href="#numerical-solution" title="Permalink to this heading">#</a></h3>
+<p>This is the same scenario discussed in the <a class="reference external" href="https://clint-bg.github.io/comptools/lectures/20-Ansys.html">Ansys lecture</a>. Pieces of that lecture will be repeated here.</p>
+<img src="https://github.com/clint-bg/comptools/blob/main/lectures/supportfiles/1DHeatEqImg.png?raw=true" width="600"><img src="https://github.com/clint-bg/comptools/blob/main/lectures/supportfiles/1DHeatEqImg2.png?raw=true" width="600"><p>The above can be programmed and solved with odeint with python. An example scenario is given below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">totallength</span> <span class="o">=</span> <span class="mf">0.2</span>
+<span class="n">sections</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">totallength</span><span class="o">/</span><span class="n">sections</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">1e-4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is the constant temperature scenario where the first section is at a given temperature and stays that way.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#initial temps</span>
+<span class="n">Temps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sections</span><span class="p">))</span><span class="o">*</span><span class="mi">298</span>
+<span class="n">Temps</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="c1">#time array</span>
+<span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dTdt</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">time</span><span class="p">):</span> <span class="c1">#T is an array</span>
+    <span class="n">dTdt</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sections</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">dTdt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">alpha</span><span class="o">/</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">each</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">T</span><span class="p">[</span><span class="n">each</span><span class="p">]</span> <span class="o">+</span> <span class="n">T</span><span class="p">[</span><span class="n">each</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="n">dTdt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">alpha</span><span class="o">/</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]))</span> <span class="c1">#adiabatic end </span>
+    <span class="k">return</span> <span class="n">dTdt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">dTdt</span><span class="p">,</span><span class="n">Temps</span><span class="p">,</span><span class="n">times</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(200, 100)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xpos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sections</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span><span class="p">,</span><span class="n">dx</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sections</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">j</span><span class="o">%</span><span class="k">20</span> == 0:
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span><span class="n">sol</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;pos=</span><span class="si">{</span><span class="n">xpos</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="si">:</span><span class="s1">1.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">pass</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">,</span><span class="n">sol</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]);</span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;temperature&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ac4717334211bf0fbb132bd6786457b392ca06501a12e5827ffb01696d142d56.png" src="../_images/ac4717334211bf0fbb132bd6786457b392ca06501a12e5827ffb01696d142d56.png" />
+</div>
+</div>
+<section id="euler-method">
+<h4>Euler method<a class="headerlink" href="#euler-method" title="Permalink to this heading">#</a></h4>
+<p>The below is an alternate method whose accuracy can be dependent on the values of dt, alpha, and dx.</p>
 <p>The numerical solution treats a finite section of the rod to have a constant temperature and properties. Discretization of Equation 1 for a similar 1-D scenario results in the following equations where 4b is for the last node furthest from the heat source and 4a is for all other nodes:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -535,20 +640,34 @@ T[i+1,j] = T[i,j] + \alpha\cdot\delta t/\delta x^2\cdot(T[i,j-1]-2\cdot T[i,j]+T
 \end{align}
 \end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(i\)</span> is the time index and <span class="math notranslate nohighlight">\(j\)</span> is the spatial index. The initial condition is <span class="math notranslate nohighlight">\(T[0,j] = T_0\)</span> for all <span class="math notranslate nohighlight">\(j\)</span> and the boundary condition is <span class="math notranslate nohighlight">\(T[i,0] = T_0\)</span> for all <span class="math notranslate nohighlight">\(i\)</span>.</p>
-<p><strong>Task 2 Description</strong>: Plot the temperature distribution in a rod as a function of time and distance using the above 1-D numerical equations. Use the same properties as in Task 1. The plots should have a title, axis labels, and a legend. Compare the numberical result to the analytical solution as a function of time for a given position.</p>
-<p>Note that the above analytical solution is assuming an infinitely long rod. Therefore, make sure the numerical solution has a sufficiently long rod (typically twice as long as the distance where the temperature changers are occuring).</p>
 </section>
+</section>
+</section>
+<section id="task-2-description">
+<h2><strong>Task 2 Description</strong>:<a class="headerlink" href="#task-2-description" title="Permalink to this heading">#</a></h2>
+<p>Plot the temperature distribution in a rod as a function of time and distance using the above 1-D numerical equations (using the ). Use the same properties as in Task 1. The plots should have a title, axis labels, and a legend. Compare the numberical result to the analytical solution as a function of time for a given position.</p>
+<p>Note that the above analytical solution is assuming an infinitely long rod. Therefore, make sure the numerical solution has a sufficiently long rod (typically twice as long as the distance where the temperature changers are occuring).</p>
 <section id="comparison-between-the-above-two-methods">
 <h3>Comparison between the above two methods<a class="headerlink" href="#comparison-between-the-above-two-methods" title="Permalink to this heading">#</a></h3>
-<p><strong>Task 3 Description</strong>: Compare the analytical and numerical result as a function of time for a given position along the rod. The plots should have a title, axis labels, and a legend. Also include an estimate of some measure of accuracy comparison whether that’s an r-squared value or other (like a mean absolute percent error).</p>
 </section>
+</section>
+<section id="task-3-description">
+<h2><strong>Task 3 Description</strong>:<a class="headerlink" href="#task-3-description" title="Permalink to this heading">#</a></h2>
+<p>Compare the analytical and numerical result as a function of time for a given position along the rod (given a constant surface temperature). The plots should have a title, axis labels, and a legend. Also include an estimate of some measure of accuracy comparison whether that’s an r-squared value or other (like a mean absolute percent error).</p>
 <section id="use-of-software-to-solve-the-heat-equation-ansys-workbench">
 <h3>Use of Software to Solve the Heat Equation: Ansys Workbench<a class="headerlink" href="#use-of-software-to-solve-the-heat-equation-ansys-workbench" title="Permalink to this heading">#</a></h3>
-<p><strong>Task 4</strong> Use Ansys Workbench to obtain a plot of the temperature in the rod for one of the two above boundary conditions.</p>
 </section>
+</section>
+<section id="task-4-description">
+<h2><strong>Task 4 Description</strong>:<a class="headerlink" href="#task-4-description" title="Permalink to this heading">#</a></h2>
+<p>Use Ansys Workbench to obtain a plot of the temperature in the rod for one of the two above boundary conditions (constant surface temperature or constant heat flux).</p>
 <section id="experimental-results">
 <h3>Experimental results<a class="headerlink" href="#experimental-results" title="Permalink to this heading">#</a></h3>
-<p><strong>Task 5</strong> Obtain experimental results with the ESP32, MAX6675, thermocouple, small diameter rod, and lighter. A rod is fitted with one thermocouple at 5-10 cm away from the flame. The rod is safely heated with the lighter at one end. The rod can be supported on a stand. The temperature is recorded with an ESP32 and the data is sent to a phone via bluetooth and then saved and plotted. Results are compared to the analytical and numerical solutions.</p>
+</section>
+</section>
+<section id="task-5-description">
+<h2><strong>Task 5 Description</strong><a class="headerlink" href="#task-5-description" title="Permalink to this heading">#</a></h2>
+<p>Obtain experimental results with the ESP32, MAX6675, thermocouple, small diameter rod, and lighter. A rod is fitted with one thermocouple at 5-10 cm away from the flame. The rod is safely heated with the lighter at one end. The rod can be supported on a stand. The temperature is recorded with an ESP32 and the data is sent to a phone via bluetooth and then saved and plotted. Results are compared to the analytical and numerical solutions.</p>
 <p>Example results are below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -629,10 +748,43 @@ T[i+1,j] = T[i,j] + \alpha\cdot\delta t/\delta x^2\cdot(T[i,j-1]-2\cdot T[i,j]+T
 </div>
 </div>
 </section>
-<section id="task-5-document-your-experience">
-<h3>Task 5: Document your Experience<a class="headerlink" href="#task-5-document-your-experience" title="Permalink to this heading">#</a></h3>
-<p>Document your experience with the above tasks in a write-up.</p>
+<section id="task-6-document-your-experience">
+<h2><strong>Task 6: Document your Experience</strong><a class="headerlink" href="#task-6-document-your-experience" title="Permalink to this heading">#</a></h2>
+<p>Document your experience with the above tasks in a write-up according to the suggestions <a class="reference external" href="https://clint-bg.github.io/comptools/casestudies/casestudydocs.html">here</a>.</p>
 </section>
+<section id="heat-transfer-project-rubric">
+<h2>Heat Transfer Project Rubric<a class="headerlink" href="#heat-transfer-project-rubric" title="Permalink to this heading">#</a></h2>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Task</p></th>
+<th class="head"><p>Points</p></th>
+<th class="head"><p>Some criteria</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Code Development</p></td>
+<td><p>10</p></td>
+<td><p>Analytical and numerical functions are generated to yield the temperature at any point along the rod and a given time are developed with python and are plotted.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Experimental Data</p></td>
+<td><p>15</p></td>
+<td><p>Experimental data is collected where the temperature upon exposure to a heat source is collected for a given time frame at a given distance. Data at multiple distances is recommended. Data can also be collected with different materials (copper, steel, or brass).</p></td>
+</tr>
+<tr class="row-even"><td><p>Comparison</p></td>
+<td><p>10</p></td>
+<td><p>A plot showing the experimental and modeling result for the temperature as a function of time</p></td>
+</tr>
+<tr class="row-odd"><td><p>Writeup</p></td>
+<td><p>25</p></td>
+<td><p>Documentation is complete according to the <a class="reference external" href="https://clint-bg.github.io/comptools/casestudies/casestudydocs.html">Case Study Documentation</a>. It’s important to show evidence (plot or plots) of the modeling and experimental results and discuss the implications.</p></td>
+</tr>
+<tr class="row-even"><td><p>Total</p></td>
+<td><p>60</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p>Note the intent is to gain experience with the modeling and experimental process and to compare those results. The modeling and experimental results may not be perfect.</p>
 </section>
 </section>
 
@@ -705,13 +857,30 @@ T[i+1,j] = T[i,j] + \alpha\cdot\delta t/\delta x^2\cdot(T[i,j-1]-2\cdot T[i,j]+T
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-heat-equation">1-D Heat Equation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analytical-solution">Analytical Solution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-solution-manual">Numerical Solution - Manual</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-between-the-above-two-methods">Comparison between the above two methods</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-of-software-to-solve-the-heat-equation-ansys-workbench">Use of Software to Solve the Heat Equation: Ansys Workbench</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-results">Experimental results</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5-document-your-experience">Task 5: Document your Experience</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-description"><strong>Task 1 Description</strong>:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-solution">Numerical Solution</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-method">Euler method</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-description"><strong>Task 2 Description</strong>:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-between-the-above-two-methods">Comparison between the above two methods</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-description"><strong>Task 3 Description</strong>:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-of-software-to-solve-the-heat-equation-ansys-workbench">Use of Software to Solve the Heat Equation: Ansys Workbench</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-4-description"><strong>Task 4 Description</strong>:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#experimental-results">Experimental results</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-5-description"><strong>Task 5 Description</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-6-document-your-experience"><strong>Task 6: Document your Experience</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heat-transfer-project-rubric">Heat Transfer Project Rubric</a></li>
 </ul>
   </nav></div>
 
