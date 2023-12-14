@@ -450,6 +450,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-and-objects">Functions and Objects</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-equations">Solving Equations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#odeint-review">ODEInt Review</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-review">Regression Review</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-review">Integration Review</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation-review">Interpolation Review</a></li>
 </ul>
             </nav>
         </div>
@@ -576,6 +579,143 @@ document.write(`
 <img alt="../_images/fd5021aba95f4d9c12b7ca98ccf6a28175be2c2fe62d79c5df6e3a83a0ae1e7e.png" src="../_images/fd5021aba95f4d9c12b7ca98ccf6a28175be2c2fe62d79c5df6e3a83a0ae1e7e.png" />
 </div>
 </div>
+<p>Doing the same integration of the SEIRD model in Excel using Euler’s method is given here: <a class="github reference external" href="https://github.com/clint-bg/comptools/blob/main/lectures/supportfiles/inclasseulerdisease.xlsx?raw=true">clint-bg/comptools</a></p>
+</section>
+<section id="regression-review">
+<h2>Regression Review<a class="headerlink" href="#regression-review" title="Permalink to this heading">#</a></h2>
+<p>Different methods of regression include:</p>
+<ul class="simple">
+<li><p>Linear Regression</p></li>
+<li><p>Polynomial Regression</p></li>
+<li><p>Custom relationship using curve_fit or least_squares or minimize</p></li>
+</ul>
+<p>Examples could include:</p>
+<ul class="simple">
+<li><p>Fitting a line to a set of data</p></li>
+<li><p>Fitting a polynomial to a set of data</p></li>
+<li><p>Fitting a custom relationship to a set of data</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#a simple example scenario of regression with python</span>
+<span class="c1"># 1st generate some data</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mf">3.2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">+</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span><span class="o">*</span><span class="mi">4</span> <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2nd fit the data, first use np.polyfit</span>
+<span class="n">fit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#fit yields the two coefficients of the linear regression (slope and intercept)</span>
+<span class="c1">#if you forget what np.polyfit does, type help(np.polyfit) in the console or np.polyfit?</span>
+<span class="c1"># 3rd plot the data and the fit</span>
+<span class="c1"># 2nd plot the data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">fit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">fit</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;k-.&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07a4b0e397e28a216d3789fce97ce41fe518dab4297d84c0977df4b17c59758c.png" src="../_images/07a4b0e397e28a216d3789fce97ce41fe518dab4297d84c0977df4b17c59758c.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now we can calculate the R^2 and MAPE values</span>
+<span class="c1"># R^2</span>
+<span class="n">ymodel</span> <span class="o">=</span> <span class="n">fit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">fit</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">SStot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#total sum of squares - how much different is the data from the mean</span>
+<span class="n">SSE</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y</span><span class="o">-</span><span class="n">ymodel</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#sum of squares of the error - how much different is the data from the model</span>
+<span class="n">R2</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">SSE</span><span class="o">/</span><span class="n">SStot</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;R2 = </span><span class="si">{</span><span class="n">R2</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R2 = 0.987
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Now the MAPE value</span>
+<span class="n">MAPE</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">y</span><span class="o">-</span><span class="n">ymodel</span><span class="p">)</span><span class="o">/</span><span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;MAPE = </span><span class="si">{</span><span class="n">MAPE</span><span class="si">:</span><span class="s1">1.2f</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MAPE = 5.88%
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Now we could fit the same data to a custom model using scipy.optimize.curve_fit</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+<span class="k">def</span> <span class="nf">mymodel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cosh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span>
+<span class="n">popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">mymodel</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;popt = </span><span class="si">{</span><span class="n">popt</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="c1"># the same methods of R2, MAPE and plotting can be done as above</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>popt = [2.20210392e-04 1.98114130e+01]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="integration-review">
+<h2>Integration Review<a class="headerlink" href="#integration-review" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Python quad</p></li>
+<li><p>Trapezoid method</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#an example of the quad function to calculate the integral of the above regressed function</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">quad</span>
+<span class="n">area</span> <span class="o">=</span> <span class="n">quad</span><span class="p">(</span><span class="n">mymodel</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">popt</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">popt</span><span class="p">[</span><span class="mi">1</span><span class="p">]))[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;area of mymodel fit between 0 and 10 = </span><span class="si">{</span><span class="n">area</span><span class="si">:</span><span class="s1">1.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>area of mymodel fit between 0 and 10 = 219.94
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="interpolation-review">
+<h2>Interpolation Review<a class="headerlink" href="#interpolation-review" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Linear</p></li>
+<li><p>Cubic</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># an example of Cubic Spline interpolation</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">CubicSpline</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">CubicSpline</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">f</span><span class="p">(</span><span class="mf">3.4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array(17.56732798)
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -650,6 +790,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-and-objects">Functions and Objects</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-equations">Solving Equations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#odeint-review">ODEInt Review</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-review">Regression Review</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-review">Integration Review</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation-review">Interpolation Review</a></li>
 </ul>
   </nav></div>
 
