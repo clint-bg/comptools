@@ -179,12 +179,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="16-ExcelFunctions.html">16-Excel Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="17-ExcelVBA.html">17-Excel and Visual Basic for Applications (VBA)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="18-SolidWorks.html">18-SolidWorks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="19-AspenHysys.html">19-Aspen Hysys</a></li>
-<li class="toctree-l2"><a class="reference internal" href="20-Ansys.html">20-Ansys Workbench</a></li>
+<li class="toctree-l2"><a class="reference internal" href="19-Aspen.html">19-Aspen Plus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-Ansys.html">20-Ansys Workbench and Finite Element Analysis (FEA)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="21-Cantera.html">21-Cantera</a></li>
-<li class="toctree-l2"><a class="reference internal" href="22-CaseStudy1.html">22-First Case Study Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="23-CaseStudy2.html">23-Second Case Study Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="24-FinalReview.html">24-Final Exam Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="22-Exam2Review.html">22-Exam 2 Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="23-CaseStudies.html">23-Case Studies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="28-FinalReview.html">28-Final Exam Review</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -200,16 +200,17 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW10.html">HW10: More Practice Programming Loops and Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW11.html">HW11: Regression and Interpolation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW12.html">HW12: Interpolation and Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW13.html">HW13-Excel Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW14.html">Excel Homework 14</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW13.html">HW13: Excel Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW14.html">HW14: Excel Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW19.html">HW19: Ansys Workbench Practice</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../casestudies/casestudysch.html">Case Study Schedule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/casestudydocs.html">Case Study Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../casestudies/heattransfer.html">Heat Transfer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../casestudies/thermo.html">Thermodynamics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../casestudies/MD.html">Molecular Dynamics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../casestudies/casestudydocs.html">Case Study Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/datacollection.html">Data Collection</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../foundations.html">Foundations</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -747,7 +748,7 @@ Name: Time (s), dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_47866/834267956.py:2: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_38766/834267956.py:2: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
   data[&#39;time&#39;] = pd.to_datetime(data[&#39;time&#39;]) # set time to datetime to help with plotting
 </pre></div>
 </div>
@@ -961,7 +962,7 @@ Vehicle speed (mph)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ee54b78588a3a447876a51395528d87dc0e18ed81ac67dab2617c7e9d4437568.png" src="../_images/ee54b78588a3a447876a51395528d87dc0e18ed81ac67dab2617c7e9d4437568.png" />
+<img alt="../_images/1438d5004d73bcb0b3e94080920fb02393d6925060537a0d6247ebdaaf259f5e.png" src="../_images/1438d5004d73bcb0b3e94080920fb02393d6925060537a0d6247ebdaaf259f5e.png" />
 </div>
 </div>
 <p>Note that the higher order cubic interpolation can have wide oscillations at the end points. This is called Runge’s phenomenon (<a class="reference external" href="https://en.wikipedia.org/wiki/Runge%27s_phenomenon">https://en.wikipedia.org/wiki/Runge’s_phenomenon</a>).</p>
@@ -1070,31 +1071,31 @@ Vehicle speed (mph)
       <th>0</th>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>5.089417</td>
+      <td>5.048324</td>
     </tr>
     <tr>
       <th>1</th>
       <td>0.020408</td>
       <td>0.010204</td>
-      <td>5.175274</td>
+      <td>5.099492</td>
     </tr>
     <tr>
       <th>2</th>
       <td>0.040816</td>
       <td>0.020408</td>
-      <td>5.205915</td>
+      <td>5.258107</td>
     </tr>
     <tr>
       <th>3</th>
       <td>0.061224</td>
       <td>0.030612</td>
-      <td>5.321719</td>
+      <td>5.312609</td>
     </tr>
     <tr>
       <th>4</th>
       <td>0.081633</td>
       <td>0.040816</td>
-      <td>5.443886</td>
+      <td>5.360150</td>
     </tr>
   </tbody>
 </table>
@@ -1141,43 +1142,43 @@ Vehicle speed (mph)
       <th>mean</th>
       <td>0.500000</td>
       <td>0.250000</td>
-      <td>8.738648</td>
+      <td>8.734251</td>
     </tr>
     <tr>
       <th>std</th>
       <td>0.297498</td>
       <td>0.148749</td>
-      <td>2.700681</td>
+      <td>2.708886</td>
     </tr>
     <tr>
       <th>min</th>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>5.089417</td>
+      <td>5.048324</td>
     </tr>
     <tr>
       <th>25%</th>
       <td>0.250000</td>
       <td>0.125000</td>
-      <td>6.397390</td>
+      <td>6.385687</td>
     </tr>
     <tr>
       <th>50%</th>
       <td>0.500000</td>
       <td>0.250000</td>
-      <td>8.325472</td>
+      <td>8.333947</td>
     </tr>
     <tr>
       <th>75%</th>
       <td>0.750000</td>
       <td>0.375000</td>
-      <td>10.905699</td>
+      <td>10.855955</td>
     </tr>
     <tr>
       <th>max</th>
       <td>1.000000</td>
       <td>0.500000</td>
-      <td>14.058647</td>
+      <td>14.027544</td>
     </tr>
   </tbody>
 </table>
@@ -1219,7 +1220,7 @@ Vehicle speed (mph)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/06a5c7de6ee052edaffc6d721277d06ea7ac5a86015907725d2711bc6bf064ef.png" src="../_images/06a5c7de6ee052edaffc6d721277d06ea7ac5a86015907725d2711bc6bf064ef.png" />
+<img alt="../_images/15ff05db2ffb0cd29646c71470cf960a0220e6c01f5645f3ad164be199334407.png" src="../_images/15ff05db2ffb0cd29646c71470cf960a0220e6c01f5645f3ad164be199334407.png" />
 </div>
 </div>
 </section>
@@ -1244,23 +1245,23 @@ Vehicle speed (mph)
 ==============================================================================
 Dep. Variable:                 height   R-squared:                       0.979
 Model:                            OLS   Adj. R-squared:                  0.979
-Method:                 Least Squares   F-statistic:                     2233.
-Date:                Tue, 31 Oct 2023   Prob (F-statistic):           6.59e-42
-Time:                        00:35:47   Log-Likelihood:                -23.589
-No. Observations:                  50   AIC:                             51.18
-Df Residuals:                      48   BIC:                             55.00
+Method:                 Least Squares   F-statistic:                     2281.
+Date:                Mon, 11 Dec 2023   Prob (F-statistic):           4.00e-42
+Time:                        21:52:14   Log-Likelihood:                -23.221
+No. Observations:                  50   AIC:                             50.44
+Df Residuals:                      48   BIC:                             54.27
 Df Model:                           1                                         
 Covariance Type:            nonrobust                                         
 ==============================================================================
                  coef    std err          t      P&gt;|t|      [0.025      0.975]
 ------------------------------------------------------------------------------
-const          4.2477      0.110     38.510      0.000       4.026       4.469
-fertilizer    17.9639      0.380     47.254      0.000      17.200      18.728
+const          4.2286      0.109     38.620      0.000       4.008       4.449
+fertilizer    18.0225      0.377     47.758      0.000      17.264      18.781
 ==============================================================================
-Omnibus:                        5.996   Durbin-Watson:                   0.032
-Prob(Omnibus):                  0.050   Jarque-Bera (JB):                4.604
-Skew:                           0.620   Prob(JB):                        0.100
-Kurtosis:                       2.179   Cond. No.                         7.22
+Omnibus:                        6.892   Durbin-Watson:                   0.037
+Prob(Omnibus):                  0.032   Jarque-Bera (JB):                4.889
+Skew:                           0.624   Prob(JB):                       0.0868
+Kurtosis:                       2.113   Cond. No.                         7.22
 ==============================================================================
 
 Notes:
@@ -1287,7 +1288,7 @@ Notes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.663339056588338
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.68374950362352
 </pre></div>
 </div>
 </div>
@@ -1317,7 +1318,7 @@ Notes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/131da92bc4d4c3494a319faac324685c16c68d950024c6014055a6ca70955412.png" src="../_images/131da92bc4d4c3494a319faac324685c16c68d950024c6014055a6ca70955412.png" />
+<img alt="../_images/67e909bf48d839be997e402b4e1803295e8d13125b8a81f51eda5404a67f2150.png" src="../_images/67e909bf48d839be997e402b4e1803295e8d13125b8a81f51eda5404a67f2150.png" />
 </div>
 </div>
 </section>
@@ -1341,24 +1342,24 @@ Notes:
 ==============================================================================
 Dep. Variable:                 height   R-squared:                       0.979
 Model:                            OLS   Adj. R-squared:                  0.979
-Method:                 Least Squares   F-statistic:                     2233.
-Date:                Tue, 31 Oct 2023   Prob (F-statistic):           6.59e-42
-Time:                        00:35:48   Log-Likelihood:                -23.589
-No. Observations:                  50   AIC:                             51.18
-Df Residuals:                      48   BIC:                             55.00
+Method:                 Least Squares   F-statistic:                     2281.
+Date:                Mon, 11 Dec 2023   Prob (F-statistic):           4.00e-42
+Time:                        21:52:15   Log-Likelihood:                -23.221
+No. Observations:                  50   AIC:                             50.44
+Df Residuals:                      48   BIC:                             54.27
 Df Model:                           1                                         
 Covariance Type:            nonrobust                                         
 ==============================================================================
                  coef    std err          t      P&gt;|t|      [0.025      0.975]
 ------------------------------------------------------------------------------
-const          4.2477      0.110     38.510      0.000       4.026       4.469
-water          7.1856      0.152     47.254      0.000       6.880       7.491
-fertilizer     3.5928      0.076     47.254      0.000       3.440       3.746
+const          4.2286      0.109     38.620      0.000       4.008       4.449
+water          7.2090      0.151     47.758      0.000       6.905       7.513
+fertilizer     3.6045      0.075     47.758      0.000       3.453       3.756
 ==============================================================================
-Omnibus:                        5.996   Durbin-Watson:                   0.032
-Prob(Omnibus):                  0.050   Jarque-Bera (JB):                4.604
-Skew:                           0.620   Prob(JB):                        0.100
-Kurtosis:                       2.179   Cond. No.                     1.11e+16
+Omnibus:                        6.892   Durbin-Watson:                   0.037
+Prob(Omnibus):                  0.032   Jarque-Bera (JB):                4.889
+Skew:                           0.624   Prob(JB):                       0.0868
+Kurtosis:                       2.113   Cond. No.                     1.11e+16
 ==============================================================================
 
 Notes:
@@ -1404,7 +1405,7 @@ strong multicollinearity problems or that the design matrix is singular.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b4db7bbe5e4c270e722cc7c2e271481acdba9dd155d8963be97efe96eee08912.png" src="../_images/b4db7bbe5e4c270e722cc7c2e271481acdba9dd155d8963be97efe96eee08912.png" />
+<img alt="../_images/1fd16d9ca73c16c7bb50b6962395cdecee0bcb801666b775ad1e0576355b372b.png" src="../_images/1fd16d9ca73c16c7bb50b6962395cdecee0bcb801666b775ad1e0576355b372b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1415,7 +1416,7 @@ strong multicollinearity problems or that the design matrix is singular.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.903560927052645
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.942218591277001
 </pre></div>
 </div>
 </div>

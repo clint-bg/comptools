@@ -446,7 +446,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#odeint">ODEInt</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-basics">Python Basics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-and-objects">Functions and Objects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-equations">Solving Equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#odeint-review">ODEInt Review</a></li>
 </ul>
             </nav>
         </div>
@@ -469,9 +472,21 @@ document.write(`
 </div>
 </div>
 </div>
-<section id="odeint">
-<h2>ODEInt<a class="headerlink" href="#odeint" title="Permalink to this heading">#</a></h2>
-<p>Example of using ODEInt to solve a system of ODEs with SEIRD model (S: susceptible, E: exposed, I: infected, R: recovered, D: dead)</p>
+<section id="python-basics">
+<h2>Python Basics<a class="headerlink" href="#python-basics" title="Permalink to this heading">#</a></h2>
+<p>Be familiar with the different variable types and understand how to use them. See the <a class="reference external" href="https://clint-bg.github.io/comptools/foundations/pythonresources.html">Python Fundations page.</a></p>
+</section>
+<section id="functions-and-objects">
+<h2>Functions and Objects<a class="headerlink" href="#functions-and-objects" title="Permalink to this heading">#</a></h2>
+<p>How would you sum every third number from 1007 to 2023 using python? Can you set that up as a function? Can you now set that function up as part of an object?</p>
+</section>
+<section id="solving-equations">
+<h2>Solving Equations<a class="headerlink" href="#solving-equations" title="Permalink to this heading">#</a></h2>
+<p>How would you solve multiple coupled, non-linear equations in python? Can you set that up as a function? Can you now set that function up as part of an object?</p>
+</section>
+<section id="odeint-review">
+<h2>ODEInt Review<a class="headerlink" href="#odeint-review" title="Permalink to this heading">#</a></h2>
+<p>Example of using ODEInt to solve a system of ODEs with SEIRD model (S: susceptible, E: exposed, I: infected, R: recovered, D: dead). The SEIRD model approximates the number of people infected with a contagious illness in a population. The model is expressed as a system of differential equations and is solved numerically.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">deriv</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">delta</span><span class="p">,</span> <span class="n">rho</span><span class="p">):</span>
@@ -534,6 +549,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>We’ll transpose the solution with the .T operator so that we can plot the solution for each variable as a function of time.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#plot results</span>
@@ -630,7 +646,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#odeint">ODEInt</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-basics">Python Basics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-and-objects">Functions and Objects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-equations">Solving Equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#odeint-review">ODEInt Review</a></li>
 </ul>
   </nav></div>
 
