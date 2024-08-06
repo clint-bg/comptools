@@ -1,0 +1,1473 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>22b - Cantera &#8212; Computational Tools for Chemical Engineers</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/22b-Cantera';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="23 - Exam 2 Review" href="23-Exam2Review.html" />
+    <link rel="prev" title="22 - Ansys Workbench and FEA" href="22-Ansys.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Intro and Approach
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../foundations.html">Foundations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/preClassPrep.html">Pre-course Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/pythonresources.html">Python Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/excelresources.html">Excel Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/equipment.html">Equipment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/safety.html">Safety</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../topics.html">Modules</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01-Motive.html">01 - Motivation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01b-Basics.html">01b - Python Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-Arrays.html">02 - Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-Functions.html">04 - Functions: Gases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-FunctionsAgain.html">05 - Functions: Heat Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-Debug.html">06 - Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07-Units.html">07 - Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-Equations.html">08 - Equations to Solve Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09-EquationsAgain.html">09 - Solving More Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10-NewtonsMethod.html">10 - Newton’s Method Example Exercise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11-ODEs.html">11 - ODEs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12-ODEsAgain.html">12 - More ODEs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13-Regression.html">13 - Regression and Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-Models.html">14 - Files, Interpolation, and Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="15-ExamReview.html">15 - Exam Review (Python)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="16-ExcelBasics.html">15 - Excel Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="17-ExcelSolver.html">17 - More Excel Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="18-ExcelFunctions.html">18 - Excel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="19-ExcelVBA.html">19 - Excel and Visual Basic for Applications (VBA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-SolidWorks.html">20 - SolidWorks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="21-Aspen.html">21 - Aspen Plus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="22-Ansys.html">22 - Ansys Workbench and FEA</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">22b - Cantera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="23-Exam2Review.html">23 - Exam 2 Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="24-CaseStudies.html">24 - Case Studies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="24b-Optimization.html">24b - Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="27-FinalReview.html">27 - Final Exam Review</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW01.html">HW01: Introduction to Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW02.html">HW02: Functions and Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW03.html">HW03: More Functions and Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW04.html">HW04: Debugging and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW05.html">HW05: Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW06.html">HW06: Solve Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW07.html">HW07: Additional Equation Solving Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW08.html">HW08: Solving Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW09.html">HW09: More Solving of Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW10.html">HW10: More Practice Programming Loops and Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW11.html">HW11: Regression and Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW12.html">HW12: Interpolation and Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW13.html">HW13: Excel Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW14.html">HW14: Excel Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW19.html">HW19: Ansys Workbench Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/casestudydocs.html">Case Study Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/heattransfer.html">Heat Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/thermo.html">Thermodynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/MD.html">Molecular Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/datacollection.html">Data Collection</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgement.html">Acknowledgement</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/clint-bg/comptools/blob/gh-pages/_sources/lectures/22b-Cantera.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/clint-bg/comptools" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/clint-bg/comptools/issues/new?title=Issue%20on%20page%20%2Flectures/22b-Cantera.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lectures/22b-Cantera.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>22b - Cantera</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermodynamics-water">Thermodynamics: Water</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-boiling-point">Normal boiling point</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#water-properties-at-a-temperature-of-200-c-and-a-pressure-of-1-bar">Water properties at a temperature of 200 C and a pressure of 1 bar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vapor-pressure">Vapor Pressure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lets-plot-the-vapor-dome-for-water-p-vs-density">Lets plot the vapor dome for water P vs density</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#application-example-pumping">Application Example: Pumping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-compounds">Other Compounds?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chemical-kinetics-methane">Chemical Kinetics: Methane</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adiabatic-flame-temperature-methane">Adiabatic Flame Temperature: Methane</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heat-of-combustion-methane">Heat of Combustion: Methane</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#product-composition-co-versus-temperature">Product Composition (CO) versus Temperature</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="b-cantera">
+<h1>22b - Cantera<a class="headerlink" href="#b-cantera" title="Permalink to this heading">#</a></h1>
+<p>Per Cantera’s website (<a class="reference external" href="https://cantera.org/">https://cantera.org/</a>):</p>
+<blockquote>
+<div><p>Cantera is an open-source suite of tools for problems involving chemical kinetics, thermodynamics, and transport processes.</p>
+</div></blockquote>
+<p>First import Cantera or install then import if needed:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span> 
+    <span class="kn">import</span> <span class="nn">cantera</span> <span class="k">as</span> <span class="nn">ct</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>cantera
+    <span class="kn">import</span> <span class="nn">cantera</span> <span class="k">as</span> <span class="nn">ct</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="thermodynamics-water">
+<h2>Thermodynamics: Water<a class="headerlink" href="#thermodynamics-water" title="Permalink to this heading">#</a></h2>
+<p>Lets first use the thermodynamics portion of Cantera with water. Cantera has all of the steam tables internally. For example, if you open the steam table at thermopedia for example, you’ll see that the enthalpy of saturated water at 100C is 419.06 kJ/kg. We can use Cantera to verify this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Water</span><span class="p">()</span> <span class="c1">#units are in SI and kmol</span>
+<span class="n">wz</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Water</span><span class="p">()</span> <span class="c1">#water at 273.15 K and saturated liquid</span>
+<span class="n">wz</span><span class="o">.</span><span class="n">TQ</span> <span class="o">=</span> <span class="mf">273.16</span><span class="p">,</span> <span class="mi">0</span>
+<span class="n">w</span><span class="o">.</span><span class="n">TQ</span> <span class="o">=</span> <span class="mf">277.15</span><span class="p">,</span> <span class="mi">0</span> <span class="c1"># Q is quality, 0 is saturated liquid, 1 is saturated vapor</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The liquid enthalpy at </span><span class="si">{</span><span class="n">w</span><span class="o">.</span><span class="n">T</span><span class="si">:</span><span class="s1">1.2f</span><span class="si">}</span><span class="s1"> is </span><span class="si">{</span><span class="n">w</span><span class="o">.</span><span class="n">h</span><span class="o">-</span><span class="n">wz</span><span class="o">.</span><span class="n">h</span><span class="si">:</span><span class="s1">1.2f</span><span class="si">}</span><span class="s1"> J/kg relative to saturated water at 273.16&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The liquid entropy at </span><span class="si">{</span><span class="n">w</span><span class="o">.</span><span class="n">T</span><span class="si">}</span><span class="s1"> is </span><span class="si">{</span><span class="n">w</span><span class="o">.</span><span class="n">s</span><span class="o">-</span><span class="n">wz</span><span class="o">.</span><span class="n">s</span><span class="si">:</span><span class="s1">1.2f</span><span class="si">}</span><span class="s1"> J/kg/K relative to saturated water at 273.16&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The liquid enthalpy at 277.15 is 16770.34 J/kg relative to saturated water at 273.16
+The liquid entropy at 277.15 is 60.95 J/kg/K relative to saturated water at 273.16
+</pre></div>
+</div>
+</div>
+</div>
+<p>By comparison, the steam tables yield a very similar value of 16820 J/kg and 61.12 J/kg/K for the specific enthalpy and entropy of the liquid.</p>
+<section id="normal-boiling-point">
+<h3>Normal boiling point<a class="headerlink" href="#normal-boiling-point" title="Permalink to this heading">#</a></h3>
+<p>What is the temperature at the normal boiling point of water:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#what is the temperature and other properties at 1 atm and saturated vapor?</span>
+<span class="n">w</span><span class="o">.</span><span class="n">PQ</span> <span class="o">=</span> <span class="mi">101325</span><span class="p">,</span> <span class="mi">1</span> <span class="c1"># 1 atm (101325 Pa), saturated vapor</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">w</span><span class="o">.</span><span class="n">h</span><span class="p">,</span><span class="n">w</span><span class="o">.</span><span class="n">s</span><span class="p">,</span><span class="n">w</span><span class="o">.</span><span class="n">Q</span><span class="p">,</span><span class="n">w</span><span class="o">.</span><span class="n">density</span><span class="p">,</span> <span class="s1">&#39;all in SI units for the saturated vapor K, J/kg, J/kg/K, dimensionless, kg/m^3, respectively&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>373.17723294438696 -13294694.765606625 10875.07020588383 1.0 0.5975729001239033 all in SI units for the saturated vapor K, J/kg, J/kg/K, dimensionless, kg/m^3, respectively
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="water-properties-at-a-temperature-of-200-c-and-a-pressure-of-1-bar">
+<h3>Water properties at a temperature of 200 C and a pressure of 1 bar<a class="headerlink" href="#water-properties-at-a-temperature-of-200-c-and-a-pressure-of-1-bar" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="o">.</span><span class="n">TP</span> <span class="o">=</span> <span class="mi">200</span><span class="o">+</span><span class="mf">273.15</span><span class="p">,</span> <span class="mi">101325</span> <span class="c1"># 200C and 1 atm (101325 Pa), saturated vapor</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">u</span><span class="p">,</span><span class="n">w</span><span class="o">.</span><span class="n">h</span><span class="p">,</span><span class="n">w</span><span class="o">.</span><span class="n">s</span><span class="p">,</span><span class="n">w</span><span class="o">.</span><span class="n">Q</span><span class="p">,</span><span class="n">w</span><span class="o">.</span><span class="n">density</span><span class="p">,</span> <span class="s1">&#39;all in SI units per mass&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-13312798.53361443 -13095587.489951547 11348.05267575229 1.0 0.46648180633544784 all in SI units per mass
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="vapor-pressure">
+<h3>Vapor Pressure<a class="headerlink" href="#vapor-pressure" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="o">.</span><span class="n">P_sat</span><span class="o">/</span><span class="mf">1e5</span><span class="o">*</span><span class="mf">14.5</span> <span class="c1"># Pa to bar to psi, at the last used conditions of T and P</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>225.0912159739916
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;CK_mode&#39;,
+ &#39;DP&#39;,
+ &#39;DPQ&#39;,
+ &#39;DPX&#39;,
+ &#39;DPY&#39;,
+ &#39;HP&#39;,
+ &#39;HPQ&#39;,
+ &#39;HPX&#39;,
+ &#39;HPY&#39;,
+ &#39;P&#39;,
+ &#39;PQ&#39;,
+ &#39;PV&#39;,
+ &#39;P_sat&#39;,
+ &#39;Q&#39;,
+ &#39;SH&#39;,
+ &#39;SP&#39;,
+ &#39;SPQ&#39;,
+ &#39;SPX&#39;,
+ &#39;SPY&#39;,
+ &#39;ST&#39;,
+ &#39;SV&#39;,
+ &#39;SVQ&#39;,
+ &#39;SVX&#39;,
+ &#39;SVY&#39;,
+ &#39;T&#39;,
+ &#39;TD&#39;,
+ &#39;TDQ&#39;,
+ &#39;TDX&#39;,
+ &#39;TDY&#39;,
+ &#39;TH&#39;,
+ &#39;TP&#39;,
+ &#39;TPQ&#39;,
+ &#39;TPX&#39;,
+ &#39;TPY&#39;,
+ &#39;TQ&#39;,
+ &#39;TV&#39;,
+ &#39;T_sat&#39;,
+ &#39;Te&#39;,
+ &#39;UP&#39;,
+ &#39;UV&#39;,
+ &#39;UVQ&#39;,
+ &#39;UVX&#39;,
+ &#39;UVY&#39;,
+ &#39;VH&#39;,
+ &#39;X&#39;,
+ &#39;Y&#39;,
+ &#39;__call__&#39;,
+ &#39;__class__&#39;,
+ &#39;__composition_to_array&#39;,
+ &#39;__copy__&#39;,
+ &#39;__delattr__&#39;,
+ &#39;__dir__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__eq__&#39;,
+ &#39;__format__&#39;,
+ &#39;__ge__&#39;,
+ &#39;__getattribute__&#39;,
+ &#39;__getitem__&#39;,
+ &#39;__getstate__&#39;,
+ &#39;__gt__&#39;,
+ &#39;__hash__&#39;,
+ &#39;__init__&#39;,
+ &#39;__init_subclass__&#39;,
+ &#39;__le__&#39;,
+ &#39;__lt__&#39;,
+ &#39;__module__&#39;,
+ &#39;__ne__&#39;,
+ &#39;__new__&#39;,
+ &#39;__pyx_vtable__&#39;,
+ &#39;__reduce__&#39;,
+ &#39;__reduce_cython__&#39;,
+ &#39;__reduce_ex__&#39;,
+ &#39;__repr__&#39;,
+ &#39;__setattr__&#39;,
+ &#39;__setstate__&#39;,
+ &#39;__setstate_cython__&#39;,
+ &#39;__sizeof__&#39;,
+ &#39;__slots__&#39;,
+ &#39;__str__&#39;,
+ &#39;__subclasshook__&#39;,
+ &#39;_cinit&#39;,
+ &#39;_enable_plasma&#39;,
+ &#39;_full_states&#39;,
+ &#39;_init_cti_xml&#39;,
+ &#39;_init_parts&#39;,
+ &#39;_init_yaml&#39;,
+ &#39;_native_state&#39;,
+ &#39;_partial_states&#39;,
+ &#39;_references&#39;,
+ &#39;activities&#39;,
+ &#39;activity_coefficients&#39;,
+ &#39;add_species&#39;,
+ &#39;add_species_alias&#39;,
+ &#39;atomic_weight&#39;,
+ &#39;atomic_weights&#39;,
+ &#39;basis&#39;,
+ &#39;binary_diff_coeffs&#39;,
+ &#39;case_sensitive_species_names&#39;,
+ &#39;charges&#39;,
+ &#39;chemical_potentials&#39;,
+ &#39;clear_user_data&#39;,
+ &#39;clear_user_header&#39;,
+ &#39;composite&#39;,
+ &#39;concentrations&#39;,
+ &#39;cp&#39;,
+ &#39;cp_mass&#39;,
+ &#39;cp_mole&#39;,
+ &#39;critical_density&#39;,
+ &#39;critical_pressure&#39;,
+ &#39;critical_temperature&#39;,
+ &#39;cv&#39;,
+ &#39;cv_mass&#39;,
+ &#39;cv_mole&#39;,
+ &#39;density&#39;,
+ &#39;density_mass&#39;,
+ &#39;density_mole&#39;,
+ &#39;electric_potential&#39;,
+ &#39;electrical_conductivity&#39;,
+ &#39;electrochemical_potentials&#39;,
+ &#39;electron_energy_distribution&#39;,
+ &#39;electron_energy_distribution_type&#39;,
+ &#39;electron_energy_levels&#39;,
+ &#39;element_index&#39;,
+ &#39;element_name&#39;,
+ &#39;element_names&#39;,
+ &#39;elemental_mass_fraction&#39;,
+ &#39;elemental_mole_fraction&#39;,
+ &#39;enthalpy_mass&#39;,
+ &#39;enthalpy_mole&#39;,
+ &#39;entropy_mass&#39;,
+ &#39;entropy_mole&#39;,
+ &#39;equilibrate&#39;,
+ &#39;equivalence_ratio&#39;,
+ &#39;find_isomers&#39;,
+ &#39;g&#39;,
+ &#39;get_binary_diff_coeffs_polynomial&#39;,
+ &#39;get_collision_integral_polynomials&#39;,
+ &#39;get_thermal_conductivity_polynomial&#39;,
+ &#39;get_viscosity_polynomial&#39;,
+ &#39;gibbs_mass&#39;,
+ &#39;gibbs_mole&#39;,
+ &#39;h&#39;,
+ &#39;has_phase_transition&#39;,
+ &#39;input_data&#39;,
+ &#39;input_header&#39;,
+ &#39;int_energy_mass&#39;,
+ &#39;int_energy_mole&#39;,
+ &#39;is_compressible&#39;,
+ &#39;is_pure&#39;,
+ &#39;isothermal_compressibility&#39;,
+ &#39;isotropic_shape_factor&#39;,
+ &#39;mass_fraction_dict&#39;,
+ &#39;max_temp&#39;,
+ &#39;mean_electron_energy&#39;,
+ &#39;mean_molecular_weight&#39;,
+ &#39;min_temp&#39;,
+ &#39;mix_diff_coeffs&#39;,
+ &#39;mix_diff_coeffs_mass&#39;,
+ &#39;mix_diff_coeffs_mole&#39;,
+ &#39;mixture_fraction&#39;,
+ &#39;mobilities&#39;,
+ &#39;modify_species&#39;,
+ &#39;mole_fraction_dict&#39;,
+ &#39;molecular_weights&#39;,
+ &#39;multi_diff_coeffs&#39;,
+ &#39;n_atoms&#39;,
+ &#39;n_electron_energy_levels&#39;,
+ &#39;n_elements&#39;,
+ &#39;n_selected_species&#39;,
+ &#39;n_species&#39;,
+ &#39;name&#39;,
+ &#39;normalize_electron_energy_distribution_enabled&#39;,
+ &#39;partial_molar_cp&#39;,
+ &#39;partial_molar_enthalpies&#39;,
+ &#39;partial_molar_entropies&#39;,
+ &#39;partial_molar_int_energies&#39;,
+ &#39;partial_molar_volumes&#39;,
+ &#39;phase_of_matter&#39;,
+ &#39;quadrature_method&#39;,
+ &#39;reference_pressure&#39;,
+ &#39;report&#39;,
+ &#39;s&#39;,
+ &#39;selected_species&#39;,
+ &#39;set_binary_diff_coeffs_polynomial&#39;,
+ &#39;set_collision_integral_polynomial&#39;,
+ &#39;set_discretized_electron_energy_distribution&#39;,
+ &#39;set_equivalence_ratio&#39;,
+ &#39;set_mixture_fraction&#39;,
+ &#39;set_thermal_conductivity_polynomial&#39;,
+ &#39;set_unnormalized_mass_fractions&#39;,
+ &#39;set_unnormalized_mole_fractions&#39;,
+ &#39;set_viscosity_polynomial&#39;,
+ &#39;source&#39;,
+ &#39;species&#39;,
+ &#39;species_index&#39;,
+ &#39;species_name&#39;,
+ &#39;species_names&#39;,
+ &#39;species_viscosities&#39;,
+ &#39;standard_concentration_units&#39;,
+ &#39;standard_cp_R&#39;,
+ &#39;standard_enthalpies_RT&#39;,
+ &#39;standard_entropies_R&#39;,
+ &#39;standard_gibbs_RT&#39;,
+ &#39;standard_int_energies_RT&#39;,
+ &#39;state&#39;,
+ &#39;state_size&#39;,
+ &#39;stoich_air_fuel_ratio&#39;,
+ &#39;thermal_conductivity&#39;,
+ &#39;thermal_diff_coeffs&#39;,
+ &#39;thermal_expansion_coeff&#39;,
+ &#39;thermo_model&#39;,
+ &#39;transport_model&#39;,
+ &#39;u&#39;,
+ &#39;update_user_data&#39;,
+ &#39;update_user_header&#39;,
+ &#39;v&#39;,
+ &#39;viscosity&#39;,
+ &#39;volume_mass&#39;,
+ &#39;volume_mole&#39;,
+ &#39;write_yaml&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="lets-plot-the-vapor-dome-for-water-p-vs-density">
+<h3>Lets plot the vapor dome for water P vs density<a class="headerlink" href="#lets-plot-the-vapor-dome-for-water-p-vs-density" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#setup the temperatures we&#39;ll use (from the Cantera example online here: https://cantera.org/examples/python/thermo/vapordome.py.html)</span>
+<span class="n">degc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">w</span><span class="o">.</span><span class="n">min_temp</span> <span class="o">-</span> <span class="mf">273.15</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]),</span>
+                  <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">37</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">38</span><span class="p">]),</span>
+                  <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+                  <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">380</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">370</span><span class="p">,</span> <span class="mi">374</span><span class="p">),</span>
+                  <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">w</span><span class="o">.</span><span class="n">critical_temperature</span> <span class="o">-</span> <span class="mf">273.15</span><span class="p">])])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">degc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">min_temp</span><span class="p">,</span> <span class="n">w</span><span class="o">.</span><span class="n">critical_temperature</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span> <span class="o">-</span> <span class="mf">273.15</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#setup dataframe</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;T&#39;</span><span class="p">:</span><span class="n">degc</span><span class="p">})</span>
+<span class="c1">#setup up solution array</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">SolutionArray</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">degc</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#get relative to min temp</span>
+<span class="n">w</span><span class="o">.</span><span class="n">TQ</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">min_temp</span><span class="p">,</span> <span class="mi">0</span>
+<span class="n">sf0</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">entropy_mass</span> <span class="o">/</span> <span class="mf">1.e3</span>
+<span class="n">hf0</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">enthalpy_mass</span> <span class="o">/</span> <span class="mf">1.e3</span> 
+<span class="n">arr</span><span class="o">.</span><span class="n">TQ</span> <span class="o">=</span> <span class="n">degc</span> <span class="o">+</span> <span class="mf">273.15</span><span class="p">,</span> <span class="mi">1</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">P_sat</span><span class="o">/</span><span class="mf">1e5</span><span class="o">*</span><span class="mf">14.5</span> <span class="c1"># Pa to bar to psi</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">density</span><span class="o">*</span><span class="mi">1000</span><span class="o">/</span><span class="mf">1e6</span> <span class="c1"># kg/m^3 to g/cm^3</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;hv&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">h</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">hf0</span> <span class="c1"># kJ/kg</span>
+<span class="c1">#saturated liquid data</span>
+<span class="n">arr</span><span class="o">.</span><span class="n">TQ</span> <span class="o">=</span> <span class="n">degc</span> <span class="o">+</span> <span class="mf">273.15</span><span class="p">,</span> <span class="mi">0</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Pl&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">P</span><span class="o">/</span><span class="mf">1e5</span><span class="o">*</span><span class="mf">14.5</span> <span class="c1"># Pa to bar to psi</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;rl&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">density</span><span class="o">*</span><span class="mi">1000</span><span class="o">/</span><span class="mf">1e6</span> <span class="c1"># kg/m^3 to g/cm^3</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;hl&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">h</span><span class="o">/</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">hf0</span> <span class="c1"># kJ/kg</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#lets add an isotherm</span>
+<span class="n">density</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span><span class="o">*</span><span class="mf">1e6</span><span class="o">/</span><span class="mi">1000</span> <span class="c1"># kg/m^3</span>
+<span class="n">arr2</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">SolutionArray</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">density</span><span class="p">))</span>
+<span class="n">arr2</span><span class="o">.</span><span class="n">TD</span> <span class="o">=</span> <span class="mi">600</span><span class="p">,</span> <span class="n">density</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">r</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">P</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;saturated vapor&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">rl</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">Pl</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;saturated liquid&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">density</span><span class="o">*</span><span class="mi">1000</span><span class="o">/</span><span class="mf">1e6</span><span class="p">,</span><span class="n">arr2</span><span class="o">.</span><span class="n">P</span><span class="o">/</span><span class="mf">1e5</span><span class="o">*</span><span class="mf">14.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;isotherm at 600K&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Density (g/cm$^3$)&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Pressure (psi)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">4000</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Water Vapor Dome&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2399a3471962662bb32886b9fd55fab1ac70664339473b7f6707c8c0cce3edab.png" src="../_images/2399a3471962662bb32886b9fd55fab1ac70664339473b7f6707c8c0cce3edab.png" />
+</div>
+</div>
+<p>You could also create a similar plot for the temperature versus enthalpy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#lets add an isobar</span>
+<span class="n">enthalpy</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3200</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span> <span class="o">+</span> <span class="n">hf0</span><span class="p">)</span><span class="o">*</span><span class="mf">1e3</span> <span class="c1"># J/kg</span>
+<span class="n">arr3</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">SolutionArray</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">enthalpy</span><span class="p">))</span>
+<span class="n">arr3</span><span class="o">.</span><span class="n">HP</span> <span class="o">=</span> <span class="n">enthalpy</span><span class="p">,</span> <span class="mi">101325</span><span class="o">*</span><span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">hv</span><span class="p">,</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;saturated vapor&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">hl</span><span class="p">,</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;saturated liquid&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">enthalpy</span><span class="o">/</span><span class="mf">1e3</span><span class="o">-</span><span class="n">hf0</span><span class="p">,</span><span class="n">arr3</span><span class="o">.</span><span class="n">T</span><span class="o">-</span><span class="mf">273.15</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;isobar at 4 bar&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Enthalpy, J/kg)&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature (C)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Water Vapor Dome&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/20a27acfaf912c0a2c5dbcfe016900d227e19d58ae939cb2595d6b299fa68e91.png" src="../_images/20a27acfaf912c0a2c5dbcfe016900d227e19d58ae939cb2595d6b299fa68e91.png" />
+</div>
+</div>
+</section>
+<section id="application-example-pumping">
+<h3>Application Example: Pumping<a class="headerlink" href="#application-example-pumping" title="Permalink to this heading">#</a></h3>
+<p>Typically pumping of a fluid can be assumed to increase the pressure to a given value assuming isentropic conditions (constant entropy). Typically, a pumps isentropic efficiency is 60%. As such, the enthalpyt and temperature rise through the pump can be found.</p>
+<p>See futher examples here: <a class="reference external" href="https://nbviewer.org/url/ignite.byu.edu/che433/lectures/lecture_07_steam/rankine_.ipynb">https://nbviewer.org/url/ignite.byu.edu/che433/lectures/lecture_07_steam/rankine_.ipynb</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_initial</span><span class="p">,</span> <span class="n">p_final</span> <span class="o">=</span> <span class="mi">101325</span><span class="o">*</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101325</span><span class="o">*</span><span class="mi">4</span> <span class="c1">#Pa</span>
+<span class="n">T_initial</span> <span class="o">=</span> <span class="mi">300</span> <span class="c1">#K</span>
+<span class="n">w</span><span class="o">.</span><span class="n">TPQ</span> <span class="o">=</span> <span class="n">T_initial</span><span class="p">,</span> <span class="n">p_initial</span><span class="p">,</span> <span class="mi">0</span>
+<span class="n">h0</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">h</span><span class="p">;</span> <span class="n">s0</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">s</span>
+<span class="n">w</span><span class="o">.</span><span class="n">SP</span> <span class="o">=</span> <span class="n">s0</span><span class="p">,</span> <span class="n">p_final</span>
+<span class="n">h1</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">h</span><span class="p">;</span> <span class="n">T1</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">T</span>
+<span class="n">isentropic_work</span> <span class="o">=</span> <span class="n">h1</span><span class="o">-</span><span class="n">h0</span>
+<span class="n">actual_work</span> <span class="o">=</span> <span class="n">isentropic_work</span> <span class="o">/</span> <span class="mf">0.6</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The isentropic work is </span><span class="si">{</span><span class="n">isentropic_work</span><span class="o">/</span><span class="mi">1000</span><span class="si">:</span><span class="s1">1.2f</span><span class="si">}</span><span class="s1"> kJ/kg&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The actual work is&#39;</span><span class="p">,</span><span class="n">actual_work</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span><span class="s1">&#39;kJ/kg&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The associated rise in temperature is </span><span class="si">{</span><span class="n">T1</span><span class="o">-</span><span class="n">T_initial</span><span class="si">:</span><span class="s1">1.2f</span><span class="si">}</span><span class="s1"> K&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The isentropic work is 0.30 kJ/kg
+The actual work is 0.5083018274853627 kJ/kg
+The associated rise in temperature is 0.01 K
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">report</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  water:
+
+       temperature   300.01 K
+          pressure   4.053e+05 Pa
+           density   996.77 kg/m^3
+  mean mol. weight   18.016 kg/kmol
+    vapor fraction   0
+   phase of matter   liquid
+
+                          1 kg             1 kmol     
+                     ---------------   ---------------
+          enthalpy       -1.5858e+07       -2.8569e+08  J
+   internal energy       -1.5858e+07        -2.857e+08  J
+           entropy            3913.2             70500  J/K
+    Gibbs function       -1.7032e+07       -3.0684e+08  J
+ heat capacity c_p            4179.9             75305  J/K
+ heat capacity c_v            4129.9             74404  J/K
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="other-compounds">
+<h3>Other Compounds?<a class="headerlink" href="#other-compounds" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">methane</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Methane</span><span class="p">()</span>
+<span class="n">methane</span><span class="o">.</span><span class="n">PQ</span> <span class="o">=</span>  <span class="mi">101325</span><span class="p">,</span> <span class="mi">1</span> <span class="c1"># 1 atm (101325 Pa), saturated vapor</span>
+<span class="n">methane</span><span class="o">.</span><span class="n">h</span><span class="p">,</span> <span class="n">methane</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-5047996.588604324, 111.63302142097555)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">ct</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Arrhenius&#39;,
+ &#39;ArrheniusRate&#39;,
+ &#39;ArrheniusRateBase&#39;,
+ &#39;AxisymmetricStagnationFlow&#39;,
+ &#39;BlowersMaselRate&#39;,
+ &#39;Boundary1D&#39;,
+ &#39;BurnerFlame&#39;,
+ &#39;CanteraError&#39;,
+ &#39;CarbonDioxide&#39;,
+ &#39;ChebyshevRate&#39;,
+ &#39;ChebyshevReaction&#39;,
+ &#39;ChemicallyActivatedReaction&#39;,
+ &#39;ConstPressureReactor&#39;,
+ &#39;ConstantCp&#39;,
+ &#39;CounterflowDiffusionFlame&#39;,
+ &#39;CounterflowPremixedFlame&#39;,
+ &#39;CounterflowTwinPremixedFlame&#39;,
+ &#39;CustomRate&#39;,
+ &#39;CustomReaction&#39;,
+ &#39;Domain1D&#39;,
+ &#39;DustyGas&#39;,
+ &#39;DustyGasTransport&#39;,
+ &#39;Element&#39;,
+ &#39;ElementaryReaction&#39;,
+ &#39;ExtensibleConstPressureReactor&#39;,
+ &#39;ExtensibleIdealGasConstPressureReactor&#39;,
+ &#39;ExtensibleIdealGasReactor&#39;,
+ &#39;ExtensibleReactor&#39;,
+ &#39;Falloff&#39;,
+ &#39;FalloffRate&#39;,
+ &#39;FalloffReaction&#39;,
+ &#39;FlameBase&#39;,
+ &#39;FlowDevice&#39;,
+ &#39;FlowReactor&#39;,
+ &#39;FreeFlame&#39;,
+ &#39;FreeFlow&#39;,
+ &#39;Func1&#39;,
+ &#39;GasTransportData&#39;,
+ &#39;Heptane&#39;,
+ &#39;Hfc134a&#39;,
+ &#39;Hydrogen&#39;,
+ &#39;IdealGasConstPressureReactor&#39;,
+ &#39;IdealGasFlow&#39;,
+ &#39;IdealGasReactor&#39;,
+ &#39;ImpingingJet&#39;,
+ &#39;Inlet1D&#39;,
+ &#39;Interface&#39;,
+ &#39;InterfaceArrheniusRate&#39;,
+ &#39;InterfaceBlowersMaselRate&#39;,
+ &#39;InterfaceKinetics&#39;,
+ &#39;InterfacePhase&#39;,
+ &#39;InterfaceRateBase&#39;,
+ &#39;InterfaceReaction&#39;,
+ &#39;IonBurnerFlame&#39;,
+ &#39;IonFlameBase&#39;,
+ &#39;IonFlow&#39;,
+ &#39;IonFreeFlame&#39;,
+ &#39;Kinetics&#39;,
+ &#39;LindemannRate&#39;,
+ &#39;MassFlowController&#39;,
+ &#39;Methane&#39;,
+ &#39;Mixture&#39;,
+ &#39;Mu0Poly&#39;,
+ &#39;Nasa9PolyMultiTempRegion&#39;,
+ &#39;NasaPoly2&#39;,
+ &#39;Nitrogen&#39;,
+ &#39;OrderedDict&#39;,
+ &#39;Outlet1D&#39;,
+ &#39;OutletReservoir1D&#39;,
+ &#39;Oxygen&#39;,
+ &#39;Path&#39;,
+ &#39;PlogRate&#39;,
+ &#39;PlogReaction&#39;,
+ &#39;PressureController&#39;,
+ &#39;PureFluid&#39;,
+ &#39;PurePath&#39;,
+ &#39;Quantity&#39;,
+ &#39;ReactingSurface1D&#39;,
+ &#39;Reaction&#39;,
+ &#39;ReactionPathDiagram&#39;,
+ &#39;ReactionRate&#39;,
+ &#39;Reactor&#39;,
+ &#39;ReactorBase&#39;,
+ &#39;ReactorNet&#39;,
+ &#39;ReactorSurface&#39;,
+ &#39;Reservoir&#39;,
+ &#39;ShomatePoly2&#39;,
+ &#39;Sim1D&#39;,
+ &#39;Solution&#39;,
+ &#39;SolutionArray&#39;,
+ &#39;Species&#39;,
+ &#39;SpeciesThermo&#39;,
+ &#39;SriFalloff&#39;,
+ &#39;SriRate&#39;,
+ &#39;StickRateBase&#39;,
+ &#39;StickingArrheniusRate&#39;,
+ &#39;StickingBlowersMaselRate&#39;,
+ &#39;Surface1D&#39;,
+ &#39;SymmetryPlane1D&#39;,
+ &#39;TabulatedFunction&#39;,
+ &#39;ThermoModelMethodError&#39;,
+ &#39;ThermoPhase&#39;,
+ &#39;ThreeBodyReaction&#39;,
+ &#39;Transport&#39;,
+ &#39;TroeFalloff&#39;,
+ &#39;TroeRate&#39;,
+ &#39;TsangRate&#39;,
+ &#39;TwoTempPlasmaRate&#39;,
+ &#39;UnitSystem&#39;,
+ &#39;Units&#39;,
+ &#39;Valve&#39;,
+ &#39;Wall&#39;,
+ &#39;WallBase&#39;,
+ &#39;Water&#39;,
+ &#39;YamlWriter&#39;,
+ &#39;__builtins__&#39;,
+ &#39;__cached__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__file__&#39;,
+ &#39;__git_commit__&#39;,
+ &#39;__loader__&#39;,
+ &#39;__name__&#39;,
+ &#39;__package__&#39;,
+ &#39;__path__&#39;,
+ &#39;__spec__&#39;,
+ &#39;__sundials_version__&#39;,
+ &#39;__version__&#39;,
+ &#39;_cantera&#39;,
+ &#39;add_directory&#39;,
+ &#39;add_module_directory&#39;,
+ &#39;appdelete&#39;,
+ &#39;avogadro&#39;,
+ &#39;boltzmann&#39;,
+ &#39;c_int&#39;,
+ &#39;cantera&#39;,
+ &#39;composite&#39;,
+ &#39;debug_mode_enabled&#39;,
+ &#39;electron_charge&#39;,
+ &#39;electron_mass&#39;,
+ &#39;epsilon_0&#39;,
+ &#39;erf&#39;,
+ &#39;faraday&#39;,
+ &#39;formatdate&#39;,
+ &#39;gas_constant&#39;,
+ &#39;get_data_directories&#39;,
+ &#39;import_phases&#39;,
+ &#39;inspect&#39;,
+ &#39;interrupts&#39;,
+ &#39;light_speed&#39;,
+ &#39;liquidvapor&#39;,
+ &#39;make_deprecation_warnings_fatal&#39;,
+ &#39;math&#39;,
+ &#39;no_op&#39;,
+ &#39;np&#39;,
+ &#39;numbers&#39;,
+ &#39;one_atm&#39;,
+ &#39;onedim&#39;,
+ &#39;os&#39;,
+ &#39;permeability_0&#39;,
+ &#39;pkg_resources&#39;,
+ &#39;planck&#39;,
+ &#39;stefan_boltzmann&#39;,
+ &#39;suppress_deprecation_warnings&#39;,
+ &#39;suppress_thermo_warnings&#39;,
+ &#39;sys&#39;,
+ &#39;use_legacy_rate_constants&#39;,
+ &#39;use_sparse&#39;,
+ &#39;utils&#39;,
+ &#39;warnings&#39;,
+ &#39;weakref&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="chemical-kinetics-methane">
+<h2>Chemical Kinetics: Methane<a class="headerlink" href="#chemical-kinetics-methane" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gas</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">Solution</span><span class="p">(</span><span class="s1">&#39;gri30.yaml&#39;</span><span class="p">)</span> <span class="c1">#methane with air</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Can define the initial conditions</span>
+<span class="n">gas</span><span class="o">.</span><span class="n">TPX</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">101325</span><span class="p">,</span> <span class="s1">&#39;CH4:1, O2:2, N2:0&#39;</span> <span class="c1"># temperature in K, pressure in Pa, and stoichiometric mole fractions with pure oxygen</span>
+<span class="c1"># otherwise it would be 02:2, and N2:7.52.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="adiabatic-flame-temperature-methane">
+<h3>Adiabatic Flame Temperature: Methane<a class="headerlink" href="#adiabatic-flame-temperature-methane" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gas</span><span class="o">.</span><span class="n">equilibrate</span><span class="p">(</span><span class="s1">&#39;HP&#39;</span><span class="p">)</span> <span class="c1">#equilibrate at constant enthalpy and pressure</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Adiabatic flame temperature of methane is </span><span class="si">{</span><span class="n">gas</span><span class="o">.</span><span class="n">T</span><span class="si">:</span><span class="s1">1.2f</span><span class="si">}</span><span class="s1"> K.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The fraction of CO in the flame is&#39;</span><span class="p">,</span> <span class="n">gas</span><span class="p">[</span><span class="s1">&#39;CO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">Y</span><span class="p">)</span>
+<span class="n">gas</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Adiabatic flame temperature of methane is 3052.22 K.
+The fraction of CO in the flame is [0.20300664]
+
+  gri30:
+
+       temperature   3052.2 K
+          pressure   1.0133e+05 Pa
+           density   0.085831 kg/m^3
+  mean mol. weight   21.497 kg/kmol
+   phase of matter   gas
+
+                          1 kg             1 kmol     
+                     ---------------   ---------------
+          enthalpy       -9.2986e+05       -1.9989e+07  J
+   internal energy       -2.1104e+06       -4.5367e+07  J
+           entropy             13382        2.8768e+05  J/K
+    Gibbs function       -4.1776e+07       -8.9805e+08  J
+ heat capacity c_p            2166.9             46583  J/K
+ heat capacity c_v            1780.2             38268  J/K
+
+                      mass frac. Y      mole frac. X     chem. pot. / RT
+                     ---------------   ---------------   ---------------
+                H2         0.0067891          0.072394           -23.533
+                 H         0.0023341          0.049779           -11.767
+                 O          0.029048           0.03903           -16.417
+                O2           0.12455          0.083676           -32.835
+                OH          0.073788          0.093269           -28.184
+               H2O           0.32953           0.39322           -39.951
+               HO2        7.1165e-05         4.635e-05           -44.601
+              H2O2        3.3907e-06        2.1429e-06           -56.368
+                 C        1.0685e-11        1.9125e-11           -19.021
+                CH        1.2854e-12        2.1224e-12           -30.788
+               CH2        8.0073e-13        1.2272e-12           -42.554
+            CH2(S)        8.3263e-14         1.276e-13           -42.554
+               CH3        6.7716e-13         9.682e-13           -54.321
+               CH4        6.7666e-14         9.067e-14           -66.087
+                CO           0.20301            0.1558           -35.438
+               CO2           0.23088           0.11278           -51.856
+               HCO        7.6872e-07        5.6948e-07           -47.205
+              CH2O         6.479e-09        4.6386e-09           -58.972
+             CH2OH        3.7639e-13        2.6072e-13           -70.738
+     [  +34 minor]        3.5503e-14        2.1656e-14  
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="heat-of-combustion-methane">
+<h3>Heat of Combustion: Methane<a class="headerlink" href="#heat-of-combustion-methane" title="Permalink to this heading">#</a></h3>
+<p>Lets calculate the heat of combustion of methane.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#reinitialize to STP in pure oxygen</span>
+<span class="n">gas</span><span class="o">.</span><span class="n">TPX</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">101325</span><span class="p">,</span> <span class="s1">&#39;CH4:1, O2:2, N2:0&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#calculate the heat of combustion</span>
+<span class="n">h1</span><span class="o">=</span> <span class="n">gas</span><span class="o">.</span><span class="n">enthalpy_mass</span>
+<span class="n">Y_CH4</span> <span class="o">=</span> <span class="n">gas</span><span class="p">[</span><span class="s2">&quot;CH4&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">Y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">gas</span><span class="o">.</span><span class="n">equilibrate</span><span class="p">(</span><span class="s1">&#39;HP&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#equilibrate the product gases at room temperature</span>
+<span class="n">gas</span><span class="o">.</span><span class="n">TP</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span><span class="mi">101325</span>
+<span class="n">gas</span><span class="o">.</span><span class="n">equilibrate</span><span class="p">(</span><span class="s1">&#39;TP&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">h1</span> <span class="o">-</span> <span class="n">gas</span><span class="o">.</span><span class="n">enthalpy_mass</span><span class="p">)</span><span class="o">/</span><span class="mi">1000</span><span class="o">/</span><span class="n">Y_CH4</span> <span class="c1">#kJ/kg</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50024.25791465254
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gas</span><span class="p">[</span><span class="s1">&#39;CO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">Y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([5.8688253e-36])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="product-composition-co-versus-temperature">
+<h3>Product Composition (CO) versus Temperature<a class="headerlink" href="#product-composition-co-versus-temperature" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#lets add the composition of CO as a function of the equilibration temperature</span>
+<span class="n">ptemps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">3100</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1"># K, product temperatures</span>
+<span class="n">COcomp</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">ptemps</span><span class="p">:</span>
+    <span class="n">gas</span><span class="o">.</span><span class="n">TP</span> <span class="o">=</span> <span class="n">each</span><span class="p">,</span> <span class="mi">101325</span>
+    <span class="n">gas</span><span class="o">.</span><span class="n">equilibrate</span><span class="p">(</span><span class="s1">&#39;TP&#39;</span><span class="p">)</span>
+    <span class="n">COcomp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gas</span><span class="p">[</span><span class="s1">&#39;CO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">Y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ptemps</span><span class="p">,</span><span class="n">COcomp</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Temperature (K)&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;CO mass fraction&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/5bb3b9bb7e40469a8898ff111fd8031d4e25409c6fb9afee57decbd83710388b.png" src="../_images/5bb3b9bb7e40469a8898ff111fd8031d4e25409c6fb9afee57decbd83710388b.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="22-Ansys.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">22 - Ansys Workbench and FEA</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="23-Exam2Review.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">23 - Exam 2 Review</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermodynamics-water">Thermodynamics: Water</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-boiling-point">Normal boiling point</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#water-properties-at-a-temperature-of-200-c-and-a-pressure-of-1-bar">Water properties at a temperature of 200 C and a pressure of 1 bar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vapor-pressure">Vapor Pressure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lets-plot-the-vapor-dome-for-water-p-vs-density">Lets plot the vapor dome for water P vs density</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#application-example-pumping">Application Example: Pumping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-compounds">Other Compounds?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chemical-kinetics-methane">Chemical Kinetics: Methane</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adiabatic-flame-temperature-methane">Adiabatic Flame Temperature: Methane</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heat-of-combustion-methane">Heat of Combustion: Methane</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#product-composition-co-versus-temperature">Product Composition (CO) versus Temperature</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Clint Guymon, Brigham Young University
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

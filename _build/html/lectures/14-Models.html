@@ -1,0 +1,1565 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>14 - Files, Interpolation, and Models &#8212; Computational Tools for Chemical Engineers</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/14-Models';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="15 - Exam Review (Python)" href="15-ExamReview.html" />
+    <link rel="prev" title="13 - Regression and Interpolation" href="13-Regression.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Intro and Approach
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../foundations.html">Foundations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/preClassPrep.html">Pre-course Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/pythonresources.html">Python Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/excelresources.html">Excel Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/equipment.html">Equipment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/safety.html">Safety</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../topics.html">Modules</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01-Motive.html">01 - Motivation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01b-Basics.html">01b - Python Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-Arrays.html">02 - Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-Functions.html">04 - Functions: Gases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-FunctionsAgain.html">05 - Functions: Heat Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-Debug.html">06 - Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07-Units.html">07 - Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-Equations.html">08 - Equations to Solve Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09-EquationsAgain.html">09 - Solving More Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10-NewtonsMethod.html">10 - Newton’s Method Example Exercise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11-ODEs.html">11 - ODEs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12-ODEsAgain.html">12 - More ODEs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13-Regression.html">13 - Regression and Interpolation</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">14 - Files, Interpolation, and Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="15-ExamReview.html">15 - Exam Review (Python)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="16-ExcelBasics.html">15 - Excel Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="17-ExcelSolver.html">17 - More Excel Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="18-ExcelFunctions.html">18 - Excel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="19-ExcelVBA.html">19 - Excel and Visual Basic for Applications (VBA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-SolidWorks.html">20 - SolidWorks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="21-Aspen.html">21 - Aspen Plus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="22-Ansys.html">22 - Ansys Workbench and FEA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="22b-Cantera.html">22b - Cantera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="23-Exam2Review.html">23 - Exam 2 Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="24-CaseStudies.html">24 - Case Studies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="24b-Optimization.html">24b - Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="27-FinalReview.html">27 - Final Exam Review</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW01.html">HW01: Introduction to Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW02.html">HW02: Functions and Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW03.html">HW03: More Functions and Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW04.html">HW04: Debugging and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW05.html">HW05: Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW06.html">HW06: Solve Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW07.html">HW07: Additional Equation Solving Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW08.html">HW08: Solving Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW09.html">HW09: More Solving of Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW10.html">HW10: More Practice Programming Loops and Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW11.html">HW11: Regression and Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW12.html">HW12: Interpolation and Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW13.html">HW13: Excel Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW14.html">HW14: Excel Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW19.html">HW19: Ansys Workbench Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/casestudydocs.html">Case Study Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/heattransfer.html">Heat Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/thermo.html">Thermodynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/MD.html">Molecular Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/datacollection.html">Data Collection</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgement.html">Acknowledgement</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/clint-bg/comptools/blob/gh-pages/_sources/lectures/14-Models.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/clint-bg/comptools" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/clint-bg/comptools/issues/new?title=Issue%20on%20page%20%2Flectures/14-Models.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lectures/14-Models.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>14 - Files, Interpolation, and Models</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-writing-files-with-the-pandas-package">Reading and Writing Files with the Pandas Package</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-example-with-vehicle-data">Pandas Example with Vehicle Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pair-plot">Pair plot</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-interpolation-examples">Additional Interpolation Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#models">Models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-or-theoretical-models">Empirical or Theoretical Models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-with-statsmodels">Regression with Statsmodels</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#first-generate-data">First Generate Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#now-complete-the-regression-first-with-one-variable-fertilizer">Now complete the regression, first with one variable: fertilizer</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#now-complete-the-regression-with-two-variables-fertilizer-and-water">Now complete the regression with two variables: fertilizer and water</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="files-interpolation-and-models">
+<h1>14 - Files, Interpolation, and Models<a class="headerlink" href="#files-interpolation-and-models" title="Permalink to this heading">#</a></h1>
+<section id="reading-and-writing-files-with-the-pandas-package">
+<h2>Reading and Writing Files with the Pandas Package<a class="headerlink" href="#reading-and-writing-files-with-the-pandas-package" title="Permalink to this heading">#</a></h2>
+<p>Pandas is a python package that is very helpful in processing data including reading and writing csv files (or other text based files).</p>
+<p>A CSV file is a file that has comma separated values. It is a text file that can be opened in a text editor. For example, the following data in a text file would be a CSV file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Time</span> <span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">Concentration</span> <span class="p">(</span><span class="n">M</span><span class="p">),</span> <span class="n">Temperature</span> <span class="p">(</span><span class="n">K</span><span class="p">)</span>
+<span class="mi">0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mi">300</span>
+<span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">310</span>
+<span class="mi">2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mi">320</span>
+<span class="mi">3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">330</span>
+</pre></div>
+</div>
+<p>You could also have a CSV file that has multiple header rows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">This</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">description</span> <span class="n">of</span> <span class="n">the</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">file</span> <span class="n">that</span> <span class="n">could</span> <span class="n">be</span> <span class="n">multirowed</span>
+<span class="n">Time</span> <span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">Concentration</span> <span class="p">(</span><span class="n">M</span><span class="p">),</span> <span class="n">Temperature</span> <span class="p">(</span><span class="n">K</span><span class="p">)</span>
+<span class="mi">0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mi">300</span>
+<span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">310</span>
+<span class="mi">2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mi">320</span>
+<span class="mi">3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">330</span>
+</pre></div>
+</div>
+<p>or you could have a text file that has a tab character is used instead of a comma separating the values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#First import the Pandas Package:</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Open a file and add the above data (the one with multiple headers) to it and save it as testdata.csv</span>
+<span class="c1"># Open the file and read it into a dataframe</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./supportfiles/testdata.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># header=1 means that the second row is the header</span>
+<span class="c1"># a tab separated file would be sep=&#39;\t&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print the first 5 rows of the dataframe</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Time (s)</th>
+      <th>Concentration (M)</th>
+      <th>Temperature (K)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0.0</td>
+      <td>300</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>0.1</td>
+      <td>310</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>0.2</td>
+      <td>320</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>0.3</td>
+      <td>330</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Note that the first column is the index column. The index column is the column that is used to label the rows. You can change the index column to be the time for example as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#return or print the columns of the dataframe</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;Time (s)&#39;, &#39; Concentration (M)&#39;, &#39; Temperature (K)&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that the column header’s have spaces in them. You can remove that space so it’s easier to reference them as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#remove spaces from the front of the column headers</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="c1"># strip the spaces from the front of the column headers</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="c1">#notice now the spaces are gone in front of the column headers</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;Time (s)&#39;, &#39;Concentration (M)&#39;, &#39;Temperature (K)&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Referencing a column is done by using the column header name. For example, to get the concentration column, you would use the following:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">])</span> <span class="c1">#print the column named Time (s)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0
+1    1
+2    2
+3    3
+Name: Time (s), dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#To get the first value of that column I&#39;d use the following:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;or&#39;</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;or&#39;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 or 0 or 0.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>I can add a new column by simply typing the name of the new column and assigning it some values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Location&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Lab&#39;</span> <span class="c1">#add a column called Location and set all the values to Lab</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Time (s)</th>
+      <th>Concentration (M)</th>
+      <th>Temperature (K)</th>
+      <th>Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0.0</td>
+      <td>300</td>
+      <td>Lab</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>0.1</td>
+      <td>310</td>
+      <td>Lab</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>0.2</td>
+      <td>320</td>
+      <td>Lab</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>0.3</td>
+      <td>330</td>
+      <td>Lab</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>You can also write to a csv file as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;./supportfiles/testdataupdated.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Similiar to Numpy having many powerful functions and methods, there are many powerful features of the pandas package. You can read more about it here: <a class="reference external" href="https://pandas.pydata.org/">https://pandas.pydata.org/</a>.</p>
+<section id="pandas-example-with-vehicle-data">
+<h3>Pandas Example with Vehicle Data<a class="headerlink" href="#pandas-example-with-vehicle-data" title="Permalink to this heading">#</a></h3>
+<p>Your vehicle monitors many different variables including the revolutions per minute, gas mileage, oxygen sensors, and catalytic converter temperature (unless you have an electric car) to name a few. You have access to that data as there’s an OBD II port likely below your steering wheel. I’ve collected some data from my 2019 Kia Forte that we’ll look at.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read in the data from the csv file about weather in Ogden Utah</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://github.com/clint-bg/comptools/blob/main/lectures/supportfiles/kiadata.csv?raw=True&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># prepare data</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">])</span> <span class="c1"># set time to datetime to help with plotting</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span> <span class="c1">#set index to time</span>
+
+<span class="c1"># fill in NaNs as the data for each variable is collected at different times (and so places NaNs in the other columns)</span>
+<span class="c1"># fill in NaNs - forward fill - fill in missing values with the previous value</span>
+<span class="n">data</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;ffill&#39;</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># fill in NaNs - backward fill</span>
+<span class="n">data</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;bfill&#39;</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># remove columns that match keywords</span>
+<span class="k">for</span> <span class="n">dc</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="s2">&quot;Average&quot;</span> <span class="ow">in</span> <span class="n">dc</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">&quot;(total)&quot;</span> <span class="ow">in</span> <span class="n">dc</span><span class="p">)</span> \
+       <span class="ow">or</span> <span class="p">(</span><span class="s2">&quot;$&quot;</span> <span class="ow">in</span> <span class="n">dc</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">&quot;(mA)&quot;</span> <span class="ow">in</span> <span class="n">dc</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="s1">&#39;Unnamed&#39;</span> <span class="ow">in</span> <span class="n">dc</span><span class="p">):</span>
+        <span class="k">del</span> <span class="n">data</span><span class="p">[</span><span class="n">dc</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_57561/834267956.py:2: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  data[&#39;time&#39;] = pd.to_datetime(data[&#39;time&#39;]) # set time to datetime to help with plotting
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print data columns</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># warm-ups since codes cleared ()
+Absolute load value (%)
+Absolute pedal position D (%)
+Absolute pedal position E (%)
+Absolute throttle position B (%)
+Actual engine - percent torque (%)
+Altitude (GPS) (feet)
+Ambient air temperature (℉)
+Barometric pressure (kPa)
+Calculated boost (bar)
+Calculated engine load value (%)
+Calculated instant fuel consumption (MPG)
+Calculated instant fuel rate (gal./h)
+Catalyst temperature Bank 1 Sensor 1 (℉)
+Catalyst temperature Bank 1 Sensor 2 (℉)
+Commanded EGR duty (%)
+Commanded evaporative purge (%)
+Commanded throttle actuator (%)
+Control module voltage (V)
+Distance to empty (miles)
+Distance traveled since codes cleared (miles)
+Distance traveled with MIL on (miles)
+Distance travelled (miles)
+EGR error (%)
+Engine coolant temperature (℉)
+Engine Exhaust Flow Rate (g/sec)
+Engine Friction - Percent Torque (%)
+Engine Fuel Rate (g/sec)
+Engine reference torque (N⋅m)
+Engine RPM (rpm)
+Engine RPM x1000 (rpm)
+Evap. system vapor pressure (Pa)
+Fuel economizer (based on fuel system status and throttle position) ()
+Fuel level input (%) (%)
+Fuel level input (V) (gallon)
+Fuel used (gallon)
+Fuel/Air commanded equivalence ratio ()
+Instant engine power (based on fuel consumption) (hp)
+Instant engine torque (based on fuel consumption) (N⋅m)
+Intake air temperature (℉)
+Intake manifold absolute pressure (kPa)
+Long term fuel % trim - Bank 1 (%)
+Long term secondary oxygen sensor trim Bank 1 (%)
+MAF air flow rate (g/sec)
+OBD Module Voltage (V)
+Oxygen sensor 1 Wide Range Equivalence ratio ()
+Oxygen sensor 2 Bank 1 Voltage (V)
+Power from MAF (hp)
+Relative throttle position (%)
+Short term fuel % trim - Bank 1 (%)
+Short term secondary oxygen sensor trim Bank 1 (%)
+Speed (GPS) (mph)
+Throttle position (%)
+Timing advance (°)
+Vehicle acceleration (g)
+Vehicle Fuel Rate (g/sec)
+Vehicle Odometer Reading (miles)
+Vehicle speed (mph)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#rename columns</span>
+<span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Calculated instant fuel consumption (MPG)&#39;</span><span class="p">:</span><span class="s1">&#39;Calculated MPG&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#also reset the data for the calculated MPG to be at most 100 mpg with a lambda function</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;Calculated MPG&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Calculated MPG&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">100</span> <span class="k">if</span> <span class="n">x</span><span class="o">&gt;</span><span class="mi">100</span> <span class="k">else</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">select</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Vehicle speed (mph)&#39;</span><span class="p">,</span><span class="s1">&#39;Throttle position (%)&#39;</span><span class="p">,</span>\
+          <span class="s1">&#39;Engine RPM (rpm)&#39;</span><span class="p">,</span> <span class="s1">&#39;Vehicle acceleration (g)&#39;</span><span class="p">,</span><span class="s1">&#39;Calculated MPG&#39;</span><span class="p">]</span>
+<span class="n">data</span><span class="p">[</span><span class="n">select</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">,</span> <span class="n">subplots</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/37e58df45d27f5402cbd1df4768f0397029f533894ffc0dc380e899f8a7e9ed6.png" src="../_images/37e58df45d27f5402cbd1df4768f0397029f533894ffc0dc380e899f8a7e9ed6.png" />
+</div>
+</div>
+</section>
+<section id="pair-plot">
+<h3>Pair plot<a class="headerlink" href="#pair-plot" title="Permalink to this heading">#</a></h3>
+<p>A pair plot can be helpful to see if any of the variables appear related</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">select</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4ce10db27837c7463064142c0f36a2990de3449162ae674b07c040030bbbec59.png" src="../_images/4ce10db27837c7463064142c0f36a2990de3449162ae674b07c040030bbbec59.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="additional-interpolation-examples">
+<h2>Additional Interpolation Examples<a class="headerlink" href="#additional-interpolation-examples" title="Permalink to this heading">#</a></h2>
+<p>Suppose we have a set of data points generted from the Runge function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Runge</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">15</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xvals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">data_runge</span> <span class="o">=</span> <span class="n">Runge</span><span class="p">(</span><span class="n">xvals</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xvals</span><span class="p">,</span> <span class="n">data_runge</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/0a2adab32153035adb0f951cf10cde56d4ad15930d0b86868a1d16683cd1391b.png" src="../_images/0a2adab32153035adb0f951cf10cde56d4ad15930d0b86868a1d16683cd1391b.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_runge</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.0625    , 0.09926471, 0.17763158, 0.375     , 0.84375   ,
+       0.84375   , 0.375     , 0.17763158, 0.09926471, 0.0625    ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s use different splining methods to interpolate the data. First, let’s use linear interpolation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Add a linear interpolation to the data</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span><span class="p">,</span> <span class="n">CubicSpline</span><span class="p">,</span> <span class="n">BarycentricInterpolator</span>
+<span class="n">flin</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">xvals</span><span class="p">,</span> <span class="n">data_runge</span><span class="p">)</span>
+<span class="n">xis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xis</span><span class="p">,</span> <span class="n">flin</span><span class="p">(</span><span class="n">xis</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xvals</span><span class="p">,</span> <span class="n">data_runge</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e237cad57e2d469f76ca1bb9b3b4a2d9476e7ecdd3013be48b8000e3c003c689.png" src="../_images/e237cad57e2d469f76ca1bb9b3b4a2d9476e7ecdd3013be48b8000e3c003c689.png" />
+</div>
+</div>
+<p>Now lets use cubic interpolation (3 or more points are needed for cubic interpolation as it’s a 3rd order or higher polynomial). Barycentric interpolation is a type of cubic interpolation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#add cubic interpolation</span>
+<span class="n">cs</span> <span class="o">=</span> <span class="n">CubicSpline</span><span class="p">(</span><span class="n">xvals</span><span class="p">,</span> <span class="n">data_runge</span><span class="p">)</span>
+<span class="n">bc</span> <span class="o">=</span> <span class="n">BarycentricInterpolator</span><span class="p">(</span><span class="n">xvals</span><span class="p">,</span> <span class="n">data_runge</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xis</span><span class="p">,</span> <span class="n">cs</span><span class="p">(</span><span class="n">xis</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;cubic&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xis</span><span class="p">,</span> <span class="n">bc</span><span class="p">(</span><span class="n">xis</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;barycentric&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xis</span><span class="p">,</span> <span class="n">flin</span><span class="p">(</span><span class="n">xis</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xvals</span><span class="p">,</span> <span class="n">data_runge</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/6a1b1aef542d65835914212bdb8a23e2981fcf646b5e4ee3c62cdfc36487ac6c.png" src="../_images/6a1b1aef542d65835914212bdb8a23e2981fcf646b5e4ee3c62cdfc36487ac6c.png" />
+</div>
+</div>
+<p>Note that the higher order cubic interpolation can have wide oscillations at the end points. This is called Runge’s phenomenon (<a class="reference external" href="https://en.wikipedia.org/wiki/Runge%27s_phenomenon">https://en.wikipedia.org/wiki/Runge’s_phenomenon</a>).</p>
+<p>You can also complete multi-variable interpolation. For example, suppose we have the following data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#multivariate interpolation</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">griddata</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">zz</span> <span class="o">=</span> <span class="n">Runge</span><span class="p">(</span><span class="n">xx</span><span class="p">)</span> <span class="o">*</span> <span class="n">Runge</span><span class="p">(</span><span class="n">yy</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">zz</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e05703ec89a3838812792a31ca0fb740c706586b0da5c205a5f0b701acf12693.png" src="../_images/e05703ec89a3838812792a31ca0fb740c706586b0da5c205a5f0b701acf12693.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#interpolate the data</span>
+<span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">yi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">xxi</span><span class="p">,</span> <span class="n">yyi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span><span class="n">yi</span><span class="p">)</span>
+<span class="n">zzi</span> <span class="o">=</span> <span class="n">griddata</span><span class="p">((</span><span class="n">xx</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">yy</span><span class="o">.</span><span class="n">flatten</span><span class="p">()),</span> <span class="n">zz</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="p">(</span><span class="n">xxi</span><span class="p">,</span> <span class="n">yyi</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;cubic&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">zzi</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/30dc07c65812c5c46464ed65a597b3605763c6cf2a4bed17327ea45c18ee9bd9.png" src="../_images/30dc07c65812c5c46464ed65a597b3605763c6cf2a4bed17327ea45c18ee9bd9.png" />
+</div>
+</div>
+</section>
+<section id="models">
+<h2>Models<a class="headerlink" href="#models" title="Permalink to this heading">#</a></h2>
+<p>Anytime you create a function, you’ve just created a model. A model relates one thing to another. The variable(s) that you can control is/are the independent variable(s) and the output from the function (or model) is/are the dependent variable(s). There are model’s all around us including:</p>
+<ul class="simple">
+<li><p>in your phone, there is a model that relates the voltage of the battery to the percentage of battery life left</p></li>
+<li><p>in your car, there is a model that relates the vehicle speed to the amount of fuel used</p></li>
+<li><p>in your refrigerator, there is a model that relates the temperature setting to the temperature inside the refrigerator</p></li>
+<li><p>in your phone that relates the destination to the route and time predicted to get there</p></li>
+</ul>
+<section id="empirical-or-theoretical-models">
+<h3>Empirical or Theoretical Models<a class="headerlink" href="#empirical-or-theoretical-models" title="Permalink to this heading">#</a></h3>
+<p>Models can be empirical which is what is typically meant when you complete regression: you fit data collected to an empirical relationship. For example, you might have a set of data that you fit to a linear model. The linear model is an empirical model.</p>
+<p>Theoretical models are models that are based on theory. For example, the ideal gas law is a theoretical model. Or for ODE’s that we’ve talked about where we use the balance equations (accum = in - out + gen - cons), the relationship between the independent variables and dependent variables can be based on theory.</p>
+<p>From the above description, there are many variables that could be related to each other. For example, the revolutions per minute (RPM) could be related to the gas mileage. The catalytic converter temperature could be related to the oxygen sensor. We’ll look at the relationship between the RPM and gas mileage.</p>
+</section>
+<section id="regression-with-statsmodels">
+<h3>Regression with Statsmodels<a class="headerlink" href="#regression-with-statsmodels" title="Permalink to this heading">#</a></h3>
+<section id="first-generate-data">
+<h4>First Generate Data<a class="headerlink" href="#first-generate-data" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tree_height</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">f</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">5</span><span class="o">*</span><span class="n">w</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="n">f</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="o">*</span><span class="mf">0.1</span><span class="o">+</span><span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#generate data</span>
+<span class="n">tree</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">water</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">),</span><span class="n">fertilizer</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">50</span><span class="p">))</span>
+<span class="n">tree</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tree_height</span><span class="p">(</span><span class="n">tree</span><span class="p">[</span><span class="s1">&#39;water&#39;</span><span class="p">],</span> <span class="n">tree</span><span class="p">[</span><span class="s1">&#39;fertilizer&#39;</span><span class="p">])</span>
+<span class="n">tree</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+<span class="n">tree</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>water</th>
+      <th>fertilizer</th>
+      <th>height</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>5.067833</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.020408</td>
+      <td>0.010204</td>
+      <td>5.172834</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.040816</td>
+      <td>0.020408</td>
+      <td>5.219199</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.061224</td>
+      <td>0.030612</td>
+      <td>5.298356</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.081633</td>
+      <td>0.040816</td>
+      <td>5.373294</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tree</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>water</th>
+      <th>fertilizer</th>
+      <th>height</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>50.000000</td>
+      <td>50.000000</td>
+      <td>50.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>0.500000</td>
+      <td>0.250000</td>
+      <td>8.730612</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.297498</td>
+      <td>0.148749</td>
+      <td>2.699967</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>5.067833</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>0.250000</td>
+      <td>0.125000</td>
+      <td>6.338573</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>0.500000</td>
+      <td>0.250000</td>
+      <td>8.308538</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>0.750000</td>
+      <td>0.375000</td>
+      <td>10.824173</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>1.000000</td>
+      <td>0.500000</td>
+      <td>14.052779</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#meshplot the dataa</span>
+<span class="n">W</span><span class="p">,</span> <span class="n">F</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">tree</span><span class="p">[</span><span class="s1">&#39;water&#39;</span><span class="p">],</span><span class="n">tree</span><span class="p">[</span><span class="s1">&#39;fertilizer&#39;</span><span class="p">])</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">tree_height</span><span class="p">(</span><span class="n">W</span><span class="p">,</span><span class="n">F</span><span class="p">)</span>
+
+<span class="n">nr</span><span class="p">,</span> <span class="n">nc</span> <span class="o">=</span> <span class="n">H</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig1</span><span class="p">,</span> <span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="s1">&#39;constrained&#39;</span><span class="p">)</span>
+<span class="n">CS</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">bone</span><span class="p">)</span>
+
+<span class="c1"># Note that in the following, we explicitly pass in a subset of the contour</span>
+<span class="c1"># levels used for the filled contours.  Alternatively, we could pass in</span>
+<span class="c1"># additional levels to provide extra resolution, or leave out the *levels*</span>
+<span class="c1"># keyword argument to use all of the original levels.</span>
+
+<span class="n">CS2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">CS</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="n">CS</span><span class="o">.</span><span class="n">levels</span><span class="p">[::</span><span class="mi">2</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Tree Height&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;water&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;fertilizer&#39;</span><span class="p">)</span>
+
+<span class="c1"># Make a colorbar for the ContourSet returned by the contourf call.</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">fig1</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">CS</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;height&#39;</span><span class="p">)</span>
+<span class="c1"># Add the contour line levels to the colorbar</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">add_lines</span><span class="p">(</span><span class="n">CS2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/10376f51d55f95669cd0867300fc83f867355d1a53c009d0708e0ff91b01e9ef.png" src="../_images/10376f51d55f95669cd0867300fc83f867355d1a53c009d0708e0ff91b01e9ef.png" />
+</div>
+</div>
+</section>
+<section id="now-complete-the-regression-first-with-one-variable-fertilizer">
+<h4>Now complete the regression, first with one variable: fertilizer<a class="headerlink" href="#now-complete-the-regression-first-with-one-variable-fertilizer" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Complete the same above task with the statsmodels package</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">tree</span><span class="p">[</span><span class="s1">&#39;fertilizer&#39;</span><span class="p">]</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">tree</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span>
+<span class="c1">#X = sm.add_constant(X) include this if you want to fit a line with an intercept</span>
+<span class="n">model1</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+<span class="n">results1</span> <span class="o">=</span> <span class="n">model1</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results1</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                 height   R-squared:                       0.979
+Model:                            OLS   Adj. R-squared:                  0.979
+Method:                 Least Squares   F-statistic:                     2269.
+Date:                Tue, 06 Aug 2024   Prob (F-statistic):           4.53e-42
+Time:                        17:53:37   Log-Likelihood:                -23.185
+No. Observations:                  50   AIC:                             50.37
+Df Residuals:                      48   BIC:                             54.19
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          4.2401      0.109     38.752      0.000       4.020       4.460
+fertilizer    17.9622      0.377     47.632      0.000      17.204      18.720
+==============================================================================
+Omnibus:                        5.994   Durbin-Watson:                   0.034
+Prob(Omnibus):                  0.050   Jarque-Bera (JB):                5.118
+Skew:                           0.689   Prob(JB):                       0.0774
+Kurtosis:                       2.253   Cond. No.                         7.22
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Zp</span> <span class="o">=</span> <span class="p">[];</span> <span class="n">Wf</span> <span class="o">=</span> <span class="n">W</span><span class="o">.</span><span class="n">flatten</span><span class="p">();</span> <span class="n">Ff</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">each</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">Wf</span><span class="p">):</span>
+    <span class="n">Zp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">results1</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">results1</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">Ff</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="n">Zp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Zp</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Calculate the MAPE</span>
+<span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">H</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span> <span class="o">-</span> <span class="n">Zp</span><span class="o">.</span><span class="n">flatten</span><span class="p">()))</span><span class="o">/</span><span class="n">H</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span><span class="o">*</span><span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.643457430329175
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig1</span><span class="p">,</span> <span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="s1">&#39;constrained&#39;</span><span class="p">)</span>
+<span class="n">CS</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">Zp</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">bone</span><span class="p">)</span>
+
+<span class="c1"># Note that in the following, we explicitly pass in a subset of the contour</span>
+<span class="c1"># levels used for the filled contours.  Alternatively, we could pass in</span>
+<span class="c1"># additional levels to provide extra resolution, or leave out the *levels*</span>
+<span class="c1"># keyword argument to use all of the original levels.</span>
+
+<span class="n">CS2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">CS</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="n">CS</span><span class="o">.</span><span class="n">levels</span><span class="p">[::</span><span class="mi">2</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Tree Height&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;water&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;fertilizer&#39;</span><span class="p">)</span>
+
+<span class="c1"># Make a colorbar for the ContourSet returned by the contourf call.</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">fig1</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">CS</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;height&#39;</span><span class="p">)</span>
+<span class="c1"># Add the contour line levels to the colorbar</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">add_lines</span><span class="p">(</span><span class="n">CS2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/01bb76d83a3af31e09d762286d08415b978f1a4fd00e6b7bef82ca8868c5bbc3.png" src="../_images/01bb76d83a3af31e09d762286d08415b978f1a4fd00e6b7bef82ca8868c5bbc3.png" />
+</div>
+</div>
+</section>
+<section id="now-complete-the-regression-with-two-variables-fertilizer-and-water">
+<h4>Now complete the regression with two variables: fertilizer and water<a class="headerlink" href="#now-complete-the-regression-with-two-variables-fertilizer-and-water" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Complete the same above task with the statsmodels package</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">tree</span><span class="p">[[</span><span class="s1">&#39;water&#39;</span><span class="p">,</span><span class="s1">&#39;fertilizer&#39;</span><span class="p">]]</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">tree</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span>
+<span class="n">model2</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+<span class="n">results2</span> <span class="o">=</span> <span class="n">model2</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results2</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                 height   R-squared:                       0.979
+Model:                            OLS   Adj. R-squared:                  0.979
+Method:                 Least Squares   F-statistic:                     2269.
+Date:                Tue, 06 Aug 2024   Prob (F-statistic):           4.53e-42
+Time:                        17:53:38   Log-Likelihood:                -23.185
+No. Observations:                  50   AIC:                             50.37
+Df Residuals:                      48   BIC:                             54.19
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          4.2401      0.109     38.752      0.000       4.020       4.460
+water          7.1849      0.151     47.632      0.000       6.882       7.488
+fertilizer     3.5924      0.075     47.632      0.000       3.441       3.744
+==============================================================================
+Omnibus:                        5.994   Durbin-Watson:                   0.034
+Prob(Omnibus):                  0.050   Jarque-Bera (JB):                5.118
+Skew:                           0.689   Prob(JB):                       0.0774
+Kurtosis:                       2.253   Cond. No.                     1.11e+16
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The smallest eigenvalue is 5.45e-31. This might indicate that there are
+strong multicollinearity problems or that the design matrix is singular.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Zp2</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">each</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">Wf</span><span class="p">):</span>
+    <span class="n">Zp2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">results2</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">results2</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">Wf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">results2</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">Ff</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="n">Zp2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Zp2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig1</span><span class="p">,</span> <span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="s1">&#39;constrained&#39;</span><span class="p">)</span>
+<span class="n">CS</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">Zp2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">bone</span><span class="p">)</span>
+
+<span class="c1"># Note that in the following, we explicitly pass in a subset of the contour</span>
+<span class="c1"># levels used for the filled contours.  Alternatively, we could pass in</span>
+<span class="c1"># additional levels to provide extra resolution, or leave out the *levels*</span>
+<span class="c1"># keyword argument to use all of the original levels.</span>
+
+<span class="n">CS2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">CS</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="n">CS</span><span class="o">.</span><span class="n">levels</span><span class="p">[::</span><span class="mi">2</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Tree Height&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;water&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;fertilizer&#39;</span><span class="p">)</span>
+
+<span class="c1"># Make a colorbar for the ContourSet returned by the contourf call.</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">fig1</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">CS</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;height&#39;</span><span class="p">)</span>
+<span class="c1"># Add the contour line levels to the colorbar</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">add_lines</span><span class="p">(</span><span class="n">CS2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/d8579f46c1b9a2a6d818170f0cb995c17724c28ec69fa35a49876d4dc67095c6.png" src="../_images/d8579f46c1b9a2a6d818170f0cb995c17724c28ec69fa35a49876d4dc67095c6.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Calculate the MAPE</span>
+<span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">H</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span> <span class="o">-</span> <span class="n">Zp2</span><span class="o">.</span><span class="n">flatten</span><span class="p">()))</span><span class="o">/</span><span class="n">H</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span><span class="o">*</span><span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.864113886880348
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="13-Regression.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">13 - Regression and Interpolation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="15-ExamReview.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">15 - Exam Review (Python)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-writing-files-with-the-pandas-package">Reading and Writing Files with the Pandas Package</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-example-with-vehicle-data">Pandas Example with Vehicle Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pair-plot">Pair plot</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-interpolation-examples">Additional Interpolation Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#models">Models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#empirical-or-theoretical-models">Empirical or Theoretical Models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-with-statsmodels">Regression with Statsmodels</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#first-generate-data">First Generate Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#now-complete-the-regression-first-with-one-variable-fertilizer">Now complete the regression, first with one variable: fertilizer</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#now-complete-the-regression-with-two-variables-fertilizer-and-water">Now complete the regression with two variables: fertilizer and water</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Clint Guymon, Brigham Young University
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

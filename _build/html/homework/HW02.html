@@ -1,0 +1,688 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>HW02: Functions and Objects &#8212; Computational Tools for Chemical Engineers</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'homework/HW02';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="HW03: More Functions and Objects" href="HW03.html" />
+    <link rel="prev" title="HW01: Introduction to Python" href="HW01.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Intro and Approach
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../foundations.html">Foundations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/preClassPrep.html">Pre-course Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/pythonresources.html">Python Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/excelresources.html">Excel Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/equipment.html">Equipment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/safety.html">Safety</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../topics.html">Modules</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/01-Motive.html">01 - Motivation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/01b-Basics.html">01b - Python Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/02-Arrays.html">02 - Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/04-Functions.html">04 - Functions: Gases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/05-FunctionsAgain.html">05 - Functions: Heat Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/06-Debug.html">06 - Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/07-Units.html">07 - Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/08-Equations.html">08 - Equations to Solve Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/09-EquationsAgain.html">09 - Solving More Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/10-NewtonsMethod.html">10 - Newton’s Method Example Exercise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/11-ODEs.html">11 - ODEs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/12-ODEsAgain.html">12 - More ODEs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/13-Regression.html">13 - Regression and Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/14-Models.html">14 - Files, Interpolation, and Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/15-ExamReview.html">15 - Exam Review (Python)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/16-ExcelBasics.html">15 - Excel Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/17-ExcelSolver.html">17 - More Excel Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/18-ExcelFunctions.html">18 - Excel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/19-ExcelVBA.html">19 - Excel and Visual Basic for Applications (VBA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/20-SolidWorks.html">20 - SolidWorks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/21-Aspen.html">21 - Aspen Plus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/22-Ansys.html">22 - Ansys Workbench and FEA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/22b-Cantera.html">22b - Cantera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/23-Exam2Review.html">23 - Exam 2 Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/24-CaseStudies.html">24 - Case Studies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/24b-Optimization.html">24b - Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/27-FinalReview.html">27 - Final Exam Review</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="HW01.html">HW01: Introduction to Python</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">HW02: Functions and Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW03.html">HW03: More Functions and Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW04.html">HW04: Debugging and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW05.html">HW05: Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW06.html">HW06: Solve Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW07.html">HW07: Additional Equation Solving Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW08.html">HW08: Solving Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW09.html">HW09: More Solving of Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW10.html">HW10: More Practice Programming Loops and Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW11.html">HW11: Regression and Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW12.html">HW12: Interpolation and Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW13.html">HW13: Excel Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW14.html">HW14: Excel Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW19.html">HW19: Ansys Workbench Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/casestudydocs.html">Case Study Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/heattransfer.html">Heat Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/thermo.html">Thermodynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/MD.html">Molecular Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/datacollection.html">Data Collection</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgement.html">Acknowledgement</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/clint-bg/comptools/blob/gh-pages/_sources/homework/HW02.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/clint-bg/comptools" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/clint-bg/comptools/issues/new?title=Issue%20on%20page%20%2Fhomework/HW02.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/homework/HW02.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>HW02: Functions and Objects</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5">Problem 5</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="hw02-functions-and-objects">
+<h1>HW02: Functions and Objects<a class="headerlink" href="#hw02-functions-and-objects" title="Permalink to this heading">#</a></h1>
+<p>Purposes of this assignment is to get practice with the following:</p>
+<ul class="simple">
+<li><p>If statements</p></li>
+<li><p>Defining and calling functions</p></li>
+<li><p>Define an object (class instance) and make a calculation using the objects attributes</p></li>
+</ul>
+<section id="problem-1">
+<h2>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h2>
+<p><strong>(a)</strong> x is given below. Write an if statement that will print whether x is positive, negative, or zero.</p>
+<p>x=-10</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>(b)</strong> x and y are given below. Write an if statement that will print whether x and y are both positive, or both negative, or if one or both are zero.</p>
+<p>x=-4 y=3.2</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span><span class="p">;</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">3.2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>(c)</strong> The ideal gas law is an approximation, but it is only a good approximation under certain circumstances. The general rule of thumb is when the specifc volume is greater than 5 L/mol for diatomic gases and 20 L/mol for all other gases. (Specific volume: <span class="math notranslate nohighlight">\(\hat{V} = \frac{V}{n}\)</span> )
+$<span class="math notranslate nohighlight">\(\hat{V}=\frac{RT}{P} &gt; 5 L/mol \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( .......(modification)....                &gt;20 L/mol\)</span>$
+Write an if statement that will print the ideal specifc volume of O2, and state whether or not the ideal gas law is a good approximation.</p>
+<p>T = 600 K</p>
+<p>P = 15 atm</p>
+<p>R = .08206 L*Atm/(mol K)</p>
+</section>
+<section id="problem-2">
+<h2>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h2>
+<p><strong>(a)</strong> Write a function called “sum” that takes two numbers and returns the sum of them.</p>
+<p><strong>(b)</strong> Write a function called “quadroots” that takes three numbers <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span> as function arguments that are the coefficients of the quadratic formula <span class="math notranslate nohighlight">\(ax^2+bx+c=0\)</span>, and returns the two roots. Test your function on <span class="math notranslate nohighlight">\(a=1,\,b=-1,\, c=-2\)</span>. You should get roots of 2 and -1.</p>
+<p><strong>(c)</strong> Functions are a convenient way to convert units. Write a function that converts</p>
+<ol class="arabic simple">
+<li><p>Celsius for Farhenheit,</p></li>
+<li><p>Farheneit to Celsius,</p></li>
+<li><p>Liters to Gallons, and</p></li>
+<li><p>kg/h to lbm/s</p></li>
+</ol>
+<p>Use each function at least once to print the values of 40 C to F, 102 F to C, 19 L to gal, and 34 kg/h to lbm/s.</p>
+</section>
+<section id="problem-3">
+<h2>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h2>
+<p>Write a function for the Peng Robinson equation of state. The Peng Robinson equation of state is given by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+P = \frac{RT}{V_m-b}&amp;-\frac{a\alpha}{V_m(V_m+b)+b(V_m-b)} \tag{1} \\ 
+a &amp;= 0.45724\frac{R^2T_c^2}{P_c} \tag{2a} \\
+b &amp;= 0.07780\frac{RT_c}{P_c} \tag{2b} \\
+\alpha &amp;= \left[1+\kappa\left(1-\sqrt{\frac{T}{T_c}}\right)\right]^2 \tag{2c}\\
+\kappa &amp;= 0.37464+1.54226\omega-0.26992\omega^2 \tag{2d} \\
+T_r &amp;= \frac{T}{T_c} \tag{2e}\\
+\end{align}
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(T_c\)</span> is the critical temperature, <span class="math notranslate nohighlight">\(P_c\)</span> is the critical pressure, <span class="math notranslate nohighlight">\(\omega\)</span> is the acentric factor, and <span class="math notranslate nohighlight">\(T_r\)</span> is the reduced temperature. The critical properties for carbon dioxide are <span class="math notranslate nohighlight">\(T_c = 304.2\)</span> K and <span class="math notranslate nohighlight">\(P_c = 73.8\)</span> atm. The acentric factor for carbon dioxide is <span class="math notranslate nohighlight">\(\omega = 0.225\)</span>. The gas constant is <span class="math notranslate nohighlight">\(R = 0.08206\)</span> L atm/(mol K).</p>
+<p>Evaluate the function to determine the pressure for the following conditions:</p>
+<ul class="simple">
+<li><p>T = 600 K</p></li>
+<li><p>V = 0.05 <span class="math notranslate nohighlight">\(\text{m}^3\)</span>/mol</p></li>
+<li><p>Carbon dioxide (<span class="math notranslate nohighlight">\(\text{CO}_2\)</span>) is the gas</p></li>
+</ul>
+</section>
+<section id="problem-4">
+<h2>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h2>
+<p>In the class <span class="xref myst">Motivation</span>, we calculated the adiabatic flame temperature for a butane-air mixture. Modify the code to calculate the adiabatic flame temperature for a pentane-air mixture. You’ll use property data from the DIPPR database. As a BYU student (accessing the website from on-campus), you have access <a class="reference external" href="https://dippr.aiche.org/FullDb?TriggerLogin=1">here</a>.</p>
+<p><strong>Action 3:</strong> Copy the code done in the manual calculation in the <span class="xref myst">Motivation</span> discussion (the flame temperature calculation that does not use Cantera). Follow the below steps to modify the code to calculate the adiabatic flame temperature for a pentane-air mixture.</p>
+<ul class="simple">
+<li><p>Copy the code from the <span class="xref myst">Motivation</span> discussion and paste it into the cell below. There are 3 code blocks you’ll need. Make sure you can get the code to run to predict the adiabatic flame temperature for a butane-air mixture.</p></li>
+<li><p>Modify the code by switching the butane (C4H10) to pentane (C5H12) with the associated Cp properties from DIPPR. You’ll also have to modify the coefficients in the other gas descriptions (C5H12 + 8O2 = 6H2O + 5CO2) for pentane.</p></li>
+</ul>
+<p>Report the code and the adiabatic flame temperature in degrees Celsius and comment on whether you think it is accurate or not.</p>
+</section>
+<section id="problem-5">
+<h2>Problem 5<a class="headerlink" href="#problem-5" title="Permalink to this heading">#</a></h2>
+<p>Create a class called gas that has the following attributes:</p>
+<ul class="simple">
+<li><p>critical temperature</p></li>
+<li><p>critical pressure</p></li>
+<li><p>acentric factor</p></li>
+<li><p>temperature</p></li>
+<li><p>molar volume</p></li>
+<li><p>a function that can return the pressure given the temperature and molar volume using the Peng Robinson equation of state you programmed in Problem 3</p></li>
+</ul>
+<p>Credit to Dr. John Hedengren for many of these problems (see also <a class="reference external" href="https://apmonitor.com/che263/">APMonitor.com</a>))</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./homework"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="HW01.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">HW01: Introduction to Python</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="HW03.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">HW03: More Functions and Objects</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5">Problem 5</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Clint Guymon, Brigham Young University
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

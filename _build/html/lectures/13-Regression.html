@@ -1,0 +1,1242 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>13 - Regression and Interpolation &#8212; Computational Tools for Chemical Engineers</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/13-Regression';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="14 - Files, Interpolation, and Models" href="14-Models.html" />
+    <link rel="prev" title="12 - More ODEs" href="12-ODEsAgain.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Intro and Approach
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../foundations.html">Foundations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/preClassPrep.html">Pre-course Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/pythonresources.html">Python Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/excelresources.html">Excel Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/equipment.html">Equipment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/safety.html">Safety</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../topics.html">Modules</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01-Motive.html">01 - Motivation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01b-Basics.html">01b - Python Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-Arrays.html">02 - Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-Functions.html">04 - Functions: Gases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-FunctionsAgain.html">05 - Functions: Heat Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-Debug.html">06 - Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07-Units.html">07 - Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-Equations.html">08 - Equations to Solve Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09-EquationsAgain.html">09 - Solving More Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10-NewtonsMethod.html">10 - Newton’s Method Example Exercise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11-ODEs.html">11 - ODEs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12-ODEsAgain.html">12 - More ODEs</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">13 - Regression and Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-Models.html">14 - Files, Interpolation, and Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="15-ExamReview.html">15 - Exam Review (Python)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="16-ExcelBasics.html">15 - Excel Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="17-ExcelSolver.html">17 - More Excel Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="18-ExcelFunctions.html">18 - Excel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="19-ExcelVBA.html">19 - Excel and Visual Basic for Applications (VBA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-SolidWorks.html">20 - SolidWorks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="21-Aspen.html">21 - Aspen Plus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="22-Ansys.html">22 - Ansys Workbench and FEA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="22b-Cantera.html">22b - Cantera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="23-Exam2Review.html">23 - Exam 2 Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="24-CaseStudies.html">24 - Case Studies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="24b-Optimization.html">24b - Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="27-FinalReview.html">27 - Final Exam Review</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW01.html">HW01: Introduction to Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW02.html">HW02: Functions and Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW03.html">HW03: More Functions and Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW04.html">HW04: Debugging and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW05.html">HW05: Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW06.html">HW06: Solve Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW07.html">HW07: Additional Equation Solving Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW08.html">HW08: Solving Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW09.html">HW09: More Solving of Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW10.html">HW10: More Practice Programming Loops and Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW11.html">HW11: Regression and Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW12.html">HW12: Interpolation and Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW13.html">HW13: Excel Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW14.html">HW14: Excel Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW19.html">HW19: Ansys Workbench Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/casestudydocs.html">Case Study Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/heattransfer.html">Heat Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/thermo.html">Thermodynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/MD.html">Molecular Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/datacollection.html">Data Collection</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgement.html">Acknowledgement</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/clint-bg/comptools/blob/gh-pages/_sources/lectures/13-Regression.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/clint-bg/comptools" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/clint-bg/comptools/issues/new?title=Issue%20on%20page%20%2Flectures/13-Regression.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lectures/13-Regression.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>13 - Regression and Interpolation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-example-linear-regression">First Example: Linear Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-numpy-polyfit">A. Numpy Polyfit</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#r2-r-squared">R2: R-squared</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mape-value-mean-absolute-percent-error">MAPE Value (Mean Absolute Percent Error)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-scipy-optimize-curve-fit">B. Scipy Optimize Curve Fit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-scipy-optimize-minimize-a-general-method">C. Scipy Optimize Minimize (A General Method)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-example-fit-a-relationship-non-linear-to-sun-rise-data-vs-day-of-year">Second Example: Fit a Relationship (Non-Linear) to Sun Rise Data vs. Day of Year</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#method-1-using-the-curve-fit-function-from-the-scipy-optimize-module">Method 1: Using the <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> function from the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#method-2-minimizing-the-squared-error-with-scipy-minimize">Method 2: Minimizing the squared error with scipy minimize</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation">Interpolation</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="regression-and-interpolation">
+<h1>13 - Regression and Interpolation<a class="headerlink" href="#regression-and-interpolation" title="Permalink to this heading">#</a></h1>
+<p>Data regression is a critical skill to determine correlations and potential causations between different variables in a system.  In this lecture, we will learn how to use Python to perform regression and interpolation.</p>
+<p>Regression is where you use the different functions you learned about in geometry and algebra to attempt to fit a curve to a set of data.  The most common type of regression is linear regression where you attempt to fit a line to a set of data. The parameters for the curve are determined by minimizing the sum of the squares of the difference between the data and the curve.  This is called the least squares method.  For a linear regression, the parameters that are determined are the slope and intercept.</p>
+<p>Below is an example of both a linear and a non-linear regression where first the data is imported and then operated on to obtain the independent variable (day of the year).  Then the data is plotted and a curve is fit to the data. The same steps would be used for a linear regression.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span><span class="p">,</span> <span class="n">minimize</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="first-example-linear-regression">
+<h2>First Example: Linear Regression<a class="headerlink" href="#first-example-linear-regression" title="Permalink to this heading">#</a></h2>
+<p>First generate the data and plot it</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#first generate the data</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="o">*</span><span class="mf">0.25</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2f7989674061ca21820dba16fe65b61611ec643970454d6978f6709f09e6d80b.png" src="../_images/2f7989674061ca21820dba16fe65b61611ec643970454d6978f6709f09e6d80b.png" />
+</div>
+</div>
+<p>Regression involves making an approximation to relate the independent variable (what you can control) to the dependent variable (what you measure). x is typically the independent variable and y is the dependent variable.</p>
+<p>Once you have the data, there are multiple ways to obtain an estimate or approximation of the relationship between the variables.  Here we’ll review multiple methods:</p>
+<ul class="simple">
+<li><p>numpy.polyfit</p></li>
+<li><p>scipy.optimize.curve_fit</p></li>
+<li><p>scipy.optimize.minimize</p></li>
+<li><p>(there are many other packages that you could use)</p></li>
+</ul>
+<section id="a-numpy-polyfit">
+<h3>A. Numpy Polyfit<a class="headerlink" href="#a-numpy-polyfit" title="Permalink to this heading">#</a></h3>
+<p>Numpy polyfit can be used to fit a polynomial to a set of data. The polynomial can be first order which is a linear regression or higher order.  The higher the order, the more complex the curve can be.  The polyfit function returns the coefficients of the polynomial.  The coefficients can be used to plot the polynomial.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">param</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">#linear fit yielding the slope and intercept</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The slope is </span><span class="si">{</span><span class="n">param</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1"> and the intercept is </span><span class="si">{</span><span class="n">param</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope is 0.505 and the intercept is -0.041
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#now plot the fit</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">param</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">param</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span> <span class="c1">#</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/bcfe8911daf5471ea04fb63203b5453c343edca4863909739a1ab6e627eef120.png" src="../_images/bcfe8911daf5471ea04fb63203b5453c343edca4863909739a1ab6e627eef120.png" />
+</div>
+</div>
+<p>Regression statistics can be calculated to the rsquared and the mape value which are measures of how well the regression line fits the data.</p>
+<section id="r2-r-squared">
+<h4>R2: R-squared<a class="headerlink" href="#r2-r-squared" title="Permalink to this heading">#</a></h4>
+<p>R-squared ranges from 0 to 1 with values closer to 1 indicating a better fit. It is calculated as 1 - (SSres/SStot) where SSres is the sum of the squares of the residuals and SStot is the total sum of the squares as given below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#calculate the r-squared value</span>
+<span class="n">yhat</span> <span class="o">=</span> <span class="n">param</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">param</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#the predicted values</span>
+<span class="n">ybar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="c1">#the mean of the observed values</span>
+<span class="n">SStot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y</span><span class="o">-</span><span class="n">ybar</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#total sum of squares</span>
+<span class="n">SSres</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y</span><span class="o">-</span><span class="n">yhat</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#residual sum of squares</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">SSres</span><span class="o">/</span><span class="n">SStot</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The r-squared value is </span><span class="si">{</span><span class="n">r2</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The r-squared value is 0.976
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="mape-value-mean-absolute-percent-error">
+<h4>MAPE Value (Mean Absolute Percent Error)<a class="headerlink" href="#mape-value-mean-absolute-percent-error" title="Permalink to this heading">#</a></h4>
+<p>I like the MAPE value better than R-squared value as it indicates the total percent error. You could have a high R-squared value but still have a large error.  The MAPE value is calculated as the sum of the absolute value of the difference between the data and the regression line divided by the sum of the data.  The MAPE value is given below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#MAPE value</span>
+<span class="n">MAPE</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">y</span><span class="o">-</span><span class="n">yhat</span><span class="p">)</span><span class="o">/</span><span class="n">y</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The MAPE value is </span><span class="si">{</span><span class="n">MAPE</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The MAPE value is 18.004%
+</pre></div>
+</div>
+</div>
+</div>
+<p>Thus, using the predicted line relating x to y, the error you might expect in doing so is 23% (the MAPE value). Using the R-squared value, it’s not straightforward how you would make such a statement.</p>
+</section>
+</section>
+<section id="b-scipy-optimize-curve-fit">
+<h3>B. Scipy Optimize Curve Fit<a class="headerlink" href="#b-scipy-optimize-curve-fit" title="Permalink to this heading">#</a></h3>
+<p>Curve Fit is a scipy package that uses non-linear least squares to fit data to a function. It also generates a covariance matrix as detailed in the online documentation <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#first specify the linear model (equation for a line)</span>
+<span class="k">def</span> <span class="nf">line</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">m</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Now call the curve_fit function</span>
+<span class="n">popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The slope is </span><span class="si">{</span><span class="n">popt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1"> and the intercept is </span><span class="si">{</span><span class="n">popt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The uncertainties in the two parameters is </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">pcov</span><span class="p">))</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope is 0.505 and the intercept is -0.041
+The uncertainties in the two parameters is [0.00807218 0.04672226]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="c-scipy-optimize-minimize-a-general-method">
+<h3>C. Scipy Optimize Minimize (A General Method)<a class="headerlink" href="#c-scipy-optimize-minimize-a-general-method" title="Permalink to this heading">#</a></h3>
+<p>Minimize is beneficial as you can use it for many different things not just regression.  It is a general method that can be used to minimize a function.  In this case, we are minimizing the sum of the squares of the difference between the data and the curve.  The minimize function requires an initial guess for the parameters.  Further information is here: <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html#scipy.optimize.minimize">https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html#scipy.optimize.minimize</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#first define a function that will calculate the error</span>
+<span class="k">def</span> <span class="nf">error</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y</span> <span class="o">-</span> <span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">p</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#now use the minimize function to find the best fit parameters</span>
+<span class="n">p0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="c1">#initial guess for the parameters</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  message: Desired error not necessarily achieved due to precision loss.
+  success: False
+   status: 2
+      fun: 5.42890078596947
+        x: [ 5.046e-01 -4.071e-02]
+      nit: 3
+      jac: [ 5.043e-05  7.093e-06]
+ hess_inv: [[ 6.228e-04 -3.066e-03]
+            [-3.066e-03  1.989e-02]]
+     nfev: 118
+     njev: 36
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="second-example-fit-a-relationship-non-linear-to-sun-rise-data-vs-day-of-year">
+<h2>Second Example: Fit a Relationship (Non-Linear) to Sun Rise Data vs. Day of Year<a class="headerlink" href="#second-example-fit-a-relationship-non-linear-to-sun-rise-data-vs-day-of-year" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://github.com/clint-bg/comptools/blob/main/lectures/supportfiles/sunrisedata.csv?raw=True&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="c1"># sort based on the Month and Day</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;Month&#39;</span><span class="p">,</span> <span class="s1">&#39;Day&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The above data is from <a class="reference external" href="https://in-the-sky.org/"><a class="reference external" href="https://in-the-sky.org/">https://in-the-sky.org/</a></a>. The data is of course a function of the longitude and latitude. For this data, it was latitude 43.26; longitude -86.02.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>Month</th>
+      <th>Day</th>
+      <th>Age of Moon</th>
+      <th>SunRise</th>
+      <th>SunCulm</th>
+      <th>SunSet</th>
+      <th>Constellation(Sun)</th>
+      <th>MoonRise</th>
+      <th>MoonCulm</th>
+      <th>MoonSet</th>
+      <th>Constellation(Moon)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>200</th>
+      <td>2023</td>
+      <td>1</td>
+      <td>2</td>
+      <td>10 days</td>
+      <td>9:14</td>
+      <td>13:46</td>
+      <td>18:19</td>
+      <td>Sagittarius</td>
+      <td>15:05</td>
+      <td>22:42</td>
+      <td>5:24</td>
+      <td>Aries</td>
+    </tr>
+    <tr>
+      <th>201</th>
+      <td>2023</td>
+      <td>1</td>
+      <td>3</td>
+      <td>11 days</td>
+      <td>9:14</td>
+      <td>13:47</td>
+      <td>18:20</td>
+      <td>Sagittarius</td>
+      <td>15:36</td>
+      <td>23:31</td>
+      <td>6:30</td>
+      <td>Taurus</td>
+    </tr>
+    <tr>
+      <th>202</th>
+      <td>2023</td>
+      <td>1</td>
+      <td>4</td>
+      <td>12 days</td>
+      <td>9:14</td>
+      <td>13:47</td>
+      <td>18:21</td>
+      <td>Sagittarius</td>
+      <td>16:14</td>
+      <td>--:--</td>
+      <td>7:35</td>
+      <td>Taurus</td>
+    </tr>
+    <tr>
+      <th>203</th>
+      <td>2023</td>
+      <td>1</td>
+      <td>5</td>
+      <td>13 days</td>
+      <td>9:14</td>
+      <td>13:48</td>
+      <td>18:22</td>
+      <td>Sagittarius</td>
+      <td>16:59</td>
+      <td>0:22</td>
+      <td>8:35</td>
+      <td>Taurus</td>
+    </tr>
+    <tr>
+      <th>204</th>
+      <td>2023</td>
+      <td>1</td>
+      <td>6</td>
+      <td>14 days</td>
+      <td>9:14</td>
+      <td>13:48</td>
+      <td>18:22</td>
+      <td>Sagittarius</td>
+      <td>17:52</td>
+      <td>1:13</td>
+      <td>9:27</td>
+      <td>Gemini</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Like most data sets, the data you import may not have the columns that you would like to have but you can generate the needed columns from the existing data. For example, the data we imported above reports the sunrise times for the given month and day. We’d like a column for the day of the year. We can use the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module to generate this column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#generate a new column for the day of the year using the Month and Day columns and datetime</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Month&#39;</span><span class="p">,</span> <span class="s1">&#39;Day&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2023</span><span class="p">))</span>
+<span class="c1">#now from that date column, get the day of the year</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;DayOfYear&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofyear</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that you could program the day of year using if statements based on the month and day fields. However, the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> module in pandas already has these tools.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Plot of the sunset time vs day of the year</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;DayOfYear&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;SunRise&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/157dfb4e22b222ed55dd9e13d202c38a19ccff9e63efa20041a8b9344f97ad70.png" src="../_images/157dfb4e22b222ed55dd9e13d202c38a19ccff9e63efa20041a8b9344f97ad70.png" />
+</div>
+</div>
+<p>Note that the sunrise time is a string so when plotted, each string is sorted and then it’s plotted and given a tick mark. We’ll need to convert the times from a string of hr:min to a float of hours using the ‘datetime’ module.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#convert sunrise time from a string of hr:min to a float of hours</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;SunRiseHr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;SunRise&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">60</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice the string function of split(‘:’) which splits the string into a list of strings based on the ‘:’ character. The first element of the list is the hour and the second element is the minute. We can then convert the hour and minute to a float of hours using the apply and lambda functions. An alternative way of doing this is below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#alternate way of getting a float of hours from a string of hr:min</span>
+<span class="k">def</span> <span class="nf">getHrMin</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="n">h</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="o">/</span><span class="mi">60</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;SunRiseHr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;SunRise&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">getHrMin</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#now plot the sunrise time vs day of the year</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;DayOfYear&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;SunRiseHr&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Day of the Year&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Sunrise Time (hr)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f020be7c8ea97038d93d036f60b6665adad0c47a243d373a699886709561380e.png" src="../_images/f020be7c8ea97038d93d036f60b6665adad0c47a243d373a699886709561380e.png" />
+</div>
+</div>
+<p>The above plot looks like a period of the cosine function. Let’s plot a modified version of the cosine function to see if it fits the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#generate arrays for the day of the year and the sunrise time with cosine</span>
+<span class="n">day</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">365</span><span class="p">,</span> <span class="mi">366</span><span class="p">)</span>
+<span class="n">sunrise</span> <span class="o">=</span> <span class="mf">3.3</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="p">(</span><span class="n">day</span><span class="o">+</span><span class="mi">18</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">365</span><span class="o">+</span><span class="mi">18</span><span class="p">))</span> <span class="o">+</span> <span class="mf">7.5</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#now plot the estimate and the data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;DayOfYear&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;SunRiseHr&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">day</span><span class="p">,</span> <span class="n">sunrise</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Estimate&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Day of the Year&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Sunrise Time (hr)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4ef97197fe2dd84b467e39a92adace24cd22ca24a04bcca9d6e4b7f9972d9297.png" src="../_images/4ef97197fe2dd84b467e39a92adace24cd22ca24a04bcca9d6e4b7f9972d9297.png" />
+</div>
+</div>
+<p>Our estimate based on our knowledge of the cosine function with scaling the amplitude and shifting the phase seems to fit the data well. We can use (1) the <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> function from the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module to fit the data to the cosine function and (2) minimizing the squared error with scipy minimize.</p>
+<section id="method-1-using-the-curve-fit-function-from-the-scipy-optimize-module">
+<h3>Method 1: Using the <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> function from the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module<a class="headerlink" href="#method-1-using-the-curve-fit-function-from-the-scipy-optimize-module" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Curve fitting with scipy</span>
+
+<span class="c1"># define the function to fit</span>
+<span class="k">def</span> <span class="nf">cosFunc</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">365</span><span class="o">+</span><span class="n">b</span><span class="p">))</span> <span class="o">+</span> <span class="n">c</span>
+
+<span class="c1"># fit the function to the data</span>
+<span class="n">popt</span><span class="p">,</span> <span class="n">pcov</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">cosFunc</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;DayOfYear&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;SunRiseHr&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The popt variable are the fitted parameters a,b,and c. The starred expression, *popt, is a way of unpacking the tuple into the variables popt[0], popt[1], popt[2], or a, b, and c in the cosFunc function.</p>
+<p>The pcov variable is the covariance matrix and the diagonal elements are the variance of the parameters. The diagonal elements is the variance of each parameter with the square root of the variance equal to the standard deviation of the parameters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the data and the fit</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;DayOfYear&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;SunRiseHr&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">day</span><span class="p">,</span> <span class="n">cosFunc</span><span class="p">(</span><span class="n">day</span><span class="p">,</span> <span class="o">*</span><span class="n">popt</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Fit&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Day of the Year&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Sunrise Time (hr)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/faafb5c181e42dff4fb837c398fcadb443e46322d891716a7454f6525e146171.png" src="../_images/faafb5c181e42dff4fb837c398fcadb443e46322d891716a7454f6525e146171.png" />
+</div>
+</div>
+<p>Let’s also calculate the sum of the squared error for the fit as well as the mean absolute percent error (MAPE). The MAPE is a measure of the average percent error of the fit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first we have to generate a prediction for the sunrise time for each day of the year</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;SunRiseHrEst&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cosFunc</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;DayOfYear&#39;</span><span class="p">],</span> <span class="o">*</span><span class="n">popt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first the sum of the squared error</span>
+<span class="k">def</span> <span class="nf">SSE</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">yhat</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y</span> <span class="o">-</span> <span class="n">yhat</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">SSE</span> <span class="o">=</span> <span class="n">SSE</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;SunRiseHr&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;SunRiseHrEst&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;SSE =&#39;</span><span class="p">,</span> <span class="n">SSE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SSE = 4.3536151772476686
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># now the MAPE or mean absolute percentage error</span>
+<span class="k">def</span> <span class="nf">MAPE</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">yhat</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">y</span> <span class="o">-</span> <span class="n">yhat</span><span class="p">)</span><span class="o">/</span><span class="n">y</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span>
+
+<span class="n">MAPE</span> <span class="o">=</span> <span class="n">MAPE</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;SunRiseHr&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;SunRiseHrEst&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;MAPE =&#39;</span><span class="p">,</span> <span class="n">MAPE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MAPE = 1.4491283240769897
+</pre></div>
+</div>
+</div>
+</div>
+<p>So the mean absolute percent error is 1.4% which is pretty good. Another measure of the goodness of fit is the coefficient of determination or <span class="math notranslate nohighlight">\(R^2\)</span> value.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># now the coefficient of determination, R^2</span>
+<span class="k">def</span> <span class="nf">R2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">yhat</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y</span> <span class="o">-</span> <span class="n">yhat</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">R2</span> <span class="o">=</span> <span class="n">R2</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;SunRiseHr&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;SunRiseHrEst&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;R^2 =&#39;</span><span class="p">,</span> <span class="n">R2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R^2 = 0.9877915998692728
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="method-2-minimizing-the-squared-error-with-scipy-minimize">
+<h3>Method 2: Minimizing the squared error with scipy minimize<a class="headerlink" href="#method-2-minimizing-the-squared-error-with-scipy-minimize" title="Permalink to this heading">#</a></h3>
+<p>We can setup a function to calculate the sum of the squared errors and then use the scipy minimize function to minimize those errors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first setup the SSE function</span>
+<span class="k">def</span> <span class="nf">SSE</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">yhat</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y</span> <span class="o">-</span> <span class="n">yhat</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Now setup our equation as a function of an array of coefficients</span>
+<span class="k">def</span> <span class="nf">cosFunc</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">coeff</span><span class="p">):</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">coeff</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">365</span><span class="o">+</span><span class="n">b</span><span class="p">))</span> <span class="o">+</span> <span class="n">c</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># now setup the function to minimize</span>
+<span class="k">def</span> <span class="nf">minFunc</span><span class="p">(</span><span class="n">coeff</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">SSE</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">cosFunc</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">coeff</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#now we can minimize the function</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">minimize</span>
+
+<span class="c1"># first we need to give an initial guess for the coefficients</span>
+<span class="n">coeff0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">]</span>
+
+<span class="c1"># now minimize the function</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">minFunc</span><span class="p">,</span> <span class="n">coeff0</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;DayOfYear&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;SunRiseHr&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  message: Optimization terminated successfully.
+  success: True
+   status: 0
+      fun: 4.353615176985681
+        x: [ 3.117e+00  9.964e+00  7.621e+00]
+      nit: 7
+      jac: [ 1.490e-06 -1.192e-07 -1.967e-06]
+ hess_inv: [[ 1.410e-02  7.921e-02  5.370e-04]
+            [ 7.921e-02  1.671e+01  7.408e-02]
+            [ 5.370e-04  7.408e-02  1.998e-03]]
+     nfev: 44
+     njev: 11
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note the above minimize result (res) that is reported with the coefficients listed in the x variable (accessed with res.x) and the SSE function value of 4.35 (which agrees with the curve_fit function). There are also some jacobian and hessian information that we won’t discuss here but shows that the minimize function is using a gradient (or derivative) based method to minimize the SSE function.</p>
+</section>
+</section>
+<section id="interpolation">
+<h2>Interpolation<a class="headerlink" href="#interpolation" title="Permalink to this heading">#</a></h2>
+<p>Interpolation is getting a value at a different point than what is given in the data table. For example, below is a snapshot of a portion of the steam table. We would like an accurate estimate of the vapor pressure at 18.2 decgrees C.</p>
+<img src='https://raw.githubusercontent.com/clint-bg/comptools/main/lectures/supportfiles/steamtab.png' width='350'><p>We’ll use the scipy interpolator (1D) although there are many other options as described <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/interpolate.html">here</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#First create a table or dictionary of the values around 18.2 C</span>
+<span class="n">table</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;TempC&#39;</span><span class="p">:[</span><span class="mi">10</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">25</span><span class="p">],</span> <span class="s1">&#39;VPkPa&#39;</span><span class="p">:[</span><span class="mf">1.2276</span><span class="p">,</span><span class="mf">1.7051</span><span class="p">,</span><span class="mf">2.3385</span><span class="p">,</span><span class="mf">3.1691</span><span class="p">]}</span>
+<span class="c1">#Now interpolate the value at 18.2 C</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span><span class="p">,</span> <span class="n">BarycentricInterpolator</span>
+<span class="c1"># Create the interpolator</span>
+<span class="n">finterp</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="s1">&#39;TempC&#39;</span><span class="p">],</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;VPkPa&#39;</span><span class="p">])</span>
+
+<span class="c1"># Evaluate the interpolator at desired location</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">finterp</span><span class="p">(</span><span class="mf">18.2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;VP at 18.2 C = </span><span class="si">{</span><span class="n">z</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1"> kPa&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VP at 18.2 C = 2.1105 kPa
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#or if you wanted to use a polynomial interpolation</span>
+<span class="c1"># Create the interpolator</span>
+<span class="n">finterpP</span> <span class="o">=</span> <span class="n">BarycentricInterpolator</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="s1">&#39;TempC&#39;</span><span class="p">],</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;VPkPa&#39;</span><span class="p">])</span>
+
+<span class="c1"># Evaluate the interpolator at desired location</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">finterpP</span><span class="p">(</span><span class="mf">18.2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;VP at 18.2 C = </span><span class="si">{</span><span class="n">z</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1"> kPa&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>VP at 18.2 C = 2.0899 kPa
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#and we should get the same answer when evaluating both at 20C</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">finterp</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">finterpP</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">table</span><span class="p">[</span><span class="s2">&quot;VPkPa&quot;</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.3385, 2.3385, 2.3385
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="12-ODEsAgain.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">12 - More ODEs</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="14-Models.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">14 - Files, Interpolation, and Models</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-example-linear-regression">First Example: Linear Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-numpy-polyfit">A. Numpy Polyfit</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#r2-r-squared">R2: R-squared</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mape-value-mean-absolute-percent-error">MAPE Value (Mean Absolute Percent Error)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-scipy-optimize-curve-fit">B. Scipy Optimize Curve Fit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-scipy-optimize-minimize-a-general-method">C. Scipy Optimize Minimize (A General Method)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-example-fit-a-relationship-non-linear-to-sun-rise-data-vs-day-of-year">Second Example: Fit a Relationship (Non-Linear) to Sun Rise Data vs. Day of Year</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#method-1-using-the-curve-fit-function-from-the-scipy-optimize-module">Method 1: Using the <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> function from the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> module</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#method-2-minimizing-the-squared-error-with-scipy-minimize">Method 2: Minimizing the squared error with scipy minimize</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation">Interpolation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Clint Guymon, Brigham Young University
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

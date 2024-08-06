@@ -1,0 +1,1021 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>08 - Equations to Solve Problems &#8212; Computational Tools for Chemical Engineers</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/08-Equations';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="09 - Solving More Equations" href="09-EquationsAgain.html" />
+    <link rel="prev" title="07 - Units" href="07-Units.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Intro and Approach
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../foundations.html">Foundations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/preClassPrep.html">Pre-course Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/pythonresources.html">Python Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/excelresources.html">Excel Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/equipment.html">Equipment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/safety.html">Safety</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../topics.html">Modules</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01-Motive.html">01 - Motivation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01b-Basics.html">01b - Python Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-Arrays.html">02 - Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-Functions.html">04 - Functions: Gases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-FunctionsAgain.html">05 - Functions: Heat Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-Debug.html">06 - Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07-Units.html">07 - Units</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">08 - Equations to Solve Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09-EquationsAgain.html">09 - Solving More Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10-NewtonsMethod.html">10 - Newton’s Method Example Exercise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11-ODEs.html">11 - ODEs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12-ODEsAgain.html">12 - More ODEs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13-Regression.html">13 - Regression and Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-Models.html">14 - Files, Interpolation, and Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="15-ExamReview.html">15 - Exam Review (Python)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="16-ExcelBasics.html">15 - Excel Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="17-ExcelSolver.html">17 - More Excel Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="18-ExcelFunctions.html">18 - Excel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="19-ExcelVBA.html">19 - Excel and Visual Basic for Applications (VBA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-SolidWorks.html">20 - SolidWorks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="21-Aspen.html">21 - Aspen Plus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="22-Ansys.html">22 - Ansys Workbench and FEA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="22b-Cantera.html">22b - Cantera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="23-Exam2Review.html">23 - Exam 2 Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="24-CaseStudies.html">24 - Case Studies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="24b-Optimization.html">24b - Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="27-FinalReview.html">27 - Final Exam Review</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW01.html">HW01: Introduction to Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW02.html">HW02: Functions and Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW03.html">HW03: More Functions and Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW04.html">HW04: Debugging and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW05.html">HW05: Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW06.html">HW06: Solve Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW07.html">HW07: Additional Equation Solving Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW08.html">HW08: Solving Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW09.html">HW09: More Solving of Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW10.html">HW10: More Practice Programming Loops and Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW11.html">HW11: Regression and Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW12.html">HW12: Interpolation and Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW13.html">HW13: Excel Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW14.html">HW14: Excel Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW19.html">HW19: Ansys Workbench Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/casestudydocs.html">Case Study Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/heattransfer.html">Heat Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/thermo.html">Thermodynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/MD.html">Molecular Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/datacollection.html">Data Collection</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgement.html">Acknowledgement</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/clint-bg/comptools/blob/gh-pages/_sources/lectures/08-Equations.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/clint-bg/comptools" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/clint-bg/comptools/issues/new?title=Issue%20on%20page%20%2Flectures/08-Equations.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lectures/08-Equations.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>08 - Equations to Solve Problems</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-linear-systems-of-equations">Solving Linear Systems of Equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-linear-system-with-numpy">Solve Linear System with Numpy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-linear-system-with-scipy-s-fsolve">Solve Linear System with Scipy’s Fsolve</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-linear-system-with-sympy">Solve Linear System with Sympy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-linear-system-with-gaussian-elimination">Solve Linear System with Gaussian Elimination</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-linear-system-with-gekko">Solve Linear System with Gekko</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-non-linear-systems-of-equations">Solving Non-Linear Systems of Equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-solution-with-scipy-fsolve">Non-linear solution with scipy fsolve</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-solution-with-gekko">Non-linear solution with Gekko</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-solution-with-newton-s-method">Non-linear solution with Newton’s method</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#derivation-of-newton-s-method">Derivation of Newton’s method</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="equations-to-solve-problems">
+<h1>08 - Equations to Solve Problems<a class="headerlink" href="#equations-to-solve-problems" title="Permalink to this heading">#</a></h1>
+<p>Solving systems of equations is a common task in engineering.  In this section, we’ll review how to solve systems of equations using Python with multiple different approaches. The exampels will come from evaluating mass balances on a processing system.</p>
+<section id="solving-linear-systems-of-equations">
+<h2>Solving Linear Systems of Equations<a class="headerlink" href="#solving-linear-systems-of-equations" title="Permalink to this heading">#</a></h2>
+<p>Separation process principles are critical to many industries. Lets say you have a flashing unit that is separating a mixture of benzene and toluene.  The feed to the unit is 40 mol% benzene and 60 mol% toluene.  The vapor leaving the unit is 80 mol% benzene and 20 mol% toluene.  The liquid leaving the unit is 10 mol% benzene and 90 mol% toluene.  The feed rate is 100 mol/hr.  The vapor and liquid leaving the unit are in equilibrium.  What are the flow rates of the vapor and liquid leaving the unit?</p>
+<p>This problem can be solved by writing a system of equations and solving for the unknowns.  In this case, we have two unknowns, the vapor and liquid flow rates.  We can write two equations, one for the benzene balance and one for the total flows. One of the equations would be a species balance and the other equation a total mass balance. A picture of the system is shown below.</p>
+<img src="https://github.com/clint-bg/comptools/blob/main/lectures/supportfiles/flashingunitbasic.png?raw=true" width="200"><p>The inlet enters at the left and the vapor exists the top and the liquid exists the bottom. This is equivalent to a single stage of a distillation column.  The equations are:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+F &amp;= L + V \\
+z_i F &amp;= x_i L + y_i V
+\end{align}
+\end{split}\]</div>
+<p>which for this case <span class="math notranslate nohighlight">\(z_i\)</span> = 0.4, <span class="math notranslate nohighlight">\(F\)</span> = 100 mol/hr, <span class="math notranslate nohighlight">\(x_i\)</span> = 0.1, <span class="math notranslate nohighlight">\(y_i\)</span> = 0.8. We can solve this in many different ways. We’ll solve this system of equations multiple ways:</p>
+<ul class="simple">
+<li><p>first we’ll do it using NumPy (linear algebra),</p></li>
+<li><p>then we’ll do it using SciPy (fsolve),</p></li>
+<li><p>then we’ll do it using SymPy (symbolic algebra),</p></li>
+<li><p>then we’ll do it using Gauss Elimination (a numerical method),</p></li>
+<li><p>and with Gekko (a software package for dynamic optimization),</p></li>
+<li><p>not shown is the algebraic solution.</p></li>
+</ul>
+<section id="solve-linear-system-with-numpy">
+<h3>Solve Linear System with Numpy<a class="headerlink" href="#solve-linear-system-with-numpy" title="Permalink to this heading">#</a></h3>
+<p>The above equations can be solved numerically as shown below using the numpy package. First you’ll adjust the equations algebraically to be in the form Ax = b.  Then you’ll use the numpy.linalg.solve function to solve the system of equations.</p>
+<p>The above equation rearranged into the form Ax = b is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+L + V &amp;= 100 \\
+0.1 L + 0.8 V &amp;= 40
+\end{align}
+\end{split}\]</div>
+<p>The A matrix is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+1 &amp; 1 \\
+0.1 &amp; 0.8
+\end{bmatrix}
+\end{split}\]</div>
+<p>and the b vector is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+100 \\
+40
+\end{bmatrix}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.8</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span><span class="mi">40</span><span class="p">])</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The solution is </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1"> for the system of equations with the first value equal to L and the second value equal to V&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The solution is [57.14285714 42.85714286] for the system of equations with the first value equal to L and the second value equal to V
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="solve-linear-system-with-scipy-s-fsolve">
+<h3>Solve Linear System with Scipy’s Fsolve<a class="headerlink" href="#solve-linear-system-with-scipy-s-fsolve" title="Permalink to this heading">#</a></h3>
+<p>The above equations can be solved numerically as shown below using the scipy package. Fsolve can be used to solve for multiple variables in both a non-linear and linear scenario given there are continuous functions and the number of equations = number of unknowns. Method used to find roots is in the documentation: <code class="docutils literal notranslate"><span class="pre">fsolve</span></code> is a wrapper around MINPACK’s hybrd and hybrj algorithms.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span>
+<span class="k">def</span> <span class="nf">equations</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="n">L</span><span class="p">,</span><span class="n">V</span> <span class="o">=</span> <span class="n">p</span> <span class="c1">#unpack the tuple</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">100</span> <span class="o">-</span> <span class="p">(</span><span class="n">L</span><span class="o">+</span><span class="n">V</span><span class="p">),</span> <span class="mf">0.4</span><span class="o">*</span><span class="mi">100</span><span class="o">-</span><span class="mf">0.1</span><span class="o">*</span><span class="n">L</span><span class="o">-</span><span class="mf">0.8</span><span class="o">*</span><span class="n">V</span><span class="p">)</span> <span class="c1">#each equation is set so that it is equal to zero, also the returned value is also a tuple</span>
+
+<span class="n">L</span><span class="p">,</span><span class="n">V</span> <span class="o">=</span>  <span class="n">fsolve</span><span class="p">(</span><span class="n">equations</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="c1">#feed the function fsolve an initial guess with a tuple</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The solution is </span><span class="si">{</span><span class="n">L</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> for L and </span><span class="si">{</span><span class="n">V</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> for V&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The solution is 57.14 for L and 42.86 for V
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="solve-linear-system-with-sympy">
+<h3>Solve Linear System with Sympy<a class="headerlink" href="#solve-linear-system-with-sympy" title="Permalink to this heading">#</a></h3>
+<p>The above equations can be solved symbolically as shown below using the sympy package. Typically used for symbolic solutions to equations.  The sympy package can also be used to solve differential equations symbolically. The solver is for linear equations or nonlinear equations, see the documentation for further details: <a class="reference external" href="https://docs.sympy.org/latest/modules/solvers/solvers.html">https://docs.sympy.org/latest/modules/solvers/solvers.html</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sym</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>
+<span class="n">L</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">)</span>
+<span class="n">V</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;V&#39;</span><span class="p">)</span>
+<span class="n">ans</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">solve</span><span class="p">([</span><span class="mi">100</span> <span class="o">-</span> <span class="p">(</span><span class="n">L</span><span class="o">+</span><span class="n">V</span><span class="p">),</span> <span class="mf">0.4</span><span class="o">*</span><span class="mi">100</span><span class="o">-</span><span class="mf">0.1</span><span class="o">*</span><span class="n">L</span><span class="o">-</span><span class="mf">0.8</span><span class="o">*</span><span class="n">V</span><span class="p">],</span> <span class="p">[</span><span class="n">L</span><span class="p">,</span><span class="n">V</span><span class="p">])</span>
+<span class="c1">#or equiavlently you can use </span>
+<span class="c1">#ans = sym.linsolve([100 - (L+V), 0.4*100-0.1*L-0.8*V],[L,V])</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="n">sym</span><span class="o">.</span><span class="n">latex</span><span class="p">(</span><span class="n">ans</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left\{ L : 57.1428571428571, \  V : 42.8571428571429\right\}\]</div>
+</div>
+</div>
+</section>
+<section id="solve-linear-system-with-gaussian-elimination">
+<h3>Solve Linear System with Gaussian Elimination<a class="headerlink" href="#solve-linear-system-with-gaussian-elimination" title="Permalink to this heading">#</a></h3>
+<p>Linear algebra techniques can be used to take the inverse of the A matrix and multiply it by the b vector to solve for the unknowns.  One way to get the inverse of the A matrix is to use the Gauss Elimination method.  This method is shown below. Similar to the linalg solution above, the system of equations are arranged in the form Ax = b.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Define the augmented matrix [A|b]</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">]])</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">40</span><span class="p">])</span>
+
+<span class="c1"># Augmented matrix dimensions</span>
+<span class="n">n_rows</span><span class="p">,</span> <span class="n">n_cols</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span>
+
+<span class="c1"># Forward elimination</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_rows</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n_rows</span><span class="p">):</span>
+        <span class="n">factor</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span> <span class="o">/</span> <span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span>
+        <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">:]</span> <span class="o">-=</span> <span class="n">factor</span> <span class="o">*</span> <span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">:]</span>
+        <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-=</span> <span class="n">factor</span> <span class="o">*</span> <span class="n">b</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+
+<span class="c1"># Back substitution</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_rows</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_rows</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:],</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:]))</span> <span class="o">/</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Solution:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Solution:
+[57.14285714 42.85714286]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="solve-linear-system-with-gekko">
+<h3>Solve Linear System with Gekko<a class="headerlink" href="#solve-linear-system-with-gekko" title="Permalink to this heading">#</a></h3>
+<p>Gekko is a software package for dynamic optimization.  It can also be used to solve systems of equations. Developed here at Brigham Young University by John Hedengren. Further information here: <a class="reference external" href="https://gekko.readthedocs.io/en/latest/">https://gekko.readthedocs.io/en/latest/</a> and here: <a class="reference external" href="https://www.mdpi.com/2227-9717/6/8/106">https://www.mdpi.com/2227-9717/6/8/106</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Solve equation with Gekko</span>
+<span class="kn">from</span> <span class="nn">gekko</span> <span class="kn">import</span> <span class="n">GEKKO</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">GEKKO</span><span class="p">()</span> <span class="c1"># Initialize gekko</span>
+<span class="n">L</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">Var</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Initialize variables</span>
+<span class="n">V</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">Var</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">Equations</span><span class="p">([</span><span class="n">L</span><span class="o">+</span><span class="n">V</span><span class="o">==</span><span class="mi">100</span><span class="p">,</span><span class="mf">0.1</span><span class="o">*</span><span class="n">L</span><span class="o">+</span><span class="mf">0.8</span><span class="o">*</span><span class="n">V</span><span class="o">==</span><span class="mi">40</span><span class="p">])</span> <span class="c1"># Equations</span>
+<span class="n">m</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># Solve</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The solution is </span><span class="si">{</span><span class="n">L</span><span class="o">.</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> for L and </span><span class="si">{</span><span class="n">V</span><span class="o">.</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> for V&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The solution is 57.14 for L and 42.86 for V
+</pre></div>
+</div>
+</div>
+</div>
+<p>The above answers are consistent with the answers from the other methods.</p>
+</section>
+</section>
+<section id="solving-non-linear-systems-of-equations">
+<h2>Solving Non-Linear Systems of Equations<a class="headerlink" href="#solving-non-linear-systems-of-equations" title="Permalink to this heading">#</a></h2>
+<p>Similar tools can be used to solve non-linear systems of equations. Scipy’s fsolve is commonly used. There are other tools including Gekko, and Newton’s method.</p>
+<p>One application of solving a non-linear equatoin in chemical engineering is calculating the pressure loss from flow down a pipe using the Colbrook equation to determine the Darcy friction factor.  The Darcy friction factor is used to calculate the pressure drop in a pipe.  The Darcy friction factor is a function of the Reynolds number and the relative roughness of the pipe.  The Reynolds number is a function of the fluid velocity, density, viscosity, and pipe diameter.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Colebrook equation, Re is Reynolds number, D is pipe diameter, epsilon is the pipe roughness</span>
+<span class="k">def</span> <span class="nf">Colbrook</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mf">2.51</span><span class="o">/</span><span class="p">(</span><span class="n">Re</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">f</span><span class="p">))</span><span class="o">+</span><span class="n">epsil</span><span class="o">/</span><span class="p">(</span><span class="mf">3.71</span><span class="o">*</span><span class="n">D</span><span class="p">))</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>The Colbrook equation is:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+\frac{1}{\sqrt{f}} = -2.0 \log_{10} \left( \frac{\epsilon/D}{3.71} + \frac{2.51}{\text{Re} \sqrt{f}} \right)
+\end{equation}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(f\)</span> is the darcy friction factor, <span class="math notranslate nohighlight">\(\epsilon\)</span> is the pipe roughness, <span class="math notranslate nohighlight">\(D\)</span> is the pipe diameter, and Re is the Reynolds number equal to the product of the fluid density, velocity, and diameter divided by the fluid viscosity. This is valid with a relative roughness of <span class="math notranslate nohighlight">\(\epsilon/D &lt; 0.05\)</span> and <span class="math notranslate nohighlight">\(10^4 &lt; \text{Re} &lt; 10^8\)</span>.</p>
+<p>The pressure loss down the length of pipe is calculated by:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+\Delta P = f \frac{L}{D} \frac{\rho v^2}{2}
+\end{equation}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Delta P\)</span> is the pressure drop, <span class="math notranslate nohighlight">\(f\)</span> is the Darcy friction factor, <span class="math notranslate nohighlight">\(L\)</span> is the length of the pipe, <span class="math notranslate nohighlight">\(D\)</span> is the pipe diameter, <span class="math notranslate nohighlight">\(\rho\)</span> is the fluid density, and <span class="math notranslate nohighlight">\(v\)</span> is the fluid velocity.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#pressure loss down a length of pipe in terms of the friction factor</span>
+<span class="k">def</span> <span class="nf">pressure_loss</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">rho</span><span class="p">,</span><span class="n">v</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">f</span><span class="o">*</span><span class="n">L</span><span class="o">/</span><span class="n">D</span><span class="o">*</span><span class="n">rho</span><span class="o">*</span><span class="n">v</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Example problem: calculate the pressure drop down a 100 m long pipe with a 2 inch diameter with a fluid velocity of 1 m/s.  The fluid has a density of 1000 kg/m<span class="math notranslate nohighlight">\(^3\)</span> and a viscosity of 0.001 kg/m-s.  The pipe roughness is 0.0001 m.  What is the pressure drop?</p>
+<section id="non-linear-solution-with-scipy-fsolve">
+<h3>Non-linear solution with scipy fsolve<a class="headerlink" href="#non-linear-solution-with-scipy-fsolve" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#first calculate the Reynolds number</span>
+<span class="k">def</span> <span class="nf">Reynolds</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">mu</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">rho</span><span class="o">*</span><span class="n">v</span><span class="o">*</span><span class="n">D</span><span class="o">/</span><span class="n">mu</span>
+<span class="c1">#specify pressure losses</span>
+<span class="k">def</span> <span class="nf">pressure_loss</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">rho</span><span class="p">,</span><span class="n">v</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">f</span><span class="o">*</span><span class="n">L</span><span class="o">/</span><span class="n">D</span><span class="o">*</span><span class="n">rho</span><span class="o">*</span><span class="n">v</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span>
+<span class="c1">#set constants</span>
+<span class="n">rho</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1">#kg/m^3</span>
+<span class="n">vel</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#m/s</span>
+<span class="n">pipeDia</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="mf">0.0254</span> <span class="c1">#inch to m</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="mf">0.001</span> <span class="c1">#Pa*s</span>
+<span class="n">epsil</span> <span class="o">=</span> <span class="mf">0.0001</span> <span class="c1">#m</span>
+<span class="n">pipeLen</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1">#m</span>
+<span class="c1">#solve for the friction factor</span>
+<span class="n">ffact</span> <span class="o">=</span>  <span class="n">fsolve</span><span class="p">(</span><span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">Colbrook</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Reynolds</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span><span class="n">vel</span><span class="p">,</span><span class="n">pipeDia</span><span class="p">,</span><span class="n">mu</span><span class="p">),</span><span class="n">pipeDia</span><span class="p">,</span><span class="n">epsil</span><span class="p">),</span> <span class="mf">0.01</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="c1">#calculate the pressure drop</span>
+<span class="n">ploss</span> <span class="o">=</span> <span class="n">pressure_loss</span><span class="p">(</span><span class="n">ffact</span><span class="p">,</span><span class="n">pipeLen</span><span class="p">,</span><span class="n">pipeDia</span><span class="p">,</span><span class="n">rho</span><span class="p">,</span><span class="n">vel</span><span class="p">)</span> <span class="c1">#Pa</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The Reynolds number is </span><span class="si">{</span><span class="n">Reynolds</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span><span class="n">vel</span><span class="p">,</span><span class="n">pipeDia</span><span class="p">,</span><span class="n">mu</span><span class="p">)</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The friction factor is </span><span class="si">{</span><span class="n">ffact</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The pressure drop is </span><span class="si">{</span><span class="n">ploss</span><span class="o">/</span><span class="mi">1000</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> Pa (or </span><span class="si">{</span><span class="n">ploss</span><span class="o">/</span><span class="mi">1000</span><span class="o">*</span><span class="mf">0.145</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> psi)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Reynolds number is 50800
+The friction factor is 0.0264
+The pressure drop is 25.97 Pa (or 3.76 psi)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="non-linear-solution-with-gekko">
+<h3>Non-linear solution with Gekko<a class="headerlink" href="#non-linear-solution-with-gekko" title="Permalink to this heading">#</a></h3>
+<p>Solve for the friction factor using the GEKKO package.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Solve for the friction factor using Gekko</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">GEKKO</span><span class="p">()</span> <span class="c1"># Initialize the gekko model</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">Var</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span> <span class="c1"># Initialize variables</span>
+<span class="n">m</span><span class="o">.</span><span class="n">Equation</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">m</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mf">2.51</span><span class="o">/</span><span class="p">(</span><span class="n">Reynolds</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span><span class="n">vel</span><span class="p">,</span><span class="n">pipeDia</span><span class="p">,</span><span class="n">mu</span><span class="p">)</span><span class="o">*</span><span class="n">m</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">f</span><span class="p">))</span><span class="o">+</span><span class="n">epsil</span><span class="o">/</span><span class="p">(</span><span class="mf">3.71</span><span class="o">*</span><span class="n">pipeDia</span><span class="p">))</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># Equations</span>
+<span class="n">m</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">disp</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># Solve</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The friction factor is </span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The friction factor is 0.0264
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="non-linear-solution-with-newton-s-method">
+<h3>Non-linear solution with Newton’s method<a class="headerlink" href="#non-linear-solution-with-newton-s-method" title="Permalink to this heading">#</a></h3>
+<p>Newton’s method is a numerical method for solving non-linear equations.  It is an iterative method that uses the derivative of the function to find the root.  The derivative of the function is used to find the tangent line to the function at the current point.  The tangent line is then used to find the next point where the tangent line crosses the x-axis.  This process is repeated until the solution is found.</p>
+<section id="derivation-of-newton-s-method">
+<h4>Derivation of Newton’s method<a class="headerlink" href="#derivation-of-newton-s-method" title="Permalink to this heading">#</a></h4>
+<p>First use the Taylor series expansion of the function <span class="math notranslate nohighlight">\(f(x)\)</span> about the point <span class="math notranslate nohighlight">\(x_0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+f(x) = f(x_0) + f'(x_0)(x-x_0) + \frac{f''(x_0)}{2!}(x-x_0)^2 + \frac{f'''(x_0)}{3!}(x-x_0)^3 + \cdots
+\end{equation}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(f'\)</span> is the 1st derivative of x and <span class="math notranslate nohighlight">\(f''\)</span> is the second derivative and so on. If we neglect the higher order terms, we can write:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+f(x) \approx f(x_0) + f'(x_0)(x-x_0)
+\end{equation}
+\]</div>
+<p>If we set <span class="math notranslate nohighlight">\(f(x) = 0\)</span> and solve for <span class="math notranslate nohighlight">\(x\)</span>, we get:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+x = x_0 - \frac{f(x_0)}{f'(x_0)}
+\end{equation}
+\]</div>
+<p>This is the Newton’s method equation for finding the root of a function. <span class="math notranslate nohighlight">\(x_0\)</span> is the initial guess and <span class="math notranslate nohighlight">\(x\)</span> is the new guess. Iterations are completed until the value of x is close enough to zero. The derivative of the function is used as an estimate for the next guess according to the above. This is a first order approximation as a the first derivative is used. There are other numerical methods for root finding.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Solve the Colbrook equation with Newton&#39;s method</span>
+<span class="k">def</span> <span class="nf">Colbrook_prime</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">f</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span> <span class="o">-</span> <span class="mf">2.51</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">*</span><span class="n">Re</span><span class="o">*</span><span class="n">f</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">0.2695</span><span class="o">*</span><span class="n">epsil</span><span class="o">/</span><span class="n">D</span><span class="o">+</span><span class="mf">2.51</span><span class="o">/</span><span class="p">(</span><span class="n">Re</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">f</span><span class="p">))))</span>
+<span class="k">def</span> <span class="nf">Newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">f</span> <span class="o">-</span> <span class="n">Colbrook</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">)</span><span class="o">/</span><span class="n">Colbrook_prime</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">Newton_solve</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">):</span>
+    <span class="n">fnew</span> <span class="o">=</span> <span class="n">Newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">)</span>
+    <span class="k">while</span> <span class="nb">abs</span><span class="p">(</span><span class="n">fnew</span><span class="o">-</span><span class="n">f</span><span class="p">)</span><span class="o">&gt;</span><span class="mf">1e-5</span><span class="p">:</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">fnew</span>
+        <span class="n">fnew</span> <span class="o">=</span> <span class="n">Newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fnew</span>
+<span class="n">fN</span> <span class="o">=</span> <span class="n">Newton_solve</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span><span class="n">Reynolds</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span><span class="n">vel</span><span class="p">,</span><span class="n">pipeDia</span><span class="p">,</span><span class="n">mu</span><span class="p">),</span><span class="n">pipeDia</span><span class="p">,</span><span class="n">epsil</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The friction factor is </span><span class="si">{</span><span class="n">fN</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The friction factor is 0.0264
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are several ways to get that Colbrook_prime function in the above code snippet. It’s the derivative with respect to the friction factor of the Colbrook equation. You can do it by hand and then type in the equation. You could also use the symbolic derivative function in sympy to get the derivative. Or you can use the derivative function in scipy.  The scipy derivative function is shown below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#using scipy to get the derivative of the Colbrook equation</span>
+<span class="kn">from</span> <span class="nn">scipy.misc</span> <span class="kn">import</span> <span class="n">derivative</span>
+<span class="k">def</span> <span class="nf">Colbrook_prime2</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">derivative</span><span class="p">(</span><span class="n">Colbrook</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">dx</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span><span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Below is a way to get the derivative of a function symbolically using sympy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Find the derivative of the Colbrook equation with SymPy</span>
+<span class="n">ff</span><span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+<span class="n">Re</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;Re&#39;</span><span class="p">)</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
+<span class="n">epsil</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;epsil&#39;</span><span class="p">)</span>
+<span class="c1">#display the symbolic equation</span>
+<span class="n">sym</span><span class="o">.</span><span class="n">init_printing</span><span class="p">()</span>
+<span class="n">sym</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">sym</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">ff</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">sym</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">2.51</span><span class="o">/</span><span class="p">(</span><span class="n">Re</span><span class="o">*</span><span class="n">sym</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">ff</span><span class="p">))</span><span class="o">+</span><span class="n">epsil</span><span class="o">/</span><span class="p">(</span><span class="mf">3.71</span><span class="o">*</span><span class="n">D</span><span class="p">),</span><span class="mi">10</span><span class="p">),</span><span class="n">ff</span><span class="p">)</span> <span class="c1">#the 10 is the base of the log</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/b7ff4ee8c937a835eba6a72c31156d3fd737193fda9f581df5d5edb63839197f.png" src="../_images/b7ff4ee8c937a835eba6a72c31156d3fd737193fda9f581df5d5edb63839197f.png" />
+</div>
+</div>
+<p>Below is another example of using Newton’s method to solve a non-linear system of equations where the derivatives of each equation with respect to each variable are known and defined in the Jacobian matrix.  A more in-depth class on numerical mehods would explain more.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the system of equations</span>
+<span class="k">def</span> <span class="nf">equations</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">eq1</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">4</span>
+    <span class="n">eq2</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">eq1</span><span class="p">,</span> <span class="n">eq2</span><span class="p">]</span>
+
+<span class="c1"># Define the Jacobian matrix (partial derivatives with respect to x1 and x2)</span>
+<span class="k">def</span> <span class="nf">jacobian</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">jac</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">],</span>
+                    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]]])</span>
+    <span class="k">return</span> <span class="n">jac</span>
+
+<span class="c1"># Solve the system of equations using Newton&#39;s method</span>
+<span class="k">def</span> <span class="nf">newton_method</span><span class="p">(</span><span class="n">equations</span><span class="p">,</span> <span class="n">jacobian</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">max_iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_iterations</span><span class="p">):</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">equations</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">J</span> <span class="o">=</span> <span class="n">jacobian</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">delta_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">J</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">+=</span> <span class="n">delta_x</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">delta_x</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tolerance</span><span class="p">:</span>
+            <span class="k">break</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="c1"># Initial guess</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+
+<span class="c1"># Solve the system of equations</span>
+<span class="n">solution</span> <span class="o">=</span> <span class="n">newton_method</span><span class="p">(</span><span class="n">equations</span><span class="p">,</span> <span class="n">jacobian</span><span class="p">,</span> <span class="n">x0</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Solution:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">solution</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Solution:
+[1.76746906 0.87605312]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="07-Units.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">07 - Units</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="09-EquationsAgain.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">09 - Solving More Equations</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-linear-systems-of-equations">Solving Linear Systems of Equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-linear-system-with-numpy">Solve Linear System with Numpy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-linear-system-with-scipy-s-fsolve">Solve Linear System with Scipy’s Fsolve</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-linear-system-with-sympy">Solve Linear System with Sympy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-linear-system-with-gaussian-elimination">Solve Linear System with Gaussian Elimination</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-linear-system-with-gekko">Solve Linear System with Gekko</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-non-linear-systems-of-equations">Solving Non-Linear Systems of Equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-solution-with-scipy-fsolve">Non-linear solution with scipy fsolve</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-solution-with-gekko">Non-linear solution with Gekko</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-solution-with-newton-s-method">Non-linear solution with Newton’s method</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#derivation-of-newton-s-method">Derivation of Newton’s method</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Clint Guymon, Brigham Young University
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,879 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>07 - Units &#8212; Computational Tools for Chemical Engineers</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/07-Units';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="08 - Equations to Solve Problems" href="08-Equations.html" />
+    <link rel="prev" title="06 - Debugging" href="06-Debug.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Intro and Approach
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../foundations.html">Foundations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/preClassPrep.html">Pre-course Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/pythonresources.html">Python Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/excelresources.html">Excel Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/equipment.html">Equipment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/safety.html">Safety</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../topics.html">Modules</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01-Motive.html">01 - Motivation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01b-Basics.html">01b - Python Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-Arrays.html">02 - Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-Functions.html">04 - Functions: Gases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-FunctionsAgain.html">05 - Functions: Heat Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-Debug.html">06 - Debugging</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">07 - Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-Equations.html">08 - Equations to Solve Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09-EquationsAgain.html">09 - Solving More Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10-NewtonsMethod.html">10 - Newton’s Method Example Exercise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11-ODEs.html">11 - ODEs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12-ODEsAgain.html">12 - More ODEs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13-Regression.html">13 - Regression and Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-Models.html">14 - Files, Interpolation, and Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="15-ExamReview.html">15 - Exam Review (Python)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="16-ExcelBasics.html">15 - Excel Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="17-ExcelSolver.html">17 - More Excel Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="18-ExcelFunctions.html">18 - Excel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="19-ExcelVBA.html">19 - Excel and Visual Basic for Applications (VBA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-SolidWorks.html">20 - SolidWorks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="21-Aspen.html">21 - Aspen Plus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="22-Ansys.html">22 - Ansys Workbench and FEA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="22b-Cantera.html">22b - Cantera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="23-Exam2Review.html">23 - Exam 2 Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="24-CaseStudies.html">24 - Case Studies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="24b-Optimization.html">24b - Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="27-FinalReview.html">27 - Final Exam Review</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW01.html">HW01: Introduction to Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW02.html">HW02: Functions and Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW03.html">HW03: More Functions and Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW04.html">HW04: Debugging and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW05.html">HW05: Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW06.html">HW06: Solve Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW07.html">HW07: Additional Equation Solving Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW08.html">HW08: Solving Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW09.html">HW09: More Solving of Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW10.html">HW10: More Practice Programming Loops and Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW11.html">HW11: Regression and Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW12.html">HW12: Interpolation and Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW13.html">HW13: Excel Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW14.html">HW14: Excel Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW19.html">HW19: Ansys Workbench Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/casestudydocs.html">Case Study Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/heattransfer.html">Heat Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/thermo.html">Thermodynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/MD.html">Molecular Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/datacollection.html">Data Collection</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgement.html">Acknowledgement</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/clint-bg/comptools/blob/gh-pages/_sources/lectures/07-Units.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/clint-bg/comptools" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/clint-bg/comptools/issues/new?title=Issue%20on%20page%20%2Flectures/07-Units.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lectures/07-Units.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>07 - Units</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annotating-units">Annotating Units</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#si-units">SI Units</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cgs-units">CGS Units</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#english-units">English Units</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#round-off-error">Round-off Error</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="units">
+<h1>07 - Units<a class="headerlink" href="#units" title="Permalink to this heading">#</a></h1>
+<p>Units must be annotated in your code. You can use the standard SI units, or you can use the <a class="reference external" href="https://pint.readthedocs.io/en/stable/">pint</a> package to annotate your units. The pint package is more flexible, but it is also more complicated. I recommend you annotate your units at each step and define unit conversions at the end of your code. This will make it easier to debug your code.</p>
+<p>Topics we’ll review:</p>
+<ul class="simple">
+<li><p>Dimensional Analysis/Consistency</p></li>
+<li><p>SI Units</p></li>
+<li><p>CGS Units</p></li>
+<li><p>English Units</p></li>
+</ul>
+<section id="annotating-units">
+<h2>Annotating Units<a class="headerlink" href="#annotating-units" title="Permalink to this heading">#</a></h2>
+<p>When working with units in your technical code, you should work in either SI or English units to avoid confusion.  For example, if I’m working in SI units, I could write the following code and know that the final answer is also in SI units.  The SI units are m, kg, s, K, mol. When working with those units, your pressure and energy will be in Joules and your pressure in Pascals.</p>
+<section id="si-units">
+<h3>SI Units<a class="headerlink" href="#si-units" title="Permalink to this heading">#</a></h3>
+<p><strong>meter, second, kilogram, Kelvin, and mole (base units)</strong> <br>
+Newton, Joule, Pascal, Watt (derived units) <br>
+kilojoules, millimeter, etc (prefixes)</p>
+<p>A Joule is a Newton-meter, a Newton is kg-m/s^2, a Pascal is a Newton/m^2, and a Watt is a Joule/s. <br>
+The gas constant, R, is 8.314 J/mol-K in those consistent units.</p>
+<p>Example calculation below of the kinetic energy of a 2 kilogram mass moving at 20 miles per hour.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># example calculation of kinetic energy</span>
+<span class="n">conv</span> <span class="o">=</span> <span class="mf">0.44704</span> <span class="c1"># miles per hour to m/s</span>
+<span class="n">velocity</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">conv</span> <span class="c1"># 20 miles per hour to m/s</span>
+<span class="n">mass</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># kg</span>
+<span class="n">kinetic_energy</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">mass</span> <span class="o">*</span> <span class="n">velocity</span><span class="o">**</span><span class="mi">2</span> <span class="c1"># J or kg m^2/s^2</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;kinetic energy = </span><span class="si">{</span><span class="n">kinetic_energy</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> J&#39;</span><span class="p">)</span> <span class="c1"># I know this is Joules as I used the SI units</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>kinetic energy = 79.94 J
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that each line has a comment with the units. If perhaps the units are not SI, for instance the velocity is given in miles per hour, then you’d convert miles per hour to the SI unit of m/s as shown on the first and second lines above.</p>
+<p><strong>Dimensional Analysis</strong> like the conversion of the velocity from miles per hour to meters per second is needed when completing engineering calculations. For example:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+8.9408\frac{m}{s} &amp;= 20 \,  miles/hr \times 0.44704 \frac{m/s}{ miles/hr} \\
+8.9408\frac{m}{s} &amp;= 20 \,  miles/ hr \times \frac{5280\, ft}{ mile} \times \frac{12\, in}{ ft} \times \frac{2.54\, cm}{ in} \times \frac{1\,m}{100\, cm} \times \frac{1\, hr}{3600\,s} \\
+\end{align}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ideal gas calculation</span>
+<span class="c1">#PV = nRT</span>
+<span class="c1"># What&#39;s the pressure of 1 mole of an ideal gas at 300 K in a 1 m^3 container?</span>
+<span class="n">Pres</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="mf">8.314</span> <span class="o">*</span> <span class="mi">300</span> <span class="o">/</span> <span class="mi">1</span> <span class="c1"># Pa</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Pressure = </span><span class="si">{</span><span class="n">Pres</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> Pa&#39;</span><span class="p">)</span> <span class="c1"># I know this is Pascals as I used the SI units</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pressure = 2494.20 Pa
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="cgs-units">
+<h3>CGS Units<a class="headerlink" href="#cgs-units" title="Permalink to this heading">#</a></h3>
+<p><strong>centimeter, gram, second, Kelvin, and mole (base units)</strong> <br>
+dyne, erg, barye, erg/s (derived units) <br>
+kiloergs, millimeters, etc (prefixes)</p>
+<p>A dyne is a g-cm/s^2, an erg is a dyne-cm, a barye is a dyne/cm^2, and an erg/s is a dyne-cm/s. <br></p>
+</section>
+<section id="english-units">
+<h3>English Units<a class="headerlink" href="#english-units" title="Permalink to this heading">#</a></h3>
+<p><strong>foot, second, pound-mass, Rankine, and mole (base units)</strong> <br>
+pound-force, foot-pound, pound-force/square foot, and foot-pound per second (derived units)  <br>
+BTU, psi, and horsepower (other derived units)</p>
+<p>Thus if you work in feet, seconds, pound-mass, and Rankine, you’ll need conversion factors to report energy, work, pressure, and power to commonly used english units such as BTU, psi, and horsepower. Plus you’ll need to make sure you correctly use gc in your calculations.</p>
+<div class="math notranslate nohighlight">
+\[ g_c = 32.174 \frac{lb_m \cdot ft}{lbf \cdot s^2} \]</div>
+<p>A pound-force is a pound-mass times the acceleration of gravity divided by <span class="math notranslate nohighlight">\(g_c\)</span> (numerically 1 lb-m yields 1 lb-f). <br>
+The gas constant, R, is 3.4088 foot-lb/mol-R in those consistent units.</p>
+<p>Example calculation below of the kinetic energy of a 2 kilogram mass moving at 20 miles per hour.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># example calculation of kinetic energy</span>
+<span class="n">gc</span> <span class="o">=</span> <span class="mf">32.174</span> <span class="c1"># ft/s^2*lbm/lbf</span>
+<span class="n">conv</span> <span class="o">=</span> <span class="mf">1.467</span> <span class="c1"># miles per hour to ft/s</span>
+<span class="n">velocity</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">conv</span> <span class="c1"># 20 miles per hour to ft/s</span>
+<span class="n">convm</span> <span class="o">=</span> <span class="mf">2.205</span> <span class="c1"># kg to lbm</span>
+<span class="n">mass</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">convm</span> <span class="c1"># kg to lbm</span>
+<span class="n">kinetic_energy_e</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">mass</span> <span class="o">*</span> <span class="n">velocity</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span><span class="n">gc</span> <span class="c1"># lbm*ft^2/s^2 *lbf*s^2/lbm/ft or foot pounds (ft*lbf)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;kinetic energy = </span><span class="si">{</span><span class="n">kinetic_energy_e</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> foot-pounds&#39;</span><span class="p">)</span> <span class="c1"># I know this is foot pounds as I used the english units with gc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>kinetic energy = 59.00 foot-pounds
+</pre></div>
+</div>
+</div>
+</div>
+<p>Converting 59 foot pounds to Joules yields 80 Joules with is the same as the answer above. Note the necessary use of gc in the conversion from lbm to lbf in the above calculation (if left out, you get the wrong answer). Keeping track of units when working in English units is more difficult than working in SI units.</p>
+<p>One option is to use pint, a python package that allows you to annotate your units.  You can then convert to other units as needed.  For example, if you want to convert 20 miles per hour to feet per second, you can do the following:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pint</span>
+<span class="n">ureg</span> <span class="o">=</span> <span class="n">pint</span><span class="o">.</span><span class="n">UnitRegistry</span><span class="p">()</span>
+<span class="n">Q_</span> <span class="o">=</span> <span class="n">ureg</span><span class="o">.</span><span class="n">Quantity</span>
+<span class="c1"># example calculation of kinetic energy</span>
+<span class="n">velocity</span> <span class="o">=</span> <span class="n">Q_</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="s1">&#39;miles/hour&#39;</span><span class="p">)</span>
+<span class="n">mass</span> <span class="o">=</span> <span class="n">Q_</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;kg&#39;</span><span class="p">)</span>
+<span class="n">kinetic_energy_p</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">mass</span> <span class="o">*</span> <span class="n">velocity</span><span class="o">**</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;kinetic energy = </span><span class="si">{</span><span class="n">kinetic_energy_p</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&quot;J&quot;</span><span class="p">)</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;kinetic energy = </span><span class="si">{</span><span class="n">kinetic_energy_p</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&quot;footpound&quot;</span><span class="p">)</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;type of kinetic energy = </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">kinetic_energy_p</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="c1">#Documentation is lacking on what units are already defined and how to reference them</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>kinetic energy = 79.94 joule
+kinetic energy = 58.96 foot_pound
+type of kinetic energy = &lt;class &#39;pint.Quantity&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">**</span><span class="n">kinetic_energy_p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">DimensionalityError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="mi">2</span><span class="o">**</span><span class="n">kinetic_energy_p</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/jupiterbook/lib/python3.9/site-packages/pint/facets/plain/quantity.py:100,</span> in <span class="ni">check_implemented.&lt;locals&gt;.wrapped</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="n">other</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)):</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span>     <span class="k">return</span> <span class="bp">NotImplemented</span>
+<span class="ne">--&gt; </span><span class="mi">100</span> <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/jupiterbook/lib/python3.9/site-packages/pint/facets/plain/quantity.py:1264,</span> in <span class="ni">PlainQuantity.__rpow__</span><span class="nt">(self, other)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1262</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1263</span>     <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">dimensionless</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1264</span>         <span class="k">raise</span> <span class="n">DimensionalityError</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_units</span><span class="p">,</span> <span class="s2">&quot;dimensionless&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1265</span>     <span class="n">new_self</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_root_units</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1266</span>     <span class="k">return</span> <span class="n">other</span><span class="o">**</span><span class="n">new_self</span><span class="o">.</span><span class="n">_magnitude</span>
+
+<span class="ne">DimensionalityError</span>: Cannot convert from &#39;kilogram * mile ** 2 / hour ** 2&#39; to &#39;dimensionless&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>An alternative to pint is unum. Example code is in the next code cell. You’ll need to install unum with pip install unum to run the below code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">unum.units</span> <span class="kn">import</span> <span class="o">*</span> <span class="c1"># Load a number of common units.</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">distance</span> <span class="o">=</span> <span class="mi">100</span><span class="o">*</span><span class="n">m</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">time</span> <span class="o">=</span> <span class="mf">9.683</span><span class="o">*</span><span class="n">s</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">speed</span> <span class="o">=</span> <span class="n">distance</span> <span class="o">/</span> <span class="n">time</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">speed</span>
+<span class="mf">10.3273778788</span> <span class="p">[</span><span class="n">m</span><span class="o">/</span><span class="n">s</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">speed</span><span class="o">.</span><span class="n">asUnit</span><span class="p">(</span><span class="n">mile</span><span class="o">/</span><span class="n">h</span><span class="p">)</span>
+<span class="mf">23.1017437978</span> <span class="p">[</span><span class="n">mile</span><span class="o">/</span><span class="n">h</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:6: SyntaxWarning: &#39;float&#39; object is not subscriptable; perhaps you missed a comma?
+&lt;&gt;:8: SyntaxWarning: &#39;float&#39; object is not subscriptable; perhaps you missed a comma?
+&lt;&gt;:6: SyntaxWarning: &#39;float&#39; object is not subscriptable; perhaps you missed a comma?
+&lt;&gt;:8: SyntaxWarning: &#39;float&#39; object is not subscriptable; perhaps you missed a comma?
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">unum.units</span> <span class="kn">import</span> <span class="o">*</span> <span class="c1"># Load a number of common units.</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">distance</span> <span class="o">=</span> <span class="mi">100</span><span class="o">*</span><span class="n">m</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">time</span> <span class="o">=</span> <span class="mf">9.683</span><span class="o">*</span><span class="n">s</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;unum&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I don’t recommend you use pint or unum for the following reasons:</p>
+<ul class="simple">
+<li><p>for unum, the units used may be defined elsewhere as something else; m for instance may have been defined previously as mass</p></li>
+<li><p>for pint, the object type of the number you’re working with is not a string or a float, but a pint object. This can cause problems with other packages or calculations.</p></li>
+</ul>
+<p>I recommend you switch your english input units to SI units (as above) and then convert back to english units at the end of your code when required.</p>
+</div>
+</section>
+</section>
+<section id="round-off-error">
+<h2>Round-off Error<a class="headerlink" href="#round-off-error" title="Permalink to this heading">#</a></h2>
+<p>Round-off error occurs when you truncate a decimal number before completing the calculation. Using a calculation program with variables helps to avoid round-off error. Of course, with any finite decimal number, there is some round-off error, although small as there are 15 decimal places that are stored in a float.  For example, the following code shows that the round-off error is small, but it is still there.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Significant digits:</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">number</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">3</span><span class="o">/</span><span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.6331895677277015
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numberBig</span> <span class="o">=</span> <span class="n">number</span> <span class="o">*</span> <span class="mf">1.245e15</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">numberBig</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2033321011820988.5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numberRBig</span> <span class="o">=</span> <span class="n">numberBig</span><span class="o">*</span><span class="mf">1e5</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">numberRBig</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0333210118209887e+20
+</pre></div>
+</div>
+</div>
+</div>
+<p>Floating point numbers are tracked to 16 decimal places.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#code to show accumulation of round off error</span>
+<span class="n">cutnumb</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span><span class="o">/</span><span class="mi">1000000</span>
+<span class="n">percenterror</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="n">cutnumb</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error when truncated after 2nd digit </span><span class="si">{</span><span class="n">percenterror</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error when truncated after 2nd digit 0.15%
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#code to show accumulation of round off error</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">cutnumb</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">10</span><span class="p">))</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">percenterror</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">cutnumb</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error when truncated after 1 decimal place when multiplied </span><span class="si">{</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s1"> times together: </span><span class="si">{</span><span class="n">percenterror</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error when truncated after 1 decimal place when multiplied 1 times together: 1.32%
+Error when truncated after 1 decimal place when multiplied 2 times together: 2.63%
+Error when truncated after 1 decimal place when multiplied 3 times together: 3.92%
+Error when truncated after 1 decimal place when multiplied 4 times together: 5.19%
+Error when truncated after 1 decimal place when multiplied 5 times together: 6.45%
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="06-Debug.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">06 - Debugging</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="08-Equations.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">08 - Equations to Solve Problems</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annotating-units">Annotating Units</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#si-units">SI Units</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cgs-units">CGS Units</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#english-units">English Units</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#round-off-error">Round-off Error</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Clint Guymon, Brigham Young University
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
