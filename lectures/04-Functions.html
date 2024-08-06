@@ -1,0 +1,972 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Functions of Ideal Gases &#8212; Computational Tools for Chemical Engineers</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/04-Functions';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Functions of Heat Transfer" href="05-FunctionsAgain.html" />
+    <link rel="prev" title="Basic Loop Example" href="03b-BasicLoops.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Intro and Approach
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../foundations.html">Foundations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/preClassPrep.html">Pre-course Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/pythonresources.html">Python Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/excelresources.html">Excel Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/equipment.html">Equipment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../foundations/safety.html">Safety</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../topics.html">Modules</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01-Motive.html">Motivation with Vision</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01b-Basics.html">Python Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-Arrays.html">Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-Loops.html">Loops: Brownian Motion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03b-BasicLoops.html">Basic Loop Example</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Functions of Ideal Gases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-FunctionsAgain.html">Functions of Heat Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-Debug.html">Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07-Units.html">Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-Equations.html">Equations to Solve Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09-EquationsAgain.html">Solving Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10-NewtonsMethod.html">Newton’s Method Example Exercise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10b-ODEs_Terrarium.html">ODE Classroom Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11-ODEs.html">ODEs: Derivatives and Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12-ODEsAgain.html">ODEs: More Derivatives and Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13-Regression.html">Regression and Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-Models.html">Files, Interpolation, and Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="15-ExamReview.html">Exam Review (Python)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="16-ExcelBasics.html">Excel Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="17-ExcelSolver.html">More Excel Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="18-ExcelFunctions.html">Excel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="19-ExcelVBA.html">Excel and Visual Basic for Applications (VBA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-SolidWorks.html">SolidWorks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="21-Aspen.html">Aspen Plus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="22-Ansys.html">Ansys Workbench and Finite Element Analysis (FEA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="22b-Cantera.html">Cantera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="23-Exam2Review.html">Exam 2 Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="24-CaseStudies.html">Case Studies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="24b-Optimization.html">Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="27-FinalReview.html">Final Exam Review</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW01.html">HW01: Introduction to Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW02.html">HW02: Functions and Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW03.html">HW03: More Functions and Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW04.html">HW04: Debugging and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW05.html">HW05: Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW06.html">HW06: Solve Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW07.html">HW07: Additional Equation Solving Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW08.html">HW08: Solving Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW09.html">HW09: More Solving of Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW10.html">HW10: More Practice Programming Loops and Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW11.html">HW11: Regression and Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW12.html">HW12: Interpolation and Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW13.html">HW13: Excel Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW14.html">HW14: Excel Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW19.html">HW19: Ansys Workbench Practice</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/casestudydocs.html">Case Study Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/heattransfer.html">Heat Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/thermo.html">Thermodynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/MD.html">Molecular Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../casestudies/datacollection.html">Data Collection</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgement.html">Acknowledgement</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/clint-bg/comptools/blob/gh-pages/_sources/lectures/04-Functions.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/clint-bg/comptools" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/clint-bg/comptools/issues/new?title=Issue%20on%20page%20%2Flectures/04-Functions.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lectures/04-Functions.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Functions of Ideal Gases</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equations-of-state-ideal-gas">Equations of State: Ideal Gas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-pressure-using-our-function">Calculate the Pressure using Our Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#course-outcome">Course Outcome:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-of-the-pressure-vs-molar-volume-for-an-ideal-gas">Plot of the Pressure vs Molar Volume for an Ideal Gas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-number-of-moles-given-a-pressure-and-temperature">Calculate the Number of Moles given a Pressure and Temperature</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-of-state-van-der-waals">Equation of State: van der Waals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-and-objects">Classes and Objects</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-with-tank-objects">Example problem with tank objects</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="functions-of-ideal-gases">
+<h1>Functions of Ideal Gases<a class="headerlink" href="#functions-of-ideal-gases" title="Permalink to this heading">#</a></h1>
+<p>Functions are used all the time and are a way to organize code. They are an efficient way to use the computer to repeat calculations with slight variations. Multiple examples are given here of functions you’ll use in your educational and professional career.</p>
+<section id="equations-of-state-ideal-gas">
+<h2>Equations of State: Ideal Gas<a class="headerlink" href="#equations-of-state-ideal-gas" title="Permalink to this heading">#</a></h2>
+<p>Equations of state relate the pressure, temperature, and molar volume of a fluid mathematically.  These are used in almost every discipline of engineering problems chemical engineers face.  The ideal gas law is the simplest equation of state:</p>
+<div class="math notranslate nohighlight">
+\[
+P = \frac{nRT}{V} = \frac{RT}{\tilde{V}}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(P\)</span> is pressure, <span class="math notranslate nohighlight">\(R\)</span> is the gas constant, <span class="math notranslate nohighlight">\(T\)</span> is temperature, and <span class="math notranslate nohighlight">\(\tilde{V}\)</span> is the molar volume (volume of gas divided by the moles of gas).  The molar volume is the volume of one mole of a substance.  The ideal gas law is a good approximation for many gases at low pressures and high temperatures.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#define the function that returns the pressure depending on the temperature (Kelvin) and molar volume (m^3/mol)</span>
+<span class="k">def</span> <span class="nf">pressure_IG</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">mV</span><span class="p">):</span> <span class="c1">#this function takes two inputs: temperature and molar volume</span>
+    <span class="n">Rg</span> <span class="o">=</span> <span class="mf">8.314</span> <span class="c1">#universal gas constant in J/mol/K</span>
+    <span class="k">return</span> <span class="n">Rg</span><span class="o">*</span><span class="n">T</span><span class="o">/</span><span class="n">mV</span> <span class="c1">#this is where the pressure is calculated and returned in units of Pa</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="calculate-the-pressure-using-our-function">
+<h3>Calculate the Pressure using Our Function<a class="headerlink" href="#calculate-the-pressure-using-our-function" title="Permalink to this heading">#</a></h3>
+<p>Now we can use this function to calculate the pressure of 1 mole of an ideal gas at 300 K and 1 L.  We’ll use the print function to print the result to the screen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Making sure my units are consistent:</span>
+<span class="n">Vol</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="mf">0.001</span> <span class="c1">#1 Liter = 0.001 m^3</span>
+<span class="n">nmol</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#1 mole of gas</span>
+<span class="c1">#call the function then print the result</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The pressure in a 1 Liter vessel with 1 mole of gas inside is </span><span class="si">{</span><span class="n">pressure_IG</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="n">Vol</span><span class="o">/</span><span class="n">nmol</span><span class="p">)</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> Pa&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The pressure in a 1 Liter vessel with 1 mole of gas inside is 2494200 Pa
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="course-outcome">
+<h3>Course Outcome:<a class="headerlink" href="#course-outcome" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Students will be able to convert problem solving strategies to <strong>procedural algorithms</strong>, and</p></li>
+<li><p>make <strong>order of magnitude estimates</strong>, assess reasonableness of solutions, and select appropriate levels of solution sophistication</p></li>
+</ul>
+<p><strong>Classroom demo and Group exercise</strong>: Estimate the number of moles inside a balloon of the size shown in class. The pressure inside a balloon is approximately 0.75 psi. Make a function and then use it to calculate the number of moles of air inside the balloon.</p>
+</section>
+<section id="plot-of-the-pressure-vs-molar-volume-for-an-ideal-gas">
+<h3>Plot of the Pressure vs Molar Volume for an Ideal Gas<a class="headerlink" href="#plot-of-the-pressure-vs-molar-volume-for-an-ideal-gas" title="Permalink to this heading">#</a></h3>
+<p>We’ll use our function to create a plot of the pressure vs molar volume for an ideal gas at different temperatures.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> <span class="c1">#import the numpy library</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1">#import the matplotlib library for plotting (also check out seaborn)</span>
+<span class="n">mVols</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="c1">#create an array of molar volumes </span>
+<span class="n">temps</span> <span class="o">=</span> <span class="p">[</span><span class="mi">300</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">500</span><span class="p">]</span> <span class="c1">#create a list of temperatures in Kelvin</span>
+<span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">temps</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mVols</span><span class="p">,</span><span class="n">pressure_IG</span><span class="p">(</span><span class="n">each</span><span class="p">,</span><span class="n">mVols</span><span class="p">)</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">each</span><span class="si">}</span><span class="s1"> K&#39;</span><span class="p">)</span> <span class="c1">#plot the pressure as a function of molar volume</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ideal Gas Pressure&#39;</span><span class="p">)</span> <span class="c1">#add a title to the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Molar Volume (m$^3$/mol)&#39;</span><span class="p">)</span> <span class="c1">#label the x-axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Pressure (kPa)&#39;</span><span class="p">)</span> <span class="c1">#label the y-axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1">#show the legend and the plot</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/8aa731a314f5103de7382f38b22166f5edcecdb6d6d272007b7449d4ea185137.png" src="../_images/8aa731a314f5103de7382f38b22166f5edcecdb6d6d272007b7449d4ea185137.png" />
+</div>
+</div>
+<p>This plot shows that as the volume decreases for a given amount of gas, the pressure increases. The pressure also increases with temperature. We’ll see shortly that a virial or cubic equation of state is a better model and shows the two phase region.</p>
+</section>
+<section id="calculate-the-number-of-moles-given-a-pressure-and-temperature">
+<h3>Calculate the Number of Moles given a Pressure and Temperature<a class="headerlink" href="#calculate-the-number-of-moles-given-a-pressure-and-temperature" title="Permalink to this heading">#</a></h3>
+<blockquote>
+<div><p>What if we wanted to calculate how many moles of gas are in the classroom?</p>
+<p>One way is to create another function with the ideal gas law rearranged to return the number of moles of gas.
+Another way is to use the existing function and set the pressure to the room pressure and solve for the number of moles of gas.</p>
+</div></blockquote>
+<p>In keeping with our theme of introducing upcoming concepts when we’re learning about a related topic, we’ll introduce the <strong>fsolve</strong> method that we’ll learn more about in a couple weeks.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lets solve for the molar volume of an ideal gas at a given pressure and temperature</span>
+<span class="c1"># First, we&#39;ll import the solver from scipy</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span>
+<span class="c1">#now we&#39;ll solve for the molar volume of an ideal gas at a given pressure and temperature</span>
+<span class="n">classroomV</span> <span class="o">=</span> <span class="mi">60</span><span class="o">*</span><span class="mi">45</span><span class="o">*</span><span class="mi">10</span><span class="o">/</span><span class="p">(</span><span class="mf">3.281</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#60 ft x 45 ft x 10 ft multiplied by our conversion factor to get m3</span>
+<span class="n">classroomP</span> <span class="o">=</span> <span class="mf">85e3</span> <span class="c1">#approximately 85 kPa at our elevation</span>
+<span class="n">classroomT</span> <span class="o">=</span> <span class="mi">295</span> <span class="c1">#approximately 72 F to C to Kelvin</span>
+<span class="n">molarVolume</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="k">lambda</span> <span class="n">mV</span><span class="p">:</span> <span class="n">pressure_IG</span><span class="p">(</span><span class="n">classroomT</span><span class="p">,</span><span class="n">mV</span><span class="p">)</span><span class="o">-</span><span class="n">classroomP</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">#fsolve(function=0 with variable listed first, initial guess)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The molar volume of an ideal gas at </span><span class="si">{</span><span class="n">classroomP</span><span class="o">/</span><span class="mi">1000</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> kPa and </span><span class="si">{</span><span class="n">classroomT</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> K is </span><span class="si">{</span><span class="n">molarVolume</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> m3/mol&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The number of moles of gas in the room is </span><span class="si">{</span><span class="n">classroomV</span><span class="o">/</span><span class="n">molarVolume</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The molar volume of an ideal gas at 85 kPa and 295 K is 0.029 m3/mol
+The number of moles of gas in the room is 26493
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Lets check our answer: (PV/RT = n)</span>
+<span class="n">classroomP</span><span class="o">*</span><span class="n">classroomV</span><span class="o">/</span><span class="p">(</span><span class="mf">8.314</span><span class="o">*</span><span class="n">classroomT</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>26493.050209974554
+</pre></div>
+</div>
+</div>
+</div>
+<p>The lambda function defines the independent variable ‘mV’ and then uses that with the ‘pressure_IG’ function with a guess value of 1 for the molar volume. The lambda function sets the output of the pressure_IG function to the classroom pressure and the fsolve finds the value of mV that satisfies that condition (the pressure equaling the classroom pressure). The lambda function’s use in the fsolve is particularly useful when the function has more than one variable.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Let’s do this a different way (any program can be completed any number of ways). Lets make a more general program that will return the value that we don’t give it.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">idealgas</span><span class="p">(</span><span class="n">P</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">T</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">mV</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">Rg</span> <span class="o">=</span> <span class="mf">8.314</span>  <span class="c1"># universal gas constant in J/mol/K</span>
+    <span class="k">if</span> <span class="n">P</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># since p wasn&#39;t specified, we&#39;ll calculate it and return it</span>
+        <span class="c1"># but since we don&#39;t know if the other two parameters are specified, we&#39;ll try to </span>
+        <span class="k">try</span><span class="p">:</span> <span class="c1">#return pressure</span>
+            <span class="k">return</span> <span class="n">T</span><span class="o">/</span><span class="n">mV</span><span class="o">*</span><span class="n">Rg</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Not enough information for calculation&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">T</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span> <span class="c1">#return temperature</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">P</span><span class="o">*</span><span class="n">mV</span><span class="o">/</span><span class="n">Rg</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Not enough information for calculation&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mV</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span> <span class="c1">#return molar volume</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Rg</span><span class="o">*</span><span class="n">T</span><span class="o">/</span><span class="n">P</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Not enough information for calculation&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#now we&#39;ll use this function several times to make sure it works</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The pressure in a 1 Liter vessel with 1 mole of gas inside is </span><span class="si">{</span><span class="n">idealgas</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span><span class="n">mV</span><span class="o">=</span><span class="n">Vol</span><span class="o">/</span><span class="n">nmol</span><span class="p">)</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> Pa&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The moles of an ideal gas at </span><span class="si">{</span><span class="n">classroomP</span><span class="o">/</span><span class="mi">1000</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> kPa and </span><span class="si">{</span><span class="n">classroomT</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> K inside the classroom is </span><span class="si">{</span><span class="n">classroomV</span><span class="o">/</span><span class="n">idealgas</span><span class="p">(</span><span class="n">P</span><span class="o">=</span><span class="n">classroomP</span><span class="p">,</span><span class="n">T</span><span class="o">=</span><span class="n">classroomT</span><span class="p">)</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> mol&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The pressure in a 1 Liter vessel with 1 mole of gas inside is 2494200 Pa
+The moles of an ideal gas at 85 kPa and 295 K inside the classroom is 26493 mol
+</pre></div>
+</div>
+</div>
+</div>
+<p>Great, we got the same answers as before for both scenarios. Let’s see if we don’t define enough variables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">idealgas</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Not enough information for calculation
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="equation-of-state-van-der-waals">
+<h2>Equation of State: van der Waals<a class="headerlink" href="#equation-of-state-van-der-waals" title="Permalink to this heading">#</a></h2>
+<p>The van der Waals equation of state is a more complex equation of state that accounts for non-ideal behavior of gases.  The van der Waals equation of state is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+P = \frac{RT}{\tilde{V} - b} - \frac{a}{\tilde{V}^2}
+\end{equation}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are constants that depend on the gas.  The constants for several compounds are in the below table:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Compound</p></th>
+<th class="head"><p>a (L^2 bar/mol^2)</p></th>
+<th class="head"><p>b (L/mol)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>oxygen</p></td>
+<td><p>1.382</p></td>
+<td><p>0.03186</p></td>
+</tr>
+<tr class="row-odd"><td><p>methane</p></td>
+<td><p>2.283</p></td>
+<td><p>0.04278</p></td>
+</tr>
+<tr class="row-even"><td><p>water</p></td>
+<td><p>5.536</p></td>
+<td><p>0.03049</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The van der Waals EOS was one of the first cubic equations of state. There are more accurate relationships that are used in practice today. You’ll notice that for a given pressure, there can be multiple volumes that satisfy the equation. This is because the EOS is cubic and has three roots. The largest root is the physical root defining the gas phase and the lowest root is the physical root defining the liquid phase. The middle root is the unstable root and is not physical.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">P_vdW</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">mV</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="n">Rg</span> <span class="o">=</span> <span class="mf">8.314</span>  <span class="c1"># universal gas constant in J/mol/K</span>
+    <span class="k">return</span> <span class="n">Rg</span><span class="o">*</span><span class="n">T</span><span class="o">/</span><span class="p">(</span><span class="n">mV</span><span class="o">-</span><span class="n">b</span><span class="p">)</span><span class="o">-</span><span class="n">a</span><span class="o">/</span><span class="n">mV</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#we&#39;ll also plot the pressure as a function of molar volume for the van der Waals equation for methane</span>
+<span class="n">aCH4</span> <span class="o">=</span> <span class="mf">2.283</span><span class="o">/</span><span class="mi">1000</span> <span class="c1">#van der Waals a parameter for methane in Pa m^6/mol^2</span>
+<span class="n">bCH4</span> <span class="o">=</span> <span class="mf">0.04278</span><span class="o">/</span><span class="mi">1000</span> <span class="c1">#van der Waals b parameter for methane in m^3/mol</span>
+<span class="n">mVols</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">bCH4</span><span class="o">*</span><span class="mf">1.1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span> <span class="c1">#create an array of molar volumes</span>
+<span class="n">styles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="s1">&#39;-.&#39;</span><span class="p">,</span><span class="s1">&#39;:&#39;</span><span class="p">]</span> <span class="c1">#create a list of line styles</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">each</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">temps</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mVols</span><span class="p">,</span><span class="n">P_vdW</span><span class="p">(</span><span class="n">each</span><span class="p">,</span><span class="n">mVols</span><span class="p">,</span><span class="n">aCH4</span><span class="p">,</span><span class="n">bCH4</span><span class="p">)</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="o">+</span><span class="n">styles</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;vdW </span><span class="si">{</span><span class="n">each</span><span class="si">}</span><span class="s1"> K&#39;</span><span class="p">)</span> <span class="c1">#plot the pressure as a function of molar volume</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">each</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">temps</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mVols</span><span class="p">,</span><span class="n">pressure_IG</span><span class="p">(</span><span class="n">each</span><span class="p">,</span><span class="n">mVols</span><span class="p">)</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="o">+</span><span class="n">styles</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;IG </span><span class="si">{</span><span class="n">each</span><span class="si">}</span><span class="s1"> K&#39;</span><span class="p">)</span> <span class="c1">#plot the pressure as a function of molar volume</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;van der Waals vs Ideal Gas Pressure&#39;</span><span class="p">)</span> <span class="c1">#add a title to the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Molar Volume (m$^3$/mol)&#39;</span><span class="p">)</span> <span class="c1">#label the x-axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Pressure (kPa)&#39;</span><span class="p">)</span> <span class="c1">#label the y-axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span> <span class="c1">#set the y-axis to a log scale</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1">#show the legend and the plot</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/81bd1994631a54f081b9afa0506792887460622c0fa3654a042bb0ae0b8c73fe.png" src="../_images/81bd1994631a54f081b9afa0506792887460622c0fa3654a042bb0ae0b8c73fe.png" />
+</div>
+</div>
+<p>Here in the log-log plot, the van der Waals EOS agrees with the ideal gas result at pressures below about 1000 kPa (100 bar). Above those pressues, the van der Waals predicts a significantly high pressure than the ideal gas law.</p>
+</section>
+<section id="classes-and-objects">
+<h2>Classes and Objects<a class="headerlink" href="#classes-and-objects" title="Permalink to this heading">#</a></h2>
+<p>Classes and objects are used so frequently in the programming of commercial software. You’ll use objects (an instance of a class) when you write efficient code where you don’t have code blocks that repeat. In that way, classes are similar to functions.</p>
+<p>Classes and objects are appropriate to use when have multiple similar scenarios that require similar definitions and methods. For example, you may have multiple tanks than each have a maximum capacity and whose current liquid mass varies depending on the geometry such as a cylindrical or square tank. You can define a class for a tank and then create objects for each tank. The class defines the attributes and methods for the tank and the objects are the individual tanks.</p>
+<p>In the <a class="reference internal" href="01-Motive.html"><span class="doc std std-doc">motivation lecture</span></a>, we setup a class with properties and a method to easily specify different gas species with a method to calculate the ideal gas heat capacity with the properties of each gas object (instance). Here we’ll work with some tanks.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">param</span> <span class="c1">#import the param library to easily instantiate a class with defined parameters</span>
+<span class="k">class</span> <span class="nc">tank</span><span class="p">(</span><span class="n">param</span><span class="o">.</span><span class="n">Parameterized</span><span class="p">):</span>
+    <span class="n">maxCapacity</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="kc">None</span><span class="p">),</span><span class="n">doc</span><span class="o">=</span><span class="s1">&#39;Maximum capacity of the tank in cubic meters&#39;</span><span class="p">)</span>
+    <span class="n">shape</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;cylinder&#39;</span><span class="p">,</span><span class="n">doc</span><span class="o">=</span><span class="s1">&#39;Shape of the tank&#39;</span><span class="p">)</span>
+    <span class="n">diameter</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="kc">None</span><span class="p">),</span><span class="n">doc</span><span class="o">=</span><span class="s1">&#39;Diameter of the tank in meters&#39;</span><span class="p">)</span>
+    <span class="n">level</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="kc">None</span><span class="p">),</span><span class="n">doc</span><span class="o">=</span><span class="s1">&#39;Level of the fluid in the tank in meters&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">fluidvolume</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1">#in cubic meters</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="s1">&#39;cylinder&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">diameter</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">level</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="s1">&#39;sphere&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">level</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">diameter</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">level</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="s1">&#39;cone&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">diameter</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">12</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">level</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="example-problem-with-tank-objects">
+<h3>Example problem with tank objects<a class="headerlink" href="#example-problem-with-tank-objects" title="Permalink to this heading">#</a></h3>
+<p><strong>Problem Statement:</strong> There are 5 tanks that are spherical, 3 cylindrical tanks, and 4 conical tanks. The three spherical tanks have levels of 2.5, 3.0, 2.6, 3.2, and 3.5 m. The cylindrical tanks have levels of 1.5, 2.0, and 2.5 m. The conical tanks have levels of 1.0, 1.5, 2.0, and 2.5 ft. The tanks have a diameter of 2 m, except for the spherical tanks that have a diameter of 5 m. The tanks are filled with biodiesel. Calculate the total volume in the tanks for inventory purposes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#First setup the tank objects</span>
+<span class="c1">#spherical tanks</span>
+<span class="n">sphlevels</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mf">2.6</span><span class="p">,</span><span class="mf">3.2</span><span class="p">,</span><span class="mf">3.5</span><span class="p">]</span> <span class="c1">#in meters</span>
+<span class="n">sphtanks</span> <span class="o">=</span> <span class="p">[</span><span class="n">tank</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="s1">&#39;sphere&#39;</span><span class="p">,</span><span class="n">diameter</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">level</span><span class="o">=</span><span class="n">sphlevels</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sphlevels</span><span class="p">))]</span>
+
+<span class="c1">#cylindrical tanks</span>
+<span class="n">cyllevels</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">2.5</span><span class="p">]</span> <span class="c1">#in meters</span>
+<span class="n">cyltanks</span> <span class="o">=</span> <span class="p">[</span><span class="n">tank</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="s1">&#39;cylinder&#39;</span><span class="p">,</span><span class="n">diameter</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">level</span><span class="o">=</span><span class="n">cyllevels</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cyllevels</span><span class="p">))]</span>
+
+<span class="c1">#conical tanks</span>
+<span class="n">conelevels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mf">2.5</span><span class="p">])</span><span class="o">/</span><span class="mf">3.281</span> <span class="c1">#in meters</span>
+<span class="n">conetanks</span> <span class="o">=</span> <span class="p">[</span><span class="n">tank</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="s1">&#39;cone&#39;</span><span class="p">,</span><span class="n">diameter</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">level</span><span class="o">=</span><span class="n">conelevels</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">conelevels</span><span class="p">))]</span>
+
+<span class="c1">#Now calculate the total volume of fluid in the tanks</span>
+<span class="n">totalvolume</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">sphtanks</span><span class="p">:</span>
+    <span class="n">totalvolume</span> <span class="o">+=</span> <span class="n">each</span><span class="o">.</span><span class="n">fluidvolume</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">cyltanks</span><span class="p">:</span>
+    <span class="n">totalvolume</span> <span class="o">+=</span> <span class="n">each</span><span class="o">.</span><span class="n">fluidvolume</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">conetanks</span><span class="p">:</span>
+    <span class="n">totalvolume</span> <span class="o">+=</span> <span class="n">each</span><span class="o">.</span><span class="n">fluidvolume</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The total volume of fluid in the tanks is </span><span class="si">{</span><span class="n">totalvolume</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> m3&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The total volume of fluid in the tanks is 228.33 m3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sphtanks</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[tank(diameter=5, level=2.5, maxCapacity=1000, name=&#39;tank00002&#39;, shape=&#39;sphere&#39;),
+ tank(diameter=5, level=3, maxCapacity=1000, name=&#39;tank00003&#39;, shape=&#39;sphere&#39;),
+ tank(diameter=5, level=2.6, maxCapacity=1000, name=&#39;tank00004&#39;, shape=&#39;sphere&#39;),
+ tank(diameter=5, level=3.2, maxCapacity=1000, name=&#39;tank00005&#39;, shape=&#39;sphere&#39;),
+ tank(diameter=5, level=3.5, maxCapacity=1000, name=&#39;tank00006&#39;, shape=&#39;sphere&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can access the parameters of the class by calling the class name and the parameter name</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The level in the first spherical tank is </span><span class="si">{</span><span class="n">sphtanks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">level</span><span class="si">}</span><span class="s1"> m&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The level in the first spherical tank is 2.5 m
+</pre></div>
+</div>
+</div>
+</div>
+<p>This example may seem complex, but using and being familiar with objects is important. You’ll work with objects all the time when you’re programming. A simple example is a list. Lists are objects that have methods. A method you can call on a python list is the append method. The append method adds an element to the end of the list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#for example, we can append another tank to our spherical tank list</span>
+<span class="n">sphtanks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tank</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="s1">&#39;sphere&#39;</span><span class="p">,</span><span class="n">diameter</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">level</span><span class="o">=</span><span class="mf">2.8</span><span class="p">))</span>
+<span class="n">sphtanks</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[tank(diameter=5, level=2.5, maxCapacity=1000, name=&#39;tank00002&#39;, shape=&#39;sphere&#39;),
+ tank(diameter=5, level=3, maxCapacity=1000, name=&#39;tank00003&#39;, shape=&#39;sphere&#39;),
+ tank(diameter=5, level=2.6, maxCapacity=1000, name=&#39;tank00004&#39;, shape=&#39;sphere&#39;),
+ tank(diameter=5, level=3.2, maxCapacity=1000, name=&#39;tank00005&#39;, shape=&#39;sphere&#39;),
+ tank(diameter=5, level=3.5, maxCapacity=1000, name=&#39;tank00006&#39;, shape=&#39;sphere&#39;),
+ tank(diameter=5, level=2.8, maxCapacity=1000, name=&#39;tank00014&#39;, shape=&#39;sphere&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="03b-BasicLoops.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Basic Loop Example</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="05-FunctionsAgain.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Functions of Heat Transfer</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equations-of-state-ideal-gas">Equations of State: Ideal Gas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-pressure-using-our-function">Calculate the Pressure using Our Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#course-outcome">Course Outcome:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-of-the-pressure-vs-molar-volume-for-an-ideal-gas">Plot of the Pressure vs Molar Volume for an Ideal Gas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-number-of-moles-given-a-pressure-and-temperature">Calculate the Number of Moles given a Pressure and Temperature</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equation-of-state-van-der-waals">Equation of State: van der Waals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-and-objects">Classes and Objects</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-with-tank-objects">Example problem with tank objects</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Clint Guymon, Brigham Young University
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
