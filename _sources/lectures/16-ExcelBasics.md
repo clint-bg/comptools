@@ -1,4 +1,4 @@
-# Excel Basics
+# 15 - Excel Basics
 Microsoft Excel is used all over the world in practically every company. It's most commonly used as a makeshift database and to perform straightforward calculations. It's also used to make graphs and charts although there are much better programs to make publication quality charts and graphs. 
 
 In this lectures, we'll focus on using Excel in the following ways:

@@ -1,4 +1,4 @@
-# More Excel Practice
+# 17 - More Excel Practice
 This lecture discuses solving equations with the following methods in Excel:
 - Newton's method
 - Goal Seek

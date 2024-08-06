@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>ODEs: More Derivatives and Integration &#8212; Computational Tools for Chemical Engineers</title>
+    <title>12 - More ODEs &#8212; Computational Tools for Chemical Engineers</title>
   
   
   
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/12-ODEsAgain';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Regression and Interpolation" href="13-Regression.html" />
-    <link rel="prev" title="ODEs: Derivatives and Integration" href="11-ODEs.html" />
+    <link rel="next" title="13 - Regression and Interpolation" href="13-Regression.html" />
+    <link rel="prev" title="11 - ODEs" href="11-ODEs.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -168,36 +168,33 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../topics.html">Modules</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01-Motive.html">Motivation with Vision</a></li>
-<li class="toctree-l2"><a class="reference internal" href="01b-Basics.html">Python Basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02-Arrays.html">Arrays</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03-Loops.html">Loops: Brownian Motion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03b-BasicLoops.html">Basic Loop Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04-Functions.html">Functions of Ideal Gases</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05-FunctionsAgain.html">Functions of Heat Transfer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06-Debug.html">Debug</a></li>
-<li class="toctree-l2"><a class="reference internal" href="07-Units.html">Units</a></li>
-<li class="toctree-l2"><a class="reference internal" href="08-Equations.html">Equations to Solve Problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="09-EquationsAgain.html">Solving Equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10-NewtonsMethod.html">Newton’s Method Example Exercise</a></li>
-<li class="toctree-l2"><a class="reference internal" href="10b-ODEs_Terrarium.html">ODE Classroom Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="11-ODEs.html">ODEs: Derivatives and Integration</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">ODEs: More Derivatives and Integration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="13-Regression.html">Regression and Interpolation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="14-Models.html">Files, Interpolation, and Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="15-ExamReview.html">Exam Review (Python)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="16-ExcelBasics.html">Excel Basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="17-ExcelSolver.html">More Excel Practice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="18-ExcelFunctions.html">Excel Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="19-ExcelVBA.html">Excel and Visual Basic for Applications (VBA)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="20-SolidWorks.html">SolidWorks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="21-Aspen.html">Aspen Plus</a></li>
-<li class="toctree-l2"><a class="reference internal" href="22-Ansys.html">Ansys Workbench and Finite Element Analysis (FEA)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="22b-Cantera.html">Cantera</a></li>
-<li class="toctree-l2"><a class="reference internal" href="23-Exam2Review.html">Exam 2 Review</a></li>
-<li class="toctree-l2"><a class="reference internal" href="24-CaseStudies.html">Case Studies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="24b-Optimization.html">Optimization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="27-FinalReview.html">Final Exam Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01-Motive.html">01 - Motivation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01b-Basics.html">01b - Python Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-Arrays.html">02 - Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-Functions.html">04 - Functions: Gases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05-FunctionsAgain.html">05 - Functions: Heat Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-Debug.html">06 - Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07-Units.html">07 - Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-Equations.html">08 - Equations to Solve Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09-EquationsAgain.html">09 - Solving More Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10-NewtonsMethod.html">10 - Newton’s Method Example Exercise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11-ODEs.html">11 - ODEs</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">12 - More ODEs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13-Regression.html">13 - Regression and Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14-Models.html">14 - Files, Interpolation, and Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="15-ExamReview.html">15 - Exam Review (Python)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="16-ExcelBasics.html">15 - Excel Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="17-ExcelSolver.html">17 - More Excel Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="18-ExcelFunctions.html">18 - Excel Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="19-ExcelVBA.html">19 - Excel and Visual Basic for Applications (VBA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20-SolidWorks.html">20 - SolidWorks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="21-Aspen.html">21 - Aspen Plus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="22-Ansys.html">22 - Ansys Workbench and FEA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="22b-Cantera.html">22b - Cantera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="23-Exam2Review.html">23 - Exam 2 Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="24-CaseStudies.html">24 - Case Studies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="24b-Optimization.html">24b - Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="27-FinalReview.html">27 - Final Exam Review</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -441,7 +438,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>ODEs: More Derivatives and Integration</h1>
+    <h1>12 - More ODEs</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -468,8 +465,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="odes-more-derivatives-and-integration">
-<h1>ODEs: More Derivatives and Integration<a class="headerlink" href="#odes-more-derivatives-and-integration" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="more-odes">
+<h1>12 - More ODEs<a class="headerlink" href="#more-odes" title="Permalink to this heading">#</a></h1>
 <p>Non-steady state scenarios occur all around us: heating up your cold hands, warming up your food, filling your washing machine, among a myriad of other examples. There’s also many non-steady state scenarios in chemical engineering: filling a tank, heating up a reactor, cooling down a reactor, etc. In this lecture, we will get more practice setting up problems and estimating a solution.</p>
 <p>You should further understand at the end of this discussion that if you have an expression for the derivative, you can integrate that numerically to determine the system parameters as a function of time.</p>
 <section id="first-example-predators-and-prey">
@@ -930,7 +927,7 @@ Name: 60870, dtype: object
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">ODEs: Derivatives and Integration</p>
+        <p class="prev-next-title">11 - ODEs</p>
       </div>
     </a>
     <a class="right-next"
@@ -938,7 +935,7 @@ Name: 60870, dtype: object
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Regression and Interpolation</p>
+        <p class="prev-next-title">13 - Regression and Interpolation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
