@@ -171,6 +171,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="01-Motive.html">01 - Motivation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01b-Basics.html">01b - Python Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02-Arrays.html">02 - Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-BasicLoops.html">03 - Basic Loop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03b-Loops.html">03b - Loops: Brownian Motion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04-Functions.html">04 - Functions: Gases</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05-FunctionsAgain.html">05 - Functions: Heat Transfer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06-Debug.html">06 - Debugging</a></li>
@@ -183,7 +185,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">13 - Regression and Interpolation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="14-Models.html">14 - Files, Interpolation, and Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="15-ExamReview.html">15 - Exam Review (Python)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="16-ExcelBasics.html">15 - Excel Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="16-ExcelBasics.html">16 - Excel Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="17-ExcelSolver.html">17 - More Excel Practice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="18-ExcelFunctions.html">18 - Excel Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="19-ExcelVBA.html">19 - Excel and Visual Basic for Applications (VBA)</a></li>
@@ -505,7 +507,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2f7989674061ca21820dba16fe65b61611ec643970454d6978f6709f09e6d80b.png" src="../_images/2f7989674061ca21820dba16fe65b61611ec643970454d6978f6709f09e6d80b.png" />
+<img alt="../_images/653a848edfbab8af1d214b55aa99d450e1dbc6bd491d1284a3a63d0095a038c2.png" src="../_images/653a848edfbab8af1d214b55aa99d450e1dbc6bd491d1284a3a63d0095a038c2.png" />
 </div>
 </div>
 <p>Regression involves making an approximation to relate the independent variable (what you can control) to the dependent variable (what you measure). x is typically the independent variable and y is the dependent variable.</p>
@@ -527,7 +529,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope is 0.505 and the intercept is -0.041
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope is 0.505 and the intercept is -0.059
 </pre></div>
 </div>
 </div>
@@ -542,7 +544,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/bcfe8911daf5471ea04fb63203b5453c343edca4863909739a1ab6e627eef120.png" src="../_images/bcfe8911daf5471ea04fb63203b5453c343edca4863909739a1ab6e627eef120.png" />
+<img alt="../_images/116d146876326c8368160cf8d82bc12ba62bc88b87d52fb14ef990bf5b0f7e42.png" src="../_images/116d146876326c8368160cf8d82bc12ba62bc88b87d52fb14ef990bf5b0f7e42.png" />
 </div>
 </div>
 <p>Regression statistics can be calculated to the rsquared and the mape value which are measures of how well the regression line fits the data.</p>
@@ -562,7 +564,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The r-squared value is 0.976
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The r-squared value is 0.977
 </pre></div>
 </div>
 </div>
@@ -580,7 +582,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The MAPE value is 18.004%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The MAPE value is 30.033%
 </pre></div>
 </div>
 </div>
@@ -610,8 +612,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope is 0.505 and the intercept is -0.041
-The uncertainties in the two parameters is [0.00807218 0.04672226]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope is 0.505 and the intercept is -0.059
+The uncertainties in the two parameters is [0.00781827 0.04525266]
 </pre></div>
 </div>
 </div>
@@ -648,14 +650,14 @@ The uncertainties in the two parameters is [0.00807218 0.04672226]
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  message: Desired error not necessarily achieved due to precision loss.
   success: False
    status: 2
-      fun: 5.42890078596947
-        x: [ 5.046e-01 -4.071e-02]
-      nit: 3
-      jac: [ 5.043e-05  7.093e-06]
- hess_inv: [[ 6.228e-04 -3.066e-03]
-            [-3.066e-03  1.989e-02]]
-     nfev: 118
-     njev: 36
+      fun: 5.092751251332458
+        x: [ 5.054e-01 -5.856e-02]
+      nit: 2
+      jac: [ 5.734e-05  7.987e-06]
+ hess_inv: [[ 5.881e-04 -2.941e-03]
+            [-2.941e-03  1.970e-02]]
+     nfev: 109
+     njev: 33
 </pre></div>
 </div>
 </div>
