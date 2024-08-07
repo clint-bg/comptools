@@ -16,8 +16,8 @@ chapters:
     - file: lectures/01-Motive
     - file: lectures/01b-Basics
     - file: lectures/02-Arrays
-    - file: lectures/03-Loops
-    - file: lectures/03b-BasicLoops
+    - file: lectures/03-BasicLoops
+    - file: lectures/03b-Loops
     - file: lectures/04-Functions
     - file: lectures/05-FunctionsAgain
     - file: lectures/06-Debug
@@ -25,9 +25,9 @@ chapters:
     - file: lectures/08-Equations
     - file: lectures/09-EquationsAgain
     - file: lectures/10-NewtonsMethod
-    - file: lectures/10b-ODEs_Terrarium
     - file: lectures/11-ODEs
     - file: lectures/12-ODEsAgain
+    - file: lectures/10b-ODEs_Terrarium
     - file: lectures/13-Regression
     - file: lectures/14-Models
     - file: lectures/15-ExamReview
