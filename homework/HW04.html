@@ -478,22 +478,21 @@ document.write(`
 </ul>
 <section id="problem-1">
 <h2>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h2>
-<p>Write a Python function to calculate the Fibonacci sequence up to a given number n. The Fibonacci sequence is a series of numbers where each number is the sum of the two previous numbers. The first two numbers in the sequence are 0 and 1. So, the Fibonacci sequence for a given number n would be:</p>
+<p>We have learned about functions and loops. In this problem, you will write a function that takes a list of numbers and returns the sum of all the numbers in the list, except for the last number. Below is a start to this problem. Please complete it using a loop.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;n must be greater than 0&quot;</span><span class="p">)</span> 
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">0</span>
-    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="nb">sum</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
-            <span class="k">return</span> <span class="nb">sum</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">listofnumbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">19</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">loopsum</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
+    <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="nb">sum</span> <span class="o">+=</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="nb">sum</span>
 </pre></div>
 </div>
 </div>
@@ -571,8 +570,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- 4.1961669921875e-05 seconds ---
---- 3.600120544433594e-05 seconds ---
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- 4.410743713378906e-05 seconds ---
+--- 3.981590270996094e-05 seconds ---
 </pre></div>
 </div>
 </div>
