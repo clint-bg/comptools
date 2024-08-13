@@ -457,6 +457,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inline-loop-to-generate-a-list">Inline loop to generate a list</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditionals">Conditionals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objects">Objects</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bits">Bits</a></li>
 </ul>
@@ -739,6 +740,28 @@ The value of anothertup is (7, 8) and the type of anothertup is &lt;class &#39;t
 </div>
 </section>
 </section>
+<section id="conditionals">
+<h2>Conditionals<a class="headerlink" href="#conditionals" title="Permalink to this heading">#</a></h2>
+<p>Conditionals are used to make decisions in code.  Most often that is done with an if statement. The if statement checks a condition and then runs the code if the condition is true (or doesn’t run the code if the condition is false).  Here is an example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x is 5&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x is 4&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x is not 4 or 5, x is </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x is 4
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 <section id="objects">
 <h2>Objects<a class="headerlink" href="#objects" title="Permalink to this heading">#</a></h2>
 <p>What’s an object? An object is similar to a variable in that it holds a value or series of values called properties.  It can also have functions associated with it.  For example, a list is an object and it has functions associated with it like <code class="docutils literal notranslate"><span class="pre">append</span></code> and <code class="docutils literal notranslate"><span class="pre">sort</span></code>.  You will use objects all the time when you’re using Python. Objects are defined by a class operator.</p>
@@ -842,6 +865,18 @@ Help on Number in module param:
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">bin</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1">#convert 5 to binary</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0b101&#39;
+</pre></div>
+</div>
+</div>
+</div>
 <p>Below is a code snippet to calculate the number of bits required to represent a number.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -937,6 +972,7 @@ Help on Number in module param:
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inline-loop-to-generate-a-list">Inline loop to generate a list</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditionals">Conditionals</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objects">Objects</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bits">Bits</a></li>
 </ul>
