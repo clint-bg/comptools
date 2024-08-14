@@ -425,7 +425,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -441,6 +443,20 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loop">For Loop</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-arrays">Using Arrays</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loop">While Loop</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inline-loop">Inline Loop</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infinite-loop">Infinite Loop</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -452,8 +468,10 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="basic-loop">
 <h1>03 - Basic Loop<a class="headerlink" href="#basic-loop" title="Permalink to this heading">#</a></h1>
-<p>We love loops because they go round and round</p>
-<img src="https://github.com/clint-bg/comptools/blob/main/lectures/supportfiles/LoopsImage.png?raw=trueg" width="400"><p>Sum all integers between 1 and 100</p>
+<p>We love loops because they go round and round. Seriously, loops help us complete repetitive tasks.</p>
+<img src="https://github.com/clint-bg/comptools/blob/main/lectures/supportfiles/LoopsImage.png?raw=trueg" width="400"><section id="for-loop">
+<h2>For Loop<a class="headerlink" href="#for-loop" title="Permalink to this heading">#</a></h2>
+<p>Sum all integers between 1 and 100</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mysum</span> <span class="o">=</span> <span class="mi">0</span>
@@ -471,16 +489,12 @@ document.write(`
 </div>
 </div>
 <p>Is that correct?</p>
+<section id="using-arrays">
+<h3>Using Arrays<a class="headerlink" href="#using-arrays" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#first make empty array</span>
+<span class="c1">#first make empty array</span>
 <span class="n">numbers</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">):</span>
     <span class="n">numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
@@ -546,6 +560,61 @@ document.write(`
 </div>
 </div>
 </section>
+</section>
+<section id="while-loop">
+<h2>While Loop<a class="headerlink" href="#while-loop" title="Permalink to this heading">#</a></h2>
+<p>Sum integers until the index is 100</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">mysum</span> <span class="o">=</span><span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">:</span> <span class="c1">#any condition could be used; loop is executed as long as the condition is true</span>
+    <span class="n">mysum</span> <span class="o">+=</span> <span class="n">i</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mysum</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5050
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="inline-loop">
+<h2>Inline Loop<a class="headerlink" href="#inline-loop" title="Permalink to this heading">#</a></h2>
+<p>An inline loop is shorthand for a loop. It is written in a single line using a list notation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">listofnumbers</span> <span class="o">=</span> <span class="p">[</span><span class="n">each</span> <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">)]</span>
+<span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">listofnumbers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4950
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="infinite-loop">
+<h2>Infinite Loop<a class="headerlink" href="#infinite-loop" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#This would yield an infinite loop, why?</span>
+<span class="c1">#i = 0; mysum =0</span>
+<span class="c1">#while i &lt;= 100: #any condition could be used; loop is executed as long as the condition is true</span>
+<span class="c1">#    mysum += i</span>
+
+<span class="c1">#print(mysum)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You don’t want this to happen. It usually will crash your computer.</p>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -605,6 +674,26 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loop">For Loop</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-arrays">Using Arrays</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loop">While Loop</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inline-loop">Inline Loop</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#infinite-loop">Infinite Loop</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
