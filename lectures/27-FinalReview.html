@@ -168,7 +168,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../topics.html">Modules</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01-Motive.html">01 - Motivation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01b-Basics.html">01b - Python Basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02-Arrays.html">02 - Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-Arrays.html">02 - Arrays, Lists, Dictionaries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03-BasicLoops.html">03 - Basic Loop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03b-Loops.html">03b - Loops: Brownian Motion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04-Functions.html">04 - Functions: Gases</a></li>
@@ -199,20 +199,19 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW01.html">HW01: Introduction to Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW02.html">HW02: Functions and Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW03.html">HW03: More Functions and Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW04.html">HW04: Debugging and Documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW05.html">HW05: Units</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW06.html">HW06: Solve Equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW07.html">HW07: Additional Equation Solving Practice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW08.html">HW08: Solving Ordinary Differential Equations (ODEs)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW09.html">HW09: More Solving of Ordinary Differential Equations (ODEs)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW10.html">HW10: More Practice Programming Loops and Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW11.html">HW11: Regression and Interpolation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW12.html">HW12: Interpolation and Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW13.html">HW13: Excel Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW14.html">HW14: Excel Practice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW19.html">HW19: Ansys Workbench Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW02.html">HW02: Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW03.html">HW03: Practice Programming Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW04.html">HW04: Functions and Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW05.html">HW05: More Functions and Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW06.html">HW06: Debugging and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW07.html">HW07: Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW08.html">HW08: Solve Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW09.html">HW09: Additional Equation Solving Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW10.html">HW10: Solving Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW11.html">HW11: More Solving of Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW12.html">HW12: Regression and Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW13.html">HW13: Interpolation and Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW14.html">HW14: Excel Introduction</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -621,7 +620,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2f701ba8f248c8ad73e5c7269a1ef6d634afb2b60e20c78ae67035c10f797407.png" src="../_images/2f701ba8f248c8ad73e5c7269a1ef6d634afb2b60e20c78ae67035c10f797407.png" />
+<img alt="../_images/c0f3433c42c7ad0b0ba5ebe94ab53e47dd36a3ed2540bdfb241ef5b83b9c17fd.png" src="../_images/c0f3433c42c7ad0b0ba5ebe94ab53e47dd36a3ed2540bdfb241ef5b83b9c17fd.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -637,7 +636,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R2 = 0.997
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R2 = 0.990
 </pre></div>
 </div>
 </div>
@@ -651,7 +650,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MAPE = 2.07%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MAPE = 6.99%
 </pre></div>
 </div>
 </div>
@@ -669,7 +668,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>popt = [2.23035982e-04 1.90540092e+01]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>popt = [2.08800351e-04 1.95665125e+01]
 </pre></div>
 </div>
 </div>
@@ -691,7 +690,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>area of mymodel fit between 0 and 10 = 212.65
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>area of mymodel fit between 0 and 10 = 216.36
 </pre></div>
 </div>
 </div>
@@ -713,7 +712,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array(17.00422068)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array(17.51865562)
 </pre></div>
 </div>
 </div>

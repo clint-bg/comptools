@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>HW04: Debugging and Documentation &#8212; Computational Tools for Chemical Engineers</title>
+    <title>HW04: Functions and Objects &#8212; Computational Tools for Chemical Engineers</title>
   
   
   
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'homework/HW04';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="HW05: Units" href="HW05.html" />
-    <link rel="prev" title="HW03: More Functions and Objects" href="HW03.html" />
+    <link rel="next" title="HW05: More Functions and Objects" href="HW05.html" />
+    <link rel="prev" title="HW03: Practice Programming Loops" href="HW03.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -170,7 +170,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../topics.html">Modules</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/01-Motive.html">01 - Motivation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/01b-Basics.html">01b - Python Basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/02-Arrays.html">02 - Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/02-Arrays.html">02 - Arrays, Lists, Dictionaries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/03-BasicLoops.html">03 - Basic Loop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/03b-Loops.html">03b - Loops: Brownian Motion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/04-Functions.html">04 - Functions: Gases</a></li>
@@ -201,20 +201,19 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="HW01.html">HW01: Introduction to Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW02.html">HW02: Functions and Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW03.html">HW03: More Functions and Objects</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">HW04: Debugging and Documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW05.html">HW05: Units</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW06.html">HW06: Solve Equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW07.html">HW07: Additional Equation Solving Practice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW08.html">HW08: Solving Ordinary Differential Equations (ODEs)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW09.html">HW09: More Solving of Ordinary Differential Equations (ODEs)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW10.html">HW10: More Practice Programming Loops and Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW11.html">HW11: Regression and Interpolation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW12.html">HW12: Interpolation and Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW13.html">HW13: Excel Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW14.html">HW14: Excel Practice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW19.html">HW19: Ansys Workbench Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW02.html">HW02: Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW03.html">HW03: Practice Programming Loops</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">HW04: Functions and Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW05.html">HW05: More Functions and Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW06.html">HW06: Debugging and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW07.html">HW07: Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW08.html">HW08: Solve Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW09.html">HW09: Additional Equation Solving Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW10.html">HW10: Solving Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW11.html">HW11: More Solving of Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW12.html">HW12: Regression and Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW13.html">HW13: Interpolation and Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW14.html">HW14: Excel Introduction</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -440,7 +439,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>HW04: Debugging and Documentation</h1>
+    <h1>HW04: Functions and Objects</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -466,169 +465,99 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="hw04-debugging-and-documentation">
-<h1>HW04: Debugging and Documentation<a class="headerlink" href="#hw04-debugging-and-documentation" title="Permalink to this heading">#</a></h1>
-<p>Purposes of this assignment is to get more practice with the following:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="hw04-functions-and-objects">
+<h1>HW04: Functions and Objects<a class="headerlink" href="#hw04-functions-and-objects" title="Permalink to this heading">#</a></h1>
+<p>Purposes of this assignment is to get practice with the following:</p>
 <ul class="simple">
 <li><p>If statements</p></li>
-<li><p>For loops</p></li>
-<li><p>Debugging</p></li>
-<li><p>Function Calls</p></li>
-<li><p>Using objects (class instance) and make a calculation using the objects attributes</p></li>
+<li><p>Defining and calling functions</p></li>
+<li><p>Define an object (class instance) and make a calculation using the objects attributes</p></li>
 </ul>
 <section id="problem-1">
 <h2>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h2>
-<p>We have learned about functions and loops. In this problem, you will write a function that takes a list of numbers and returns the sum of all the numbers in the list, except for the last number. Below is a start to this problem. Please complete it using a loop.</p>
+<p><strong>(a)</strong> x is given below. Write an if statement that will print whether x is positive, negative, or zero.</p>
+<p>x=-10</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">listofnumbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">19</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p><strong>(b)</strong> x and y are given below. Write an if statement that will print whether x and y are both positive, or both negative, or if one or both are zero.</p>
+<p>x=-4 y=3.2</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">loopsum</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
-    <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">:</span>
-        <span class="nb">sum</span> <span class="o">+=</span> <span class="n">i</span>
-    <span class="k">return</span> <span class="nb">sum</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span><span class="p">;</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">3.2</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Can you fix the logical error in the above code?</p>
+<p><strong>(c)</strong> The ideal gas law is an approximation, but it is only a good approximation under certain circumstances. The general rule of thumb is when the specifc volume is greater than 5 L/mol for diatomic gases and 20 L/mol for all other gases. (Specific volume: <span class="math notranslate nohighlight">\(\hat{V} = \frac{V}{n}\)</span> )
+$<span class="math notranslate nohighlight">\(\hat{V}=\frac{RT}{P} &gt; 5 L/mol \)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\( .......(modification)....                &gt;20 L/mol\)</span>$
+Write an if statement that will print the ideal specifc volume of O2, and state whether or not the ideal gas law is a good approximation.</p>
+<p>T = 600 K</p>
+<p>P = 15 atm</p>
+<p>R = .08206 L*Atm/(mol K)</p>
 </section>
 <section id="problem-2">
 <h2>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h2>
-<p>Explain how the below code is working. What is the purpose of the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement? What is the purpose of the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop? What is the purpose of the <code class="docutils literal notranslate"><span class="pre">return</span></code> statements?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_prime</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">False</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span>
-    <span class="k">return</span> <span class="kc">True</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">is_prime</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
-</div>
+<p><strong>(a)</strong> Write a function called “sum” that takes two numbers and returns the sum of them.</p>
+<p><strong>(b)</strong> Write a function called “quadroots” that takes three numbers <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span> as function arguments that are the coefficients of the quadratic formula <span class="math notranslate nohighlight">\(ax^2+bx+c=0\)</span>, and returns the two roots. Test your function on <span class="math notranslate nohighlight">\(a=1,\,b=-1,\, c=-2\)</span>. You should get roots of 2 and -1.</p>
+<p><strong>(c)</strong> Functions are a convenient way to convert units. Write a function that converts</p>
+<ol class="arabic simple">
+<li><p>Celsius for Farhenheit,</p></li>
+<li><p>Farheneit to Celsius,</p></li>
+<li><p>Liters to Gallons, and</p></li>
+<li><p>kg/h to lbm/s</p></li>
+</ol>
+<p>Use each function at least once to print the values of 40 C to F, 102 F to C, 19 L to gal, and 34 kg/h to lbm/s.</p>
 </section>
 <section id="problem-3">
 <h2>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h2>
-<p>Please correct the logical error in the below code.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">max_of_list</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
-    <span class="n">max_value</span> <span class="o">=</span> <span class="nb">list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">)):</span>
-        <span class="k">if</span> <span class="nb">list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
-            <span class="n">max_value</span> <span class="o">=</span> <span class="nb">list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">max_value</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arrayexample</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span> <span class="c1">#this is an example test, you may want to run others</span>
-<span class="n">max_of_list</span><span class="p">(</span><span class="n">arrayexample</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#this returns how much CPU time the function took to run as compared to the internal max function</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="n">max_of_list</span><span class="p">(</span><span class="n">arrayexample</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- </span><span class="si">%s</span><span class="s2"> seconds ---&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">))</span>
-<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="nb">max</span><span class="p">(</span><span class="n">arrayexample</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- </span><span class="si">%s</span><span class="s2"> seconds ---&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- 4.410743713378906e-05 seconds ---
---- 3.981590270996094e-05 seconds ---
-</pre></div>
-</div>
-</div>
-</div>
-<p>It’s good to discover the documentation of available packages so you don’t reinvent the wheel less efficiently. There already is an internal max function that is faster. (At least when done right it is.)</p>
-</section>
-<section id="problem-4">
-<h2>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h2>
-<p>Fix the below code to reverse the order of the string</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">reverse_string</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
-    <span class="n">reversed_str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">reversed_str</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">reversed_str</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reverse_string</span><span class="p">(</span><span class="s2">&quot;The quick brown fox jumps over the lazy dog&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;god yzal eht revo spmuj xof nworb kciuq e&#39;
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="problem-5">
-<h2>Problem 5<a class="headerlink" href="#problem-5" title="Permalink to this heading">#</a></h2>
-<p>Define arrays for the following equations</p>
+<p>Write a function for the Peng Robinson equation of state. The Peng Robinson equation of state is given by:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
-y1 &amp;= 2x−3 + 2x−1 \\
-y2 &amp;= 2x−3 \\
-y3 &amp;= 2x−1 \\
+P = \frac{RT}{V_m-b}&amp;-\frac{a\alpha}{V_m(V_m+b)+b(V_m-b)} \tag{1} \\ 
+a &amp;= 0.45724\frac{R^2T_c^2}{P_c} \tag{2a} \\
+b &amp;= 0.07780\frac{RT_c}{P_c} \tag{2b} \\
+\alpha &amp;= \left[1+\kappa\left(1-\sqrt{\frac{T}{T_c}}\right)\right]^2 \tag{2c}\\
+\kappa &amp;= 0.37464+1.54226\omega-0.26992\omega^2 \tag{2d} \\
+T_r &amp;= \frac{T}{T_c} \tag{2e}\\
 \end{align}
 \end{split}\]</div>
-<p>where x ∈ [1E−2, 1E2] with at least 100 points in each array. Hint: Use the numpy function logspace.
-Plot t versus y1, y2, and y3 with the following formatting specifications, and save the plot as power law.pdf.</p>
+<p>where <span class="math notranslate nohighlight">\(T_c\)</span> is the critical temperature, <span class="math notranslate nohighlight">\(P_c\)</span> is the critical pressure, <span class="math notranslate nohighlight">\(\omega\)</span> is the acentric factor, and <span class="math notranslate nohighlight">\(T_r\)</span> is the reduced temperature. The critical properties for carbon dioxide are <span class="math notranslate nohighlight">\(T_c = 304.2\)</span> K and <span class="math notranslate nohighlight">\(P_c = 73.8\)</span> atm. The acentric factor for carbon dioxide is <span class="math notranslate nohighlight">\(\omega = 0.225\)</span>. The gas constant is <span class="math notranslate nohighlight">\(R = 0.08206\)</span> L atm/(mol K).</p>
+<p>Evaluate the function to determine the pressure for the following conditions:</p>
 <ul class="simple">
-<li><p>Make the plot a log-log plot.</p></li>
-<li><p>Make the default font size 16.</p></li>
-<li><p>Plot y1 as a black solid line of width 2, y2 as a blue dashed line of default width and y3 as a red dotted line of default width.</p></li>
-<li><p>Label the x-axis with a symbol, σ.</p></li>
-<li><p>Label the y-axis with the word “Energy”</p></li>
-<li><p>Title the figure “Power-Law Crossover”</p></li>
-<li><p>Change the x-axis limits to span from 1E−2 to 1E2 and the y-axis from 1E−5 to 1E5</p></li>
-<li><p>Add a legend where y1 is labeled as “exact”, y2 is labeled as “large σ” and y3 is labeled as “small σ”.
-Hint. You are going to have to read the online documentation to learn how to do some of this formatting. I did this on purpose, so you can get comfortable doing this because it is an important skill.</p></li>
+<li><p>T = 600 K</p></li>
+<li><p>V = 0.05 <span class="math notranslate nohighlight">\(\text{m}^3\)</span>/mol</p></li>
+<li><p>Carbon dioxide (<span class="math notranslate nohighlight">\(\text{CO}_2\)</span>) is the gas</p></li>
 </ul>
+</section>
+<section id="problem-4">
+<h2>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h2>
+<p>In the class <span class="xref myst">Motivation</span>, we calculated the adiabatic flame temperature for a butane-air mixture. Modify the code to calculate the adiabatic flame temperature for a pentane-air mixture. You’ll use property data from the DIPPR database. As a BYU student (accessing the website from on-campus), you have access <a class="reference external" href="https://dippr.aiche.org/FullDb?TriggerLogin=1">here</a>.</p>
+<p><strong>Action 3:</strong> Copy the code done in the manual calculation in the <span class="xref myst">Motivation</span> discussion (the flame temperature calculation that does not use Cantera). Follow the below steps to modify the code to calculate the adiabatic flame temperature for a pentane-air mixture.</p>
+<ul class="simple">
+<li><p>Copy the code from the <span class="xref myst">Motivation</span> discussion and paste it into the cell below. There are 3 code blocks you’ll need. Make sure you can get the code to run to predict the adiabatic flame temperature for a butane-air mixture.</p></li>
+<li><p>Modify the code by switching the butane (C4H10) to pentane (C5H12) with the associated Cp properties from DIPPR. You’ll also have to modify the coefficients in the other gas descriptions (C5H12 + 8O2 = 6H2O + 5CO2) for pentane.</p></li>
+</ul>
+<p>Report the code and the adiabatic flame temperature in degrees Celsius and comment on whether you think it is accurate or not.</p>
+</section>
+<section id="problem-5">
+<h2>Problem 5<a class="headerlink" href="#problem-5" title="Permalink to this heading">#</a></h2>
+<p>Create a class called gas that has the following attributes:</p>
+<ul class="simple">
+<li><p>critical temperature</p></li>
+<li><p>critical pressure</p></li>
+<li><p>acentric factor</p></li>
+<li><p>temperature</p></li>
+<li><p>molar volume</p></li>
+<li><p>a function that can return the pressure given the temperature and molar volume using the Peng Robinson equation of state you programmed in Problem 3</p></li>
+</ul>
+<p>Credit to Dr. John Hedengren for many of these problems (see also <a class="reference external" href="https://apmonitor.com/che263/">APMonitor.com</a>))</p>
 </section>
 </section>
 
@@ -669,7 +598,7 @@ Hint. You are going to have to read the online documentation to learn how to do 
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">HW03: More Functions and Objects</p>
+        <p class="prev-next-title">HW03: Practice Programming Loops</p>
       </div>
     </a>
     <a class="right-next"
@@ -677,7 +606,7 @@ Hint. You are going to have to read the online documentation to learn how to do 
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">HW05: Units</p>
+        <p class="prev-next-title">HW05: More Functions and Objects</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

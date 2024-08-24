@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'homework/HW01';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="HW02: Functions and Objects" href="HW02.html" />
+    <link rel="next" title="HW02: Arrays" href="HW02.html" />
     <link rel="prev" title="Practice Problems" href="../homework.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -170,7 +170,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../topics.html">Modules</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/01-Motive.html">01 - Motivation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/01b-Basics.html">01b - Python Basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/02-Arrays.html">02 - Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/02-Arrays.html">02 - Arrays, Lists, Dictionaries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/03-BasicLoops.html">03 - Basic Loop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/03b-Loops.html">03b - Loops: Brownian Motion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/04-Functions.html">04 - Functions: Gases</a></li>
@@ -201,20 +201,19 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">HW01: Introduction to Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW02.html">HW02: Functions and Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW03.html">HW03: More Functions and Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW04.html">HW04: Debugging and Documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW05.html">HW05: Units</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW06.html">HW06: Solve Equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW07.html">HW07: Additional Equation Solving Practice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW08.html">HW08: Solving Ordinary Differential Equations (ODEs)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW09.html">HW09: More Solving of Ordinary Differential Equations (ODEs)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW10.html">HW10: More Practice Programming Loops and Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW11.html">HW11: Regression and Interpolation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW12.html">HW12: Interpolation and Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW13.html">HW13: Excel Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW14.html">HW14: Excel Practice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW19.html">HW19: Ansys Workbench Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW02.html">HW02: Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW03.html">HW03: Practice Programming Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW04.html">HW04: Functions and Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW05.html">HW05: More Functions and Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW06.html">HW06: Debugging and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW07.html">HW07: Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW08.html">HW08: Solve Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW09.html">HW09: Additional Equation Solving Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW10.html">HW10: Solving Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW11.html">HW11: More Solving of Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW12.html">HW12: Regression and Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW13.html">HW13: Interpolation and Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW14.html">HW14: Excel Introduction</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -454,7 +453,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting Started</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-names">Variable Names</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-types">Variable Types</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-of-the-str-object">Functions of the str Object</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operators">Operators</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a></li>
 </ul>
@@ -484,7 +483,6 @@ document.write(`
 <li><p>install Python</p></li>
 <li><p>help, print, type</p></li>
 <li><p>variable names</p></li>
-<li><p>functions</p></li>
 <li><p>operators</p></li>
 <li><p>import packages</p></li>
 <li><p>introduction to numpy</p></li>
@@ -503,7 +501,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_57977/2426028648.py:3: DeprecationWarning: Importing display from IPython.core.display is deprecated since IPython 7.14, please import from IPython display
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_6312/2426028648.py:3: DeprecationWarning: Importing display from IPython.core.display is deprecated since IPython 7.14, please import from IPython display
   from IPython.core.display import display, HTML
 </pre></div>
 </div>
@@ -627,8 +625,8 @@ print(...)
 </div>
 </div>
 </section>
-<section id="functions">
-<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h3>
+<section id="functions-of-the-str-object">
+<h3>Functions of the str Object<a class="headerlink" href="#functions-of-the-str-object" title="Permalink to this heading">#</a></h3>
 <p>In addition to a value, the <code class="docutils literal notranslate"><span class="pre">str</span></code> object has useful functions such as <code class="docutils literal notranslate"><span class="pre">lower</span></code> and <code class="docutils literal notranslate"><span class="pre">upper</span></code> to convert to lower or upper case, respectively.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">myVar</span> <span class="o">=</span> <span class="s1">&#39;my name&#39;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">myVar</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
@@ -836,7 +834,7 @@ print(...)
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">HW02: Functions and Objects</p>
+        <p class="prev-next-title">HW02: Arrays</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -862,7 +860,7 @@ print(...)
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting Started</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-names">Variable Names</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-types">Variable Types</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-of-the-str-object">Functions of the str Object</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operators">Operators</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a></li>
 </ul>
