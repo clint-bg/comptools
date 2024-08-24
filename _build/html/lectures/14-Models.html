@@ -168,7 +168,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../topics.html">Modules</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01-Motive.html">01 - Motivation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01b-Basics.html">01b - Python Basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02-Arrays.html">02 - Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-Arrays.html">02 - Arrays, Lists, Dictionaries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03-BasicLoops.html">03 - Basic Loop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03b-Loops.html">03b - Loops: Brownian Motion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04-Functions.html">04 - Functions: Gases</a></li>
@@ -199,20 +199,19 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../homework.html">Practice Problems</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW01.html">HW01: Introduction to Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW02.html">HW02: Functions and Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW03.html">HW03: More Functions and Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW04.html">HW04: Debugging and Documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW05.html">HW05: Units</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW06.html">HW06: Solve Equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW07.html">HW07: Additional Equation Solving Practice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW08.html">HW08: Solving Ordinary Differential Equations (ODEs)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW09.html">HW09: More Solving of Ordinary Differential Equations (ODEs)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW10.html">HW10: More Practice Programming Loops and Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW11.html">HW11: Regression and Interpolation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW12.html">HW12: Interpolation and Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW13.html">HW13: Excel Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW14.html">HW14: Excel Practice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW19.html">HW19: Ansys Workbench Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW02.html">HW02: Arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW03.html">HW03: Practice Programming Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW04.html">HW04: Functions and Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW05.html">HW05: More Functions and Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW06.html">HW06: Debugging and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW07.html">HW07: Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW08.html">HW08: Solve Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW09.html">HW09: Additional Equation Solving Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW10.html">HW10: Solving Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW11.html">HW11: More Solving of Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW12.html">HW12: Regression and Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW13.html">HW13: Interpolation and Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW14.html">HW14: Excel Introduction</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -750,7 +749,7 @@ Name: Time (s), dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_58174/834267956.py:2: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_6524/834267956.py:2: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
   data[&#39;time&#39;] = pd.to_datetime(data[&#39;time&#39;]) # set time to datetime to help with plotting
 </pre></div>
 </div>
@@ -964,7 +963,7 @@ Vehicle speed (mph)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e6cb10013b972738b106068f9ce71b40e48d3dfea91a0449851ecc46d1e8d662.png" src="../_images/e6cb10013b972738b106068f9ce71b40e48d3dfea91a0449851ecc46d1e8d662.png" />
+<img alt="../_images/7cf437766c9510c713f3af2fe5e2ac78eaa99460085188aa0f3fb79dc480605b.png" src="../_images/7cf437766c9510c713f3af2fe5e2ac78eaa99460085188aa0f3fb79dc480605b.png" />
 </div>
 </div>
 <p>Note that the higher order cubic interpolation can have wide oscillations at the end points. This is called Runge’s phenomenon (<a class="reference external" href="https://en.wikipedia.org/wiki/Runge%27s_phenomenon">https://en.wikipedia.org/wiki/Runge’s_phenomenon</a>).</p>
@@ -1073,31 +1072,31 @@ Vehicle speed (mph)
       <th>0</th>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>5.009452</td>
+      <td>5.043421</td>
     </tr>
     <tr>
       <th>1</th>
       <td>0.020408</td>
       <td>0.010204</td>
-      <td>5.140229</td>
+      <td>5.145779</td>
     </tr>
     <tr>
       <th>2</th>
       <td>0.040816</td>
       <td>0.020408</td>
-      <td>5.172448</td>
+      <td>5.250020</td>
     </tr>
     <tr>
       <th>3</th>
       <td>0.061224</td>
       <td>0.030612</td>
-      <td>5.292848</td>
+      <td>5.362865</td>
     </tr>
     <tr>
       <th>4</th>
       <td>0.081633</td>
       <td>0.040816</td>
-      <td>5.441169</td>
+      <td>5.431992</td>
     </tr>
   </tbody>
 </table>
@@ -1144,43 +1143,43 @@ Vehicle speed (mph)
       <th>mean</th>
       <td>0.500000</td>
       <td>0.250000</td>
-      <td>8.735449</td>
+      <td>8.736695</td>
     </tr>
     <tr>
       <th>std</th>
       <td>0.297498</td>
       <td>0.148749</td>
-      <td>2.702584</td>
+      <td>2.703180</td>
     </tr>
     <tr>
       <th>min</th>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>5.009452</td>
+      <td>5.043421</td>
     </tr>
     <tr>
       <th>25%</th>
       <td>0.250000</td>
       <td>0.125000</td>
-      <td>6.360636</td>
+      <td>6.389262</td>
     </tr>
     <tr>
       <th>50%</th>
       <td>0.500000</td>
       <td>0.250000</td>
-      <td>8.297108</td>
+      <td>8.272548</td>
     </tr>
     <tr>
       <th>75%</th>
       <td>0.750000</td>
       <td>0.375000</td>
-      <td>10.879230</td>
+      <td>10.821038</td>
     </tr>
     <tr>
       <th>max</th>
       <td>1.000000</td>
       <td>0.500000</td>
-      <td>14.005257</td>
+      <td>14.030184</td>
     </tr>
   </tbody>
 </table>
@@ -1222,7 +1221,7 @@ Vehicle speed (mph)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b5df9d7a417b1984aedbfd5f578714ef40247dddc0acb7259f8a778cc65c4c06.png" src="../_images/b5df9d7a417b1984aedbfd5f578714ef40247dddc0acb7259f8a778cc65c4c06.png" />
+<img alt="../_images/22fdd464af44cd76317dad9ae5423ba7a2ae7947bc1ab36415741c37770ffc81.png" src="../_images/22fdd464af44cd76317dad9ae5423ba7a2ae7947bc1ab36415741c37770ffc81.png" />
 </div>
 </div>
 </section>
@@ -1245,25 +1244,25 @@ Vehicle speed (mph)
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
 ==============================================================================
-Dep. Variable:                 height   R-squared:                       0.980
-Model:                            OLS   Adj. R-squared:                  0.979
-Method:                 Least Squares   F-statistic:                     2322.
-Date:                Tue, 06 Aug 2024   Prob (F-statistic):           2.63e-42
-Time:                        18:08:14   Log-Likelihood:                -22.667
-No. Observations:                  50   AIC:                             49.33
-Df Residuals:                      48   BIC:                             53.16
+Dep. Variable:                 height   R-squared:                       0.979
+Model:                            OLS   Adj. R-squared:                  0.978
+Method:                 Least Squares   F-statistic:                     2204.
+Date:                Sat, 24 Aug 2024   Prob (F-statistic):           8.96e-42
+Time:                        10:47:37   Log-Likelihood:                -23.955
+No. Observations:                  50   AIC:                             51.91
+Df Residuals:                      48   BIC:                             55.73
 Df Model:                           1                                         
 Covariance Type:            nonrobust                                         
 ==============================================================================
                  coef    std err          t      P&gt;|t|      [0.025      0.975]
 ------------------------------------------------------------------------------
-const          4.2395      0.108     39.151      0.000       4.022       4.457
-fertilizer    17.9838      0.373     48.186      0.000      17.233      18.734
+const          4.2422      0.111     38.179      0.000       4.019       4.466
+fertilizer    17.9781      0.383     46.946      0.000      17.208      18.748
 ==============================================================================
-Omnibus:                        7.588   Durbin-Watson:                   0.033
-Prob(Omnibus):                  0.023   Jarque-Bera (JB):                4.731
-Skew:                           0.583   Prob(JB):                       0.0939
-Kurtosis:                       2.045   Cond. No.                         7.22
+Omnibus:                        6.763   Durbin-Watson:                   0.032
+Prob(Omnibus):                  0.034   Jarque-Bera (JB):                4.802
+Skew:                           0.617   Prob(JB):                       0.0906
+Kurtosis:                       2.117   Cond. No.                         7.22
 ==============================================================================
 
 Notes:
@@ -1290,7 +1289,7 @@ Notes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.601235955284675
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.68448107257078
 </pre></div>
 </div>
 </div>
@@ -1342,26 +1341,26 @@ Notes:
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
 ==============================================================================
-Dep. Variable:                 height   R-squared:                       0.980
-Model:                            OLS   Adj. R-squared:                  0.979
-Method:                 Least Squares   F-statistic:                     2322.
-Date:                Tue, 06 Aug 2024   Prob (F-statistic):           2.63e-42
-Time:                        18:08:14   Log-Likelihood:                -22.667
-No. Observations:                  50   AIC:                             49.33
-Df Residuals:                      48   BIC:                             53.16
+Dep. Variable:                 height   R-squared:                       0.979
+Model:                            OLS   Adj. R-squared:                  0.978
+Method:                 Least Squares   F-statistic:                     2204.
+Date:                Sat, 24 Aug 2024   Prob (F-statistic):           8.96e-42
+Time:                        10:47:37   Log-Likelihood:                -23.955
+No. Observations:                  50   AIC:                             51.91
+Df Residuals:                      48   BIC:                             55.73
 Df Model:                           1                                         
 Covariance Type:            nonrobust                                         
 ==============================================================================
                  coef    std err          t      P&gt;|t|      [0.025      0.975]
 ------------------------------------------------------------------------------
-const          4.2395      0.108     39.151      0.000       4.022       4.457
-water          7.1935      0.149     48.186      0.000       6.893       7.494
-fertilizer     3.5968      0.075     48.186      0.000       3.447       3.747
+const          4.2422      0.111     38.179      0.000       4.019       4.466
+water          7.1912      0.153     46.946      0.000       6.883       7.499
+fertilizer     3.5956      0.077     46.946      0.000       3.442       3.750
 ==============================================================================
-Omnibus:                        7.588   Durbin-Watson:                   0.033
-Prob(Omnibus):                  0.023   Jarque-Bera (JB):                4.731
-Skew:                           0.583   Prob(JB):                       0.0939
-Kurtosis:                       2.045   Cond. No.                     1.11e+16
+Omnibus:                        6.763   Durbin-Watson:                   0.032
+Prob(Omnibus):                  0.034   Jarque-Bera (JB):                4.802
+Skew:                           0.617   Prob(JB):                       0.0906
+Kurtosis:                       2.117   Cond. No.                     1.11e+16
 ==============================================================================
 
 Notes:
@@ -1407,7 +1406,7 @@ strong multicollinearity problems or that the design matrix is singular.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8b1b9ebf9e54c676416861ee3e1fc652749e9d0c4d772d09c8c04c495c84344a.png" src="../_images/8b1b9ebf9e54c676416861ee3e1fc652749e9d0c4d772d09c8c04c495c84344a.png" />
+<img alt="../_images/1ca09507063f039db142db84d96b803a5b4f94b2da1ffc47a8cf6e25c8038657.png" src="../_images/1ca09507063f039db142db84d96b803a5b4f94b2da1ffc47a8cf6e25c8038657.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1418,7 +1417,7 @@ strong multicollinearity problems or that the design matrix is singular.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.93311121200612
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.909953050689204
 </pre></div>
 </div>
 </div>
