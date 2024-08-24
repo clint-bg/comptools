@@ -449,9 +449,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-2-points">Problem 1 (2 points):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-while-loop-3-points">Problem 2: While Loop (3 points)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-nested-loops-4-points">Problem 3: Nested Loops (4 points)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-while-loop">Problem 2: While Loop</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-nested-loops">Problem 3: Nested Loops</a></li>
 </ul>
             </nav>
         </div>
@@ -466,21 +466,21 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="hw03-practice-programming-loops">
 <h1>HW03: Practice Programming Loops<a class="headerlink" href="#hw03-practice-programming-loops" title="Permalink to this heading">#</a></h1>
 <p>You have seen For Loops in class. This homework will give you more practice. Loops are a very important concept in programming.</p>
-<section id="problem-1-2-points">
-<h2>Problem 1 (2 points):<a class="headerlink" href="#problem-1-2-points" title="Permalink to this heading">#</a></h2>
+<section id="problem-1">
+<h2>Problem 1:<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h2>
 <p>Write a loop that calculates the factorial of an integer number <code class="docutils literal notranslate"><span class="pre">n</span></code>.  Remember that factorial 10 <span class="math notranslate nohighlight">\(= 10*9*8*7*6*5*4*3*2*1\)</span>. You’re loop should return the factorial of the number <code class="docutils literal notranslate"><span class="pre">n</span></code> passed to it.  You can assume that <code class="docutils literal notranslate"><span class="pre">n</span></code> will be a positive integer.</p>
 <p>Once you have written your function with your loop inside (HA! Don’t just call math.factorial inside the function, you have to write the loop yourself), test it out by running it with starting values of 5, 10, and 20. Print out the results with the comparison to the math.factorial function.</p>
 <p>The loop should return a statement that says “Please enter a positive integer” if the starting value is a negative number or zero.  You can do this with an if statement.</p>
 </section>
-<section id="problem-2-while-loop-3-points">
-<h2>Problem 2: While Loop (3 points)<a class="headerlink" href="#problem-2-while-loop-3-points" title="Permalink to this heading">#</a></h2>
+<section id="problem-2-while-loop">
+<h2>Problem 2: While Loop<a class="headerlink" href="#problem-2-while-loop" title="Permalink to this heading">#</a></h2>
 <p>In the lecture we used a while loop to estimate the probability of a random walk ending at the 10th location of a 1 dimensional random walk given the starting location and that the random walk ends if it reaches the 0th or 10th location.</p>
 <p>Here, write a loop titled <code class="docutils literal notranslate"><span class="pre">random_walk</span></code> that uses two parameters: <code class="docutils literal notranslate"><span class="pre">start</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span></code>.  The loop should return the number of steps it takes to reach the <code class="docutils literal notranslate"><span class="pre">end</span></code> location starting from the <code class="docutils literal notranslate"><span class="pre">start</span></code> location. The moves are either +1 or -1 on a one dimensional “track”. For example, if you start at 6, a random move would move you either to 5 or 7. The random walk ends if it reaches the <code class="docutils literal notranslate"><span class="pre">end</span></code>. The random_walk function should return the number of steps taken.</p>
 <p>Run your loop 100 times and calculate the average and standard deviation of the number of steps it takes to reach the <code class="docutils literal notranslate"><span class="pre">end</span></code> location starting from the <code class="docutils literal notranslate"><span class="pre">start</span></code> location, given a start location of 12 and an end location of 18.  Print out that average and standard deviation. (Hint: It’s easier if you use arrays to store the number of steps it takes to reach the end location for each of the 100 random walks.  Then you can use the np.mean and np.std functions to calculate the average and standard deviation.)</p>
 <p>Make sure you use a while loop in your function and you can use the np.random.choice([-1,1]) function to randomly choose a step of -1 or 1. Also add in a catch to stop the loop if the number of steps exceeds 100,000 using <code class="docutils literal notranslate"><span class="pre">break</span></code> in your loop.</p>
 </section>
-<section id="problem-3-nested-loops-4-points">
-<h2>Problem 3: Nested Loops (4 points)<a class="headerlink" href="#problem-3-nested-loops-4-points" title="Permalink to this heading">#</a></h2>
+<section id="problem-3-nested-loops">
+<h2>Problem 3: Nested Loops<a class="headerlink" href="#problem-3-nested-loops" title="Permalink to this heading">#</a></h2>
 <p>In class, we wrote a nested loop to calculate the diffusion coefficient of a particle undergoing a random walk.  The inner loop was for a given ‘walk’ with a certain number of steps. The outer loop was to loop over the total number of random walks.</p>
 <p>In this problem, modify the code given in class to include a third dimension z. Instead of only being able to move in x or y each step, now the particle can move in x,y,or z. Set the number of walks to 100 (instead of the 1000 as done in the lecture notes). Follow the lecture notes and calculate the diffusion coefficient. You don’t need to plot the random walk, but you will plot the average squared distance versus the number of steps just like in the lecture. You’ll then calculate the diffusion coefficient given the values used in the lecture. Print out the resulting diffusion coefficient.</p>
 <p>After finishing your calculation. Describe what this line is doing:
@@ -562,9 +562,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-2-points">Problem 1 (2 points):</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-while-loop-3-points">Problem 2: While Loop (3 points)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-nested-loops-4-points">Problem 3: Nested Loops (4 points)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-while-loop">Problem 2: While Loop</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-nested-loops">Problem 3: Nested Loops</a></li>
 </ul>
   </nav></div>
 
