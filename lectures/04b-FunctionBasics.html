@@ -511,29 +511,6 @@ The sum of 5 and two is 7
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">param</span> 
 <span class="k">class</span> <span class="nc">jar</span><span class="p">(</span><span class="n">param</span><span class="o">.</span><span class="n">Parameterized</span><span class="p">):</span>
     <span class="n">size</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;Size of the jar in liters&#39;</span><span class="p">)</span> <span class="c1">#default value is 5 liters and the bounds are between 0 and 100 liters</span>
-    <span class="n">amount</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">doc</span><span class="o">=</span><span class="s1">&#39;Amount of liquid in the jar in liters&#39;</span><span class="p">)</span> <span class="c1">#default value is 0 liters and the bounds are between 0 and 100 liters</span>
-    <span class="k">def</span> <span class="nf">fill</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">amount</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Amount to fill must be positive&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">amount</span> <span class="o">+=</span> <span class="n">amount</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">greenjar</span> <span class="o">=</span> <span class="n">jar</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">amount</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">greenjar</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">greenjar</span><span class="o">.</span><span class="n">amount</span><span class="p">)</span>
-<span class="n">greenjar</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">greenjar</span><span class="o">.</span><span class="n">amount</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
-5
-10
 </pre></div>
 </div>
 </div>
@@ -558,7 +535,7 @@ The sum of 5 and two is 7
 class jar(param.parameterized.Parameterized)
  |  jar(**params)
  |  
- |  params(amount=Number, size=Number, name=String)
+ |  params(size=Number, name=String)
  |  <span class=" -Color -Color-Bold -Color-Bold-Green">Parameters of &#39;jar&#39;</span>
 <span class=" -Color -Color-Bold -Color-Bold-Green"> |  ===================</span>
 <span class=" -Color -Color-Bold -Color-Bold-Green"> |  </span>
@@ -566,30 +543,21 @@ class jar(param.parameterized.Parameterized)
  |  <span class=" -Color -Color-Bold -Color-Bold-Cyan">Soft bound values are marked in cyan.</span>
  |  C/V= Constant/Variable, RO/RW = ReadOnly/ReadWrite, AN=Allow None
  |  
- |  <span class=" -Color -Color-Bold -Color-Bold-Blue">Name    Value  Type    Bounds   Mode </span>
+ |  <span class=" -Color -Color-Bold -Color-Bold-Blue">Name  Value  Type    Bounds   Mode </span>
  |  
- |  size     5  Number  (0, 100)  V RW 
- |  amount   0  Number  (0, 100)  V RW 
+ |  size   5  Number  (0, 100)  V RW 
  |  
  |  <span class=" -Color -Color-Bold -Color-Bold-Green">Parameter docstrings:</span>
 <span class=" -Color -Color-Bold -Color-Bold-Green"> |  =====================</span>
  |  
- |  <span class=" -Color -Color-Bold -Color-Bold-Blue">size:   Size of the jar in liters</span>
- |  <span class=" -Color -Color-Bold -Color-Bold-Red">amount: Amount of liquid in the jar in liters</span>
+ |  <span class=" -Color -Color-Bold -Color-Bold-Blue">size: Size of the jar in liters</span>
  |  
  |  Method resolution order:
  |      jar
  |      param.parameterized.Parameterized
  |      builtins.object
  |  
- |  Methods defined here:
- |  
- |  fill(self, amount)
- |  
- |  ----------------------------------------------------------------------
  |  Data and other attributes defined here:
- |  
- |  amount = 0
  |  
  |  name = &#39;jar&#39;
  |  
