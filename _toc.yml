@@ -19,6 +19,7 @@ chapters:
     - file: lectures/03-BasicLoops
     - file: lectures/03b-Loops
     - file: lectures/04-Functions
+    - file: lectures/04b-FunctionBasics
     - file: lectures/05-FunctionsAgain
     - file: lectures/06-Debug
     - file: lectures/07-Units
