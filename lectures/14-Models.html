@@ -172,6 +172,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="03-BasicLoops.html">03 - Basic Loop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03b-Loops.html">03b - Loops: Brownian Motion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04-Functions.html">04 - Functions: Gases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04b-FunctionBasics.html">04b - Function and Class Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05-FunctionsAgain.html">05 - Functions: Heat Transfer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="06-Debug.html">06 - Debugging</a></li>
 <li class="toctree-l2"><a class="reference internal" href="07-Units.html">07 - Units</a></li>
@@ -749,7 +750,7 @@ Name: Time (s), dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_6524/834267956.py:2: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_69140/834267956.py:2: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
   data[&#39;time&#39;] = pd.to_datetime(data[&#39;time&#39;]) # set time to datetime to help with plotting
 </pre></div>
 </div>
@@ -963,7 +964,7 @@ Vehicle speed (mph)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7cf437766c9510c713f3af2fe5e2ac78eaa99460085188aa0f3fb79dc480605b.png" src="../_images/7cf437766c9510c713f3af2fe5e2ac78eaa99460085188aa0f3fb79dc480605b.png" />
+<img alt="../_images/24614d787acb078beeb6b61e5f8b00c2ace4a0756a2a4276d765623a0c5a52bc.png" src="../_images/24614d787acb078beeb6b61e5f8b00c2ace4a0756a2a4276d765623a0c5a52bc.png" />
 </div>
 </div>
 <p>Note that the higher order cubic interpolation can have wide oscillations at the end points. This is called Runge’s phenomenon (<a class="reference external" href="https://en.wikipedia.org/wiki/Runge%27s_phenomenon">https://en.wikipedia.org/wiki/Runge’s_phenomenon</a>).</p>
@@ -1072,31 +1073,31 @@ Vehicle speed (mph)
       <th>0</th>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>5.043421</td>
+      <td>5.088686</td>
     </tr>
     <tr>
       <th>1</th>
       <td>0.020408</td>
       <td>0.010204</td>
-      <td>5.145779</td>
+      <td>5.116799</td>
     </tr>
     <tr>
       <th>2</th>
       <td>0.040816</td>
       <td>0.020408</td>
-      <td>5.250020</td>
+      <td>5.183919</td>
     </tr>
     <tr>
       <th>3</th>
       <td>0.061224</td>
       <td>0.030612</td>
-      <td>5.362865</td>
+      <td>5.308879</td>
     </tr>
     <tr>
       <th>4</th>
       <td>0.081633</td>
       <td>0.040816</td>
-      <td>5.431992</td>
+      <td>5.446790</td>
     </tr>
   </tbody>
 </table>
@@ -1143,43 +1144,43 @@ Vehicle speed (mph)
       <th>mean</th>
       <td>0.500000</td>
       <td>0.250000</td>
-      <td>8.736695</td>
+      <td>8.734292</td>
     </tr>
     <tr>
       <th>std</th>
       <td>0.297498</td>
       <td>0.148749</td>
-      <td>2.703180</td>
+      <td>2.704865</td>
     </tr>
     <tr>
       <th>min</th>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>5.043421</td>
+      <td>5.088686</td>
     </tr>
     <tr>
       <th>25%</th>
       <td>0.250000</td>
       <td>0.125000</td>
-      <td>6.389262</td>
+      <td>6.349891</td>
     </tr>
     <tr>
       <th>50%</th>
       <td>0.500000</td>
       <td>0.250000</td>
-      <td>8.272548</td>
+      <td>8.289640</td>
     </tr>
     <tr>
       <th>75%</th>
       <td>0.750000</td>
       <td>0.375000</td>
-      <td>10.821038</td>
+      <td>10.869821</td>
     </tr>
     <tr>
       <th>max</th>
       <td>1.000000</td>
       <td>0.500000</td>
-      <td>14.030184</td>
+      <td>14.065613</td>
     </tr>
   </tbody>
 </table>
@@ -1221,7 +1222,7 @@ Vehicle speed (mph)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/22fdd464af44cd76317dad9ae5423ba7a2ae7947bc1ab36415741c37770ffc81.png" src="../_images/22fdd464af44cd76317dad9ae5423ba7a2ae7947bc1ab36415741c37770ffc81.png" />
+<img alt="../_images/1114e52885e3084476ce39712e2ab90995f0e2819133264419e720eea6c8ed17.png" src="../_images/1114e52885e3084476ce39712e2ab90995f0e2819133264419e720eea6c8ed17.png" />
 </div>
 </div>
 </section>
@@ -1244,25 +1245,25 @@ Vehicle speed (mph)
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
 ==============================================================================
-Dep. Variable:                 height   R-squared:                       0.979
+Dep. Variable:                 height   R-squared:                       0.978
 Model:                            OLS   Adj. R-squared:                  0.978
-Method:                 Least Squares   F-statistic:                     2204.
-Date:                Sat, 24 Aug 2024   Prob (F-statistic):           8.96e-42
-Time:                        10:47:37   Log-Likelihood:                -23.955
-No. Observations:                  50   AIC:                             51.91
-Df Residuals:                      48   BIC:                             55.73
+Method:                 Least Squares   F-statistic:                     2164.
+Date:                Fri, 06 Sep 2024   Prob (F-statistic):           1.38e-41
+Time:                        09:05:26   Log-Likelihood:                -24.433
+No. Observations:                  50   AIC:                             52.87
+Df Residuals:                      48   BIC:                             56.69
 Df Model:                           1                                         
 Covariance Type:            nonrobust                                         
 ==============================================================================
                  coef    std err          t      P&gt;|t|      [0.025      0.975]
 ------------------------------------------------------------------------------
-const          4.2422      0.111     38.179      0.000       4.019       4.466
-fertilizer    17.9781      0.383     46.946      0.000      17.208      18.748
+const          4.2379      0.112     37.778      0.000       4.012       4.463
+fertilizer    17.9857      0.387     46.519      0.000      17.208      18.763
 ==============================================================================
-Omnibus:                        6.763   Durbin-Watson:                   0.032
-Prob(Omnibus):                  0.034   Jarque-Bera (JB):                4.802
-Skew:                           0.617   Prob(JB):                       0.0906
-Kurtosis:                       2.117   Cond. No.                         7.22
+Omnibus:                        6.767   Durbin-Watson:                   0.033
+Prob(Omnibus):                  0.034   Jarque-Bera (JB):                4.780
+Skew:                           0.615   Prob(JB):                       0.0916
+Kurtosis:                       2.115   Cond. No.                         7.22
 ==============================================================================
 
 Notes:
@@ -1289,7 +1290,7 @@ Notes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.68448107257078
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.645772195277395
 </pre></div>
 </div>
 </div>
@@ -1341,26 +1342,26 @@ Notes:
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
 ==============================================================================
-Dep. Variable:                 height   R-squared:                       0.979
+Dep. Variable:                 height   R-squared:                       0.978
 Model:                            OLS   Adj. R-squared:                  0.978
-Method:                 Least Squares   F-statistic:                     2204.
-Date:                Sat, 24 Aug 2024   Prob (F-statistic):           8.96e-42
-Time:                        10:47:37   Log-Likelihood:                -23.955
-No. Observations:                  50   AIC:                             51.91
-Df Residuals:                      48   BIC:                             55.73
+Method:                 Least Squares   F-statistic:                     2164.
+Date:                Fri, 06 Sep 2024   Prob (F-statistic):           1.38e-41
+Time:                        09:05:26   Log-Likelihood:                -24.433
+No. Observations:                  50   AIC:                             52.87
+Df Residuals:                      48   BIC:                             56.69
 Df Model:                           1                                         
 Covariance Type:            nonrobust                                         
 ==============================================================================
                  coef    std err          t      P&gt;|t|      [0.025      0.975]
 ------------------------------------------------------------------------------
-const          4.2422      0.111     38.179      0.000       4.019       4.466
-water          7.1912      0.153     46.946      0.000       6.883       7.499
-fertilizer     3.5956      0.077     46.946      0.000       3.442       3.750
+const          4.2379      0.112     37.778      0.000       4.012       4.463
+water          7.1943      0.155     46.519      0.000       6.883       7.505
+fertilizer     3.5971      0.077     46.519      0.000       3.442       3.753
 ==============================================================================
-Omnibus:                        6.763   Durbin-Watson:                   0.032
-Prob(Omnibus):                  0.034   Jarque-Bera (JB):                4.802
-Skew:                           0.617   Prob(JB):                       0.0906
-Kurtosis:                       2.117   Cond. No.                     1.11e+16
+Omnibus:                        6.767   Durbin-Watson:                   0.033
+Prob(Omnibus):                  0.034   Jarque-Bera (JB):                4.780
+Skew:                           0.615   Prob(JB):                       0.0916
+Kurtosis:                       2.115   Cond. No.                     1.11e+16
 ==============================================================================
 
 Notes:
@@ -1406,7 +1407,7 @@ strong multicollinearity problems or that the design matrix is singular.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1ca09507063f039db142db84d96b803a5b4f94b2da1ffc47a8cf6e25c8038657.png" src="../_images/1ca09507063f039db142db84d96b803a5b4f94b2da1ffc47a8cf6e25c8038657.png" />
+<img alt="../_images/854ad8ab48017ca37af2927352486809c9a03b5e74d0dfe26a06a18c20e22a86.png" src="../_images/854ad8ab48017ca37af2927352486809c9a03b5e74d0dfe26a06a18c20e22a86.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1417,7 +1418,7 @@ strong multicollinearity problems or that the design matrix is singular.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.909953050689204
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.896655922152686
 </pre></div>
 </div>
 </div>
