@@ -482,15 +482,18 @@ document.write(`
 <section id="problem-3-nested-loops">
 <h2>Problem 3: Nested Loops<a class="headerlink" href="#problem-3-nested-loops" title="Permalink to this heading">#</a></h2>
 <p>In the lecture module on Brownian motion, there is a nested loop to calculate the diffusion coefficient of a particle undergoing a random walk.  The inner loop was for a given ‘walk’ with a certain number of steps. The outer loop was to loop over the total number of random walks.</p>
-<p>In this problem, modify the code given in class to include a third dimension z. Instead of only being able to move in x or y each step, now the particle can move in x,y,or z. Set the number of walks to 100 (instead of the 1000 as done in the lecture notes). Follow the lecture notes and calculate the diffusion coefficient. You don’t need to plot the random walk, but you will plot the average squared distance versus the number of steps just like in the lecture module. You’ll then calculate the diffusion coefficient given the values used in the lecture. Print out the resulting diffusion coefficient.</p>
-<p>After finishing your calculation. Describe what this line is doing:
-<code class="docutils literal notranslate"><span class="pre">avesqdists</span> <span class="pre">=</span> <span class="pre">np.mean(sqdists,axis=0)</span></code></p>
+<p>In this problem, modify the code given in class to include a third dimension z. Instead of only being able to move in x or y each step, now the particle can move in x,y,or z. Set the number of walks to 100 (instead of the 1000 as done in the lecture notes but still keep the number of steps at 1000). For this problem, complete the following:</p>
+<ol class="arabic simple">
+<li><p>Plot the random walk with the x position versus the z position (similar to what is done in the lecture notes but with the z position given instead of the y). It will still be a 2D plot, no need to make it 3D. Like the example, you should have the start and end position properly plotted and labeled.</p></li>
+<li><p>Plot the step number for the random walk versus the average squared distance from the origin like is given in the example. No need to do more simulations than the number of walks of 100. Also no need to give the linear fit as we haven’t covered that yet.</p></li>
+<li><p>Describe what this is doing: <code class="docutils literal notranslate"><span class="pre">avesqdists</span> <span class="pre">=</span> <span class="pre">np.mean(sqdists,axis=0)</span></code></p></li>
+<li><p>Write a paragraph reflecting on what you have learned so far, why what you have learned could help you, and what you might do differently in the future based on what you have learned.</p></li>
+</ol>
 <p>Hints:</p>
 <ul class="simple">
 <li><p>Start with the 2D code from the lecture notes and modify it to include the third dimension.</p></li>
 <li><p>To make a choice on which direction to move in, you can use the np.random.choice function with the options being [-1,0,1] for each of the x,y, and z directions. Then use if statements to move in the given direction.</p></li>
-<li><p>You can remove the code that you don’t need, i.e. the _loc variables.</p></li>
-<li><p>Use the slopefit function to find the slope of the average squared distance versus the number of steps. (We’ll talk about regression next class.)  The slope is related to the diffusion coefficient.</p></li>
+<li><p>You can remove any code that you don’t need.</p></li>
 </ul>
 </section>
 </section>
