@@ -631,16 +631,12 @@ f = 64/Re \text{   if Re} &lt; 2000
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">98</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Now calculate the friction factor for each Reynolds number</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">ff</span> <span class="o">=</span> <span class="p">[</span><span class="n">friction_factor</span><span class="p">(</span><span class="n">each</span><span class="p">,</span><span class="n">Re</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">eoD</span><span class="o">=</span><span class="mf">2e-4</span><span class="p">)</span> <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">Re</span><span class="p">]</span>
 
-<span class="nn">Cell In[98], line 2,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Now calculate the friction factor for each Reynolds number</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">ff</span> <span class="o">=</span> <span class="p">[</span><span class="n">friction_factor</span><span class="p">(</span><span class="n">each</span><span class="p">,</span><span class="n">Re</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">eoD</span><span class="o">=</span><span class="mf">2e-4</span><span class="p">)</span> <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">Re</span><span class="p">]</span>
-
-<span class="ne">TypeError</span>: friction_factor() got multiple values for argument &#39;Re&#39;
+<span class="ne">NameError</span>: name &#39;Re&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -657,13 +653,13 @@ f = 64/Re \text{   if Re} &lt; 2000
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">100</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Now plot the friction factor vs Reynolds number</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">Re</span><span class="p">,</span> <span class="n">ffd</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Reynolds Number&#39;</span><span class="p">);</span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Friction Factor&#39;</span><span class="p">)</span>
 
-<span class="ne">NameError</span>: name &#39;ffd&#39; is not defined
+<span class="ne">NameError</span>: name &#39;plt&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -717,24 +713,19 @@ f = 64/Re \text{   if Re} &lt; 2000
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(4, 4)
-</pre></div>
-</div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="ne">TypeError</span>: only length-1 arrays can be converted to Python scalars
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Debug the following code which is supposed to find </span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># the transpose of the matrix</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mi">5</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">2</span><span class="p">],</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>               <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">7</span><span class="p">],</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>               <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">9</span><span class="p">,</span>  <span class="mi">1</span><span class="p">],</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>               <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span>  <span class="mi">7</span><span class="p">]])</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1">#Print the size of the matrix</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
-<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
-
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">122</span><span class="p">],</span> <span class="n">line</span> <span class="mi">16</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">16</span>         <span class="n">A_transpose</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="nb">print</span><span class="p">(</span><span class="n">A_transpose</span><span class="o">-</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="c1">#check if the transpose is correct, should be array of zeros</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="c1">#A.T is the transpose of A</span>
-
-<span class="ne">ValueError</span>: setting an array element with a sequence.
+<span class="ne">NameError</span>: name &#39;np&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -776,7 +767,7 @@ A_{n+1} &amp;= A_n + dt\cdot\left[ (A_{in} - A_n)/\tau - k A_n^2 \right]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">123</span><span class="p">],</span> <span class="n">line</span> <span class="mi">13</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">13</span>
     <span class="n">A</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">A</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="p">(</span> <span class="n">Ain</span><span class="o">-</span><span class="n">A</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">/</span><span class="n">tau</span>  <span class="o">-</span> <span class="n">A</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span>
     <span class="o">^</span>
 <span class="ne">SyntaxError</span>: cannot assign to function call
@@ -808,7 +799,7 @@ x^3 + 15x^2 + 3x - 10 = 0
 <img alt="../_images/2270feecdbfa5c82df1e48b82ee9224c6acaebf7950f77cd5a70cc115ee54b44.png" src="../_images/2270feecdbfa5c82df1e48b82ee9224c6acaebf7950f77cd5a70cc115ee54b44.png" />
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">22</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">roots</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">ex</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">display</span><span class="p">(</span><span class="n">roots</span><span class="p">)</span>
 <span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">roots</span><span class="o">.</span><span class="n">evalf</span><span class="p">()</span>
@@ -825,6 +816,7 @@ x^3 + 15x^2 + 3x - 10 = 0
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># we&#39;ll define a function to calculate the the log of the factorial of n</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span> <span class="ow">and</span> <span class="n">n</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;n must be an integer and greater than zero&quot;</span>
     <span class="n">factorial</span> <span class="o">=</span> <span class="n">n</span>
@@ -839,12 +831,27 @@ x^3 + 15x^2 + 3x - 10 = 0
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log_factorial</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log_factorial</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>58.00360522298052
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AssertionError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">log_factorial</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
+
+<span class="nn">Cell In[9], line 10,</span> in <span class="ni">log_factorial</span><span class="nt">(n)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="k">def</span> <span class="nf">log_factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">10</span>     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span>
+
+<span class="nn">Cell In[9], line 4,</span> in <span class="ni">factorial</span><span class="nt">(n)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span> <span class="ow">and</span> <span class="n">n</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;n must be an integer and greater than zero&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">factorial</span> <span class="o">=</span> <span class="n">n</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="k">while</span> <span class="n">n</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">:</span>
+
+<span class="ne">AssertionError</span>: n must be an integer and greater than zero
 </pre></div>
 </div>
 </div>
