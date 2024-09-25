@@ -15,14 +15,29 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-newt(10)
+#Solve the Colbrook equation with Newton's method
+def Colbrook_prime(f,Re,D,epsil):
+    return -1/(2*f**(3/2)) - 2.51/(np.log(10)*Re*f**(3/2)*(0.2695*epsil/D+2.51/(Re*np.sqrt(f))))
+def Newton(f,Re,D,epsil):
+    return f - Colbrook(f,Re,D,epsil)/Colbrook_prime(f,Re,D,epsil)
+def Newton_solve(f,Re,D,epsil):
+    fnew = Newton(f,Re,D,epsil)
+    while abs(fnew-f)>1e-5:
+        f = fnew
+        fnew = Newton(f,Re,D,epsil)
+    return fnew
+fN = Newton_solve(0.001,Reynolds(rho,vel,pipeDia,mu),pipeDia,epsil)
+print(f'The friction factor is {fN:.4f}')
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn[28], line 1[0m
-[0;32m----> 1[0m [43mnewt[49m([38;5;241m10[39m)
+Cell [0;32mIn[1], line 12[0m
+[1;32m     10[0m         fnew [38;5;241m=[39m Newton(f,Re,D,epsil)
+[1;32m     11[0m     [38;5;28;01mreturn[39;00m fnew
+[0;32m---> 12[0m fN [38;5;241m=[39m Newton_solve([38;5;241m0.001[39m,[43mReynolds[49m(rho,vel,pipeDia,mu),pipeDia,epsil)
+[1;32m     13[0m [38;5;28mprint[39m([38;5;124mf[39m[38;5;124m'[39m[38;5;124mThe friction factor is [39m[38;5;132;01m{[39;00mfN[38;5;132;01m:[39;00m[38;5;124m.4f[39m[38;5;132;01m}[39;00m[38;5;124m'[39m)
 
-[0;31mNameError[0m: name 'newt' is not defined
+[0;31mNameError[0m: name 'Reynolds' is not defined
 
