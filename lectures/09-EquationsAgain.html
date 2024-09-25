@@ -451,10 +451,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions">Definitions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-equations">Non-linear Equations</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-equations">Linear Equations</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-equations">Linear Equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-equations">Non-linear Equations</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coupled-equations">Coupled Equations</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-coupled-equations">Non-coupled Equations</a></li>
 </ul>
@@ -474,6 +472,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3">Example 3</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kwargs-and-dictionaries"><code class="docutils literal notranslate"><span class="pre">kwargs</span></code> and dictionaries</a></li>
 </ul>
             </nav>
         </div>
@@ -490,13 +489,13 @@ document.write(`
 <p>Systems of equations, whether linear or non-linear, coupled or non-coupled come up in many different chemical engineering applications.  In this notebook, we will practice more solving systems of equations using Python and SymPy.</p>
 <section id="definitions">
 <h2>Definitions<a class="headerlink" href="#definitions" title="Permalink to this heading">#</a></h2>
+<section id="linear-equations">
+<h3>Linear Equations<a class="headerlink" href="#linear-equations" title="Permalink to this heading">#</a></h3>
+<p>Linear equations have variables that are not raised to a power and are not functions of variables.  For example, <span class="math notranslate nohighlight">\(y = 2x + 3\)</span> is a linear equation.</p>
+</section>
 <section id="non-linear-equations">
 <h3>Non-linear Equations<a class="headerlink" href="#non-linear-equations" title="Permalink to this heading">#</a></h3>
 <p>Non-linear equations have terms with exponents other than 1 or functions of variables like <span class="math notranslate nohighlight">\(\sin(x)\)</span> or <span class="math notranslate nohighlight">\(\exp(x)\)</span>. <span class="math notranslate nohighlight">\(y = 2x^2 + 3\)</span> or <span class="math notranslate nohighlight">\(y=sin(x)\)</span> are both non-linear equations. Most of the equations you’ll encounter in chemical engineering are non-linear.</p>
-<section id="linear-equations">
-<h4>Linear Equations<a class="headerlink" href="#linear-equations" title="Permalink to this heading">#</a></h4>
-<p>Linear equations have variables that are not raised to a power and are not functions of variables.  For example, <span class="math notranslate nohighlight">\(y = 2x + 3\)</span> is a linear equation.</p>
-</section>
 </section>
 <section id="coupled-equations">
 <h3>Coupled Equations<a class="headerlink" href="#coupled-equations" title="Permalink to this heading">#</a></h3>
@@ -1037,20 +1036,25 @@ Length: 224, dtype: float64
     <span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>        <span class="c1"># args is a tuple</span>
     <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>   <span class="c1"># loop over elements of args</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;a is </span><span class="si">{</span><span class="n">args</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="s1">&#39;a&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     
-<span class="n">f</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">)</span>       <span class="c1"># call the func with multiple arguments</span>
+<span class="n">f</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">,</span><span class="s1">&#39;hello&#39;</span><span class="p">,{</span><span class="s1">&#39;a&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span><span class="s1">&#39;b&#39;</span><span class="p">:[</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">]})</span>       <span class="c1"># call the func with multiple arguments</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.1, 2.2, 3.3)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.1, 2.2, 3.3, &#39;hello&#39;, {&#39;a&#39;: [1, 3, 5, 7], &#39;b&#39;: [4, 3]})
 1.1
 2.2
 3.3
+hello
+{&#39;a&#39;: [1, 3, 5, 7], &#39;b&#39;: [4, 3]}
+a is [1, 3, 5, 7]
 </pre></div>
 </div>
 </div>
 </div>
+<p>You can also refer to the keys in the dictionary within the function such as:</p>
 </section>
 <section id="example-2">
 <h3>Example 2<a class="headerlink" href="#example-2" title="Permalink to this heading">#</a></h3>
@@ -1104,18 +1108,21 @@ Length: 224, dtype: float64
     
 <span class="c1">#---------------</span>
 
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">c0</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">c0</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c2</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">c2</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">c1</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">c0</span>
 
 <span class="c1">#---------------</span>
 
 <span class="n">I</span> <span class="o">=</span> <span class="n">myQuad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
+<span class="n">I2</span> <span class="o">=</span> <span class="n">myQuad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">I2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15.40044893378227
+6.666802707206749
 </pre></div>
 </div>
 </div>
@@ -1136,6 +1143,34 @@ Length: 224, dtype: float64
 </div>
 </div>
 </section>
+</section>
+<section id="kwargs-and-dictionaries">
+<h2><code class="docutils literal notranslate"><span class="pre">kwargs</span></code> and dictionaries<a class="headerlink" href="#kwargs-and-dictionaries" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The product of a and b is </span><span class="si">{</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">func</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a = 1
+b = 2
+c = 3
+The product of a and b is 2
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -1207,10 +1242,8 @@ Length: 224, dtype: float64
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definitions">Definitions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-equations">Non-linear Equations</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-equations">Linear Equations</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-equations">Linear Equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-equations">Non-linear Equations</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coupled-equations">Coupled Equations</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-coupled-equations">Non-coupled Equations</a></li>
 </ul>
@@ -1230,6 +1263,7 @@ Length: 224, dtype: float64
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3">Example 3</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kwargs-and-dictionaries"><code class="docutils literal notranslate"><span class="pre">kwargs</span></code> and dictionaries</a></li>
 </ul>
   </nav></div>
 
