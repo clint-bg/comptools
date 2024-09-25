@@ -476,31 +476,38 @@ document.write(`
 </ul>
 <section id="problem-1">
 <h2>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h2>
-<p><strong>(a)</strong> x is given below. Write an if statement that will print whether x is positive, negative, or zero.</p>
-<p>x=-10</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span>
+<p><strong>(a)</strong> Write a function that will print whether x is positive, negative, or zero for any given x. Test your function with x = 5, x = -3, and x = 0.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-</div>
-</div>
-<p><strong>(b)</strong> x and y are given below. Write an if statement that will print whether x and y are both positive, or both negative, or if one or both are zero.</p>
-<p>x=-4 y=3.2</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span><span class="p">;</span> <span class="n">y</span> <span class="o">=</span> <span class="mf">3.2</span>
+<p><strong>(b)</strong> Write function that will print whether x and y are both positive, or both negative, or if one or both are zero. Test your function with (x = 5, y = 3.2), (x = -4, y = 3.2), and (x = 0, y = 3.2).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
-</div>
-</div>
 </div>
 <p><strong>(c)</strong> The ideal gas law is an approximation, but it is only a good approximation under certain circumstances. The general rule of thumb is when the specifc volume is greater than 5 L/mol for diatomic gases and 20 L/mol for all other gases. (Specific volume: <span class="math notranslate nohighlight">\(\hat{V} = \frac{V}{n}\)</span> )
-$<span class="math notranslate nohighlight">\(\hat{V}=\frac{RT}{P} &gt; 5 L/mol \)</span><span class="math notranslate nohighlight">\(
-\)</span><span class="math notranslate nohighlight">\( .......(modification)....                &gt;20 L/mol\)</span>$
-Write an if statement that will print the ideal specifc volume of O2, and state whether or not the ideal gas law is a good approximation.</p>
-<p>T = 600 K</p>
-<p>P = 15 atm</p>
-<p>R = .08206 L*Atm/(mol K)</p>
+$<span class="math notranslate nohighlight">\(\hat{V}=\frac{RT}{P} &gt; 5 \text{or 20 L/mol for diatomic or other gases, respectively} \)</span>$
+Write function that will print the ideal specifc volume of a gas, and state whether or not the ideal gas law is a good approximation. You may need more than one input for this function. Test your function with the following scenarios:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Scenario 1</p></th>
+<th class="head"><p>Scenario 2</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>gas = oxygen</p></td>
+<td><p>gas = butane</p></td>
+</tr>
+<tr class="row-odd"><td><p>gas_type = ‘diatomic’</p></td>
+<td><p>gas_type = ‘other’</p></td>
+</tr>
+<tr class="row-even"><td><p>T = 600 K</p></td>
+<td><p>T = 300 K</p></td>
+</tr>
+<tr class="row-odd"><td><p>P = 15 atm</p></td>
+<td><p>P = 1 atm</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="problem-2">
 <h2>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h2>

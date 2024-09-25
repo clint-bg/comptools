@@ -461,10 +461,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-non-linear-systems-of-equations">Solving Non-Linear Systems of Equations</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-solution-with-scipy-fsolve">Non-linear solution with scipy fsolve</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-solution-with-gekko">Non-linear solution with Gekko</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-solution-with-newton-s-method">Non-linear solution with Newton’s method</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#derivation-of-newton-s-method">Derivation of Newton’s method</a></li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -753,133 +749,6 @@ The pressure drop is 25.97 Pa (or 3.76 psi)
 </div>
 </div>
 </section>
-<section id="non-linear-solution-with-newton-s-method">
-<h3>Non-linear solution with Newton’s method<a class="headerlink" href="#non-linear-solution-with-newton-s-method" title="Permalink to this heading">#</a></h3>
-<p>Newton’s method is a numerical method for solving non-linear equations.  It is an iterative method that uses the derivative of the function to find the root.  The derivative of the function is used to find the tangent line to the function at the current point.  The tangent line is then used to find the next point where the tangent line crosses the x-axis.  This process is repeated until the solution is found.</p>
-<section id="derivation-of-newton-s-method">
-<h4>Derivation of Newton’s method<a class="headerlink" href="#derivation-of-newton-s-method" title="Permalink to this heading">#</a></h4>
-<p>First use the Taylor series expansion of the function <span class="math notranslate nohighlight">\(f(x)\)</span> about the point <span class="math notranslate nohighlight">\(x_0\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[
-\begin{equation}
-f(x) = f(x_0) + f'(x_0)(x-x_0) + \frac{f''(x_0)}{2!}(x-x_0)^2 + \frac{f'''(x_0)}{3!}(x-x_0)^3 + \cdots
-\end{equation}
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(f'\)</span> is the 1st derivative of x and <span class="math notranslate nohighlight">\(f''\)</span> is the second derivative and so on. If we neglect the higher order terms, we can write:</p>
-<div class="math notranslate nohighlight">
-\[
-\begin{equation}
-f(x) \approx f(x_0) + f'(x_0)(x-x_0)
-\end{equation}
-\]</div>
-<p>If we set <span class="math notranslate nohighlight">\(f(x) = 0\)</span> and solve for <span class="math notranslate nohighlight">\(x\)</span>, we get:</p>
-<div class="math notranslate nohighlight">
-\[
-\begin{equation}
-x = x_0 - \frac{f(x_0)}{f'(x_0)}
-\end{equation}
-\]</div>
-<p>This is the Newton’s method equation for finding the root of a function. <span class="math notranslate nohighlight">\(x_0\)</span> is the initial guess and <span class="math notranslate nohighlight">\(x\)</span> is the new guess. Iterations are completed until the value of x is close enough to zero. The derivative of the function is used as an estimate for the next guess according to the above. This is a first order approximation as a the first derivative is used. There are other numerical methods for root finding.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Solve the Colbrook equation with Newton&#39;s method</span>
-<span class="k">def</span> <span class="nf">Colbrook_prime</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">):</span>
-    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">f</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span> <span class="o">-</span> <span class="mf">2.51</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">*</span><span class="n">Re</span><span class="o">*</span><span class="n">f</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">0.2695</span><span class="o">*</span><span class="n">epsil</span><span class="o">/</span><span class="n">D</span><span class="o">+</span><span class="mf">2.51</span><span class="o">/</span><span class="p">(</span><span class="n">Re</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">f</span><span class="p">))))</span>
-<span class="k">def</span> <span class="nf">Newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">f</span> <span class="o">-</span> <span class="n">Colbrook</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">)</span><span class="o">/</span><span class="n">Colbrook_prime</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">Newton_solve</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">):</span>
-    <span class="n">fnew</span> <span class="o">=</span> <span class="n">Newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">)</span>
-    <span class="k">while</span> <span class="nb">abs</span><span class="p">(</span><span class="n">fnew</span><span class="o">-</span><span class="n">f</span><span class="p">)</span><span class="o">&gt;</span><span class="mf">1e-5</span><span class="p">:</span>
-        <span class="n">f</span> <span class="o">=</span> <span class="n">fnew</span>
-        <span class="n">fnew</span> <span class="o">=</span> <span class="n">Newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">fnew</span>
-<span class="n">fN</span> <span class="o">=</span> <span class="n">Newton_solve</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span><span class="n">Reynolds</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span><span class="n">vel</span><span class="p">,</span><span class="n">pipeDia</span><span class="p">,</span><span class="n">mu</span><span class="p">),</span><span class="n">pipeDia</span><span class="p">,</span><span class="n">epsil</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The friction factor is </span><span class="si">{</span><span class="n">fN</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The friction factor is 0.0264
-</pre></div>
-</div>
-</div>
-</div>
-<p>There are several ways to get that Colbrook_prime function in the above code snippet. It’s the derivative with respect to the friction factor of the Colbrook equation. You can do it by hand and then type in the equation. You could also use the symbolic derivative function in sympy to get the derivative. Or you can use the derivative function in scipy.  The scipy derivative function is shown below.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#using scipy to get the derivative of the Colbrook equation</span>
-<span class="kn">from</span> <span class="nn">scipy.misc</span> <span class="kn">import</span> <span class="n">derivative</span>
-<span class="k">def</span> <span class="nf">Colbrook_prime2</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">derivative</span><span class="p">(</span><span class="n">Colbrook</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">dx</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span><span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Below is a way to get the derivative of a function symbolically using sympy.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Find the derivative of the Colbrook equation with SymPy</span>
-<span class="n">ff</span><span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
-<span class="n">Re</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;Re&#39;</span><span class="p">)</span>
-<span class="n">D</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
-<span class="n">epsil</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;epsil&#39;</span><span class="p">)</span>
-<span class="c1">#display the symbolic equation</span>
-<span class="n">sym</span><span class="o">.</span><span class="n">init_printing</span><span class="p">()</span>
-<span class="n">sym</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">sym</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">ff</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">sym</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">2.51</span><span class="o">/</span><span class="p">(</span><span class="n">Re</span><span class="o">*</span><span class="n">sym</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">ff</span><span class="p">))</span><span class="o">+</span><span class="n">epsil</span><span class="o">/</span><span class="p">(</span><span class="mf">3.71</span><span class="o">*</span><span class="n">D</span><span class="p">),</span><span class="mi">10</span><span class="p">),</span><span class="n">ff</span><span class="p">)</span> <span class="c1">#the 10 is the base of the log</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/b7ff4ee8c937a835eba6a72c31156d3fd737193fda9f581df5d5edb63839197f.png" src="../_images/b7ff4ee8c937a835eba6a72c31156d3fd737193fda9f581df5d5edb63839197f.png" />
-</div>
-</div>
-<p>Below is another example of using Newton’s method to solve a non-linear system of equations where the derivatives of each equation with respect to each variable are known and defined in the Jacobian matrix.  A more in-depth class on numerical mehods would explain more.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the system of equations</span>
-<span class="k">def</span> <span class="nf">equations</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">eq1</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">4</span>
-    <span class="n">eq2</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">eq1</span><span class="p">,</span> <span class="n">eq2</span><span class="p">]</span>
-
-<span class="c1"># Define the Jacobian matrix (partial derivatives with respect to x1 and x2)</span>
-<span class="k">def</span> <span class="nf">jacobian</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">jac</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">],</span>
-                    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]]])</span>
-    <span class="k">return</span> <span class="n">jac</span>
-
-<span class="c1"># Solve the system of equations using Newton&#39;s method</span>
-<span class="k">def</span> <span class="nf">newton_method</span><span class="p">(</span><span class="n">equations</span><span class="p">,</span> <span class="n">jacobian</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">max_iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_iterations</span><span class="p">):</span>
-        <span class="n">f</span> <span class="o">=</span> <span class="n">equations</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="n">J</span> <span class="o">=</span> <span class="n">jacobian</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="n">delta_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">J</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
-        <span class="n">x</span> <span class="o">+=</span> <span class="n">delta_x</span>
-        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">delta_x</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tolerance</span><span class="p">:</span>
-            <span class="k">break</span>
-    <span class="k">return</span> <span class="n">x</span>
-
-<span class="c1"># Initial guess</span>
-<span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
-
-<span class="c1"># Solve the system of equations</span>
-<span class="n">solution</span> <span class="o">=</span> <span class="n">newton_method</span><span class="p">(</span><span class="n">equations</span><span class="p">,</span> <span class="n">jacobian</span><span class="p">,</span> <span class="n">x0</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Solution:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">solution</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Solution:
-[1.76746906 0.87605312]
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
 </section>
 </section>
 
@@ -961,10 +830,6 @@ x = x_0 - \frac{f(x_0)}{f'(x_0)}
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-non-linear-systems-of-equations">Solving Non-Linear Systems of Equations</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-solution-with-scipy-fsolve">Non-linear solution with scipy fsolve</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-solution-with-gekko">Non-linear solution with Gekko</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-solution-with-newton-s-method">Non-linear solution with Newton’s method</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#derivation-of-newton-s-method">Derivation of Newton’s method</a></li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
