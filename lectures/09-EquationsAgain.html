@@ -588,7 +588,7 @@ x_3 - 2x_4 = 5
 </section>
 <section id="exercise">
 <h3>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading">#</a></h3>
-<p>Solve for both roots of $<span class="math notranslate nohighlight">\(f(x) = x^2-5.\)</span>$</p>
+<p>Solve for both roots of <span class="math notranslate nohighlight">\(f(x) = x^2-5.\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span>
@@ -639,8 +639,10 @@ x_3 - 2x_4 = 5
 </ul>
 </li>
 </ul>
-<p>Consider solving the <strong>two functions</strong> for the <strong>two unknowns</strong>: <span class="math notranslate nohighlight">\(h(y,z) = 0 = y+2z\)</span>, and <span class="math notranslate nohighlight">\(g(y,z)=0=\sin(y)/z\)</span>.
-We typically want all solvers to look like <span class="math notranslate nohighlight">\(f(x)=0\)</span></p>
+<p>Consider solving the <strong>two functions</strong> for the <strong>two unknowns</strong>:</p>
+<p><span class="math notranslate nohighlight">\(h(y,z) = 0 = y+2z\)</span>, and</p>
+<p><span class="math notranslate nohighlight">\(g(y,z)=0=\sin(y)/z\)</span>.</p>
+<p>We typically want all solvers to look like <span class="math notranslate nohighlight">\(f(x)=0\)</span></p>
 <ul class="simple">
 <li><p>We would write these as $<span class="math notranslate nohighlight">\(f_0(x_0,x_1) = x_0+2x_1,\)</span><span class="math notranslate nohighlight">\( \)</span><span class="math notranslate nohighlight">\(f_1(x_0,x_1) = \sin(x_0)/x_1,\)</span><span class="math notranslate nohighlight">\(
 which becomes: \)</span><span class="math notranslate nohighlight">\(\left[\begin{matrix} f_0(x_0,x_1) \\ f_1(x_0,x_1)\end{matrix}\right] = \left[\begin{matrix}x_0+2x_1 \\ \sin(x_0)/x_1\end{matrix}\right] = \left[\begin{matrix}0 \\ 0\end{matrix}\right],\)</span><span class="math notranslate nohighlight">\(
