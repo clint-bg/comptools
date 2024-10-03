@@ -453,7 +453,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
 </ul>
             </nav>
         </div>
@@ -469,17 +468,6 @@ document.write(`
 <h1>HW09: Additional Equation Solving Practice<a class="headerlink" href="#hw09-additional-equation-solving-practice" title="Permalink to this heading">#</a></h1>
 <section id="problem-1">
 <h2>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h2>
-<p>Succinctly repeat the in-class exercise result here. Include the Colbrook function, Colbrook_prime function and custom Newtons method you build and the function calls with your custom Newton method and the fsolve call to determine the friction factor at a guess value of 10.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="problem-2">
-<h2>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h2>
 <p>This problem reviews the use of non-linear solvers. You can use any numerical non-linear solver. Below is an image of a portion of a <strong>horizonal</strong> pipe network with pipes label P1, P2, and P3. Fluid enters the left and then exits at the right through both P2 and P3. Each of those pipes have different properties (lengths, diameters, and roughness). Your task is to solve for the flow in P2 and P3 given a flow in P1.</p>
 <img src="https://github.com/clint-bg/comptools/blob/main/homework/supportfiles/basicpipenetwork.png?raw=true" width="300"><p><strong>Action 1:</strong> Create a class called <code class="docutils literal notranslate"><span class="pre">fluid</span></code> using param.Parameterized that has the following properties:</p>
 <ul class="simple">
@@ -583,12 +571,14 @@ document.write(`
 </div>
 <p>Hopefully, this example shows you how using objects helps you keep track of the variables in your code. And that it helps reduce the errors made.</p>
 </section>
-<section id="problem-3">
-<h2>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h2>
+<section id="problem-2">
+<h2>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h2>
 <p>Program the same problem above without using objects. I started to do this for the key and I thought it would be rude of me to ask you to actually do this so this problem is a free-bee. I’m giving you the result for free below. It doesn’t look as nice and organized as the code is above (especially if I don’t name my variables nicely).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rho</span> <span class="o">=</span> <span class="mi">1000</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">rho</span> <span class="o">=</span> <span class="mi">1000</span>
 <span class="n">mu</span> <span class="o">=</span> <span class="mf">1e-3</span>
 <span class="n">pipe1_length</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">pipe2_length</span> <span class="o">=</span> <span class="mi">200</span>
@@ -656,16 +646,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">pipe2_flow</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="n">eqh</span><span class="p">,</span><span class="mf">0.03</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;fsolve&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -682,8 +662,8 @@ document.write(`
 <p>By my count 32 lines of code without objects. 28 lines of code with objects. Which way do you like better? Why?</p>
 <p><code class="docutils literal notranslate"><span class="pre">Your</span> <span class="pre">response</span> <span class="pre">here</span></code></p>
 </section>
-<section id="problem-4">
-<h2>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h2>
+<section id="problem-3">
+<h2>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h2>
 <p>In class we used lambda for an inline function: <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">=</span> <span class="pre">lambda</span> <span class="pre">x:</span> <span class="pre">x**2</span> <span class="pre">-5</span></code>. I can use a lambda function to define the arguments to use in a multivariable function as follows:</p>
 <p><strong>Example:</strong> Solve this equation for y given: <span class="math notranslate nohighlight">\(x^2+y^2+c =56.3\)</span> where <span class="math notranslate nohighlight">\(x = 3\)</span> and <span class="math notranslate nohighlight">\(c = -4.2\)</span></p>
 <div class="cell docutils container">
@@ -718,13 +698,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="n">c</span> <span class="o">=</span> <span class="o">-</span><span class="mf">4.2</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">fsolve</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">c</span><span class="p">,))[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#notice the variable I&#39;m solving for is listed first in the function func</span>
-
-<span class="ne">NameError</span>: name &#39;fsolve&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.176350047203662
 </pre></div>
 </div>
 </div>
@@ -817,7 +791,6 @@ y + 4.3\cdot z = b
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
 </ul>
   </nav></div>
 
