@@ -454,7 +454,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#derivation-of-newton-s-method">Derivation of Newton’s method</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-discussion-and-examples-of-newton-s-method">Additional Discussion and Examples of Newton’s Method</a></li>
 </ul>
             </nav>
         </div>
@@ -497,129 +496,6 @@ x = x_0 - \frac{f(x_0)}{f'(x_0)}
 <p>This is the Newton’s method equation for finding the root of a function. <span class="math notranslate nohighlight">\(x_0\)</span> is the initial guess and <span class="math notranslate nohighlight">\(x\)</span> is the new guess. Iterations are completed until the value of x is close enough to zero. The derivative of the function is used as an estimate for the next guess according to the above. This is a first order approximation as a the first derivative is used. There are other numerical methods for root finding.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Solve the Colbrook equation with Newton&#39;s method</span>
-<span class="k">def</span> <span class="nf">Colbrook_prime</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">):</span>
-    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">f</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span> <span class="o">-</span> <span class="mf">2.51</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">*</span><span class="n">Re</span><span class="o">*</span><span class="n">f</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">0.2695</span><span class="o">*</span><span class="n">epsil</span><span class="o">/</span><span class="n">D</span><span class="o">+</span><span class="mf">2.51</span><span class="o">/</span><span class="p">(</span><span class="n">Re</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">f</span><span class="p">))))</span>
-<span class="k">def</span> <span class="nf">Newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">f</span> <span class="o">-</span> <span class="n">Colbrook</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">)</span><span class="o">/</span><span class="n">Colbrook_prime</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">Newton_solve</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">):</span>
-    <span class="n">fnew</span> <span class="o">=</span> <span class="n">Newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">)</span>
-    <span class="k">while</span> <span class="nb">abs</span><span class="p">(</span><span class="n">fnew</span><span class="o">-</span><span class="n">f</span><span class="p">)</span><span class="o">&gt;</span><span class="mf">1e-5</span><span class="p">:</span>
-        <span class="n">f</span> <span class="o">=</span> <span class="n">fnew</span>
-        <span class="n">fnew</span> <span class="o">=</span> <span class="n">Newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">fnew</span>
-<span class="n">fN</span> <span class="o">=</span> <span class="n">Newton_solve</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span><span class="n">Reynolds</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span><span class="n">vel</span><span class="p">,</span><span class="n">pipeDia</span><span class="p">,</span><span class="n">mu</span><span class="p">),</span><span class="n">pipeDia</span><span class="p">,</span><span class="n">epsil</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The friction factor is </span><span class="si">{</span><span class="n">fN</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">12</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span>         <span class="n">fnew</span> <span class="o">=</span> <span class="n">Newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="k">return</span> <span class="n">fnew</span>
-<span class="ne">---&gt; </span><span class="mi">12</span> <span class="n">fN</span> <span class="o">=</span> <span class="n">Newton_solve</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span><span class="n">Reynolds</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span><span class="n">vel</span><span class="p">,</span><span class="n">pipeDia</span><span class="p">,</span><span class="n">mu</span><span class="p">),</span><span class="n">pipeDia</span><span class="p">,</span><span class="n">epsil</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The friction factor is </span><span class="si">{</span><span class="n">fN</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;Reynolds&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
-<p>There are several ways to get that Colbrook_prime function in the above code snippet. It’s the derivative with respect to the friction factor of the Colbrook equation. You can do it by hand and then type in the equation. You could also use the symbolic derivative function in sympy to get the derivative. Or you can use the derivative function in scipy.  The scipy derivative function is shown below.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#using scipy to get the derivative of the Colbrook equation</span>
-<span class="kn">from</span> <span class="nn">scipy.misc</span> <span class="kn">import</span> <span class="n">derivative</span>
-<span class="k">def</span> <span class="nf">Colbrook_prime2</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">derivative</span><span class="p">(</span><span class="n">Colbrook</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">dx</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span><span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Below is a way to get the derivative of a function symbolically using sympy.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Find the derivative of the Colbrook equation with SymPy</span>
-<span class="n">ff</span><span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
-<span class="n">Re</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;Re&#39;</span><span class="p">)</span>
-<span class="n">D</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
-<span class="n">epsil</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;epsil&#39;</span><span class="p">)</span>
-<span class="c1">#display the symbolic equation</span>
-<span class="n">sym</span><span class="o">.</span><span class="n">init_printing</span><span class="p">()</span>
-<span class="n">sym</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">sym</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">ff</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">sym</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">2.51</span><span class="o">/</span><span class="p">(</span><span class="n">Re</span><span class="o">*</span><span class="n">sym</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">ff</span><span class="p">))</span><span class="o">+</span><span class="n">epsil</span><span class="o">/</span><span class="p">(</span><span class="mf">3.71</span><span class="o">*</span><span class="n">D</span><span class="p">),</span><span class="mi">10</span><span class="p">),</span><span class="n">ff</span><span class="p">)</span> <span class="c1">#the 10 is the base of the log</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/b7ff4ee8c937a835eba6a72c31156d3fd737193fda9f581df5d5edb63839197f.png" src="../_images/b7ff4ee8c937a835eba6a72c31156d3fd737193fda9f581df5d5edb63839197f.png" />
-</div>
-</div>
-<p>Below is another example of using Newton’s method to solve a non-linear system of equations where the derivatives of each equation with respect to each variable are known and defined in the Jacobian matrix.  A more in-depth class on numerical mehods would explain more.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the system of equations</span>
-<span class="k">def</span> <span class="nf">equations</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">eq1</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">4</span>
-    <span class="n">eq2</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">eq1</span><span class="p">,</span> <span class="n">eq2</span><span class="p">]</span>
-
-<span class="c1"># Define the Jacobian matrix (partial derivatives with respect to x1 and x2)</span>
-<span class="k">def</span> <span class="nf">jacobian</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">jac</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">],</span>
-                    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]]])</span>
-    <span class="k">return</span> <span class="n">jac</span>
-
-<span class="c1"># Solve the system of equations using Newton&#39;s method</span>
-<span class="k">def</span> <span class="nf">newton_method</span><span class="p">(</span><span class="n">equations</span><span class="p">,</span> <span class="n">jacobian</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">max_iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_iterations</span><span class="p">):</span>
-        <span class="n">f</span> <span class="o">=</span> <span class="n">equations</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="n">J</span> <span class="o">=</span> <span class="n">jacobian</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="n">delta_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">J</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
-        <span class="n">x</span> <span class="o">+=</span> <span class="n">delta_x</span>
-        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">delta_x</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tolerance</span><span class="p">:</span>
-            <span class="k">break</span>
-    <span class="k">return</span> <span class="n">x</span>
-
-<span class="c1"># Initial guess</span>
-<span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
-
-<span class="c1"># Solve the system of equations</span>
-<span class="n">solution</span> <span class="o">=</span> <span class="n">newton_method</span><span class="p">(</span><span class="n">equations</span><span class="p">,</span> <span class="n">jacobian</span><span class="p">,</span> <span class="n">x0</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Solution:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">solution</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Solution:
-[1.76746906 0.87605312]
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="additional-discussion-and-examples-of-newton-s-method">
-<h2>Additional Discussion and Examples of Newton’s Method<a class="headerlink" href="#additional-discussion-and-examples-of-newton-s-method" title="Permalink to this heading">#</a></h2>
-<p>Taylor Series
-$<span class="math notranslate nohighlight">\(
-f(x) = f(x_o) + f'(x_o)⋅(x-x_o) + 1/2!⋅f''(x_o)(x-x_o)^2 + ...
-\)</span>$</p>
-<p>With just the first two terms, we want to find x where f(x) = 0:
-$<span class="math notranslate nohighlight">\(
-0 = f(x_0) + f'(x_o)⋅(x-x_0)
-\)</span>$</p>
-<p>Rearranging:
-$<span class="math notranslate nohighlight">\(
-x = x_0 -f(x_0)/f'(x_0)
-\)</span>$</p>
-<p>By doing so, in theory we should get closer to the actual point where f(x) = 0. We can repeat this process until we get close enough to the actual root.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
@@ -629,27 +505,16 @@ x = x_0 -f(x_0)/f'(x_0)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span><span class="mi">5</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;f(x)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/18e2feab782972ad013334b67910b02764476dc43e72e9c7ddbda59a88a6e095.png" src="../_images/18e2feab782972ad013334b67910b02764476dc43e72e9c7ddbda59a88a6e095.png" />
+<img alt="../_images/923b8b41b874c515acb9474e56c793dbdb1402ce64b90d2ac2d75b49b9265802.png" src="../_images/923b8b41b874c515acb9474e56c793dbdb1402ce64b90d2ac2d75b49b9265802.png" />
 </div>
 </div>
 <p>We need to find the roots of the above equation.</p>
@@ -736,12 +601,12 @@ x = x_0 -f(x_0)/f'(x_0)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.23606797749979
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2.23606797749979
 </pre></div>
 </div>
 </div>
@@ -761,12 +626,13 @@ x = x_0 -f(x_0)/f'(x_0)
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xvals</span><span class="p">,</span><span class="n">yvals</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;f(x)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c56f094f56cd22984246027ee12c3fcc9b65b0ec9110a35c874dc6fdc65a9850.png" src="../_images/c56f094f56cd22984246027ee12c3fcc9b65b0ec9110a35c874dc6fdc65a9850.png" />
+<img alt="../_images/9baa5c51eb485d11841172074f9ed776de675f76d99ae71d5e74b97a3769deba.png" src="../_images/9baa5c51eb485d11841172074f9ed776de675f76d99ae71d5e74b97a3769deba.png" />
 </div>
 </div>
 <p>Now lets try a more complex equation (still everywhere differentiable)</p>
@@ -781,6 +647,7 @@ x = x_0 -f(x_0)/f'(x_0)
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">f2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;f(x)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">300</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -789,7 +656,7 @@ x = x_0 -f(x_0)/f'(x_0)
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-100.0, 300.0)
 </pre></div>
 </div>
-<img alt="../_images/0ffea4d621017861b2b43703942852925efa04c0894c76f783e240be406d0152.png" src="../_images/0ffea4d621017861b2b43703942852925efa04c0894c76f783e240be406d0152.png" />
+<img alt="../_images/2c9b83ec9d02fce64c062c17c7725a73c50c6dc171e29b6b4fea6ce40abbed6a.png" src="../_images/2c9b83ec9d02fce64c062c17c7725a73c50c6dc171e29b6b4fea6ce40abbed6a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -863,10 +730,34 @@ x = x_0 -f(x_0)/f'(x_0)
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newton2</span><span class="p">(</span><span class="mf">1.906</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.752313888527454
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newton2</span><span class="p">(</span><span class="mf">4.75</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.339199843776698
+</pre></div>
+</div>
+</div>
+</div>
 <p>Let’s plot our points again:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xvals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">5.5</span><span class="p">,</span><span class="mf">4.87</span><span class="p">,</span><span class="mf">4.42</span><span class="p">,</span><span class="mf">4.106</span><span class="p">,</span><span class="mf">3.83</span><span class="p">,</span><span class="mf">1.906</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xvals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">5.5</span><span class="p">,</span><span class="mf">4.87</span><span class="p">,</span><span class="mf">4.42</span><span class="p">,</span><span class="mf">4.106</span><span class="p">,</span><span class="mf">3.83</span><span class="p">,</span><span class="mf">1.906</span><span class="p">,</span><span class="mf">4.75</span><span class="p">,</span><span class="mf">4.34</span><span class="p">])</span>
 <span class="n">yvals</span> <span class="o">=</span> <span class="n">f2</span><span class="p">(</span><span class="n">xvals</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -877,6 +768,7 @@ x = x_0 -f(x_0)/f'(x_0)
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">f2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xvals</span><span class="p">,</span><span class="n">yvals</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;f(x)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">300</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -885,18 +777,15 @@ x = x_0 -f(x_0)/f'(x_0)
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-100.0, 300.0)
 </pre></div>
 </div>
-<img alt="../_images/d7386e3074bc461e2f7d233be1160f474b1f4bd04835b941e2a76c4c2c774488.png" src="../_images/d7386e3074bc461e2f7d233be1160f474b1f4bd04835b941e2a76c4c2c774488.png" />
+<img alt="../_images/4fc84a35daf46396ab77af60ff6f088a5c79b863ebc13e55c9ace876bcfc0915.png" src="../_images/4fc84a35daf46396ab77af60ff6f088a5c79b863ebc13e55c9ace876bcfc0915.png" />
 </div>
 </div>
 <p>You can see that a proper guess value is important in finding the root with derivative based root finding methods.</p>
 <p>Instead of x’s and y’s, lets us an application example: the Colbrook equation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Re</span> <span class="o">=</span> <span class="mi">5000</span>
-<span class="n">epsil</span> <span class="o">=</span> <span class="mf">0.0004</span>
-<span class="n">D</span> <span class="o">=</span> <span class="mf">0.001</span>
-<span class="k">def</span> <span class="nf">Colbrook</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mf">2.51</span><span class="o">/</span><span class="p">(</span><span class="n">Re</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">f</span><span class="p">))</span><span class="o">+</span><span class="n">epsil</span><span class="o">/</span><span class="p">(</span><span class="mf">3.71</span><span class="o">*</span><span class="n">D</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Colbrook</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Rey</span><span class="p">,</span><span class="n">Dia</span><span class="p">,</span><span class="n">ep</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="mf">2.51</span><span class="o">/</span><span class="p">(</span><span class="n">Rey</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">f</span><span class="p">))</span><span class="o">+</span><span class="n">ep</span><span class="o">/</span><span class="p">(</span><span class="mf">3.71</span><span class="o">*</span><span class="n">Dia</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -904,9 +793,11 @@ x = x_0 -f(x_0)/f'(x_0)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#now lets plot the function</span>
-<span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span><span class="n">Colbrook</span><span class="p">(</span><span class="n">xs</span><span class="p">))</span>
+<span class="n">Re</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">;</span> <span class="n">epsil</span> <span class="o">=</span> <span class="mf">0.004</span><span class="p">;</span> <span class="n">D</span> <span class="o">=</span> <span class="mf">0.11</span>
+<span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">,</span><span class="mf">0.30</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span><span class="n">Colbrook</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xs</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Colebrook(f)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -915,13 +806,40 @@ x = x_0 -f(x_0)/f'(x_0)
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-10.0, 10.0)
 </pre></div>
 </div>
-<img alt="../_images/8c87d8e2a19a12e744c4c414caad1d015c5d397f4a8218d97c99badaccacdbc8.png" src="../_images/8c87d8e2a19a12e744c4c414caad1d015c5d397f4a8218d97c99badaccacdbc8.png" />
+<img alt="../_images/f31d22637061aeb561d9853d021d09251f803d9e89b0d4495d8d191598c15dc6.png" src="../_images/f31d22637061aeb561d9853d021d09251f803d9e89b0d4495d8d191598c15dc6.png" />
 </div>
 </div>
 <p>Now lets setup our Newton’s method to find the friction factor at those conditions.</p>
+<p>There are several ways to get that Colbrook_prime function in the above code snippet. It’s the derivative with respect to the friction factor of the Colbrook equation. You can do it by hand and then type in the equation. You could also use the symbolic derivative function in sympy to get the derivative. Or you can use the derivative function in scipy.  Several methods are shown below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Colbrook_prime</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#using scipy to get the derivative of the Colbrook equation</span>
+<span class="kn">from</span> <span class="nn">scipy.misc</span> <span class="kn">import</span> <span class="n">derivative</span>
+<span class="k">def</span> <span class="nf">Colbrook_prime2</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">derivative</span><span class="p">(</span><span class="n">Colbrook</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">dx</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span><span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Find the derivative of the Colbrook equation with SymPy</span>
+<span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sym</span>
+<span class="n">ff</span><span class="p">,</span><span class="n">Reyn</span><span class="p">,</span><span class="n">Diam</span><span class="p">,</span><span class="n">eps</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;ff,Reyn,Diam,eps&#39;</span><span class="p">)</span>
+<span class="c1">#display the symbolic equation</span>
+<span class="c1">#sym.init_printing()</span>
+<span class="n">sym</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">sym</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">ff</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">sym</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">2.51</span><span class="o">/</span><span class="p">(</span><span class="n">Reyn</span><span class="o">*</span><span class="n">sym</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">ff</span><span class="p">))</span><span class="o">+</span><span class="n">eps</span><span class="o">/</span><span class="p">(</span><span class="mf">3.71</span><span class="o">*</span><span class="n">Diam</span><span class="p">),</span><span class="mi">10</span><span class="p">),</span><span class="n">ff</span><span class="p">)</span> <span class="c1">#the 10 is the base of the log</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle - \frac{1}{2 ff^{\frac{3}{2}}} - \frac{2.51}{Reyn ff^{\frac{3}{2}} \cdot \left(\frac{2.51}{Reyn \sqrt{ff}} + \frac{0.269541778975741 eps}{Diam}\right) \log{\left(10 \right)}}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Colbrook_prime</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">):</span>
     <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">f</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span> <span class="o">-</span> <span class="mf">2.51</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">*</span><span class="n">Re</span><span class="o">*</span><span class="n">f</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">0.2695</span><span class="o">*</span><span class="n">epsil</span><span class="o">/</span><span class="n">D</span><span class="o">+</span><span class="mf">2.51</span><span class="o">/</span><span class="p">(</span><span class="n">Re</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">f</span><span class="p">))))</span>
 </pre></div>
 </div>
@@ -929,96 +847,98 @@ x = x_0 -f(x_0)/f'(x_0)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newt</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.906781692574499
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">newt</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">f</span> <span class="o">-</span> <span class="n">Colbrook</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">)</span><span class="o">/</span><span class="n">Colbrook_prime</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newt</span><span class="p">(</span><span class="mf">4.906</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newt</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.3027818875374457
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.09022367308759105
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newt</span><span class="p">(</span><span class="mf">3.30</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newt</span><span class="p">(</span><span class="o">-</span><span class="mf">0.090</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.4749011423861025
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_57494/3040087786.py:2: RuntimeWarning: invalid value encountered in sqrt
+  return 1/np.sqrt(f) + 2*np.log10(2.51/(Rey*np.sqrt(f))+ep/(3.71*Dia))
+/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_57494/837614916.py:2: RuntimeWarning: invalid value encountered in scalar divide
+  return -1/(2*f**(3/2)) - 2.51/(np.log(10)*Re*f**(3/2)*(0.2695*epsil/D+2.51/(Re*np.sqrt(f))))
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(nan+nanj)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newt</span><span class="p">(</span><span class="mf">2.47</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newt</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.969012797369205
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.05585303773902183
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newt</span><span class="p">(</span><span class="mf">1.96</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newt</span><span class="p">(</span><span class="mf">0.05585</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.627270836441956
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.06563953943684912
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newt</span><span class="p">(</span><span class="mf">1.62</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newt</span><span class="p">(</span><span class="mf">0.065639</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.3846968179858952
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0670681189201254
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newt</span><span class="p">(</span><span class="mf">1.38</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newt</span><span class="p">(</span><span class="mf">0.06707</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.2056306129913872
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.06709175234208192
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newt</span><span class="p">(</span><span class="mf">1.20</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newt</span><span class="p">(</span><span class="mf">0.067092</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0667077024540468
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.06709175772521607
 </pre></div>
 </div>
 </div>
@@ -1026,353 +946,53 @@ x = x_0 -f(x_0)/f'(x_0)
 <p>Isn’t there a better way of doing this than having to type this in over and over. Let’s modify the Newton function to do the interation for us.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Newton</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">300</span><span class="p">):</span>
-    <span class="n">fprime</span> <span class="o">=</span> <span class="n">Colbrook_prime</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">xnew</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">Colbrook</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">fprime</span><span class="o">*</span><span class="mf">0.05</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Re</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">;</span> <span class="n">epsil</span> <span class="o">=</span> <span class="mf">0.004</span><span class="p">;</span> <span class="n">D</span> <span class="o">=</span> <span class="mf">0.11</span>
+<span class="k">def</span> <span class="nf">NewtonC</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+  <span class="n">values</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">50</span><span class="p">):</span>
+    <span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">xnew</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">Colbrook</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">)</span><span class="o">/</span><span class="n">Colbrook_prime</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">)</span><span class="o">*</span><span class="mf">0.25</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">xnew</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-  <span class="k">return</span> <span class="n">xnew</span>
+  <span class="k">return</span> <span class="n">values</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Newton</span><span class="p">(</span><span class="mf">1.1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">NewtonC</span><span class="p">(</span><span class="mf">0.2</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Iterations&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9877000746858369
-0.8973280130671422
-0.8232745276173374
-0.7616664915245736
-0.7097481334254546
-0.6655083384581282
-0.6274471654780056
-0.5944246062189653
-0.5655597564278563
-0.5401618885977597
-0.51768228188706
-0.4976798930065428
-0.4797964594496145
-0.4637381571405189
-0.44926189328784516
-0.4361649297062868
-0.4242769339980847
-0.41345382417017645
-0.40357295422901684
-0.39452931372622924
-0.38623250195450304
-0.37860429967689824
-0.37157670590170827
-0.365090339616655
-0.3590931301746058
-0.3535392376491302
-0.3483881576671783
-0.34360397518232494
-0.3391547392303269
-0.33501193652229105
-0.33115004622348415
-0.3275461617620675
-0.32417966825083316
-0.32103196626390434
-0.3180862344222667
-0.31532722460714513
-0.3127410847147391
-0.3103152047478407
-0.3080380827541228
-0.3058992077020092
-0.3038889568599593
-0.3019985056347888
-0.300219748145879
-0.2985452270779009
-0.2969680715754017
-0.29548194212657153
-0.2940809815373829
-0.29275977122642904
-0.29151329217950767
-0.2903368899948145
-0.28922624352739057
-0.2881773367075394
-0.2871864331642192
-0.28625005333249554
-0.2853649537653174
-0.2845281084052324
-0.28373669160208437
-0.28298806268898535
-0.2822797519515508
-0.28160944784505376
-0.2809749853312343
-0.2803743352213626
-0.2798055944251162
-0.27926697701615155
-0.27875680603516545
-0.2782735059599301
-0.27781559577942355
-0.27738168261589613
-0.276970455844638
-0.27658068166644295
-0.27621119809239164
-0.2758609103046726
-0.27552878636079825
-0.2752138532118013
-0.274915193007872
-0.27463193966745797
-0.2743632756881348
-0.27410842917959544
-0.27386667110093704
-0.27363731268605807
-0.27341970304244945
-0.27321322690998145
-0.2730173025674753
-0.2728313798759162
-0.272654938448129
-0.2724874859356053
-0.2723285564239586
-0.2721777089291936
-0.27203452598762007
-0.2718986123328259
-0.2717695936536536
-0.2716471154276068
-0.2715308418245508
-0.27142045467597153
-0.27131565250542
-0.27121614961610224
-0.2711216752318783
-0.2710319726882111
-0.27094679866985993
-0.2708659224923467
-0.27078912542443645
-0.27071620004906954
-0.27064694966036357
-0.27058118769446887
-0.27051873719221364
-0.27045943029161656
-0.2704031077484732
-0.2703496184833437
-0.2702988191533793
-0.27025057374752787
-0.27020475320375376
-0.27016123504699446
-0.27011990304665934
-0.27008064689254996
-0.2700433618881527
-0.2700079486603194
-0.2699743128844123
-0.26994236502404656
-0.2699120200846158
-0.2698831973798355
-0.26985582031058525
-0.26982981615537244
-0.2698051158717815
-0.269781653908309
-0.2697593680260199
-0.269738199129494
-0.2697180911065604
-0.26969899067634884
-0.2696808472452108
-0.26966361277009143
-0.2696472416289546
-0.26963169049788716
-0.26961691823452877
-0.2696028857674927
-0.26958955599146295
-0.2695768936676689
-0.2695648653294557
-0.26955343919268426
-0.26954258507070783
-0.2695322742936884
-0.26952247963202575
-0.26951317522368656
-0.26950433650523176
-0.2694959401463503
-0.26948796398771885
-0.2694803869820156
-0.2694731891379264
-0.2694663514669886
-0.2694598559331278
-0.2694536854047491
-0.2694478236092517
-0.26944225508984365
-0.26943696516453874
-0.2694319398872243
-0.26942716601069433
-0.26942263095154795
-0.2694183227568581
-0.26941423007252074
-0.2694103421131987
-0.26940664863377983
-0.26940313990227227
-0.26939980667406394
-0.2693966401674776
-0.26939363204055533
-0.26939077436901043
-0.2693880596252881
-0.2693854806586783
-0.2693830306764278
-0.2693807032258015
-0.2693784921770441
-0.26937639170719796
-0.2693743962847327
-0.2693725006549467
-0.2693706998261012
-0.2693689890562495
-0.2693673638407279
-0.26936581990027303
-0.2693643531697357
-0.2693629597873604
-0.2693616360846024
-0.269360378576455
-0.2693591839522621
-0.26935804906699073
-0.26935697093294114
-0.2693559467118721
-0.26935497370752076
-0.26935404935849755
-0.2693531712315363
-0.26935233701508293
-0.2693515445132052
-0.2693507916398072
-0.26935007641313363
-0.2693493969505493
-0.2693487514635801
-0.26934813825320186
-0.26934755570536545
-0.26934700228674563
-0.26934647654070276
-0.26934597708344676
-0.26934550260039275
-0.2693450518426993
-0.26934462362397993
-0.26934421681717907
-0.26934383035160436
-0.2693434632101075
-0.26934311442640607
-0.26934278308253956
-0.26934246830645237
-0.2693421692696979
-0.26934188518525753
-0.2693416153054687
-0.26934135892005645
-0.2693411153542639
-0.2693408839670757
-0.26934066414953045
-0.2693404553231181
-0.2693402569382568
-0.26934006847284614
-0.2693398894308931
-0.26933971934120626
-0.26933955775615565
-0.2693394042504944
-0.2693392584202395
-0.26933911988160825
-0.2693389882700086
-0.2693388632390789
-0.26933874445977674
-0.26933863161951266
-0.26933852442132744
-0.26933842258311064
-0.26933832583685785
-0.2693382339279656
-0.26933814661456096
-0.2693380636668653
-0.2693379848665892
-0.26933791000635826
-0.26933783888916696
-0.2693377713278605
-0.2693377071446421
-0.269337646170605
-0.2693375882452881
-0.2693375332162535
-0.2693374809386853
-0.2693374312750088
-0.269337384094528
-0.2693373392730819
-0.2693372966927176
-0.26933725624138005
-0.26933721781261705
-0.26933718130529904
-0.26933714662335306
-0.26933711367550983
-0.26933708237506365
-0.26933705263964414
-0.2693370243909995
-0.2693369975547905
-0.2693369720603951
-0.26933694784072215
-0.2693369248320353
-0.269336902973785
-0.26933688220844915
-0.2693368624813818
-0.2693368437406693
-0.26933682593699376
-0.26933680902350315
-0.26933679295568813
-0.2693367776912648
-0.2693367631900634
-0.26933674941392277
-0.2693367363265898
-0.26933672389362395
-0.2693367120823069
-0.2693367008615561
-0.26933669020184314
-0.26933668007511613
-0.26933667045472576
-0.26933666131535505
-0.2693366526329531
-0.26933664438467136
-0.26933663654880385
-0.2693366291047298
-0.2693366220328595
-0.2693366153145828
-0.26933660893221995
-0.26933660286897526
-0.26933659710889285
-0.26933659163681456
-0.2693365864383402
-0.2693365814997895
-0.26933657680816636
-0.26933657235112435
-0.2693365681169344
-0.2693365640944539
-0.2693365602730974
-0.26933655664280864
-0.2693365531940343
-0.2693365499176987
-0.26933654680517977
-0.26933654384828676
-0.2693365410392384
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.2693365410392384
-</pre></div>
-</div>
+<img alt="../_images/431003180f455eb74fd5d0dd2601920316e71e4824cf2471c53b4e079688229d.png" src="../_images/431003180f455eb74fd5d0dd2601920316e71e4824cf2471c53b4e079688229d.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#check if near zero</span>
-<span class="n">Colbrook</span><span class="p">(</span><span class="mf">0.2693365410392384</span><span class="p">)</span>
+<span class="n">Colbrook</span><span class="p">(</span><span class="n">NewtonC</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.9168028964067219e-07
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-9.349525358359756e-07
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Newton</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-  <span class="n">fprime</span> <span class="o">=</span> <span class="n">Colbrook_prime</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-  <span class="n">xnew</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">Colbrook</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">fprime</span><span class="o">*</span><span class="mf">0.05</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">xnext</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">x</span> <span class="o">-</span> <span class="n">Colbrook</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">)</span><span class="o">/</span><span class="n">Colbrook_prime</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">)</span><span class="o">*</span><span class="mf">0.25</span>
+
+<span class="k">def</span> <span class="nf">Newton</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+  <span class="n">xnew</span> <span class="o">=</span> <span class="n">xnext</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
   <span class="k">while</span> <span class="nb">abs</span><span class="p">(</span><span class="n">xnew</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span><span class="o">&gt;</span><span class="mf">1e-6</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">xnew</span>
-    <span class="n">fprime</span> <span class="o">=</span> <span class="n">Colbrook_prime</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">xnew</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">Colbrook</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">fprime</span><span class="o">*</span><span class="mf">0.05</span>
+    <span class="n">xnew</span> <span class="o">=</span> <span class="n">xnext</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
   <span class="k">return</span> <span class="n">xnew</span>
 </pre></div>
 </div>
@@ -1380,12 +1000,12 @@ x = x_0 -f(x_0)/f'(x_0)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Newton</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Newton</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.26935482904957475
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.06709410233779416
 </pre></div>
 </div>
 </div>
@@ -1394,22 +1014,60 @@ x = x_0 -f(x_0)/f'(x_0)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fsolve</span><span class="p">(</span><span class="n">Colbrook</span><span class="p">,</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">fsolve</span><span class="p">(</span><span class="n">Colbrook</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">Re</span><span class="p">,</span><span class="n">D</span><span class="p">,</span><span class="n">epsil</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.26933649])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.06709176])
 </pre></div>
 </div>
 </div>
 </div>
+<p>Below is another example of using Newton’s method to solve a non-linear system of equations where the derivatives of each equation with respect to each variable are known and defined in the Jacobian matrix.  A more in-depth class on numerical mehods would explain more.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the system of equations</span>
+<span class="k">def</span> <span class="nf">equations</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">eq1</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">4</span>
+    <span class="n">eq2</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">eq1</span><span class="p">,</span> <span class="n">eq2</span><span class="p">]</span>
+
+<span class="c1"># Define the Jacobian matrix (partial derivatives with respect to x1 and x2)</span>
+<span class="k">def</span> <span class="nf">jacobian</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">jac</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">],</span>
+                    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]]])</span>
+    <span class="k">return</span> <span class="n">jac</span>
+
+<span class="c1"># Solve the system of equations using Newton&#39;s method</span>
+<span class="k">def</span> <span class="nf">newton_method</span><span class="p">(</span><span class="n">equations</span><span class="p">,</span> <span class="n">jacobian</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">max_iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_iterations</span><span class="p">):</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">equations</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">J</span> <span class="o">=</span> <span class="n">jacobian</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">delta_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">J</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">+=</span> <span class="n">delta_x</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">delta_x</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tolerance</span><span class="p">:</span>
+            <span class="k">break</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="c1"># Initial guess</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+
+<span class="c1"># Solve the system of equations</span>
+<span class="n">solution</span> <span class="o">=</span> <span class="n">newton_method</span><span class="p">(</span><span class="n">equations</span><span class="p">,</span> <span class="n">jacobian</span><span class="p">,</span> <span class="n">x0</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Solution:</span><span class="si">{</span><span class="n">solution</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Solution:[1.76746906 0.87605312]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 </section>
 
@@ -1484,7 +1142,6 @@ x = x_0 -f(x_0)/f'(x_0)
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#derivation-of-newton-s-method">Derivation of Newton’s method</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-discussion-and-examples-of-newton-s-method">Additional Discussion and Examples of Newton’s Method</a></li>
 </ul>
   </nav></div>
 
