@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>HW11: More Solving of Ordinary Differential Equations (ODEs) &#8212; Computational Tools for Chemical Engineers</title>
+    <title>HW11: Solving Ordinary Differential Equations (ODEs) &#8212; Computational Tools for Chemical Engineers</title>
   
   
   
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'homework/HW11';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="HW12: Regression and Interpolation" href="HW12.html" />
-    <link rel="prev" title="HW10: Solving Ordinary Differential Equations (ODEs)" href="HW10.html" />
+    <link rel="next" title="HW12: More Solving of Ordinary Differential Equations (ODEs)" href="HW12.html" />
+    <link rel="prev" title="HW10: Newton’s Method Practice" href="HW10.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,6 +183,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../lectures/10-NewtonsMethod.html">10 - Newton’s Method Example Exercise</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/11-ODEs.html">11 - ODEs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/12-ODEsAgain.html">12 - More ODEs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/12b-ODEs_Terrarium.html">12b - ODE Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/13-Regression.html">13 - Regression and Interpolation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/14-Models.html">14 - Files, Interpolation, and Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/15-ExamReview.html">15 - Exam Review (Python)</a></li>
@@ -210,11 +211,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="HW07.html">HW07: Units</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HW08.html">HW08: Solve Equations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HW09.html">HW09: Additional Equation Solving Practice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW10.html">HW10: Solving Ordinary Differential Equations (ODEs)</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">HW11: More Solving of Ordinary Differential Equations (ODEs)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW12.html">HW12: Regression and Interpolation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW13.html">HW13: Interpolation and Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW14.html">HW14: Excel Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW10.html">HW10: Newton’s Method Practice</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">HW11: Solving Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW12.html">HW12: More Solving of Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW13.html">HW13: Regression and Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW14.html">HW14: Interpolation and Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW15.html">HW15: Excel Introduction</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -440,7 +442,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>HW11: More Solving of Ordinary Differential Equations (ODEs)</h1>
+    <h1>HW11: Solving Ordinary Differential Equations (ODEs)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -450,9 +452,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-solve-the-following-differential-equation-using-odeint">Problem 1: Solve the following differential equation using odeint</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-relatively-simple-climate-model">Problem 2: Relatively Simple Climate Model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-earth-s-climate-and-co2">Problem 3: Earth’s Climate and CO2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-radioactive-decay">Problem 2: Radioactive decay.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-falling-raindrop">Problem 3: Falling Raindrop</a></li>
 </ul>
             </nav>
         </div>
@@ -464,296 +466,135 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="hw11-more-solving-of-ordinary-differential-equations-odes">
-<h1>HW11: More Solving of Ordinary Differential Equations (ODEs)<a class="headerlink" href="#hw11-more-solving-of-ordinary-differential-equations-odes" title="Permalink to this heading">#</a></h1>
-<section id="problem-1-solve-the-following-differential-equation-using-odeint">
-<h2>Problem 1: Solve the following differential equation using odeint<a class="headerlink" href="#problem-1-solve-the-following-differential-equation-using-odeint" title="Permalink to this heading">#</a></h2>
-<p>If you are living on the International Space Station and accidentally get ejected into space without a space suit, you would need to get air within a few minutes to prevent death. Even if you have air, if you aren’t kept warm, your body would be hypothermic in a relatively short period. Let find out how long you have to get back to the space station before becoming hypothermic. There are likely other more deadly conditions of being exposed to a vacuum than running out of oxygen or freezing, but we will ignore those for now.</p>
-<p>Assuming your are on the shadowed side of Earth, the following is a simple model that describes how your body’s average temperature <span class="math notranslate nohighlight">\(T\)</span> could change in time. The term on the left is the accumulation term; the first term on the right is a generation term (from your metabolism); the second term on the right is emission by radiation into space (space does not return any radiation to you).</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="hw11-solving-ordinary-differential-equations-odes">
+<h1>HW11: Solving Ordinary Differential Equations (ODEs)<a class="headerlink" href="#hw11-solving-ordinary-differential-equations-odes" title="Permalink to this heading">#</a></h1>
+<p>Ordinary Differential Equations are equation that deal with changes with respect to one variable. For example, the equation for the velocity of a falling object is a differential equation because it describes how the velocity changes with respect to time. In this homework, we will practice solving differential equations using the Euler method and Scipy’s ODEINT.</p>
+<p>A simple version of an ODE is:</p>
 <div class="math notranslate nohighlight">
-\[ m c_p\frac{dT}{dt} = \dot{Q}- \sigma A T^4\]</div>
-<p>where <span class="math notranslate nohighlight">\(m\)</span> is total body mass, <span class="math notranslate nohighlight">\(c_p\)</span> is heat capacity, <span class="math notranslate nohighlight">\(\dot{Q}\)</span> is heat generation by your body, <span class="math notranslate nohighlight">\(A\)</span> is effective surface area of your body that emits radiation, and <span class="math notranslate nohighlight">\(\sigma\)</span> is the Stefan-Boltzmann radiation constant (look it up online).</p>
-<p>Your code should be well-documented and all constants should be specified with units. You should use SI units generally in this problem, though will need to switch between <span class="math notranslate nohighlight">\(\mathrm{K}\)</span> and <span class="math notranslate nohighlight">\(^\circ\mathrm{C}\)</span>. A couple notes on that: Temperature in the radiation term must be absolute (i.e. units <span class="math notranslate nohighlight">\(\mathrm{K}\)</span>). Recall from ChEn 170 that for heat capacity the denominator contains a change in temperature (i.e. either <span class="math notranslate nohighlight">\(\Delta\mathrm{K}\)</span> or <span class="math notranslate nohighlight">\(\Delta^\circ\mathrm{C}\)</span> which are perfectly the same). Once you get an answer in <span class="math notranslate nohighlight">\(\mathrm{K}\)</span> you will need to convert to <span class="math notranslate nohighlight">\(^\circ\mathrm{C}\)</span> in the final plot.</p>
-<p>To solve this problem you need to do the following.</p>
-<ol class="arabic simple">
-<li><p>Reasonably estimate the values of <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(A\)</span> for your body (or for ‘a friend’). The area that emits radiation could be estimated, for instance, by treating your body as if it were a cylinder of water.</p></li>
-<li><p>Assume <span class="math notranslate nohighlight">\(c_p\)</span> for your body is the value for water</p></li>
-<li><p>Reasonably estimate what your <span class="math notranslate nohighlight">\(\dot{Q}\)</span> would be in this scenario: a person while resting generates about <span class="math notranslate nohighlight">\(100~\mathrm{W}\)</span> heat and while vigorously exercising generates around <span class="math notranslate nohighlight">\(300~\mathrm{W}\)</span>.</p></li>
-<li><p>Rearrange the above equation and determine what is needed to implement into <code class="docutils literal notranslate"><span class="pre">odeint</span></code></p></li>
-<li><p>Make a smooth well-formatted plot of body temperature (<span class="math notranslate nohighlight">\(^\circ\mathrm{C}\)</span>) over time (<span class="math notranslate nohighlight">\(\mathrm{s}\)</span>). Adjust the timescale so that the plot readily shows the most relevant region of interest.</p></li>
-<li><p>Based on the <strong>plot</strong> of the model result, <strong>estimate</strong> the time when you would get to hypothermia. Normal body temperature is <span class="math notranslate nohighlight">\(37^\circ\mathrm{C}\)</span>; hypothermia begins at <span class="math notranslate nohighlight">\(35^\circ\mathrm{C}\)</span>.</p></li>
-</ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your answer here</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="problem-2-relatively-simple-climate-model">
-<h2>Problem 2: Relatively Simple Climate Model<a class="headerlink" href="#problem-2-relatively-simple-climate-model" title="Permalink to this heading">#</a></h2>
-<p>The earth’s climate is very complex. “A butterfly flaps its wings in China and it rains in New York” is a popular saying that illustrates the complexity of the climate system. Climate models are very complex. In this homework, we will use a simple climate model to explore the effect of the greenhouse effect on the earth’s temperature.</p>
-<p>We’ll simulate a layer of dry air on top of a layer of humid air that is above a layer of solid iron. Our model will be significantly smaller than the Earth. Oxygen and nitrogen are transparent to both visible and infrared light, but water vapor and carbon dioxide are not. The greenhouse effect is the process by which the atmosphere traps infrared radiation and warms the earth. We need this effect to survive otherwise the earth would be too cold to support life.</p>
-<p>Incoming solar radiation (<span class="math notranslate nohighlight">\(I_0\)</span>) is absorbed by the different layers, heating them, and some of that energy strikes the Earth’s surface. The surface then radiates infrared radiation (I1) back into the atmosphere. Some of this radiation is absorbed by the atmosphere, and some escapes into space.</p>
-<p>Table of Parameters</p>
-<table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Number</p></th>
-<th class="head"><p>Label</p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(C_p\)</span>, J/mol/K</p></th>
-<th class="head"><p>Reflectivity</p></th>
-<th class="head"><p>Temp, K</p></th>
-<th class="head"><p>Absorption coef., m-1</p></th>
-<th class="head"><p>Emissivity</p></th>
-<th class="head"><p>Thickness, m</p></th>
-<th class="head"><p>Heat transfer coef., kW/m2/K</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>1</p></td>
-<td><p>Dry Air</p></td>
-<td><p>29</p></td>
-<td><p>0.02</p></td>
-<td><p>256</p></td>
-<td><p><mark>0.01</mark></p></td>
-<td><p>0.3</p></td>
-<td><p>90</p></td>
-<td><p>100</p></td>
-</tr>
-<tr class="row-odd"><td><p>2</p></td>
-<td><p>Humid Air</p></td>
-<td><p>36</p></td>
-<td><p><mark>0.2</mark></p></td>
-<td><p>263</p></td>
-<td><p>0.7</p></td>
-<td><p>0.8</p></td>
-<td><p>30</p></td>
-<td><p>100</p></td>
-</tr>
-<tr class="row-even"><td><p>3</p></td>
-<td><p>Iron</p></td>
-<td><p>25</p></td>
-<td><p>0</p></td>
-<td><p>285</p></td>
-<td><p>100</p></td>
-<td><p>0.5</p></td>
-<td><p>1</p></td>
-<td><p>1</p></td>
-</tr>
-</tbody>
-</table>
-<p>The highlighted values are the parameters that will be changing depending on the composition of the dry and humid air.</p>
-<p>Energy balance equations that define the behavior and interactions between the layers:</p>
+\[
+\frac{dy}{dt} = C
+\]</div>
+<p>where C is a constant. Here, y is changing at a constant rate with respect to time. The analytical solution is simply</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\begin{align}
-acc &amp;= in - out \\
-\frac{dE_i}{dt} &amp;= n_iC_p^i\frac{dT_i}{dt}= I_{i-1}A_i[(1-r_i)-(1-r_i)^2 e^{-\kappa_i d_i}] -\sigma \epsilon_i A_i(T_i^4-T_{surr}^4) -\sum h_{ij}B_{ij}(T_i-T_j)
-\end{align}
+\int dy = \int C dt \\
+y = Ct + y0, 
 \end{split}\]</div>
-<p>where <span class="math notranslate nohighlight">\(E\)</span> is the energy stored in each layer, <span class="math notranslate nohighlight">\(n\)</span> is the number of moles of each layer, <span class="math notranslate nohighlight">\(C_p\)</span> is the heat capacity of each layer, <span class="math notranslate nohighlight">\(T\)</span> is the temperature of each layer, <span class="math notranslate nohighlight">\(I_0\)</span> is the incoming solar radiation, <span class="math notranslate nohighlight">\(A\)</span> is the surface area of the earth, <span class="math notranslate nohighlight">\(r\)</span> is the reflectivity of each layer, <span class="math notranslate nohighlight">\(\kappa\)</span> is the absorption coefficient of each layer, <span class="math notranslate nohighlight">\(d\)</span> is the thickness of each layer, <span class="math notranslate nohighlight">\(\sigma\)</span> is the Stefan-Boltzmann constant, <span class="math notranslate nohighlight">\(\epsilon\)</span> is the emissivity of each layer, <span class="math notranslate nohighlight">\(B\)</span> is the interfacial area, and <span class="math notranslate nohighlight">\(h\)</span> is the heat transfer coefficient of each layer.</p>
-<p>For example, for the second layer, the above derivative equation is</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{dE_2}{dt} = n_2C_p^2\frac{dT_2}{dt}= I_1A_2[(1-r_2)-(1-r_2)^2 e^{-\kappa_2 d_2}] - \sigma \epsilon_2 A_2(T_2^4 - T_{surr}^4) - h_{23}B_{23}(T_2-T_3) - h_{21}B_{21}(T_2-T_1)
-\]</div>
-<p>The outlet radiation after it passes through a layer is:</p>
-<div class="math notranslate nohighlight">
-\[
-I_i = I_{i-1}(1-r_i)^2 e^{-\kappa_i d_i}
-\]</div>
-<p>An image of the different layers for this model is shown below with the different layers labeled and the incoming radiation through Layer 1. Now we can set up our model in Python.</p>
-<img src="https://github.com/clint-bg/comptools/blob/main/homework/supportfiles/sphere-climate.png?raw=true" width='350'><div class="cell docutils container">
+<p>where y0 is the initial value of y = 0.</p>
+<p>Some ODE’s can be solved analytically, but many cannot. We’ll use this simple example to also integrate it numerically and compare the results.</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import dependencies</span>
-<span class="kn">import</span> <span class="nn">param</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Importing the necessary packages</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">layer</span><span class="p">(</span><span class="n">param</span><span class="o">.</span><span class="n">Parameterized</span><span class="p">):</span>
-    <span class="n">th</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;Thickness of the layer, m&quot;</span><span class="p">)</span>
-    <span class="n">k</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;absorbtion coefficient of the layer, m^-1&quot;</span><span class="p">)</span>
-    <span class="n">T</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">288</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;Temperature of the layer, K&quot;</span><span class="p">)</span>
-    <span class="n">Cp</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;Heat capacity of the layer, J/(mol K)&quot;</span><span class="p">)</span>
-    <span class="n">em</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;Emissivity of the layer&quot;</span><span class="p">)</span>
-    <span class="n">sigma</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mf">5.67e-8</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;Stefan-Boltzmann constant, W/(m^2 K^4)&quot;</span><span class="p">)</span>
-    <span class="n">ref</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;Reflectivity of the layer&quot;</span><span class="p">)</span>
-    <span class="n">rad</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;Radius to edge of layer closest to center, m&quot;</span><span class="p">)</span>
-    <span class="n">Rg</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mf">8.314</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;Ideal gas constant, J/(mol K)&quot;</span><span class="p">,</span> <span class="n">constant</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-    <span class="n">hconv</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;Convection coefficient, W/(m^2 K)&quot;</span><span class="p">)</span>
-    <span class="n">solid</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">Boolean</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;Is the layer solid?&quot;</span><span class="p">)</span>
-    <span class="n">solidensity</span>  <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">1500</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;Density of the solid, kg/m^3&quot;</span><span class="p">)</span>
-    <span class="n">MW</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mf">0.0558</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;Molecular weight of the component, kg/mol&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Specify the constant </span>
+<span class="n">constant</span> <span class="o">=</span> <span class="mf">42.1</span> <span class="c1"># in dy/dt = constant</span>
 
-    <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1">#area for the emission to the surroundings taken to be the outside surface area</span>
-        <span class="k">return</span> <span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rad</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">th</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="c1"># Define the equation</span>
+<span class="k">def</span> <span class="nf">derivative</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">t</span><span class="p">):</span> <span class="c1">#y is the dependent variable, t is the independent variable return is dydt</span>
+    <span class="k">return</span> <span class="n">constant</span> <span class="c1"># return the right side of dy/dt which in this case is constant</span>
 
-    <span class="k">def</span> <span class="nf">moles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">pressure</span><span class="p">):</span>
-        <span class="n">volume</span> <span class="o">=</span> <span class="mi">4</span><span class="o">/</span><span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">rad</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">th</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rad</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">solid</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">solidensity</span><span class="o">*</span><span class="n">volume</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">MW</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">pressure</span><span class="o">*</span><span class="n">volume</span><span class="o">/</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Rg</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-    
-    <span class="k">def</span> <span class="nf">adsorbed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">Ii</span><span class="p">):</span> <span class="c1"># energy adsorbed by the layer</span>
-        <span class="k">return</span> <span class="n">Ii</span><span class="o">*</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">ref</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">ref</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">k</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">th</span><span class="p">))</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">area</span><span class="p">()</span> <span class="c1">#Ii is the intensity of the incoming radiation</span>
-    
-    <span class="k">def</span> <span class="nf">emitted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">Tsurr</span><span class="p">):</span> <span class="c1"># energy radiated by the layer to the surroundings</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">em</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">sigma</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">area</span><span class="p">()</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">T</span><span class="o">**</span><span class="mi">4</span> <span class="o">-</span> <span class="n">Tsurr</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
-    
-    <span class="k">def</span> <span class="nf">convection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">upperlayer</span><span class="p">,</span> <span class="n">lowerlayer</span><span class="p">):</span> <span class="c1"># energy convected by the layer to the other layers</span>
-        <span class="n">hc_u</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hconv</span> <span class="o">+</span> <span class="n">upperlayer</span><span class="o">.</span><span class="n">hconv</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
-        <span class="n">hc_l</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hconv</span> <span class="o">+</span> <span class="n">lowerlayer</span><span class="o">.</span><span class="n">hconv</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
-        <span class="n">area_u</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">area</span><span class="p">();</span> <span class="n">area_l</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rad</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
-        <span class="k">if</span> <span class="n">upperlayer</span> <span class="o">==</span> <span class="bp">self</span><span class="p">:</span>
-            <span class="n">heat_u</span> <span class="o">=</span> <span class="n">hc_u</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">T</span> <span class="o">-</span> <span class="mi">250</span><span class="p">)</span><span class="o">*</span><span class="n">area_u</span> <span class="c1">#heat lost to space from the top layer</span>
-        <span class="k">elif</span> <span class="n">lowerlayer</span> <span class="o">==</span> <span class="bp">self</span><span class="p">:</span>
-            <span class="n">heat_u</span> <span class="o">=</span> <span class="n">hc_u</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">T</span> <span class="o">-</span> <span class="mi">290</span><span class="p">)</span><span class="o">*</span><span class="n">area_u</span> <span class="c1">#mimicking heat from the earth&#39;s core to the bottom layer</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">heat_u</span> <span class="o">=</span> <span class="n">hc_u</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">T</span> <span class="o">-</span> <span class="n">upperlayer</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">*</span><span class="n">area_u</span>
-        <span class="n">heat_l</span> <span class="o">=</span> <span class="n">hc_l</span><span class="o">*</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">T</span> <span class="o">-</span> <span class="n">lowerlayer</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">*</span><span class="n">area_l</span>
-        <span class="k">return</span> <span class="n">heat_u</span> <span class="o">+</span> <span class="n">heat_l</span>
-    
-    <span class="k">def</span> <span class="nf">dTdt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">Ii</span><span class="p">,</span><span class="n">Tsurr</span><span class="p">,</span><span class="n">pressure</span><span class="p">,</span><span class="n">upperlayer</span><span class="p">,</span><span class="n">lowerlayer</span><span class="p">):</span> <span class="c1"># change in temperature with time of the layer</span>
-        <span class="n">conv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convection</span><span class="p">(</span><span class="n">upperlayer</span><span class="p">,</span> <span class="n">lowerlayer</span><span class="p">)</span>
-        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">adsorbed</span><span class="p">(</span><span class="n">Ii</span><span class="p">)</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">emitted</span><span class="p">(</span><span class="n">Tsurr</span><span class="p">)</span> <span class="o">-</span> <span class="n">conv</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">moles</span><span class="p">(</span><span class="n">pressure</span><span class="p">)</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">Cp</span><span class="p">)</span>    
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Task 1:</strong> Please describe what the above code is doing. Also please explain what is meant by upperlayer and lowerlayer.</p>
-<p>When rerunning the code, make sure to rerun from here (where the objects are defined at their initial values.)</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Now simulate the layers with a given intensity of incoming radiation and </span>
-<span class="c1"># a given temperature of the surroundings</span>
-<span class="n">years</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">365</span><span class="o">*</span><span class="n">years</span><span class="p">,</span><span class="mi">3650</span><span class="o">*</span><span class="n">years</span><span class="p">)</span> <span class="c1">#days </span>
-<span class="n">Tsurr</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#K</span>
-<span class="n">pressure</span> <span class="o">=</span> <span class="mf">1e5</span> <span class="c1">#Pa</span>
-<span class="n">hc</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1">#W/(m^2 K) #convection coefficient for all layers</span>
-<span class="n">radius</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1">#m, radius of the planet</span>
-<span class="n">dryair</span> <span class="o">=</span> <span class="n">layer</span><span class="p">(</span><span class="n">th</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="mi">256</span><span class="p">,</span> <span class="n">Cp</span> <span class="o">=</span> <span class="mi">29</span><span class="p">,</span> <span class="n">em</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span> <span class="n">ref</span> <span class="o">=</span> <span class="mf">0.02</span><span class="p">,</span> <span class="n">rad</span> <span class="o">=</span> <span class="n">radius</span><span class="o">+</span><span class="mi">30</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">hconv</span> <span class="o">=</span> <span class="n">hc</span><span class="p">)</span>
-<span class="n">wetair</span> <span class="o">=</span> <span class="n">layer</span><span class="p">(</span><span class="n">th</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="mi">263</span><span class="p">,</span> <span class="n">Cp</span> <span class="o">=</span> <span class="mi">36</span><span class="p">,</span> <span class="n">em</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">ref</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">rad</span> <span class="o">=</span> <span class="n">radius</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">hconv</span> <span class="o">=</span> <span class="n">hc</span><span class="p">)</span>
-<span class="n">iron</span> <span class="o">=</span> <span class="n">layer</span><span class="p">(</span><span class="n">th</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="mi">285</span><span class="p">,</span> <span class="n">Cp</span> <span class="o">=</span> <span class="mi">25</span><span class="p">,</span> <span class="n">em</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">ref</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">rad</span> <span class="o">=</span> <span class="n">radius</span><span class="p">,</span> <span class="n">hconv</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">solid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#set radiation intensity</span>
-<span class="n">Io</span> <span class="o">=</span> <span class="mf">1.5e3</span> <span class="c1">#W/m^2</span>
-<span class="k">def</span> <span class="nf">Ii</span><span class="p">(</span><span class="n">day</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">day</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">Io</span><span class="o">/</span><span class="mi">2</span> <span class="c1">#W/m^2  </span>
+<span class="c1">#create some arrays</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
 
-<span class="c1">#set absorption coefficient of dryair mimicking increase in CO2 concentration step change</span>
-<span class="k">def</span> <span class="nf">ad</span><span class="p">(</span><span class="n">day</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">day</span><span class="o">&gt;</span><span class="mi">1000</span><span class="p">:</span>
-        <span class="n">dryair</span><span class="o">.</span><span class="n">k</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="c1">#initial condition</span>
+<span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="c1">#set reflectivity of wetair mimicking increase in cloud cover step change</span>
-<span class="k">def</span> <span class="nf">refl</span><span class="p">(</span><span class="n">day</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">day</span><span class="o">&gt;</span><span class="mi">1000</span><span class="p">:</span>
-        <span class="n">wetair</span><span class="o">.</span><span class="n">ref</span> <span class="o">=</span> <span class="mi">1</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Task 2</strong> Please describe what the ad() and refl() functions are doing. What is being set in each case? How would you expect the temperature to change in response? How long will that setting last?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">Ii</span><span class="p">(</span><span class="n">time</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (days)&quot;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Intensity of incoming radiation (W/m^2)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1035</span><span class="p">])</span>
+<span class="c1">#Now use Euler&#39;s method to solve the equation to get y as a function of t</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)):</span>
+    <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">derivative</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1">#Now use scipy odeint to solve the equation</span>
+<span class="n">yode</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">derivative</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">t</span><span class="p">)</span>
+
+<span class="c1">#now plot the solution</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Euler&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">constant</span><span class="o">*</span><span class="n">t</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;analytical&#39;</span><span class="p">)</span> <span class="c1">#also plot the analytical solution</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">yode</span><span class="p">,</span> <span class="s1">&#39;g-.&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;odeint&#39;</span><span class="p">)</span> <span class="c1">#also plot the solution from odeint</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y(t)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1000.0, 1035.0)
-</pre></div>
-</div>
-<img alt="../_images/3f7f3c6e393019466faf3bf955233aea59620432e1827bf5613a63db41976636.png" src="../_images/3f7f3c6e393019466faf3bf955233aea59620432e1827bf5613a63db41976636.png" />
+<img alt="../_images/84fd049af365e6c03979bbe14112744b39ae66946fb1cf4350bfdeedae9b706d.png" src="../_images/84fd049af365e6c03979bbe14112744b39ae66946fb1cf4350bfdeedae9b706d.png" />
 </div>
 </div>
-<p><strong>Task 3</strong>: You will make changes to the “atmosphere” by either increasing the cloud cover with the refl() function, or increasing the absorption coefficient of the atmosphere. You will either uncomment the ad(t) or refl(t) function in the below derivative to see how the atmosphere (dryair temperature) responds. Remember to rerun the code from the beginning (at Task 1) to reset the initial values.</p>
+<p>The three versions of the solution (analytical, Euler, and ODEINT) are the same (or visually indistinguishable) as seen in the above plot.</p>
+<hr class="docutils" />
+<section id="problem-1">
+<h2>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h2>
+<p>Please solve the below equation using the Euler method. Plot the solution and compare it to the analytical solution.:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{dy}{dt} = -y + C
+\]</div>
+<p>where C is a constant. Here, y is changing at a constant rate with respect to time.</p>
+<p><strong>Action 1</strong>: Solve for the analytical solution and specify a function called Analytical1 that takes values of time and returns the value of y given the C value of 3.2 and an initial vallue of 2.3.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Integrate the differential equations using ODEINT</span>
-<span class="k">def</span> <span class="nf">derivs</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">Ii</span><span class="p">,</span><span class="n">ad</span><span class="p">):</span>
-    <span class="p">[</span><span class="n">dryair</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">wetair</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">iron</span><span class="o">.</span><span class="n">T</span><span class="p">]</span> <span class="o">=</span> <span class="n">T</span> <span class="c1">#set the temperatures of the layers from the odeint results</span>
-    <span class="c1">#ad(t) #change the absorption coefficient of dryair</span>
-    <span class="c1">#refl(t) #change the reflectivity of wetair</span>
-    <span class="n">I0</span> <span class="o">=</span> <span class="n">Ii</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-    <span class="n">I1</span> <span class="o">=</span> <span class="n">Ii</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">dryair</span><span class="o">.</span><span class="n">ref</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">dryair</span><span class="o">.</span><span class="n">k</span><span class="o">*</span><span class="n">dryair</span><span class="o">.</span><span class="n">th</span><span class="p">)</span>
-    <span class="n">I2</span> <span class="o">=</span> <span class="n">I1</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">wetair</span><span class="o">.</span><span class="n">ref</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">wetair</span><span class="o">.</span><span class="n">k</span><span class="o">*</span><span class="n">wetair</span><span class="o">.</span><span class="n">th</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">dryair</span><span class="o">.</span><span class="n">dTdt</span><span class="p">(</span><span class="n">I0</span><span class="p">,</span><span class="n">Tsurr</span><span class="p">,</span><span class="n">pressure</span><span class="p">,</span><span class="n">dryair</span><span class="p">,</span><span class="n">wetair</span><span class="p">),</span> \
-        <span class="n">wetair</span><span class="o">.</span><span class="n">dTdt</span><span class="p">(</span><span class="n">I1</span><span class="p">,</span><span class="n">Tsurr</span><span class="p">,</span><span class="n">pressure</span><span class="p">,</span><span class="n">dryair</span><span class="p">,</span><span class="n">iron</span><span class="p">),</span> \
-            <span class="n">iron</span><span class="o">.</span><span class="n">dTdt</span><span class="p">(</span><span class="n">I2</span><span class="p">,</span><span class="n">Tsurr</span><span class="p">,</span><span class="n">pressure</span><span class="p">,</span><span class="n">wetair</span><span class="p">,</span><span class="n">iron</span><span class="p">)]</span>
-<span class="n">T0</span> <span class="o">=</span> <span class="p">[</span><span class="n">dryair</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">wetair</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">iron</span><span class="o">.</span><span class="n">T</span><span class="p">]</span>
-<span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">Ii</span><span class="p">,</span><span class="n">ad</span><span class="p">)</span>
-<span class="n">results</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">derivs</span><span class="p">,</span><span class="n">T0</span><span class="p">,</span><span class="n">time</span><span class="p">,</span><span class="n">args</span><span class="p">)</span>
-<span class="n">first</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">each</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">results</span><span class="p">])</span>
-<span class="n">second</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">each</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">results</span><span class="p">])</span>
-<span class="n">third</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">each</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">results</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Plot the results</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="o">/</span><span class="mi">365</span><span class="p">,</span><span class="n">first</span><span class="o">-</span><span class="mi">273</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Dry air&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="o">/</span><span class="mi">365</span><span class="p">,</span><span class="n">second</span><span class="o">-</span><span class="mi">273</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Wet air&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="o">/</span><span class="mi">365</span><span class="p">,</span><span class="n">third</span><span class="o">-</span><span class="mi">273</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Iron&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (years)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Temperature (C)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A hint, you can use sympy to solve the equation analytically</span>
+<span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Function</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">eq</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="o">-</span><span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">+</span><span class="mf">3.2</span><span class="p">)</span>
+<span class="n">sp</span><span class="o">.</span><span class="n">dsolve</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span> <span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f997cfa5f2e6d82901ed9f1bce3a8dfad8614d8084bb0a9f475875ef4e4c375d.png" src="../_images/f997cfa5f2e6d82901ed9f1bce3a8dfad8614d8084bb0a9f475875ef4e4c375d.png" />
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle y{\left(t \right)} = C_{1} e^{- t} + 3.2\]</div>
 </div>
 </div>
-<p><strong>Task 4:</strong> Please comment on your observations: How does increasing the cloud cover affect the temperature of the different layers. How does increasing the absorption coefficient of the dryair layer affect the temperature of the different layers?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#changes in temperature</span>
-<span class="p">(</span><span class="n">dryair</span><span class="o">.</span><span class="n">T</span><span class="o">-</span><span class="mi">256</span><span class="p">,</span><span class="n">wetair</span><span class="o">.</span><span class="n">T</span><span class="o">-</span><span class="mi">263</span><span class="p">,</span><span class="n">iron</span><span class="o">.</span><span class="n">T</span><span class="o">-</span><span class="mi">285</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.09828641514332048, -0.030317701606008995, 0.31149164540840957)
-</pre></div>
-</div>
-</div>
-</div>
+<p><strong>Action 2:</strong> Setup a derivative function as in the example above and fill in arrays with the value of y as a function of time using the Euler method. Use a step size of 0.1 and a total time of 10.0 starting from 0.</p>
+<p><strong>Action 3:</strong> Use the ODEINT function to solve the same equation.</p>
+<p><strong>Action 4:</strong> Plot the analytical solution and the numerical solutions (Euler and ODEINT) on the same plot. Make sure to label the axes and include a legend.</p>
 </section>
-<section id="problem-3-earth-s-climate-and-co2">
-<h2>Problem 3: Earth’s Climate and CO2<a class="headerlink" href="#problem-3-earth-s-climate-and-co2" title="Permalink to this heading">#</a></h2>
-<p>Billions of dollars is being spent to reduce the CO2 concentration in our atmosphere. There are multiple pieces of evidence, as presented by the US Government in the below links, that may show that these expenses are justified. Please quickly review the below links.</p>
-<p>Gasonline and diesel consumption for US vehicles
-<a class="reference external" href="https://www.statista.com/statistics/189410/us-gasoline-and-diesel-consumption-for-highway-vehicles-since-1992/">https://www.statista.com/statistics/189410/us-gasoline-and-diesel-consumption-for-highway-vehicles-since-1992/</a></p>
-<p>Greenhouse Gas Index
-<a class="reference external" href="https://www.climate.gov/news-features/understanding-climate/climate-change-annual-greenhouse-gas-index">https://www.climate.gov/news-features/understanding-climate/climate-change-annual-greenhouse-gas-index</a></p>
-<p>Atmospheric CO2 Concentration
-<a class="reference external" href="https://www.climate.gov/news-features/understanding-climate/climate-change-atmospheric-carbon-dioxide">https://www.climate.gov/news-features/understanding-climate/climate-change-atmospheric-carbon-dioxide</a></p>
-<p>Global Surface Temperatures
-<a class="reference external" href="https://www.climate.gov/news-features/understanding-climate/climate-change-global-temperature">https://www.climate.gov/news-features/understanding-climate/climate-change-global-temperature</a></p>
-<p>What other data would you like to see to corroborate the above data? For example, CxHy + O2 -&gt; CO2 + H2O. Would you expect the concentration of oxygen to increase or decrease?  If the CO2 concentration is increasing, would you expect the density of the atmosphere to increase or decrease?</p>
-<p>It’s been put forward that the CO2 concentration increase is not only correlated to the apparent rise in the atmospheric temperature but that it is the cause. This cause and effect relationship is not necessarily true, but it may be. How would you go about proving or disproving this?</p>
-<p>It has also been put forward that water content in the atmosphere shouldn’t be a part of the discussion even though the greenhouse effect of water vapor is much more significant that other gases. What are your thoughts on this?</p>
-<p><code class="docutils literal notranslate"><span class="pre">Your</span> <span class="pre">answers</span> <span class="pre">here</span></code></p>
+<section id="problem-2-radioactive-decay">
+<h2>Problem 2: Radioactive decay.<a class="headerlink" href="#problem-2-radioactive-decay" title="Permalink to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[
+\frac{dC}{dt} = -\frac{C}{\tau}.
+\]</div>
+<p>The exact solution is</p>
+<div class="math notranslate nohighlight">
+\[
+C(t) = C_0e^{-t/\tau},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(C_0\)</span> is the initial concentration.</p>
+<p><strong>Action 1</strong>: Use sympy dsolve to solve the above equation. You should get the same answer as given above.</p>
+<p><strong>Action 2</strong>: Use the Euler method to solve the above equation. Plot the solution and compare it to the analytical solution. Use an initial concentration of 1 and a decay constant of 1. Use a step size of 1 and a total time of 10.0 starting from 0. Thus you’ll have 11 points for time for each trace: analytical, euler, and odeint.</p>
+<p><strong>Action 3:</strong> Solve the same with odeint</p>
+<p><strong>Action 4</strong>: Plot the analytical solution and the numerical solutions (Euler and ODEINT) on the same plot. Make sure to label the axes and include a legend.</p>
+<p><strong>Action 5</strong>: Comment on what you observe about the plot. Perhaps you want to change the time step size (1 to 0.1) and see what happens.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Your</span> <span class="pre">answer</span> <span class="pre">here</span></code></p>
+</section>
+<section id="problem-3-falling-raindrop">
+<h2>Problem 3: Falling Raindrop<a class="headerlink" href="#problem-3-falling-raindrop" title="Permalink to this heading">#</a></h2>
+<p>A <span class="math notranslate nohighlight">\(d_p\)</span> = 1 mm diameter raindrop falls in still air at 300 K, 1 atm. The drop’s falling velocity
+and position evolve according to the following 2 rate equations:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\frac{dv}{dt} = -g + C_d \frac{3/4\rho_{air}v^2}{\rho_{w}d_p} \\
+\frac{dx}{dt} = v
+\end{split}\]</div>
+<p>Here <span class="math notranslate nohighlight">\(\rho_w\)</span> is the density of water at 1000 kg/m3, <span class="math notranslate nohighlight">\(\rho_{air}\)</span> is the density of air at 1.2 kg/m3, and <span class="math notranslate nohighlight">\(C_d\)</span> is the drag coefficient at approximately 0.5, and g = 9.81 m/s^2 . The initial position and velocity of the drop are both 0.</p>
+<ul class="simple">
+<li><p>(a) Numerically solve for velocity and position, each of which should be plotted on their own labeled plot for sufficient time to show initial and asymptotal behavior. Use odeint to generate smooth curves.</p></li>
+<li><p>(b) Find the infinite-time velocity ( called the terminal velocity) of the droplet (approximated at a long time value).</p></li>
+</ul>
+<p><strong>Hint</strong> : setup your derivative function (<code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">derivative(vx,t):</span></code>) to take in both velocity and position (in a single array or tuple) and return both dvdt and dxdt in an array or tuple.</p>
+<p><strong>Action</strong>: Solve the above system of equations for the velocity and position as a function of time and plot the result. Also find the terminal velocity.</p>
+<p><strong>Action</strong>: Change the size of the droplet to 5mm and then 10 mm and plot the terminal velocity as a function of droplet size. Comment on the result.</p>
 </section>
 </section>
 
@@ -794,7 +635,7 @@ I_i = I_{i-1}(1-r_i)^2 e^{-\kappa_i d_i}
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">HW10: Solving Ordinary Differential Equations (ODEs)</p>
+        <p class="prev-next-title">HW10: Newton’s Method Practice</p>
       </div>
     </a>
     <a class="right-next"
@@ -802,7 +643,7 @@ I_i = I_{i-1}(1-r_i)^2 e^{-\kappa_i d_i}
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">HW12: Regression and Interpolation</p>
+        <p class="prev-next-title">HW12: More Solving of Ordinary Differential Equations (ODEs)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -824,9 +665,9 @@ I_i = I_{i-1}(1-r_i)^2 e^{-\kappa_i d_i}
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-solve-the-following-differential-equation-using-odeint">Problem 1: Solve the following differential equation using odeint</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-relatively-simple-climate-model">Problem 2: Relatively Simple Climate Model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-earth-s-climate-and-co2">Problem 3: Earth’s Climate and CO2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-radioactive-decay">Problem 2: Radioactive decay.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-falling-raindrop">Problem 3: Falling Raindrop</a></li>
 </ul>
   </nav></div>
 

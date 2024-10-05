@@ -183,6 +183,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">10 - Newton’s Method Example Exercise</a></li>
 <li class="toctree-l2"><a class="reference internal" href="11-ODEs.html">11 - ODEs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="12-ODEsAgain.html">12 - More ODEs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12b-ODEs_Terrarium.html">12b - ODE Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="13-Regression.html">13 - Regression and Interpolation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="14-Models.html">14 - Files, Interpolation, and Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="15-ExamReview.html">15 - Exam Review (Python)</a></li>
@@ -210,11 +211,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW07.html">HW07: Units</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW08.html">HW08: Solve Equations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW09.html">HW09: Additional Equation Solving Practice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW10.html">HW10: Solving Ordinary Differential Equations (ODEs)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW11.html">HW11: More Solving of Ordinary Differential Equations (ODEs)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW12.html">HW12: Regression and Interpolation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW13.html">HW13: Interpolation and Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW14.html">HW14: Excel Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW10.html">HW10: Newton’s Method Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW11.html">HW11: Solving Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW12.html">HW12: More Solving of Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW13.html">HW13: Regression and Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW14.html">HW14: Interpolation and Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW15.html">HW15: Excel Introduction</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -872,9 +874,9 @@ x = x_0 - \frac{f(x_0)}{f'(x_0)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_57494/3040087786.py:2: RuntimeWarning: invalid value encountered in sqrt
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_61139/3040087786.py:2: RuntimeWarning: invalid value encountered in sqrt
   return 1/np.sqrt(f) + 2*np.log10(2.51/(Rey*np.sqrt(f))+ep/(3.71*Dia))
-/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_57494/837614916.py:2: RuntimeWarning: invalid value encountered in scalar divide
+/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_61139/837614916.py:2: RuntimeWarning: invalid value encountered in scalar divide
   return -1/(2*f**(3/2)) - 2.51/(np.log(10)*Re*f**(3/2)*(0.2695*epsil/D+2.51/(Re*np.sqrt(f))))
 </pre></div>
 </div>

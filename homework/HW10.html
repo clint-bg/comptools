@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>HW10: Solving Ordinary Differential Equations (ODEs) &#8212; Computational Tools for Chemical Engineers</title>
+    <title>HW10: Newton’s Method Practice &#8212; Computational Tools for Chemical Engineers</title>
   
   
   
@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'homework/HW10';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="HW11: More Solving of Ordinary Differential Equations (ODEs)" href="HW11.html" />
+    <link rel="next" title="HW11: Solving Ordinary Differential Equations (ODEs)" href="HW11.html" />
     <link rel="prev" title="HW09: Additional Equation Solving Practice" href="HW09.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -183,6 +183,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../lectures/10-NewtonsMethod.html">10 - Newton’s Method Example Exercise</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/11-ODEs.html">11 - ODEs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/12-ODEsAgain.html">12 - More ODEs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/12b-ODEs_Terrarium.html">12b - ODE Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/13-Regression.html">13 - Regression and Interpolation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/14-Models.html">14 - Files, Interpolation, and Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/15-ExamReview.html">15 - Exam Review (Python)</a></li>
@@ -210,11 +211,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="HW07.html">HW07: Units</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HW08.html">HW08: Solve Equations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HW09.html">HW09: Additional Equation Solving Practice</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">HW10: Solving Ordinary Differential Equations (ODEs)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW11.html">HW11: More Solving of Ordinary Differential Equations (ODEs)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW12.html">HW12: Regression and Interpolation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW13.html">HW13: Interpolation and Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW14.html">HW14: Excel Introduction</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">HW10: Newton’s Method Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW11.html">HW11: Solving Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW12.html">HW12: More Solving of Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW13.html">HW13: Regression and Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW14.html">HW14: Interpolation and Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW15.html">HW15: Excel Introduction</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -440,7 +442,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>HW10: Solving Ordinary Differential Equations (ODEs)</h1>
+    <h1>HW10: Newton’s Method Practice</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -451,8 +453,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-radioactive-decay">Problem 2: Radioactive decay.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-falling-raindrop">Problem 3: Falling Raindrop</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
 </ul>
             </nav>
         </div>
@@ -464,135 +466,38 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="hw10-solving-ordinary-differential-equations-odes">
-<h1>HW10: Solving Ordinary Differential Equations (ODEs)<a class="headerlink" href="#hw10-solving-ordinary-differential-equations-odes" title="Permalink to this heading">#</a></h1>
-<p>Ordinary Differential Equations are equation that deal with changes with respect to one variable. For example, the equation for the velocity of a falling object is a differential equation because it describes how the velocity changes with respect to time. In this homework, we will practice solving differential equations using the Euler method and Scipy’s ODEINT.</p>
-<p>A simple version of an ODE is:</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{dy}{dt} = C
-\]</div>
-<p>where C is a constant. Here, y is changing at a constant rate with respect to time. The analytical solution is simply</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\int dy = \int C dt \\
-y = Ct + y0, 
-\end{split}\]</div>
-<p>where y0 is the initial value of y = 0.</p>
-<p>Some ODE’s can be solved analytically, but many cannot. We’ll use this simple example to also integrate it numerically and compare the results.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Importing the necessary packages</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Specify the constant </span>
-<span class="n">constant</span> <span class="o">=</span> <span class="mf">42.1</span> <span class="c1"># in dy/dt = constant</span>
-
-<span class="c1"># Define the equation</span>
-<span class="k">def</span> <span class="nf">derivative</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">t</span><span class="p">):</span> <span class="c1">#y is the dependent variable, t is the independent variable return is dydt</span>
-    <span class="k">return</span> <span class="n">constant</span> <span class="c1"># return the right side of dy/dt which in this case is constant</span>
-
-<span class="c1">#create some arrays</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
-
-<span class="c1">#initial condition</span>
-<span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-
-<span class="c1">#Now use Euler&#39;s method to solve the equation to get y as a function of t</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)):</span>
-    <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">derivative</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-
-<span class="c1">#Now use scipy odeint to solve the equation</span>
-<span class="n">yode</span> <span class="o">=</span> <span class="n">odeint</span><span class="p">(</span><span class="n">derivative</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">t</span><span class="p">)</span>
-
-<span class="c1">#now plot the solution</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Euler&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">constant</span><span class="o">*</span><span class="n">t</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;analytical&#39;</span><span class="p">)</span> <span class="c1">#also plot the analytical solution</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">yode</span><span class="p">,</span> <span class="s1">&#39;g-.&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;odeint&#39;</span><span class="p">)</span> <span class="c1">#also plot the solution from odeint</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y(t)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/84fd049af365e6c03979bbe14112744b39ae66946fb1cf4350bfdeedae9b706d.png" src="../_images/84fd049af365e6c03979bbe14112744b39ae66946fb1cf4350bfdeedae9b706d.png" />
-</div>
-</div>
-<p>The three versions of the solution (analytical, Euler, and ODEINT) are the same (or visually indistinguishable) as seen in the above plot.</p>
-<hr class="docutils" />
+  <section class="tex2jax_ignore mathjax_ignore" id="hw10-newton-s-method-practice">
+<h1>HW10: Newton’s Method Practice<a class="headerlink" href="#hw10-newton-s-method-practice" title="Permalink to this heading">#</a></h1>
 <section id="problem-1">
 <h2>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h2>
-<p>Please solve the below equation using the Euler method. Plot the solution and compare it to the analytical solution.:</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{dy}{dt} = -y + C
-\]</div>
-<p>where C is a constant. Here, y is changing at a constant rate with respect to time.</p>
-<p><strong>Action 1</strong>: Solve for the analytical solution and specify a function called Analytical1 that takes values of time and returns the value of y given the C value of 3.2 and an initial vallue of 2.3.</p>
+<p>Describe in a paragraph (in your own words) what Newton’s method is and how that algorithm can be used to solve equations.</p>
+<p>Add your description here.</p>
+</section>
+<section id="problem-2">
+<h2>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h2>
+<p>Program Newton’s method to solve the following equation for all three roots:
+$<span class="math notranslate nohighlight">\(
+x^3 + 2x^2 - 1
+\)</span>$</p>
+<p>Make sure to write the program such that it returns all three roots at one time. Please do that with an input of a list with three guesses of [-2,0.5,1]. Also use the function (but not the derivative) describing the curve as an input to your Newton’s method. In addition to the newton solver function, you should have other functions to find the value of the above function and to find the next x value (see the example in the Newton’s equation Module). Please also plot the function with the proper labels. Include on the plot, the procession of guess values for one of the solutions. Your Newton’s method will return the solution list (3 values) and also will return a list of values yielding the procession of values for one of those solutions. Those procession values should be plotted on the function curve as points similar to how it was done in the Newton’s Method module.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A hint, you can use sympy to solve the equation analytically</span>
-<span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Function</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-<span class="n">eq</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Eq</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="o">-</span><span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">+</span><span class="mf">3.2</span><span class="p">)</span>
-<span class="n">sp</span><span class="o">.</span><span class="n">dsolve</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span> <span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle y{\left(t \right)} = C_{1} e^{- t} + 3.2\]</div>
+</div>
+</section>
+<section id="problem-3">
+<h2>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h2>
+<p>In Problem 4 of Homework 8, you were asked to solve for the x component of benzene and the corresponding temperature using Raolt’s Law. In that problem you likely used Scipy’s fsolve. In this problem, you will use Newton’s method to solve for the x component of benzene and the corresponding temperature also assuming Raolt’s Law. However, you’ll use Newton’s method and a Jacobian matrix to solve for the two unknowns. Your Jacobian matrix should include object references to the object functions (Psat and the derivative of the Antoine equation).  To get the derivatives of the Antoine equation with respect to T, you should use sympy’s symbolic differentiation to demonstrate you know how to use that functionality (even though you could get the derivatives in other ways). No need to work sympy’s output into a function; you can manually type it in to the class as a function after you get sympy to generate it. Use the example at the end of the Newton’s Method module (and the In-class Jupyter Sheet CL-09MoreEquations.ipynb on Learning Suite) to help you with this problem. You should get the same answer as you did ini Problem 4 of Homework 8.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your code here</span>
+</pre></div>
 </div>
 </div>
-<p><strong>Action 2:</strong> Setup a derivative function as in the example above and fill in arrays with the value of y as a function of time using the Euler method. Use a step size of 0.1 and a total time of 10.0 starting from 0.</p>
-<p><strong>Action 3:</strong> Use the ODEINT function to solve the same equation.</p>
-<p><strong>Action 4:</strong> Plot the analytical solution and the numerical solutions (Euler and ODEINT) on the same plot. Make sure to label the axes and include a legend.</p>
-</section>
-<section id="problem-2-radioactive-decay">
-<h2>Problem 2: Radioactive decay.<a class="headerlink" href="#problem-2-radioactive-decay" title="Permalink to this heading">#</a></h2>
-<div class="math notranslate nohighlight">
-\[
-\frac{dC}{dt} = -\frac{C}{\tau}.
-\]</div>
-<p>The exact solution is</p>
-<div class="math notranslate nohighlight">
-\[
-C(t) = C_0e^{-t/\tau},
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(C_0\)</span> is the initial concentration.</p>
-<p><strong>Action 1</strong>: Use sympy dsolve to solve the above equation. You should get the same answer as given above.</p>
-<p><strong>Action 2</strong>: Use the Euler method to solve the above equation. Plot the solution and compare it to the analytical solution. Use an initial concentration of 1 and a decay constant of 1. Use a step size of 1 and a total time of 10.0 starting from 0. Thus you’ll have 11 points for time for each trace: analytical, euler, and odeint.</p>
-<p><strong>Action 3:</strong> Solve the same with odeint</p>
-<p><strong>Action 4</strong>: Plot the analytical solution and the numerical solutions (Euler and ODEINT) on the same plot. Make sure to label the axes and include a legend.</p>
-<p><strong>Action 5</strong>: Comment on what you observe about the plot. Perhaps you want to change the time step size (1 to 0.1) and see what happens.</p>
-<p><code class="docutils literal notranslate"><span class="pre">Your</span> <span class="pre">answer</span> <span class="pre">here</span></code></p>
-</section>
-<section id="problem-3-falling-raindrop">
-<h2>Problem 3: Falling Raindrop<a class="headerlink" href="#problem-3-falling-raindrop" title="Permalink to this heading">#</a></h2>
-<p>A <span class="math notranslate nohighlight">\(d_p\)</span> = 1 mm diameter raindrop falls in still air at 300 K, 1 atm. The drop’s falling velocity
-and position evolve according to the following 2 rate equations:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\frac{dv}{dt} = -g + C_d \frac{3/4\rho_{air}v^2}{\rho_{w}d_p} \\
-\frac{dx}{dt} = v
-\end{split}\]</div>
-<p>Here <span class="math notranslate nohighlight">\(\rho_w\)</span> is the density of water at 1000 kg/m3, <span class="math notranslate nohighlight">\(\rho_{air}\)</span> is the density of air at 1.2 kg/m3, and <span class="math notranslate nohighlight">\(C_d\)</span> is the drag coefficient at approximately 0.5, and g = 9.81 m/s^2 . The initial position and velocity of the drop are both 0.</p>
-<ul class="simple">
-<li><p>(a) Numerically solve for velocity and position, each of which should be plotted on their own labeled plot for sufficient time to show initial and asymptotal behavior. Use odeint to generate smooth curves.</p></li>
-<li><p>(b) Find the infinite-time velocity ( called the terminal velocity) of the droplet (approximated at a long time value).</p></li>
-</ul>
-<p><strong>Hint</strong> : setup your derivative function (<code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">derivative(vx,t):</span></code>) to take in both velocity and position (in a single array or tuple) and return both dvdt and dxdt in an array or tuple.</p>
-<p><strong>Action</strong>: Solve the above system of equations for the velocity and position as a function of time and plot the result. Also find the terminal velocity.</p>
-<p><strong>Action</strong>: Change the size of the droplet to 5mm and then 10 mm and plot the terminal velocity as a function of droplet size. Comment on the result.</p>
+</div>
 </section>
 </section>
 
@@ -641,7 +546,7 @@ and position evolve according to the following 2 rate equations:</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">HW11: More Solving of Ordinary Differential Equations (ODEs)</p>
+        <p class="prev-next-title">HW11: Solving Ordinary Differential Equations (ODEs)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -664,8 +569,8 @@ and position evolve according to the following 2 rate equations:</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-radioactive-decay">Problem 2: Radioactive decay.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-falling-raindrop">Problem 3: Falling Raindrop</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
 </ul>
   </nav></div>
 
