@@ -476,8 +476,20 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="odes">
 <h1>11 - ODEs<a class="headerlink" href="#odes" title="Permalink to this heading">#</a></h1>
-<p>Many times in engineering, the system is not at steady state. Or in other words, the system variables are changing. We’ll look at some basic methods to readily solve problems where the system is changing with time.</p>
+<p>Many times in engineering, the system in question is not at steady state. Or in other words, the system variables are changing. We’ll look at some basic methods to readily solve problems where the system is changing with time.</p>
 <p>You should understand at the end of this discussion that if you have an expression for the derivative, you can integrate that numerically to determine the system parameters as a function of time.</p>
+<p>One of the most common ways to solve ODEs is to use the Euler method. The Euler method is helpful because it is simple to implement and understand. However, it is not the most accurate method. There are other algorithms that are much better.</p>
+<p>Euler’s method is a numerical solution that uses a finite difference approximation to the derivative:</p>
+<div class="math notranslate nohighlight">
+\[\frac{df}{dt} = \lim_{\Delta t \rightarrow 0} \frac{f(t+\Delta t) - f(t)}{\Delta t}\]</div>
+<p>Using Euler’s method:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+f(t+\Delta t) &amp;= f(t) + \frac{df}{dt} \Delta t \\
+\end{align}
+\end{split}\]</div>
+<p>So an approximation of the function at the next time step (from the starting point) is the function at the current time step plus the derivative times the time step. This approximation gets more accurate with smaller time steps.</p>
 <section id="first-example-frictionless-emptying-a-tank-of-fliud">
 <h2>First Example: Frictionless emptying a tank of fliud<a class="headerlink" href="#first-example-frictionless-emptying-a-tank-of-fliud" title="Permalink to this heading">#</a></h2>
 <p>A tank of water is draining through a 1/8 inch diameter hole in the bottom of the tank. The water level in the tank is 7 and 3/16 inches above the hole. The tank is 1 and 9/16 inch in diameter. The density of water is 1000 kg/m<sup>3</sup>. The tank is open to the atmosphere. The flow rate out of the tank is estimated by the following equation:</p>
@@ -495,6 +507,7 @@ document.write(`
 \frac{dm}{dt} &amp;= -\rho A \sqrt{2 g h} \\
 m &amp;= \rho V \\
 V &amp;= \frac{\pi}{4} D^2 h \\
+m &amp;= \rho \frac{\pi}{4} D^2 h \\
 \frac{dm}{dt} &amp;= \rho \frac{\pi}{4} D^2 \frac{dh}{dt} = -\rho A \sqrt{2 g h} \\
 \frac{dh}{dt} &amp;= -\frac{4}{\pi D^2} A \sqrt{2 g h} \\
 \end{align}
@@ -579,9 +592,7 @@ h(t) &amp;= \left(-\frac{2}{\pi D^2} A \sqrt{2 g} t + \sqrt{h0}\right)^2 \\
 </section>
 <section id="numerical-solution-euler-s-method">
 <h3>Numerical Solution: Euler’s Method<a class="headerlink" href="#numerical-solution-euler-s-method" title="Permalink to this heading">#</a></h3>
-<p>The numerical solution will use a finite difference approximation to the derivative, the simplest of which is called Euler’s method. Euler’s method is based on the definition of the derivative:</p>
-<div class="math notranslate nohighlight">
-\[\frac{df}{dt} = \lim_{\Delta t \rightarrow 0} \frac{f(t+\Delta t) - f(t)}{\Delta t}\]</div>
+<p>Now we’ll use the above Euler formulation to solve for the fluid height as a function of time. We’ll also compare that solution to the analytical solution.</p>
 <p>From the above the problem definition, we can rewrite the differential equation as:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -599,7 +610,6 @@ h(t+\Delta t) &amp;= h(t) + f(h) \Delta t \\
 h(t+\Delta t) &amp;= h(t) + -\frac{4}{\pi D^2} A \sqrt{2 g h(t)} \Delta t \\
 \end{align}
 \end{split}\]</div>
-<p>Now we’ll use the above formulation to solve for the fluid height as a function of time. We’ll also compare that solution to the analytical solution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Euler&#39;s method/solution for the height of the fluid in the tank</span>
@@ -824,16 +834,10 @@ Re = \frac{\rho D v}{\mu} = \frac{\rho D \sqrt{2 g h} C_d(Re)}{\mu} \\
 <p>A video of the above scenario where water drains from graduated cylinder through a small hole. Height of the water in the cylinder as a function of time is approximated from the video.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
 <span class="k">def</span> <span class="nf">video</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
     <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/&#39;</span><span class="o">+</span><span class="n">key</span><span class="o">+</span><span class="s1">&#39;&quot; </span><span class="se">\</span>
 <span class="s1">             frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot; allowfullscreen&gt;&lt;/iframe&gt;&#39;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/6d/1jr2w1qx1rnd2nkndlq4hc700000gn/T/ipykernel_61146/3944168696.py:1: DeprecationWarning: Importing display from IPython.core.display is deprecated since IPython 7.14, please import from IPython display
-  from IPython.core.display import display, HTML
 </pre></div>
 </div>
 </div>
