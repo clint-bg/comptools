@@ -63,11 +63,9 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/12-ODEsAgain';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lectures/12-ODEsAgainOld';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="12b - ODE Example" href="12b-ODEs_Terrarium.html" />
-    <link rel="prev" title="11 - ODEs" href="11-ODEs.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -158,7 +156,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../foundations.html">Foundations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../foundations/preClassPrep.html">Pre-course Preparation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../foundations/pythonresources.html">Python Resources</a></li>
@@ -167,7 +165,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../foundations/safety.html">Safety</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../topics.html">Modules</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../topics.html">Modules</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="01-Motive.html">01 - Motivation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01b-Basics.html">01b - Python Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02-Arrays.html">02 - Arrays, Lists, Dictionaries</a></li>
@@ -182,7 +180,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="09-EquationsAgain.html">09 - Solving More Equations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="10-NewtonsMethod.html">10 - Newton’s Method Example Exercise</a></li>
 <li class="toctree-l2"><a class="reference internal" href="11-ODEs.html">11 - ODEs</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">12 - More ODEs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12-ODEsAgain.html">12 - More ODEs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="12b-ODEs_Terrarium.html">12b - ODE Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="13-Regression.html">13 - Regression and Interpolation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="14-Models.html">14 - Files, Interpolation, and Models</a></li>
@@ -282,7 +280,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/clint-bg/comptools/blob/gh-pages/_sources/lectures/12-ODEsAgain.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/clint-bg/comptools/blob/gh-pages/_sources/lectures/12-ODEsAgainOld.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -330,7 +328,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/clint-bg/comptools/issues/new?title=Issue%20on%20page%20%2Flectures/12-ODEsAgain.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/clint-bg/comptools/issues/new?title=Issue%20on%20page%20%2Flectures/12-ODEsAgainOld.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -360,7 +358,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/lectures/12-ODEsAgain.ipynb" target="_blank"
+      <li><a href="../_sources/lectures/12-ODEsAgainOld.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -454,7 +452,10 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-example-predators-and-prey">First Example: Predators and Prey</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-example-solving-the-lorenz-equations">Second Example: Solving the Lorenz Equations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#third-example-carbon-dioxide-concentration">Third Example: Carbon Dioxide Concentration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#third-example-carbon-dioxide-concentration">Third Example: Carbon Dioxide Concentration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#follow-up-data">Follow-up Data</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -838,6 +839,48 @@ $<span class="math notranslate nohighlight">\(
 \)</span>$
 You can see if that’s a better fit to the data in a similar way I did above.</p>
 <p>The above plot shows that the non-linear estimate (with parameters that were manually adjusted to better fit the data) is close to the actual data. Instead of manually adjusting the parameters, how could we estimate the parameters automatically? We could use a least squares approach to estimate the parameters. We’ll discuss that in the next lecture.</p>
+<section id="follow-up-data">
+<h3>Follow-up Data<a class="headerlink" href="#follow-up-data" title="Permalink to this heading">#</a></h3>
+<p>I wasn’t sure that the data above was accurate in that there is a “knee” at about the 40 min mark so I collected more data. It’s shown below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#read in the data</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;supportfiles/co2conc2.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#add an extra column to the dataframe that is the seconds from the start of the data from the </span>
+<span class="c1"># Epoch_UTC column, use pandas date time package to convert from year-month-dayThour:minute:second to minutes</span>
+<span class="n">df2</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;Local_Date_Time&#39;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%S.</span><span class="si">%f</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">/</span><span class="mf">1e9</span><span class="o">/</span><span class="mi">60</span> <span class="c1">#min</span>
+<span class="c1">#now reference from the start of the data</span>
+<span class="n">zeroindex</span> <span class="o">=</span> <span class="mi">302</span><span class="p">;</span> <span class="n">endindex</span> <span class="o">=</span> <span class="mi">250</span>
+<span class="n">df2</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df2</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="n">zeroindex</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">594</span><span class="p">:</span><span class="o">-</span><span class="mi">550</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;CO₂&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">594</span><span class="p">:</span><span class="o">-</span><span class="mi">550</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;experimental data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_min</span><span class="p">,</span><span class="n">lin_co2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;initial linear estimate&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">Con</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;nonlinear estimate&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="n">zeroindex</span><span class="p">:</span><span class="o">-</span><span class="n">endindex</span><span class="p">],</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;CO₂&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="n">zeroindex</span><span class="p">:</span><span class="o">-</span><span class="n">endindex</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;experimental data 2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time, min&#39;</span><span class="p">),</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;CO₂ Concentration,ppm&#39;</span><span class="p">)</span>
+<span class="c1">#change yaxis to log scale</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/281dd09f1043be43f82abd7c8079c4467009c44ab5aaa3e76eaf6e52f4ce5e6e.png" src="../_images/281dd09f1043be43f82abd7c8079c4467009c44ab5aaa3e76eaf6e52f4ce5e6e.png" />
+</div>
+</div>
+<p>There is a knee in both sets of data.</p>
+</section>
 </section>
 </section>
 
@@ -872,24 +915,6 @@ You can see if that’s a better fit to the data in a similar way I did above.</
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="11-ODEs.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">11 - ODEs</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="12b-ODEs_Terrarium.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">12b - ODE Example</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div></div>
   
 </div>
@@ -910,7 +935,10 @@ You can see if that’s a better fit to the data in a similar way I did above.</
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-example-predators-and-prey">First Example: Predators and Prey</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-example-solving-the-lorenz-equations">Second Example: Solving the Lorenz Equations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#third-example-carbon-dioxide-concentration">Third Example: Carbon Dioxide Concentration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#third-example-carbon-dioxide-concentration">Third Example: Carbon Dioxide Concentration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#follow-up-data">Follow-up Data</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
