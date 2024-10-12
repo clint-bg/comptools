@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="14 - Files, Interpolation, and Models" href="14-Models.html" />
-    <link rel="prev" title="12 - More ODEs" href="12-ODEsAgain.html" />
+    <link rel="prev" title="12b - ODE Example" href="12b-ODEs_Terrarium.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,6 +183,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="10-NewtonsMethod.html">10 - Newton’s Method Example Exercise</a></li>
 <li class="toctree-l2"><a class="reference internal" href="11-ODEs.html">11 - ODEs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="12-ODEsAgain.html">12 - More ODEs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12b-ODEs_Terrarium.html">12b - ODE Example</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">13 - Regression and Interpolation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="14-Models.html">14 - Files, Interpolation, and Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="15-ExamReview.html">15 - Exam Review (Python)</a></li>
@@ -210,11 +211,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW07.html">HW07: Units</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW08.html">HW08: Solve Equations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW09.html">HW09: Additional Equation Solving Practice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW10.html">HW10: Solving Ordinary Differential Equations (ODEs)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW11.html">HW11: More Solving of Ordinary Differential Equations (ODEs)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW12.html">HW12: Regression and Interpolation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW13.html">HW13: Interpolation and Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW14.html">HW14: Excel Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW10.html">HW10: Newton’s Method Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW11.html">HW11: Solving Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW12.html">HW12: More Solving of Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW13.html">HW13: Regression and Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW14.html">HW14: Interpolation and Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW15.html">HW15: Excel Introduction</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -507,7 +509,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/94e75732bdf3d3c07b381b24dbd98f8c91d48caf46178b51fff4d353f84f296e.png" src="../_images/94e75732bdf3d3c07b381b24dbd98f8c91d48caf46178b51fff4d353f84f296e.png" />
+<img alt="../_images/77454ee319719ef2ad7130428ce8ddf9a29343c15bec09ddb98e1f042a1eaec0.png" src="../_images/77454ee319719ef2ad7130428ce8ddf9a29343c15bec09ddb98e1f042a1eaec0.png" />
 </div>
 </div>
 <p>Regression involves making an approximation to relate the independent variable (what you can control) to the dependent variable (what you measure). x is typically the independent variable and y is the dependent variable.</p>
@@ -529,7 +531,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope is 0.512 and the intercept is -0.069
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope is 0.516 and the intercept is -0.084
 </pre></div>
 </div>
 </div>
@@ -544,7 +546,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5e5ad3ad6b4037133b508cd493e0d5fa979687137cbe2d2216e8aa59dd1b4912.png" src="../_images/5e5ad3ad6b4037133b508cd493e0d5fa979687137cbe2d2216e8aa59dd1b4912.png" />
+<img alt="../_images/7413d63bceae729bf1432fd01a1d6878a092967eca896bc7dc40ce0e3a2217dc.png" src="../_images/7413d63bceae729bf1432fd01a1d6878a092967eca896bc7dc40ce0e3a2217dc.png" />
 </div>
 </div>
 <p>Regression statistics can be calculated to the rsquared and the mape value which are measures of how well the regression line fits the data.</p>
@@ -564,7 +566,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The r-squared value is 0.972
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The r-squared value is 0.973
 </pre></div>
 </div>
 </div>
@@ -582,7 +584,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The MAPE value is 48.717%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The MAPE value is 22.597%
 </pre></div>
 </div>
 </div>
@@ -612,8 +614,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope is 0.512 and the intercept is -0.069
-The uncertainties in the two parameters is [0.008786   0.05085394]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope is 0.516 and the intercept is -0.084
+The uncertainties in the two parameters is [0.00861408 0.04985884]
 </pre></div>
 </div>
 </div>
@@ -650,12 +652,12 @@ The uncertainties in the two parameters is [0.008786   0.05085394]
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  message: Desired error not necessarily achieved due to precision loss.
   success: False
    status: 2
-      fun: 6.431517339501434
-        x: [ 5.120e-01 -6.928e-02]
-      nit: 3
-      jac: [ 5.120e-05  7.272e-06]
- hess_inv: [[ 6.346e-04 -3.117e-03]
-            [-3.117e-03  1.993e-02]]
+      fun: 6.182282304503562
+        x: [ 5.164e-01 -8.445e-02]
+      nit: 4
+      jac: [ 4.035e-05  6.080e-06]
+ hess_inv: [[ 5.488e-04 -2.806e-03]
+            [-2.806e-03  1.962e-02]]
      nfev: 155
      njev: 48
 </pre></div>
@@ -1137,12 +1139,12 @@ The uncertainties in the two parameters is [0.008786   0.05085394]
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="12-ODEsAgain.html"
+       href="12b-ODEs_Terrarium.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">12 - More ODEs</p>
+        <p class="prev-next-title">12b - ODE Example</p>
       </div>
     </a>
     <a class="right-next"

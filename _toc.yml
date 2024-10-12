@@ -28,7 +28,7 @@ chapters:
     - file: lectures/10-NewtonsMethod
     - file: lectures/11-ODEs
     - file: lectures/12-ODEsAgain
-    - file: lectures/10b-ODEs_Terrarium
+    - file: lectures/12b-ODEs_Terrarium
     - file: lectures/13-Regression
     - file: lectures/14-Models
     - file: lectures/15-ExamReview
@@ -59,7 +59,8 @@ chapters:
     - file: homework/HW11
     - file: homework/HW12
     - file: homework/HW13
-    - file: homework/HW14 
+    - file: homework/HW14
+    - file: homework/HW15
     - file: homework/HW19
   - file: casestudies
     sections:

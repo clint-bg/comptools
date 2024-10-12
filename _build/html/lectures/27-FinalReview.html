@@ -181,6 +181,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="10-NewtonsMethod.html">10 - Newton’s Method Example Exercise</a></li>
 <li class="toctree-l2"><a class="reference internal" href="11-ODEs.html">11 - ODEs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="12-ODEsAgain.html">12 - More ODEs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12b-ODEs_Terrarium.html">12b - ODE Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="13-Regression.html">13 - Regression and Interpolation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="14-Models.html">14 - Files, Interpolation, and Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="15-ExamReview.html">15 - Exam Review (Python)</a></li>
@@ -208,11 +209,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW07.html">HW07: Units</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW08.html">HW08: Solve Equations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW09.html">HW09: Additional Equation Solving Practice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW10.html">HW10: Solving Ordinary Differential Equations (ODEs)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW11.html">HW11: More Solving of Ordinary Differential Equations (ODEs)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW12.html">HW12: Regression and Interpolation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW13.html">HW13: Interpolation and Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../homework/HW14.html">HW14: Excel Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW10.html">HW10: Newton’s Method Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW11.html">HW11: Solving Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW12.html">HW12: More Solving of Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW13.html">HW13: Regression and Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW14.html">HW14: Interpolation and Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW15.html">HW15: Excel Introduction</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -621,7 +623,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1c8eed53c0c3c83223abc626e19fc9a2a7d76d176e9abafa05c7d9a1616b5201.png" src="../_images/1c8eed53c0c3c83223abc626e19fc9a2a7d76d176e9abafa05c7d9a1616b5201.png" />
+<img alt="../_images/7a790037d71a7b30d4a03bbbb2e54b6ffb8fb49d21f8d0f91f6b9d6e89694e6f.png" src="../_images/7a790037d71a7b30d4a03bbbb2e54b6ffb8fb49d21f8d0f91f6b9d6e89694e6f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -637,7 +639,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R2 = 0.992
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R2 = 0.993
 </pre></div>
 </div>
 </div>
@@ -651,7 +653,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MAPE = 4.61%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MAPE = 3.74%
 </pre></div>
 </div>
 </div>
@@ -669,7 +671,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>popt = [2.22310726e-04 1.99006466e+01]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>popt = [2.19815734e-04 1.94485857e+01]
 </pre></div>
 </div>
 </div>
@@ -691,7 +693,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>area of mymodel fit between 0 and 10 = 221.04
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>area of mymodel fit between 0 and 10 = 216.27
 </pre></div>
 </div>
 </div>
@@ -713,7 +715,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array(18.3690879)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array(17.82923304)
 </pre></div>
 </div>
 </div>

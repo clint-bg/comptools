@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>HW13: Interpolation and Models &#8212; Computational Tools for Chemical Engineers</title>
+    <title>HW13: Regression and Interpolation &#8212; Computational Tools for Chemical Engineers</title>
   
   
   
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'homework/HW13';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="HW14: Excel Introduction" href="HW14.html" />
-    <link rel="prev" title="HW12: Regression and Interpolation" href="HW12.html" />
+    <link rel="next" title="HW14: Interpolation and Models" href="HW14.html" />
+    <link rel="prev" title="HW12: More Solving of Ordinary Differential Equations (ODEs)" href="HW12.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,6 +183,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../lectures/10-NewtonsMethod.html">10 - Newton’s Method Example Exercise</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/11-ODEs.html">11 - ODEs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/12-ODEsAgain.html">12 - More ODEs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/12b-ODEs_Terrarium.html">12b - ODE Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/13-Regression.html">13 - Regression and Interpolation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/14-Models.html">14 - Files, Interpolation, and Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/15-ExamReview.html">15 - Exam Review (Python)</a></li>
@@ -210,11 +211,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="HW07.html">HW07: Units</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HW08.html">HW08: Solve Equations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HW09.html">HW09: Additional Equation Solving Practice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW10.html">HW10: Solving Ordinary Differential Equations (ODEs)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW11.html">HW11: More Solving of Ordinary Differential Equations (ODEs)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW12.html">HW12: Regression and Interpolation</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">HW13: Interpolation and Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="HW14.html">HW14: Excel Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW10.html">HW10: Newton’s Method Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW11.html">HW11: Solving Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW12.html">HW12: More Solving of Ordinary Differential Equations (ODEs)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">HW13: Regression and Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW14.html">HW14: Interpolation and Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW15.html">HW15: Excel Introduction</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../casestudies.html">Case Studies</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -440,7 +442,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>HW13: Interpolation and Models</h1>
+    <h1>HW13: Regression and Interpolation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -450,8 +452,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-interpolation">Problem 1: Interpolation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-multivariate-regression">Problem 2: Multivariate Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-rate-equation-and-fitting">Problem 1: Rate Equation and Fitting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3:</a></li>
 </ul>
             </nav>
         </div>
@@ -463,113 +466,137 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="hw13-interpolation-and-models">
-<h1>HW13: Interpolation and Models<a class="headerlink" href="#hw13-interpolation-and-models" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="hw13-regression-and-interpolation">
+<h1>HW13: Regression and Interpolation<a class="headerlink" href="#hw13-regression-and-interpolation" title="Permalink to this heading">#</a></h1>
+<p>Regression is an important skill to use data to create a relationship that could be used to describe that data.</p>
+<section id="problem-1-rate-equation-and-fitting">
+<h2>Problem 1: Rate Equation and Fitting<a class="headerlink" href="#problem-1-rate-equation-and-fitting" title="Permalink to this heading">#</a></h2>
+<p>The Arrhenius Equation relates the rate equation of a reaction to the temperature of the reaction. The equation is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+k = A e^{-E_a/RT}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(k\)</span> is the rate constant, <span class="math notranslate nohighlight">\(A\)</span> is the pre-exponential factor, <span class="math notranslate nohighlight">\(E_a\)</span> is the activation energy, <span class="math notranslate nohighlight">\(R\)</span> is the gas constant, and <span class="math notranslate nohighlight">\(T\)</span> is the temperature in Kelvin.</p>
+<p>For a first order reaction, the rate equation is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+r = -\frac{dC_A}{dt} = k C_A
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(C_A\)</span> is the concentration of species <span class="math notranslate nohighlight">\(A\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span><span class="p">,</span> <span class="n">CubicSpline</span>
-<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
 </div>
-<section id="problem-1-interpolation">
-<h2>Problem 1: Interpolation<a class="headerlink" href="#problem-1-interpolation" title="Permalink to this heading">#</a></h2>
-<p>Given the data <code class="docutils literal notranslate"><span class="pre">xg</span></code> and <code class="docutils literal notranslate"><span class="pre">yg</span></code> below. Find the linear interpolate yw corresponding to <code class="docutils literal notranslate"><span class="pre">xw=0.54</span></code>. Also find the cubic spline (read the notes) value of y at the same point. The <code class="docutils literal notranslate"><span class="pre">xg</span></code> and <code class="docutils literal notranslate"><span class="pre">yg</span></code> values are computed from <span class="math notranslate nohighlight">\(y=f(x)=\exp(4x)\)</span>. Find the relative error between your interpolants and the exact value. The relative error is given by <span class="math notranslate nohighlight">\(\epsilon = |(y-y_{exact})/y_{exact}|\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">1.0</span><span class="p">])</span>
-<span class="n">yg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mf">4.0</span><span class="o">*</span><span class="n">xg</span><span class="p">)</span>
-
-<span class="n">xw</span>     <span class="o">=</span> <span class="mf">0.54</span>
-<span class="n">yexact</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mf">4.0</span><span class="o">*</span><span class="n">xw</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Data from research team</span>
+<span class="n">Temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="mi">180</span><span class="p">])</span> <span class="c1"># in Celsius</span>
+<span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">8031385.90210512</span><span class="p">,</span>  <span class="mf">9172549.4982323</span> <span class="p">,</span> <span class="mf">15836234.10003797</span><span class="p">,</span> \
+       <span class="mf">18528434.62455682</span><span class="p">,</span> <span class="mf">29494725.27289638</span><span class="p">,</span> <span class="mf">28167947.98802359</span><span class="p">,</span> \
+       <span class="mf">33220622.03710192</span><span class="p">,</span> <span class="mf">49115522.07065894</span><span class="p">,</span> <span class="mf">51245134.59894557</span><span class="p">])</span> <span class="c1">#rate constant in 1/s</span>
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="problem-2-multivariate-regression">
-<h2>Problem 2: Multivariate Regression<a class="headerlink" href="#problem-2-multivariate-regression" title="Permalink to this heading">#</a></h2>
-<p>You’d like to relate the tree data discussed in class in a non-linear way (rather than the linear way shown in class). Follow the class example and fit a model using curve_fit assuming a model of the form <code class="docutils literal notranslate"><span class="pre">height</span> <span class="pre">=</span> <span class="pre">a*water**2</span> <span class="pre">+</span> <span class="pre">b*fertilizer</span> <span class="pre">+</span> <span class="pre">c</span></code>. Report your values for a, b, and c. Also report the <span class="math notranslate nohighlight">\(R^2\)</span> value for this model as well as the MAPE value. Add your predicted heights to the pandas dataframe. Please also write your dataframe that has the predicted heights to a csv file and submit that csv file with your prf of this homework sheet.</p>
-<p>Hints:</p>
-<ul class="simple">
-<li><p>Create a function that takes in the independent variables and the parameters and returns the model prediction according to the above equation. Your function should take in an array of independent variables (x[0] could be the water and x[1] could be the fertilizer; x would be the independent variable (an array or tuple) fed to the function). x is the first entry of the function with a,b,c the other items needed to return a predicted value.</p></li>
-<li><p>Use curve_fit to fit the model to the data according to curve_fit(your_function, (tree[water], tree[fertilizer]), tree[height]) which will return a,b, and c. Then use those parameters to add another column in the pandas dataframe called ‘predicted_height’ and fill it with your model predictions.</p></li>
-</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#generate data (pretend you don&#39;t see how the tree height is related to water and fertilizer)</span>
-<span class="k">def</span> <span class="nf">tree_height</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">f</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mi">5</span><span class="o">*</span><span class="n">w</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="n">f</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="o">*</span><span class="mf">0.1</span><span class="o">+</span><span class="mi">5</span>
-<span class="n">tree</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">water</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">),</span><span class="n">fertilizer</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">50</span><span class="p">))</span>
-<span class="n">tree</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tree_height</span><span class="p">(</span><span class="n">tree</span><span class="p">[</span><span class="s1">&#39;water&#39;</span><span class="p">],</span> <span class="n">tree</span><span class="p">[</span><span class="s1">&#39;fertilizer&#39;</span><span class="p">])</span>
-<span class="n">tree</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
-<span class="n">tree</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Temp</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Temperature (K)&#39;</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;kA (1/s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>water</th>
-      <th>fertilizer</th>
-      <th>height</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>5.095857</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0.020408</td>
-      <td>0.010204</td>
-      <td>5.173282</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0.040816</td>
-      <td>0.020408</td>
-      <td>5.242010</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0.061224</td>
-      <td>0.030612</td>
-      <td>5.315822</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0.081633</td>
-      <td>0.040816</td>
-      <td>5.387205</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<img alt="../_images/a02a3262a76a68a128ddde6e96167808ac687671103a4f45cfac075ad18e59fb.png" src="../_images/a02a3262a76a68a128ddde6e96167808ac687671103a4f45cfac075ad18e59fb.png" />
 </div>
+</div>
+<p><strong>Action</strong>, fit the above data to the Arrhenius equation and determine the pre-exponential factor and activation energy using the exponential function as written above, and the linearized version of the equation.  Determine the <span class="math notranslate nohighlight">\(E_a\)</span> and <span class="math notranslate nohighlight">\(A\)</span> values for each approach. The linearized version is:</p>
+<div class="math notranslate nohighlight">
+\[
+\ln(k) = -\frac{E_a}{R} \frac{1}{T} + \ln(A)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\ln\)</span> is the natural log function. You’ll fit the data by generating new variables where the x is 1/T and the y is ln(k). The slope is then <span class="math notranslate nohighlight">\(-E_a/R\)</span> and the intercept is <span class="math notranslate nohighlight">\(\ln(A)\)</span>.</p>
+<p>Hints:</p>
+<ul class="simple">
+<li><p>Use the minimize or curve_fit functions to fit the original data to the Arrhenius equation after defining an Arrhenius function.</p></li>
+<li><p>Use the polyfit function (order 1) to fit the linearized data to a linear equation.</p></li>
+<li><p>Remember to convert the temperature to Kelvin before using it in the equations (Temp given in C. Temp in C + 273.15 = Temp in K).</p></li>
+</ul>
+<p><strong>Action</strong>, plot the data and the two fits on the same graph.  Include a legend and label the axes.</p>
+<p><strong>Action</strong> Compare your answers by comparing the R2 and MAPE values for both approaches.</p>
+<p>Hint:</p>
+<ul class="simple">
+<li><p>Make sure to make your comparisons on the original data, not the transformed data.</p></li>
+</ul>
+</section>
+<section id="problem-2">
+<h2>Problem 2:<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h2>
+<p>The data in HW10 P2 Data.csv contains data for the response of a “first-order system with time delay”. Such data is used to create control devices to keep operations running correctly. (You will learn about this in ChEn 436, Process Control and Dynamics.) The model for a first-order system with time delay is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+y(t) = 5 \left(1 - e^{- (t-\theta)/\tau}\right)S(t-\theta)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(y(t)\)</span> is the response, <span class="math notranslate nohighlight">\(t\)</span> is the time, <span class="math notranslate nohighlight">\(\theta\)</span> is the time delay, <span class="math notranslate nohighlight">\(\tau\)</span> is the time constant, and <span class="math notranslate nohighlight">\(S(t)\)</span> is the step function. The step function is defined as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+S(t) = \left\{
+        \begin{array}{ll}
+            0 &amp; \quad t &lt; 0 \\
+            1 &amp; \quad t \geq 0
+        \end{array}
+    \right.
+\end{split}\]</div>
+<p>Note that in this case, the data is for t&gt;0, so the step function is always 1.</p>
+<p>Using Pandas, read in the data in the file <code class="docutils literal notranslate"><span class="pre">HW11_P2_Data.csv</span></code> found here: <a class="github reference external" href="https://github.com/clint-bg/comptools/blob/main/homework/supportfiles/HW11_P2_Data.csv">clint-bg/comptools</a>. The data is y as a function of time.</p>
+<p><strong>Action</strong> Find the time constant and the time delay for the data.  Use the <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> function to fit the data to the model.</p>
+<p><strong>Action</strong>
+Plot the data and the fit on the same graph.  Include a legend and label the axes.</p>
+<p><strong>Action</strong>
+Determine the R2 and MAPE values for the fit.</p>
+</section>
+<section id="problem-3">
+<h2>Problem 3:<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h2>
+<p>Interpolation is used to estimate values between known data points.  In this problem, you will use interpolation to estimate the value of a function at a point between two known data points.</p>
+<p>The steam tables list the values of multiple properties at various temperatures at intervals of 10C. For example, the below table lists the enthalpy of water at various temperatures (made up data).</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Temperature (C)</p></th>
+<th class="head"><p>Enthalpy (kJ/kg)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>2500.9</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>2510.4</p></td>
+</tr>
+<tr class="row-even"><td><p>20</p></td>
+<td><p>2520.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>30</p></td>
+<td><p>2529.7</p></td>
+</tr>
+<tr class="row-even"><td><p>40</p></td>
+<td><p>2539.5</p></td>
+</tr>
+<tr class="row-odd"><td><p>50</p></td>
+<td><p>2549.4</p></td>
+</tr>
+<tr class="row-even"><td><p>60</p></td>
+<td><p>2559.4</p></td>
+</tr>
+<tr class="row-odd"><td><p>70</p></td>
+<td><p>2569.5</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Action</strong> Use interp1D and cubic spline methods to estimate the enthalpy at 25C.  The interp1D method was discussed in class. The cubic spline method can be found online here: <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.CubicSpline.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.CubicSpline.html</a>.</p>
+<p><strong>Action</strong> Compare and comment on the results of the two methods.</p>
 </section>
 </section>
 
@@ -610,7 +637,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">HW12: Regression and Interpolation</p>
+        <p class="prev-next-title">HW12: More Solving of Ordinary Differential Equations (ODEs)</p>
       </div>
     </a>
     <a class="right-next"
@@ -618,7 +645,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">HW14: Excel Introduction</p>
+        <p class="prev-next-title">HW14: Interpolation and Models</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -640,8 +667,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-interpolation">Problem 1: Interpolation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-multivariate-regression">Problem 2: Multivariate Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-rate-equation-and-fitting">Problem 1: Rate Equation and Fitting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3:</a></li>
 </ul>
   </nav></div>
 
