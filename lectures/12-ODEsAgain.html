@@ -785,10 +785,11 @@ Name: 60870, dtype: object
 <img alt="../_images/68911253f628916fbd0b0f92d67ab9a64ddce4cc256a74d733a66c9db3fe2233.png" src="../_images/68911253f628916fbd0b0f92d67ab9a64ddce4cc256a74d733a66c9db3fe2233.png" />
 </div>
 </div>
-<p>As can be seen above, our initial linear estimate isn’t very accurate. It appears that the production rate of CO2 is is initially at a constant rate and then at a certain concentration, it changes to a different rate. Perhaps a more accurate model would be:
-$<span class="math notranslate nohighlight">\(
+<p>As can be seen above, our initial linear estimate isn’t very accurate. It appears that the production rate of CO2 is is initially at a constant rate and then at a certain concentration, it changes to a different rate. Perhaps a more accurate model would be:</p>
+<div class="math notranslate nohighlight">
+\[
 \frac{dC_{CO_2}}{dt} = k_1 - k_2C_{CO_2}
-\)</span>$</p>
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#integrate the below function symbolically with sympy</span>
@@ -832,11 +833,12 @@ $<span class="math notranslate nohighlight">\(
 <img alt="../_images/263b9649b3b4e0c3e2e14df648cd9b9b2542899253d739bdfaaa6a16d344bebb.png" src="../_images/263b9649b3b4e0c3e2e14df648cd9b9b2542899253d739bdfaaa6a16d344bebb.png" />
 </div>
 </div>
-<p>From this, it looks like the the dependenc of the rate of CO2 production is dependent on the concentration of CO2 in the terrarium but perhaps it’s not as strong as a first order relationship. Maybe a better approximation is:
-$<span class="math notranslate nohighlight">\(
+<p>From this, it looks like the the dependenc of the rate of CO2 production is dependent on the concentration of CO2 in the terrarium but perhaps it’s not as strong as a first order relationship. Maybe a better approximation is:</p>
+<div class="math notranslate nohighlight">
+\[
 \frac{dC_{CO_2}}{dt} = k_1 - k_2C_{CO_2}^0.5
-\)</span>$
-You can see if that’s a better fit to the data in a similar way I did above.</p>
+\]</div>
+<p>You can see if that’s a better fit to the data in a similar way I did above.</p>
 <p>The above plot shows that the non-linear estimate (with parameters that were manually adjusted to better fit the data) is close to the actual data. Instead of manually adjusting the parameters, how could we estimate the parameters automatically? We could use a least squares approach to estimate the parameters. We’ll discuss that in the next lecture.</p>
 </section>
 </section>
