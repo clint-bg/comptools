@@ -514,7 +514,13 @@ r = -\frac{dC_A}{dt} = k C_A
 <img alt="../_images/a02a3262a76a68a128ddde6e96167808ac687671103a4f45cfac075ad18e59fb.png" src="../_images/a02a3262a76a68a128ddde6e96167808ac687671103a4f45cfac075ad18e59fb.png" />
 </div>
 </div>
-<p><strong>Action</strong>, fit the above data to the Arrhenius equation and determine the pre-exponential factor and activation energy using the exponential function as written above, and the linearized version of the equation.  Determine the <span class="math notranslate nohighlight">\(E_a\)</span> and <span class="math notranslate nohighlight">\(A\)</span> values for each approach. The linearized version is:</p>
+<p><strong>Action</strong>, fit the above data to the Arrhenius equation and determine the pre-exponential factor, <span class="math notranslate nohighlight">\(A\)</span> and activation energy, <span class="math notranslate nohighlight">\(Ea\)</span>, using the exponential function as written above</p>
+<p>Hints:</p>
+<ul class="simple">
+<li><p>Use the minimize or curve_fit functions to fit the original data to the Arrhenius equation after defining an Arrhenius function.</p></li>
+<li><p>Remember to convert the temperature to Kelvin before using it in the equations (Temp given in C. Temp in C + 273.15 = Temp in K).</p></li>
+</ul>
+<p><strong>Action</strong>, fit the above data to the Arrhenius equation and determine the pre-exponential factor and activation energy using the linearized version of the equation.  Again determine the <span class="math notranslate nohighlight">\(E_a\)</span> and <span class="math notranslate nohighlight">\(A\)</span> values. The linearized version is:</p>
 <div class="math notranslate nohighlight">
 \[
 \ln(k) = -\frac{E_a}{R} \frac{1}{T} + \ln(A)
@@ -522,7 +528,6 @@ r = -\frac{dC_A}{dt} = k C_A
 <p>where <span class="math notranslate nohighlight">\(\ln\)</span> is the natural log function. You’ll fit the data by generating new variables where the x is 1/T and the y is ln(k). The slope is then <span class="math notranslate nohighlight">\(-E_a/R\)</span> and the intercept is <span class="math notranslate nohighlight">\(\ln(A)\)</span>.</p>
 <p>Hints:</p>
 <ul class="simple">
-<li><p>Use the minimize or curve_fit functions to fit the original data to the Arrhenius equation after defining an Arrhenius function.</p></li>
 <li><p>Use the polyfit function (order 1) to fit the linearized data to a linear equation.</p></li>
 <li><p>Remember to convert the temperature to Kelvin before using it in the equations (Temp given in C. Temp in C + 273.15 = Temp in K).</p></li>
 </ul>
@@ -535,7 +540,7 @@ r = -\frac{dC_A}{dt} = k C_A
 </section>
 <section id="problem-2">
 <h2>Problem 2:<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h2>
-<p>The data in HW10 P2 Data.csv contains data for the response of a “first-order system with time delay”. Such data is used to create control devices to keep operations running correctly. (You will learn about this in ChEn 436, Process Control and Dynamics.) The model for a first-order system with time delay is given by:</p>
+<p>The model for a first-order system with time delay is given by:</p>
 <div class="math notranslate nohighlight">
 \[
 y(t) = 5 \left(1 - e^{- (t-\theta)/\tau}\right)S(t-\theta)
@@ -550,7 +555,7 @@ S(t) = \left\{
         \end{array}
     \right.
 \end{split}\]</div>
-<p>Note that in this case, the data is for t&gt;0, so the step function is always 1.</p>
+<p>This system is first-order with a time delay which is common in many chemical engineering systems. You will learn more about this in ChEn 436, Process Control and Dynamics.</p>
 <p>Using Pandas, read in the data in the file <code class="docutils literal notranslate"><span class="pre">HW11_P2_Data.csv</span></code> found here: <a class="github reference external" href="https://github.com/clint-bg/comptools/blob/main/homework/supportfiles/HW11_P2_Data.csv">clint-bg/comptools</a>. The data is y as a function of time.</p>
 <p><strong>Action</strong> Find the time constant and the time delay for the data.  Use the <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> function to fit the data to the model.</p>
 <p><strong>Action</strong>
