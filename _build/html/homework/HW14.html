@@ -185,7 +185,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../lectures/12-ODEsAgain.html">12 - More ODEs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/12b-ODEs_Terrarium.html">12b - ODE Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/13-Regression.html">13 - Regression and Interpolation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lectures/14-Models.html">14 - Files, Interpolation, and Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lectures/14-Models.html">14 - Introduction to Data Science</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/15-ExamReview.html">15 - Exam Review (Python)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/16-ExcelBasics.html">16 - Excel Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../lectures/17-ExcelSolver.html">17 - More Excel Practice</a></li>
@@ -453,7 +453,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-interpolation">Problem 1: Interpolation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-multivariate-regression">Problem 2: Multivariate Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-cars-and-trucks-data-set">Problem 2: Cars and Trucks Data Set</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-data-science-with-dow">Problem 3: Data Science with DOW</a></li>
 </ul>
             </nav>
         </div>
@@ -493,85 +494,13 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="problem-2-multivariate-regression">
-<h2>Problem 2: Multivariate Regression<a class="headerlink" href="#problem-2-multivariate-regression" title="Permalink to this heading">#</a></h2>
-<p>You’d like to relate the tree data discussed in class in a non-linear way (rather than the linear way shown in class). Follow the class example and fit a model using curve_fit assuming a model of the form <code class="docutils literal notranslate"><span class="pre">height</span> <span class="pre">=</span> <span class="pre">a*water**2</span> <span class="pre">+</span> <span class="pre">b*fertilizer</span> <span class="pre">+</span> <span class="pre">c</span></code>. Report your values for a, b, and c. Also report the <span class="math notranslate nohighlight">\(R^2\)</span> value for this model as well as the MAPE value. Add your predicted heights to the pandas dataframe. Please also write your dataframe that has the predicted heights to a csv file and submit that csv file with your prf of this homework sheet.</p>
-<p>Hints:</p>
-<ul class="simple">
-<li><p>Create a function that takes in the independent variables and the parameters and returns the model prediction according to the above equation. Your function should take in an array of independent variables (x[0] could be the water and x[1] could be the fertilizer; x would be the independent variable (an array or tuple) fed to the function). x is the first entry of the function with a,b,c the other items needed to return a predicted value.</p></li>
-<li><p>Use curve_fit to fit the model to the data according to curve_fit(your_function, (tree[water], tree[fertilizer]), tree[height]) which will return a,b, and c. Then use those parameters to add another column in the pandas dataframe called ‘predicted_height’ and fill it with your model predictions.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#generate data (pretend you don&#39;t see how the tree height is related to water and fertilizer)</span>
-<span class="k">def</span> <span class="nf">tree_height</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">f</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mi">5</span><span class="o">*</span><span class="n">w</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="n">f</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="o">*</span><span class="mf">0.1</span><span class="o">+</span><span class="mi">5</span>
-<span class="n">tree</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">water</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">),</span><span class="n">fertilizer</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">50</span><span class="p">))</span>
-<span class="n">tree</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tree_height</span><span class="p">(</span><span class="n">tree</span><span class="p">[</span><span class="s1">&#39;water&#39;</span><span class="p">],</span> <span class="n">tree</span><span class="p">[</span><span class="s1">&#39;fertilizer&#39;</span><span class="p">])</span>
-<span class="n">tree</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
-<span class="n">tree</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>water</th>
-      <th>fertilizer</th>
-      <th>height</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>5.008454</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0.020408</td>
-      <td>0.010204</td>
-      <td>5.123408</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0.040816</td>
-      <td>0.020408</td>
-      <td>5.258608</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0.061224</td>
-      <td>0.030612</td>
-      <td>5.314036</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0.081633</td>
-      <td>0.040816</td>
-      <td>5.445439</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
+<section id="problem-2-cars-and-trucks-data-set">
+<h2>Problem 2: Cars and Trucks Data Set<a class="headerlink" href="#problem-2-cars-and-trucks-data-set" title="Permalink to this heading">#</a></h2>
+<p>Complete the regression with the cars and trucks data set that is referenced in Module 14 on data science to determine what the R2 and MAPE values are if you also screen the data such that the odometer readings are between 1000 and 190,000 miles. You can use the linear or the logistic method for regression.</p>
+</section>
+<section id="problem-3-data-science-with-dow">
+<h2>Problem 3: Data Science with DOW<a class="headerlink" href="#problem-3-data-science-with-dow" title="Permalink to this heading">#</a></h2>
+<p>Complete the Last Challenge from class with Krystian Perez from DOW.</p>
 </section>
 </section>
 
@@ -643,7 +572,8 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-interpolation">Problem 1: Interpolation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-multivariate-regression">Problem 2: Multivariate Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-cars-and-trucks-data-set">Problem 2: Cars and Trucks Data Set</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-data-science-with-dow">Problem 3: Data Science with DOW</a></li>
 </ul>
   </nav></div>
 

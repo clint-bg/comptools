@@ -1,0 +1,85 @@
+version: 1
+project:
+  title: Computational Tools for Chemical Engineers
+  authors:
+    - name: Clint Guymon
+    - name: Brigham Young University
+  github: clint-bg/comptools
+  bibliography:
+    - references.bib
+  exports:
+    - format: pdf
+      template: plain_latex_book
+      output: exports/book.pdf
+  toc:
+    - file: intro.md
+    - file: foundations.md
+      children:
+        - file: foundations/preClassPrep.ipynb
+        - file: foundations/pythonresources.ipynb
+        - file: foundations/excelresources.md
+        - file: foundations/equipment.md
+        - file: foundations/safety.md
+    - file: topics.md
+      children:
+        - file: lectures/01-Motive.ipynb
+        - file: lectures/01b-Basics.ipynb
+        - file: lectures/02-Arrays.ipynb
+        - file: lectures/03-BasicLoops.ipynb
+        - file: lectures/03b-Loops.ipynb
+        - file: lectures/04-Functions.ipynb
+        - file: lectures/04b-FunctionBasics.ipynb
+        - file: lectures/05-FunctionsAgain.ipynb
+        - file: lectures/06-Debug.ipynb
+        - file: lectures/07-Units.ipynb
+        - file: lectures/08-Equations.ipynb
+        - file: lectures/09-EquationsAgain.ipynb
+        - file: lectures/10-NewtonsMethod.ipynb
+        - file: lectures/11-ODEs.ipynb
+        - file: lectures/12-ODEsAgain.ipynb
+        - file: lectures/12b-ODEs_Terrarium.ipynb
+        - file: lectures/13-Regression.ipynb
+        - file: lectures/14-Models.ipynb
+        - file: lectures/15-ExamReview.ipynb
+        - file: lectures/16-ExcelBasics.md
+        - file: lectures/17-ExcelSolver.md
+        - file: lectures/18-ExcelFunctions.md
+        - file: lectures/19-ExcelVBA.md
+        - file: lectures/20-SolidWorks.md
+        - file: lectures/21-Aspen.ipynb
+        - file: lectures/22-Ansys.ipynb
+        - file: lectures/22b-Cantera.ipynb
+        - file: lectures/23-Exam2Review.ipynb
+        - file: lectures/24-CaseStudies.ipynb
+        - file: lectures/24b-Optimization.ipynb
+        - file: lectures/27-FinalReview.ipynb
+    - file: homework.md
+      children:
+        - file: homework/HW01.ipynb
+        - file: homework/HW02.ipynb
+        - file: homework/HW03.ipynb
+        - file: homework/HW04.ipynb
+        - file: homework/HW05.ipynb
+        - file: homework/HW06.ipynb
+        - file: homework/HW07.ipynb
+        - file: homework/HW08.ipynb
+        - file: homework/HW09.ipynb
+        - file: homework/HW10.ipynb
+        - file: homework/HW11.ipynb
+        - file: homework/HW12.ipynb
+        - file: homework/HW13.ipynb
+        - file: homework/HW14.ipynb
+        - file: homework/HW15.ipynb
+    - file: casestudies.md
+      children:
+        - file: casestudies/casestudydocs.md
+        - file: casestudies/heattransfer.ipynb
+        - file: casestudies/thermo.ipynb
+        - file: casestudies/MD.ipynb
+        - file: casestudies/datacollection.ipynb
+    - file: acknowledgement.md
+site:
+  options:
+    logo: logo.png
+    folders: true
+  template: book-theme

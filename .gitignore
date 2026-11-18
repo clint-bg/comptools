@@ -1,0 +1,7 @@
+.venv/
+.vscode/
+_build/
+# MyST build outputs
+_build
+lectures/supportfiles/vehicles.csv
+homework/supportfiles/vehicles_cleaned.csv

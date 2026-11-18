@@ -509,7 +509,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/77454ee319719ef2ad7130428ce8ddf9a29343c15bec09ddb98e1f042a1eaec0.png" src="../_images/77454ee319719ef2ad7130428ce8ddf9a29343c15bec09ddb98e1f042a1eaec0.png" />
+<img alt="../_images/27c0dbd814ea838939102be17513de6fdf66bb591b91f2e71f0fef132fa5ec04.png" src="../_images/27c0dbd814ea838939102be17513de6fdf66bb591b91f2e71f0fef132fa5ec04.png" />
 </div>
 </div>
 <p>Regression involves making an approximation to relate the independent variable (what you can control) to the dependent variable (what you measure). x is typically the independent variable and y is the dependent variable.</p>
@@ -531,7 +531,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope is 0.516 and the intercept is -0.084
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope is 0.500 and the intercept is 0.020
 </pre></div>
 </div>
 </div>
@@ -546,7 +546,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7413d63bceae729bf1432fd01a1d6878a092967eca896bc7dc40ce0e3a2217dc.png" src="../_images/7413d63bceae729bf1432fd01a1d6878a092967eca896bc7dc40ce0e3a2217dc.png" />
+<img alt="../_images/7e64c55ac954f0016c016448cd42778b9c52f82ec002a673c1580d56bde138b1.png" src="../_images/7e64c55ac954f0016c016448cd42778b9c52f82ec002a673c1580d56bde138b1.png" />
 </div>
 </div>
 <p>Regression statistics can be calculated to the rsquared and the mape value which are measures of how well the regression line fits the data.</p>
@@ -566,7 +566,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The r-squared value is 0.973
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The r-squared value is 0.974
 </pre></div>
 </div>
 </div>
@@ -584,7 +584,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The MAPE value is 22.597%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The MAPE value is 20.535%
 </pre></div>
 </div>
 </div>
@@ -614,8 +614,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope is 0.516 and the intercept is -0.084
-The uncertainties in the two parameters is [0.00861408 0.04985884]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope is 0.500 and the intercept is 0.020
+The uncertainties in the two parameters is [0.0082007  0.04746614]
 </pre></div>
 </div>
 </div>
@@ -652,14 +652,14 @@ The uncertainties in the two parameters is [0.00861408 0.04985884]
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  message: Desired error not necessarily achieved due to precision loss.
   success: False
    status: 2
-      fun: 6.182282304503562
-        x: [ 5.164e-01 -8.445e-02]
-      nit: 4
-      jac: [ 4.035e-05  6.080e-06]
- hess_inv: [[ 5.488e-04 -2.806e-03]
-            [-2.806e-03  1.962e-02]]
-     nfev: 155
-     njev: 48
+      fun: 5.603151479157934
+        x: [ 4.996e-01  1.969e-02]
+      nit: 3
+      jac: [ 5.043e-05  7.153e-06]
+ hess_inv: [[ 6.074e-04 -3.017e-03]
+            [-3.017e-03  1.981e-02]]
+     nfev: 99
+     njev: 29
 </pre></div>
 </div>
 </div>
@@ -824,6 +824,29 @@ The uncertainties in the two parameters is [0.00861408 0.04985884]
 <p>Note that the sunrise time is a string so when plotted, each string is sorted and then it’s plotted and given a tick mark. We’ll need to convert the times from a string of hr:min to a float of hours using the ‘datetime’ module.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;SunRise&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200    9:14
+201    9:14
+202    9:14
+203    9:14
+204    9:14
+       ... 
+20     9:11
+21     9:11
+22     9:12
+23     9:12
+24     9:12
+Name: SunRise, Length: 300, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#convert sunrise time from a string of hr:min to a float of hours</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;SunRiseHr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;SunRise&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">60</span><span class="p">)</span>
 </pre></div>
@@ -899,7 +922,7 @@ The uncertainties in the two parameters is [0.00861408 0.04985884]
 </div>
 </div>
 <p>The popt variable are the fitted parameters a,b,and c. The starred expression, *popt, is a way of unpacking the tuple into the variables popt[0], popt[1], popt[2], or a, b, and c in the cosFunc function.</p>
-<p>The pcov variable is the covariance matrix and the diagonal elements are the variance of the parameters. The diagonal elements is the variance of each parameter with the square root of the variance equal to the standard deviation of the parameters.</p>
+<p>The pcov variable is the covariance matrix and the diagonal elements are the variance of the parameters with the square root of the variance equal to the standard deviation of the parameters.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the data and the fit</span>
