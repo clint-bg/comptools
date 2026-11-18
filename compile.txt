@@ -1,7 +1,9 @@
 To compile run:
-jupyter book build
 jupyter book start (to mirror website on local port)
 then: (to copy your html files to the gh-pages branch on github, first change directories to comptools)
+
+
+myst build --html
 ghp-import -n -p -f _build/html
 
 Also push the update to the repository at github

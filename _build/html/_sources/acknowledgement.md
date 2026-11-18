@@ -1,2 +1,0 @@
-# Acknowledgement
-I acknowledge the use of large language models (ChatGPT, Bard, Github Copilot) and Wikipedia in the development of the content of this course. Additionally, content from other instructors at Brigham Young University has been incorporated. I also acknowledge the use of the [Jupyter Book](https://jupyterbook.org) project to develop this book.

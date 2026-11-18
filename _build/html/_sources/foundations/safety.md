@@ -1,2 +1,0 @@
-# Safety
-Safe work practices are extremely important to be successful. Please ensure your safety when completing the case study activities. Typically a procedure is followed after reviewing all of the potential hazards of performing an activity. A hazards analysis is also completed before work begins. Safe work practices will be a large part of your career as an engineer.
